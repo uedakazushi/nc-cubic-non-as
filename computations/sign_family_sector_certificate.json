@@ -1,0 +1,64 @@
+{
+  "group": "(Z/2)^2",
+  "torsion_exponent": "a_g*b_h+b_g*a_h",
+  "invariant_picard_rank": 2,
+  "sectors": [
+    {
+      "g": [
+        0,
+        0,
+        0
+      ],
+      "fixed": "surface",
+      "euler_characteristic": 9,
+      "trace_H2": 7,
+      "HH_minus1": 0,
+      "HH_0": 4,
+      "HH_1": 0
+    },
+    {
+      "g": [
+        0,
+        1,
+        1
+      ],
+      "fixed": "line_and_3_points",
+      "euler_characteristic": 5,
+      "trace_H2": 3,
+      "HH_minus1": 0,
+      "HH_0": 0,
+      "HH_1": 0
+    },
+    {
+      "g": [
+        1,
+        0,
+        1
+      ],
+      "fixed": "elliptic_and_point",
+      "euler_characteristic": 1,
+      "trace_H2": -1,
+      "HH_minus1": 1,
+      "HH_0": 0,
+      "HH_1": 1
+    },
+    {
+      "g": [
+        1,
+        1,
+        0
+      ],
+      "fixed": "elliptic_and_point",
+      "euler_characteristic": 1,
+      "trace_H2": -1,
+      "HH_minus1": 1,
+      "HH_0": 0,
+      "HH_1": 1
+    }
+  ],
+  "hh_dimensions": {
+    "0": 4,
+    "1": 2,
+    "-1": 2
+  }
+}
