@@ -1,17 +1,17 @@
-# 量子Fermatの非AS障害：現行研究ノート
+# 非AS型の内在的三次曲面：現行研究ノート
+2026-11-17 / non-as-v2。研究方針は 00_research_plan.md、本文証明は papers/nc-cubic-non-as.tex。
 
-2026-11-17 / ou-obstruction-v1。研究方針は `00_research_plan.md`、全文証明は `papers/quantum_fermat_not_as_surface.tex`。
+## 二種類の成果と既存入力
+量子Fermat: CY ambientと中心三次。L=(Z/3)^2、H=L^vee、T=C_mu L=M3。Hの楕円固定sector4つがHH_{±1}に計2ずつ寄与し、HH0=5。smooth central切断のpointed同型類は一点。これまでの証明を主論文に保持する。
 
-## 幾何学と主張
+符号型: q01=1、他の5組は-1。G=f3(x0,x1)+x0*x2^2+x1*x3^2、ad*Delta(f3)≠0。非CY ambientと非中心三次。H3認識とfixed sign ambientのpointed二次元分類は nc-cubic-moduli の papers/sections/cubic_noncy_sign_example.tex に既存証明がある。今回の新しいHochschild計算は HH_{-1,0,1}=(2,4,2)。
 
-四変数量子多項式環の中心Fermat三次商のqgrの導来圏を、古典Fermat三次曲面XのH=(mu_3)^2商stackに非自明離散torsionを入れたcoherent層の圏に同定する。twisted orbifold HKRでH-fixed sectorのHodge固有指標を取り、HH_{-1}とHH_1が各2次元、HH_0が5次元となる。OU定義のAS surfaceは完全強例外列を持ち、奇数次HHが零。従って本例はOU AS surfaceではない。
+## 符号型の本質的な注意点
+Gamma=(Z/2)^3、重み(x0,x1,x2,x3)=(e0,e0,e1,e2)、cocycle nu(u,v)=(-1)^(u1*v0+u2*v0+u2*v1)。交換形式のradicalは e0+e1+e2。従ってT=C_nu Gamma=M2⊕M2であり、M4と誤記してはいけない。H=Gamma^veeは二つの行列成分を交換し、その安定化群H0={(a,b,c):a+b+c=0}へMorita還元する。非退化Schur multiplierはH0上の一意の非自明類で、commutatorは(-1)^(a_g b_h+b_g a_h)。
 
-## 前提の検証範囲
+H0非自明元gA=(0,1,1)の固定集合はP1+3点(Euler5)。gB=(1,0,1)はE2={x2=0}と一点(Euler1)。gC=(1,1,0)はE3={x3=0}と一点(Euler1)。固定楕円のH0作用はH^0(Omega1)上それぞれ(-1)^b、(-1)^cでありtwisted characterに一致する。Picard H^2のtraceは7,3,-1,-1、invariant rankは2。従ってHH0=4、HH±1=2。Pythonのfinite sector確認は computations/verify_sign_family_sectors.py。
 
-代数のgrading・Nakayama・中心性・Hilbert値の有限計算は `computations/verify_quantum_fermat.py`、twisted sectorの列挙は `computations/verify_quantum_fermat_ou_sectors.py` が再現する。 `computations/quantum_fermat_ou_sector_certificate.json` に現在のsector別結果を保持する。別のH3認識や正則性の計算は `verify_boundary_fermat.py` が有限範囲を補助する。これらは導来同値や全局所正則性を単独で保証しない。
+## 注意・未解決
+実際のMorita同値とHKRは本文の代数論・引用文献に依存し、Python有限列挙だけでは証明されない。符号型のwhole family H3認識は既存分類の精密な仮定に依存する。全intrinsicモジュライの成分性・相対降下・versal変形・OU locusの開閉性・新規性の網羅調査は未解決。量子Fermatと符号型のHH0が異なるのはH0の不変Picard rankとゼロ次sectorの違いによる。
 
-原稿には既存のOU定義・例外列と本研究の捩れ付き商の比較を記載。公表前には一次文献からcocycle規約、局所Hochschild sectorへの作用、固定楕円曲線のHodge指標、捩れの非退化性を独立監査する。導来等価の具体的functorと生成元を十分に示す必要がある。新規性の徹底調査は未完成。
-
-## 再現
-
-`python3 computations/verify_all.py` は上記2つの主要計算を実行し、HH次元のJSON結果を検査する。数値例から全成分を外挿しない。LuaLaTeXで `latexmk -lualatex papers/quantum_fermat_not_as_surface.tex` を実行する。元の全H3分類を丸ごとコピーしない。
+再現: python3 computations/verify_all.py; latexmk -lualatex papers/nc-cubic-non-as.tex。
