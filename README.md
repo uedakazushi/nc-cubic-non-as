@@ -14,4 +14,4 @@ Okawa–UedaのAS surfaceより内在的な三次del Pezzo型曲面の条件が�
 - python3 computations/verify_all.py
 - latexmk -lualatex papers/nc-cubic-non-as.tex
 
-GitHub mainを正本とし、PDF・ZIP・中間生成物は追跡しない。関連研究は [ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli) および [H3分類](https://github.com/uedakazushi/nc-cubic-moduli)。
+GitHub mainを正本とし、PDF・ZIP・中間生成物は追跡しない。関連研究は [ambient比較](https://github.com/uedakazushi/nc-cubic-ambient)、[標識忘却](https://github.com/uedakazushi/nc-cubic-unmark) および [H3分類](https://github.com/uedakazushi/nc-cubic-moduli)。
