@@ -21,22 +21,39 @@
 \newcommand{\Spec}{\operatorname{Spec}}
 \newcommand{\Proj}{\operatorname{Proj}}
 \newcommand{\tr}{\operatorname{tr}}
-\title{量子Fermat三次曲面はOUのArtin--Schelter surfaceでない\\\large 離散torsion・楕円固定曲線・奇数次Hochschild homology}
-\author{研究稿（標数0代数閉体）}
-\date{2026年11月15日 / ou-obstruction-v1}
+\title{非可換三次曲面の非Artin--Schelter性\\\large 量子Fermat点と非CY符号型二次元族}
+\author{植田一石}
+\date{2026年11月17日 / non-as-v2}
 \begin{document}\maketitle
 \begin{abstract}
-原始三乗根を用いた四変数量子多項式環の中心Fermat三次商の
-$\qgr$が，反標準ampleな大域次元2のAbel圏ではあるものの，
-Okawa--UedaのDefinition~1.1にいうArtin--Schelter surfaceではないことを示す．
-中心となる導来Morita同値は，古典的Fermat三次曲面の
-$(\mu_3)^2$による商stackに，非自明な離散torsionを入れた捩れ付きcoherent層圏との同値である．
-捩れ付きorbifold HKRと固定楕円曲線のHodge固有指標を用い，
-$\dim\HH_{-1}=\dim\HH_1=2$を求める．
-OUのAS surfaceには完全強例外列が存在するため，これは決定的な障害である．
-この否定結果を導入するために，量子Fermatのglobal dimension等の既存の証明を
-再利用する必要はない．
+内在的な非可換三次del Pezzo曲面の条件は，
+Okawa--Uedaの意味のArtin--Schelter (AS) surfaceであることを含意しない．
+二種類の明示例について捩れ付き有限群商stackへの導来Morita同値を構成し，
+Hochschild homologyを計算する．中心三次を持つ量子Fermat点では
+$(\dim\HH_{-1},\dim\HH_0,\dim\HH_1)=(2,5,2)$を得る．
+さらに，非Calabi--Yauな量子多項式環の非中心正規三次商は
+二次元のpointed三次曲面族をなし，全ての滑らかな点で
+$(\dim\HH_{-1},\dim\HH_0,\dim\HH_1)=(2,4,2)$となる．
+固定楕円曲線上の離散torsion指標が奇数次Hochschild類を生み出し，
+AS surfaceなら存在する完全強例外列に対する障害となる．
 \end{abstract}
+
+
+\section{はじめに}
+反標準Serre作用，Hilbert多項式，例外的構造対象，ampleなshiftによる
+内在的三次del Pezzo型の認識条件は，
+Okawa--Ueda\cite{OU}のArtin--Schelter（AS）surfaceの条件より広い．
+本稿では導来Morita不変なHochschild homologyによって差を示す．
+二つの対照的なH3例を扱う：中心量子Fermat点と
+非Calabi--Yau ambient上の非中心正規三次商の二次元族である．
+
+後者のH3認識とpointed同型類の次元は
+\cite{Current}の現行分類稿で得られた結果であり，
+本稿で示す新しい点は離散torsionを持つ有限商への還元と，
+両種の奇数次Hochschild障害の導出である．
+有限商のHKR分解には\cite{Baranovsky,ACH}，
+discrete torsionの指標には\cite{CGW,Ruan}の枠組みを使う．
+以下のHodge計算のため基礎体は$\mathbb C$とする．
 
 \section{OUのAS surfaceと判定条件}
 Okawa--Ueda\cite[Definition~1.1(1), \S3]{OU}のAS surfaceとは，
@@ -225,23 +242,223 @@ $\chi_g$は$\langle g\rangle$上自明なので，この軌道から各1次元�
 
 完全強例外列の存在は別の条件である．
 この例では後者は成立しない．
-同じFermat曲面の7e未捩れ quotient stackに完全強例外列があること\cite{IU}とも矛盾しない：
+同じFermat曲面の未捩れ quotient stackに完全強例外列があること\cite{IU}とも矛盾しない：
 離散torsionの非自明な指標が楕円sectorの奇数次類を生み出している．
 本稿の捩れ付きequivariantモデルは通常のderived Morita同値であり，
 標準のSerre作用を保つが，構造対象を固定したweak markingとの比較には
 別途その像を指定する必要がある．
 \end{remark}
 
+
+\section{非Calabi--Yau符号型の二次元族}\label{sec:sign-family}
+
+\subsection{正規三次商と幾何学的条件}
+四変数量子多項式環
+\[
+ B_{\rm s}=\mathbb C\langle x_0,x_1,x_2,x_3\rangle/
+ (x_ix_j-q_{ij}x_jx_i\mid i<j)
+\]
+で$q_{01}=1$，その他の五つの$q_{ij}$を$-1$とする．
+\[
+ f_3=a x_0^3+b x_0^2x_1+c x_0x_1^2+d x_1^3,\quad
+ G=f_3+x_0x_2^2+x_1x_3^2,\quad R_{\rm s}=B_{\rm s}/(G)
+\]
+と置き，
+\begin{equation}\label{eq:sign-smooth}
+ ad\Delta(f_3)\ne0,\qquad
+ \Delta=b^2c^2-4ac^3-4b^3d-27a^2d^2+18abcd
+\end{equation}
+を仮定する．これは
+\[
+ X_f=\{f_3(x_0,x_1)+x_0x_2^2+x_1x_3^2=0\}\subset\mathbb P^3
+\]
+の滑らかさと同値である．偏微分$x_0x_2=x_1x_3=0$を用いれば，
+$x_0x_1\ne0$では特異点は$f_3$の重根に対応する．
+$x_0=0$または$x_1=0$の残余の場合は$a,d\ne0$が排除する．
+
+\begin{proposition}[符号型のH3認識]\label{prop:sign-H3}
+式\eqref{eq:sign-smooth}の下で$R_{\rm s}$は左右noetherianな整域，
+その$\qgr$は大域次元2を持ち，Serre関手は$(-1)[2]$，
+$\pi R_{\rm s}$は例外対象で，$(\pi R_{\rm s},(1))$はAZ ampleである．
+Hilbert級数は$(1-z^3)/(1-z)^4$．
+$B_{\rm s}$は非CYで，$G$は正規だが非中心である．
+これらは\cite{Current}の強いintrinsic H3対象に属する．
+\end{proposition}
+\begin{proof}
+$B_{\rm s}$はPBW基底を持つKoszul AS-regular整域で，
+Nakayama自己同型と$G$の正規化自己同型は
+\[
+ \mu_{B_{\rm s}}=\sigma_G=\operatorname{diag}(1,1,-1,-1)
+\]
+で一致する．従って$G$は正則正規，正規商公式から
+$\mu_{R_{\rm s}}=1$，AS-Gorenstein parameterは1である．
+以下の有限群Morita同値により，滑らかな三次曲面の有限捩れ同変層圏と
+$\qgr R_{\rm s}$は同値になるので大域次元は2である．
+Serre双対の標準的なAS-Gorenstein計算から$(-1)[2]$を得る．
+
+整域性は省略しない．$x_1$は正則正規である：
+$B_{\rm s}/(x_1)$が整域で$G\bmod x_1=ax_0^3+x_0x_2^2\ne0$
+だから，$x_1$の左右消去ができる．$x_1$をOre局所化し，次数零部分で
+$y=x_0x_1^{-1},u=x_2x_1^{-1},v=x_3x_1^{-1}$と書くと
+\[
+ C=\mathbb C[y]\langle u,v\rangle/
+ (uv+vu,\ v^2+yu^2-f_3(y,1)).
+\]
+$s=u^2$は中心で，$C$は$\mathbb C[y,s]$上$1,u,v,uv$を基底とする．
+$K=\mathbb C(y,s)$上のquaternion algebra
+$(s,f_3(y,1)-ys)$を考えると，$w=f_3(y,1)-ys=0$の
+付値で$s$の剰余は$f_3(y,1)/y$となる．$d\ne0$から
+$y=0$に単純な極を持つので非平方である．この二次非分岐拡大の
+normの付値は偶数だが$w$の付値は1．よってquaternion algebraは
+斜体であり，$C$とそのskew Laurent拡大$R_{\rm s}[x_1^{-1}]$，
+従って$R_{\rm s}$は整域である．generic斜体上で構造対象はrank one．
+AS-Gorenstein深さと局所コホモロジー消滅から
+$\operatorname{Hom}(\pi R_{\rm s},\pi R_{\rm s}(n))=(R_{\rm s})_n$，
+$\operatorname{Ext}^1(\pi R_{\rm s},\pi R_{\rm s}(n))=0$，
+$\operatorname{Ext}^2(\pi R_{\rm s},\pi R_{\rm s})=0$．
+標準的Serre消滅と$\chi$条件からAZ amplenessが従う．
+\end{proof}
+
+\subsection{退化twisted group algebraのMorita還元}
+\begin{proposition}\label{prop:sign-Morita}
+$\Gamma=(\mathbb Z/2)^3$の生成元$e_0,e_1,e_2$に対し，
+$x_0,x_1$の重みを$e_0$，$x_2$を$e_1$，$x_3$を$e_2$とし，
+\begin{equation}\label{eq:sign-cocycle}
+ \nu(u,v)=(-1)^{u_1v_0+u_2v_0+u_2v_1}
+\end{equation}
+とする．$H=\Gamma^\vee$，その部分群
+\[
+ H_0=\{(a,b,c)\in(\mathbb Z/2)^3:a+b+c=0\}
+ \simeq(\mathbb Z/2)^2
+\]
+を置く．$H_0$は$X_f$に
+\begin{equation}\label{eq:sign-H-action}
+ (a,b,c)[x_0:x_1:x_2:x_3]
+ =[(-1)^a x_0:(-1)^a x_1:(-1)^b x_2:(-1)^c x_3]
+\end{equation}
+で作用する．$H_0$の非自明なSchur multiplierを$\beta$とすると，
+標準enhancementを保つ同値
+\begin{equation}\label{eq:sign-quotient}
+ D^b(\qgr R_{\rm s})\simeq D^b(\coh^\beta[X_f/H_0])
+\end{equation}
+が成立する．対応するdiscrete torsionの推移指標は
+\begin{equation}\label{eq:sign-character}
+ \chi_g(h)=(-1)^{a_g b_h+b_g a_h}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+$S_f=\mathbb C[x_0,x_1,x_2,x_3]/(G_{\rm comm})$とする．
+$G$は$\Gamma$斉次なので式\eqref{eq:sign-cocycle}による
+cocycle twistは$S_f^\nu=R_{\rm s}$を与える．
+$T=\mathbb C_\nu\Gamma$の交換形式のradicalは
+$\langle e_0+e_1+e_2\rangle$．この次数の基底元の平方は$-1$なので
+\[
+ T\simeq M_2(\mathbb C)\oplus M_2(\mathbb C).
+\]
+特に$T$を単一の行列環とみなしてはならない．
+$H$は$T$を重み指標で作用させ，二つの中心単純成分を推移的に交換し，
+その安定化群は$H_0$である．
+
+$h(s_u\otimes e_v)=u(h)v(h)^{-1}(s_u\otimes e_v)$とすれば
+$(S_f\otimes T)^H=R_{\rm s}$．$T\#H$は左正則表現と指標作用により
+$\operatorname{End}_{\mathbb C}(T)\simeq M_8(\mathbb C)$なので，
+Reynolds冪等元は$(S_f\otimes T)\#H$でfullである．
+よって$R_{\rm s}$とこのskew-group algebraは次数付きMorita同値．
+二つの中心冪等元の一方のcornerに縮約すると
+$(S_f\otimes M_2)\#H_0$とのMorita同値を得る．
+$H_0$の$M_2$作用はinnerであり，行列因子を除去すれば
+$S_f\#_\beta H_0$に帰着する．
+$H_0$は$M_2$へ忠実に内的に作用するので$\beta$は
+Klein四元群の唯一の非自明類で，その交換指標が
+式\eqref{eq:sign-character}である．
+全双加群は次数零で有限生成，torsionを保つから$\qgr$へ降下する．
+有限群equivariant Serre対応によって式\eqref{eq:sign-quotient}を得る．
+\end{proof}
+
+\subsection{Hochschild障害}
+\begin{theorem}[符号型二次元族はOUのAS surfaceではない]
+\label{thm:sign-nonAS}
+式\eqref{eq:sign-smooth}の全ての符号型曲面について
+\begin{equation}\label{eq:sign-HH}
+ \boxed{\dim\HH_{-1}=2,\qquad\dim\HH_0=4,\qquad\dim\HH_1=2}
+\end{equation}
+が成り立つ．従ってOUの意味のAS surfaceではない．
+\cite{Current}の固定符号ambientのpointed分類により，
+これらの一般同型類は二次元の族をなす．
+\end{theorem}
+\begin{proof}
+$H_0=\{1,g_A,g_B,g_C\}$，
+\[
+ g_A=(0,1,1),\quad g_B=(1,0,1),\quad g_C=(1,1,0)
+\]
+とする．固定集合は
+\[
+\begin{array}{c|c|c}
+ g& X_f^g&\chi_{\rm top}(X_f^g)\\\hline
+ g_A& L_{23}=\{x_0=x_1=0\}\simeq\mathbb P^1
+       \ \sqcup\ \{x_2=x_3=0,\ f_3=0\}\ (3\text{点})&5\\
+ g_B& E_2=\{x_2=0\}\cap X_f\ \sqcup\{[0:0:1:0]\}&1\\
+ g_C& E_3=\{x_3=0\}\cap X_f\ \sqcup\{[0:0:0:1]\}&1
+\end{array}
+\]
+である．$E_2,E_3$は条件\eqref{eq:sign-smooth}の下で
+滑らかな楕円曲線である．例えば$E_2$の方程式は
+$f_3(x_0,x_1)+x_1x_3^2=0$で，
+$x_3\ne0$かつ$x_1=0$にある点も滑らか，
+残りの特異性は$f_3$の重根と同値である．
+$E_3$も同様．
+
+平面三次曲線のPoincar\'e residue公式により
+$H^0(E_2,\Omega^1)$への$H_0$作用は
+$\det(h|_{\langle x_0,x_1,x_3\rangle})/\chi_{f_3}(h)
+=(-1)^{c_h-a_h}=(-1)^{b_h}$，
+$H^0(E_3,\Omega^1)$への作用は$(-1)^{c_h}$である．
+これらはそれぞれ式\eqref{eq:sign-character}の
+$\chi_{g_B},\chi_{g_C}$と一致する．二位数ゆえ
+$H^1(E_j,\mathcal O)$でも同じ指標である．
+従って式\eqref{eq:twisted-hkr}を$H_0,\beta$へ適用すると，
+各楕円sectorは$\HH_{1}$と$\HH_{-1}$に各1次元寄与する．
+$g_A$の固定部分は有理曲線と点だけであり，
+単位sectorの$X_f$は有理曲面だから他の寄与はない．
+
+$\HH_0$については，$X_f$の$H^2$の次元が7．
+Lefschetz公式$\operatorname{tr}(g|H^2)=\chi(X_f^g)-2$により
+$1,g_A,g_B,g_C$のtraceは$7,3,-1,-1$．従って
+\[
+ \dim H^1(X_f,\Omega^1)^{H_0}=(7+3-1-1)/4=2 .
+\]
+単位sectorの$\HH_0$への寄与は$1+2+1=4$．
+他のsectorでは$\chi_g$が非自明．$H^0(\mathcal O)$と
+$H^1(\Omega^1)$への作用は，直線・楕円曲線のいずれでも自明であり，
+表にある孤立点も$H_0$に個別に固定される．
+従って非単位sectorの$\HH_0$不変部分は零．
+これで式\eqref{eq:sign-HH}が従い，
+式\eqref{eq:ou-odd-zero}によりOU非AS性が得られる．
+
+固定符号ambientの全H3切断の分類とpointed同型群は
+\cite{Current}の符号型節で証明されている．
+$\ell_2,\ell_3$を正規化した後の一般商次元は2である．
+ここでは全intrinsicモジュライの既約成分性を主張しない．
+\end{proof}
+
+\begin{remark}[二つの現象の比較]
+量子Fermat例はCY ambientと中心三次を持ち，
+そのsmooth central diagonal切断はpointed同型類として一点である．
+符号型は非CY ambientと非中心三次を持つ正の次元の族である．
+どちらにも奇数次HHが残るため，
+ambientのCY性・三次の中心性の有無のみではOU型を判定できない．
+\end{remark}
+
 \section{検証と今後の課題}
-有限群$H$の九元，重み，固定点型，非退化推移指標，Picard不変rank，
-$\HH_{-1,0,1}$の次元は付属Pythonスクリプトで完全列挙した．
+両有限群の重み，固定点型，推移指標，Picard不変rankと
+$\HH_{-1,0,1}$の次元は付属Pythonスクリプトで列挙した．
 スクリプトは一般のMorita同値やorbifold HKR定理そのものを計算で証明しない．
 それらは上の標準的な代数論的証明と一次資料に依存する．
 外部査読・形式証明・文献の新規性網羅調査は未実施．
-本結果は，intrinsic weakly marked三次曲面のクラスがOU型より大きいことを確定し，
-全weakモジュライがAOU/OUのWeyl商で尽くされるという予想を否定する．
-次は全weakモジュライのHochschild分布による局所成分分解，
-この量子点の変形・障害群，およびOU locusの開閉性・成分性を調べる．
+二種類のH3例によりOUのAS surfaceより広い内在的曲面類が得られる．
+特に符号型は孤立点でなく二次元のpointed族である．
+全intrinsicモジュライの成分性，Hochschild層別化，
+これらの例のversal変形，OU locusの開閉性は未解決である．
 
 \begin{thebibliography}{9}
 \bibitem{OU} S.~Okawa and K.~Ueda,
@@ -257,13 +474,19 @@ Int. J. Math. 14 (2003), 791--812,
 \href{https://math.uci.edu/~vbaranov/math/08orbicyclic.pdf}{author's PDF}.
 \bibitem{CGW} A.~C\u{a}ld\u{a}raru, A.~Giaquinto and S.~Witherspoon,
 \emph{Algebraic deformations arising from orbifolds with discrete torsion},
-J. Pure Appl. Algebra 187 (2004), 87--100,
+J. Pure Appl. Algebra 187 (2004), 51--70,
 \href{https://arxiv.org/abs/math/0210027}{arXiv:math/0210027}.
 \bibitem{Ruan} Y.~Ruan,
 \emph{Discrete torsion and twisted orbifold cohomology},
 \href{https://arxiv.org/abs/math/0005299}{arXiv:math/0005299}.
+\bibitem{ACH} D.~Arinkin, A.~C\u{a}ld\u{a}raru and M.~Hablicsek,
+\emph{Formality of derived intersections and the orbifold HKR isomorphism},
+J. Algebra 540 (2019), 100--120,
+\href{https://arxiv.org/abs/1412.5233}{arXiv:1412.5233}.
 \bibitem{Current} K.~Ueda,
 \emph{内在的非可換三次曲面の公理とambient成分},
-本研究の現行稿\texttt{papers/weak\_cubic\_axioms.tex}（2026年11月15日）．
+H3の公理・認識と分類の現行研究稿（未投稿），
+\href{https://github.com/uedakazushi/nc-cubic-moduli/blob/main/papers/weak_cubic_axioms.tex}{nc-cubic-moduli, papers/weak\_cubic\_axioms.tex}，
+特に符号型の定理（\texttt{papers/sections/cubic\_noncy\_sign\_example.tex}，2026年11月）．
 \end{thebibliography}
 \end{document}
