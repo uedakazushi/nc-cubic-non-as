@@ -69,7 +69,7 @@ Okawa--Ueda\cite[Definition~1.1(1), \S3]{OU}のAS surfaceとは，
 実際，例外対象一つが生成するdg圏のHochschild homologyは$k$が次数0にあるだけである．
 
 \section{量子Fermat環と二次の有限群grading}
-$k$を標数0の代数閉体，$\zeta$を原始三乗根とする．
+以下$k=\mathbb C$とし，$\zeta$を原始三乗根とする．
 \[
 \begin{aligned}
  B&=k\langle t,x,y,z\rangle/\bigl(
@@ -242,7 +242,7 @@ $\chi_g$は$\langle g\rangle$上自明なので，この軌道から各1次元�
 
 完全強例外列の存在は別の条件である．
 この例では後者は成立しない．
-同じFermat曲面の未捩れ quotient stackに完全強例外列があること\cite{IU}とも矛盾しない：
+同じFermat曲面の\emph{全対角群}$(\mu_3)^3$による未捩れ商stackに\n完全強例外列があること\cite{IU}とも矛盾しない．\n本稿の捩れ付き商に用いる$H=(\mu_3)^2$はこの全対角群とは異なる：
 離散torsionの非自明な指標が楕円sectorの奇数次類を生み出している．
 本稿の捩れ付きequivariantモデルは通常のderived Morita同値であり，
 標準のSerre作用を保つが，構造対象を固定したweak markingとの比較には
@@ -435,9 +435,19 @@ $H^1(\Omega^1)$への作用は，直線・楕円曲線のいずれでも自明�
 これで式\eqref{eq:sign-HH}が従い，
 式\eqref{eq:ou-odd-zero}によりOU非AS性が得られる．
 
-固定符号ambientの全H3切断の分類とpointed同型群は
-\cite{Current}の符号型節で証明されている．
-$\ell_2,\ell_3$を正規化した後の一般商次元は2である．
+二次元性も説明する．一般の符号型三次関係は
+$f_3(x_0,x_1)+\ell_2(x_0,x_1)x_2^2+\ell_3(x_0,x_1)x_3^2$
+という八次元線型系の射影空間$\mathbb P^7$の滑らかな開集合をなす．
+滑らかさから$\ell_2,\ell_3$は独立で，$\operatorname{GL}_2$で
+$x_0,x_1$に正規化できる．次数一の正規直線の射影スキームは
+$\mathbb P\langle x_0,x_1\rangle\sqcup\{[x_2],[x_3]\}$だから，
+ambientのgraded自己同型群は
+$\operatorname{GL}_2\times((\mathbb G_m)^2\rtimes\mathfrak S_2)$．
+共通次数スカラーは切断の射影空間で自明に作用するので
+有効群次元は$6-1=5$である．一般$f_3$の三根配置は
+有限自己同型群しか持たず，残る対角作用の安定化も有限である．
+従って一般商の次元は$7-5=2$．詳細な固定ambientの
+幾何学的群oid分類は\cite{Current}の符号型節にある．
 ここでは全intrinsicモジュライの既約成分性を主張しない．
 \end{proof}
 
