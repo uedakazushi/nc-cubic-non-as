@@ -1,31 +1,28 @@
-# 研究方針：量子Fermat三次曲面の非AS性
+# 研究方針：非AS型の内在的非可換三次曲面
+2026-11-17 / non-as-v2 / **研究再開時に最初に読む**。次に主論文 papers/nc-cubic-non-as.tex と research/research_notes.md を読む。正本はGitHub main。
 
-2026-11-17 / ou-obstruction-v1 / 独立研究正本。**再開時に最初に読む。** 次に `research/research_notes.md` と `papers/quantum_fermat_not_as_surface.tex`、必要な検算へ進む。
+## I. 恒常的な研究原則・保存許可
+数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して価値を最大化する。必要に応じ方針を現行版として書き直し、変更履歴を蓄積しない。主張を証明済み・仮定付き・未完成・予想・計算的観察に区分し、原稿の証明／今回の監査／計算の実行を混同しない。先行研究の一次資料を確認し、未確認事項や新規性は未確認と記す。論文は日本語LuaLaTeXを基本とし、十分な証明を残す。ノートは現行有効な着想・障害を整理し、作業履歴・旧ZIP・重複・キャッシュは収録しない。
 
-## I. 恒常的な研究原則と保存許可
+研究区切りの承諾不要Library保存は一般許可されるが、この研究ではGitHub mainを正本とし、push成功時はLibrary保存せず、push失敗時のみ緊急避難に利用する。既存Libraryファイルは明示指示なしに削除しない。PDF・ZIP・中間生成物はGit追跡せずTeXソースから再生する。PR、Actions、force pushを使わずmainへfast-forwardする。生成・検証・push・Library保存を別状態として報告する。
 
-数学的価値・正確性・理解の深化・新規性・公表可能性を総合して研究方針を変更する。重要な変更は現行方針として理由と残る課題を記し、履歴の追記にしない。証明済み・仮定付き・未完成・予想・計算的観察を区別し、他論文の既存成果と本稿の成果を分ける。一次文献を確認し、未確認の新規性や書誌を補わない。原稿は原則日本語LuaLaTeX、十分な証明を保持する。ノートは現在有効な知識と未解決障害を整理し、過去の会話・旧ZIP・ログ・キャッシュ・PDFをGitに含めない。
+## II. 目標と到達点
+Okawa--Ueda Definition 1.1 のAS surfaceと、内在的H3条件の差を明確な導来Morita不変量で公表する。主論文は papers/nc-cubic-non-as.tex。
+- 中心量子Fermat（三乗根、CY ambient、中心三次）：捩れ付き(mu3)^2商、HH_{-1,0,1}=(2,5,2)。
+- 符号型（二位数、非CY ambient、非中心正規三次）：G=f3(x0,x1)+x0*x2^2+x1*x3^2、ad*disc(f3)非零。捩れ付きH0=(Z/2)^2商、HH=(2,4,2)。一般pointed同型類次元2。
+- OUのAS surfaceなら完全強例外列があり、HHは次数0に集中。従ってどちらもOU型でない。
 
-研究区切りの承諾不要Library保存は一般許可されるが、この研究ではGitHub mainを正本として、push成功時はLibraryに保存せず、GitHub保存に失敗した場合だけ緊急避難に使用する。既存Libraryファイルは明示指示なしに削除しない。
+符号型のH3認識およびfixed ambientでの二次元分類は nc-cubic-moduli/papers/sections/cubic_noncy_sign_example.tex に依拠する既存結果。非AS性とHH計算は本原稿の新しい部分。全intrinsic moduliの成分性は未証明。
 
-## II. 目標と達成基準
+## III. 優先課題
+1. 符号型の退化twisted group algebra T=M2⊕M2に対するH作用・Reynolds full性・H0 corner縮約とprojective表現を独立に再監査する。
+2. 二本の楕円曲線のPoincare residueの指標、Hodge次数とdiscrete torsionの符号、HH0固定点寄与を点検する。
+3. OU Definition 1.1、Arinkin--Caldararu--Hablicsek、Baranovsky、Caldararu--Giaquinto--Witherspoonの一次資料と本稿の適用条件を精査し、新規性を確認する。
+4. 符号型二次元族のversal変形と全H3モジュライの既約成分性、OU locusの開閉性を調べる。
 
-量子Fermat三次曲面の非可換射影幾何と、Okawa--UedaのDefinition 1.1のAS surfaceとの差を、独立した短報として完全に証明し公表する。導来Morita同値、離散torsionのtwisted orbifold HKR、固定楕円曲線の指標とHH次数、OUの例外列の帰結を全て正確に示す。反例が持つ内在的H3条件は既存の結果と区別する。
+## IV. 再現
+- python3 -m pip install -r requirements.txt
+- python3 computations/verify_all.py
+- latexmk -lualatex papers/nc-cubic-non-as.tex
 
-## III. 到達点
-
-短報の中心計算は`dim HH_{-1}=dim HH_1=2`、`dim HH_0=5`。OUのAS surfaceには完全強例外列があり、そのHochschild homologyは次数0に集中するため反例となる。原稿には捩れ付き群商stackへの導来Morita比較とHodge固有指標の証明を記載。計算コードは`computations/verify_quantum_fermat.py`と`computations/verify_quantum_fermat_ou_sectors.py`、H3例の別検算として`verify_boundary_fermat.py`を保持する。有限計算だけで導来同値や圏の正則性を証明したとは主張しない。
-
-## IV. 最優先課題
-
-(1) 捩れのcocycleとequivariant化・Morita同値の全仮定を独立検査する。(2) twisted HKRのsector別符号と固定曲線の指標を一次資料と突き合わせる。(3) OU Definition 1.1の適用範囲と完全強例外列の帰結を精査し、既存の非AS反例との差をIntroductionで明確にする。(4) 論文の説明を簡潔に整理し、主分類論文への依存を最小限にする。
-
-## V. 再現
-
-```sh
-python3 -m pip install -r requirements.txt
-python3 computations/verify_all.py
-latexmk -lualatex papers/quantum_fermat_not_as_surface.tex
-```
-
-生成・検算・commit・pushは別状態として報告し、独立査読や網羅的な文献調査を未実施なら明示する。
+finite-sectorプログラムは群と指標の有限計算のみを検査し、dg Morita同値やorbifold HKRの数学的証明を代替しない。
