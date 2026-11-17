@@ -1,0 +1,100 @@
+{
+  "version": "recognition-v4",
+  "date": "2026-11-15",
+  "arithmetic": "exact QQ and Z/3",
+  "pbw": {
+    "boundary": "commutative polynomial ring in three variables",
+    "linear_part_symbols": 9,
+    "constant_part_symbols": 3,
+    "delta_alpha_in_U": true,
+    "alpha_delta_plus_delta_beta_equals_Jacobi": true,
+    "beta_delta_equals_central_cocycle": true,
+    "jacobi_polynomials": [
+      "-a0*a4 + a1*a3 - a1*a8 + a2*a7",
+      "-a0*a5 + a2*a3 - a4*a8 + a5*a7",
+      "-a0*a8 + a2*a6 + a3*a7 - a4*a6"
+    ],
+    "cocycle_polynomial": "-a0*b2 + a2*b0 + a3*b1 - a4*b0 + a7*b2 - a8*b1",
+    "non_Lie_obstruction_detected": true,
+    "Heisenberg_test": true
+  },
+  "quantum_central_cubic_basis_exponents": [
+    [
+      0,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      3,
+      0
+    ],
+    [
+      0,
+      1,
+      2,
+      0
+    ],
+    [
+      0,
+      2,
+      1,
+      0
+    ],
+    [
+      0,
+      3,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      0
+    ]
+  ],
+  "twisted_central_t_exponent_matrix": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      2,
+      0
+    ]
+  ],
+  "affine_central_orbit_derivative": {
+    "shape": [
+      6,
+      6
+    ],
+    "rank": 6,
+    "determinant": 729
+  },
+  "projective_stabilizer": {
+    "order": 54,
+    "description": "(mu3^4 / mu3_diag) semidirect S2 swapping x,y",
+    "closure_and_inverse_tests": true
+  },
+  "binary_cubic_discriminant": "-27*a**2*d**2 + 18*a*b*c*d - 4*a*c**3 - 4*b**3*d + b**2*c**2",
+  "scope": "Only these finite identities are computed. General boundary recognition, AS regularity and homogeneous-space identification are proved in the paper. Full weak-cubic deformation rigidity and singular-boundary classification are not claimed."
+}

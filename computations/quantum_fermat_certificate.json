@@ -1,0 +1,196 @@
+{
+  "date": "2026-11-15",
+  "version": "recognition-v3",
+  "field": "any algebraically closed field of characteristic 0",
+  "exponent_matrix": [
+    [
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      -1,
+      0,
+      0,
+      1
+    ],
+    [
+      -1,
+      0,
+      0,
+      1
+    ],
+    [
+      -1,
+      -1,
+      -1,
+      0
+    ]
+  ],
+  "cy_row_sums_mod3": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "low_degree_central_monomials": {
+    "1": [],
+    "2": [],
+    "3": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        0
+      ],
+      [
+        0,
+        2,
+        1,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0
+      ]
+    ],
+    "4": [
+      [
+        1,
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        0,
+        1
+      ]
+    ]
+  },
+  "normal_linear_support_classes": [
+    [
+      0
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3
+    ]
+  ],
+  "four_cycle_monodromies": [
+    {
+      "support_class": [
+        0
+      ],
+      "eigenvalue_exponents": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "fourfold_monodromy_exponents": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "support_class": [
+        1,
+        2
+      ],
+      "eigenvalue_exponents": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "fourfold_monodromy_exponents": [
+        2,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "support_class": [
+        3
+      ],
+      "eigenvalue_exponents": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "fourfold_monodromy_exponents": [
+        2,
+        2,
+        2,
+        0
+      ]
+    }
+  ],
+  "signed_cyclic_quartic_tensor": "24 coefficients checked exactly modulo 3",
+  "hilbert_values_degrees_0_to_15": [
+    1,
+    4,
+    10,
+    19,
+    31,
+    46,
+    64,
+    85,
+    109,
+    136,
+    166,
+    199,
+    235,
+    274,
+    316,
+    361
+  ],
+  "rank_data": {
+    "quadratic_relations": 6,
+    "cubic_new_relations": 1,
+    "quadratic_overlap": 4,
+    "overlap_matrix_shape": [
+      64,
+      48
+    ],
+    "overlap_matrix_rank_over_QQ_zeta": 44
+  },
+  "norm_obstruction": "v at w=0 is -1/(r^3+1), with simple poles; hence not a cube",
+  "scope": "Finite arithmetic only. The general normal-line classification, proper closed incidence, domain, Serre duality and global dimension are ordinary proofs in the TeX paper."
+}
