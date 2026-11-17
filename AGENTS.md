@@ -1,8 +1,8 @@
 # Codex研究指示 — nc-cubic-non-as
 
-2026-11-17。まず`00_research_plan.md`、次に`research/research_notes.md`と`papers/quantum_fermat_not_as_surface.tex`を読む。
+2026-11-17。まず`00_research_plan.md`、次に`research/research_notes.md`と`papers/nc-cubic-non-as.tex`を読む。
 
-このリポジトリは量子FermatのOU AS surface障害の短報の独立正本。全分類、ambient比較、楕円E6の各研究は別リポジトリのmainを正本とし、ここから誤って編集しない。
+このリポジトリは量子Fermat点と非CY符号型二次元族のOU AS surface障害の論文の独立正本。全分類、ambient比較、楕円E6の各研究は別リポジトリのmainを正本とし、ここから誤って編集しない。
 
 数学的価値・正確性・理解の深化・新規性・公表可能性を総合して研究方針を変更する。重要な変更は現行方針として理由と残る課題を記し、履歴の追記にしない。証明済み・仮定付き・未完成・予想・計算的観察を区別し、他論文の既存成果と本稿の成果を分ける。一次文献を確認し、未確認の新規性や書誌を補わない。原稿は原則日本語LuaLaTeX、十分な証明を保持する。ノートは現在有効な知識と未解決障害を整理し、過去の会話・旧ZIP・ログ・キャッシュ・PDFをGitに含めない。
 
