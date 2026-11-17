@@ -1,15 +1,17 @@
-# 量子Fermat三次曲面はAS surfaceではない — nc-cubic-non-as
+# 非AS型非可換三次曲面 — nc-cubic-non-as
 
-**最初に [研究方針](00_research_plan.md) を読む。** 公表用の独立した日本語LuaLaTeX短報は [quantum_fermat_not_as_surface.tex](papers/quantum_fermat_not_as_surface.tex)、現在の研究ノートは [research/research_notes.md](research/research_notes.md)。
+**まず [研究方針](00_research_plan.md) を読む。** 公表用LuaLaTeX原稿は [nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex)。補足は [研究ノート](research/research_notes.md)。
 
-量子Fermat三次曲面の導来圏を非自明な離散torsionを持つ有限群商stackの捩れ付き層の導来圏と比較し、固定楕円曲線のtwisted orbifold HKRから `dim HH_{±1}=2`, `dim HH_0=5` を示す。OUのAS surfaceには完全強例外列があるため、この曲面はその定義のAS surfaceではない。**同論文の証明と検算の範囲を区別し、全H3の分類や新規性を完了済みとはしない。**
+Okawa–UedaのAS surfaceより内在的な三次del Pezzo型曲面の条件が広いことを、二種類の例で示す。
 
-## 再現
+- **量子Fermat点**：CY ambient、中心三次、Hochschild homologyの次元（−1,0,1）=(2,5,2)。
+- **符号型二次元族**：非CY ambient、非中心正規三次。滑らかさ ad*Delta(f3)≠0 のもとでHH=(2,4,2)。固定符号ambientの一般pointed同型類の次元は2。
 
-```sh
-python3 -m pip install -r requirements.txt
-python3 computations/verify_all.py
-latexmk -lualatex papers/quantum_fermat_not_as_surface.tex
-```
+どちらもdiscrete torsion付き有限商stackへの導来Morita同値と、固定楕円曲線上のtwisted orbifold HKRによる。符号型のH3認識とpointed分類は[ H3主研究](https://github.com/uedakazushi/nc-cubic-moduli)の既存結果に依存する。全intrinsicモジュライの成分性・新規性の網羅的調査は未完成。
 
-GitHub mainが唯一の正本。PDF・ZIP・中間生成物は追跡しない。より広い分類の正本は [nc-cubic-moduli](https://github.com/uedakazushi/nc-cubic-moduli)、比較は [nc-cubic-ambient-moduli](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、楕円E6量子化は [nc-cubic-e6](https://github.com/uedakazushi/nc-cubic-e6)。研究資料は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) から移行した。
+再現:
+- python3 -m pip install -r requirements.txt
+- python3 computations/verify_all.py
+- latexmk -lualatex papers/nc-cubic-non-as.tex
+
+GitHub mainを正本とし、PDF・ZIP・中間生成物は追跡しない。関連研究は [ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli) および [H3分類](https://github.com/uedakazushi/nc-cubic-moduli)。
