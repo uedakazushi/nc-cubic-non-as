@@ -12,7 +12,7 @@ Okawa--Ueda Definition 1.1 のAS surfaceと、内在的H3条件の差を明確�
 - 符号型（二位数、非CY ambient、非中心正規三次）：G=f3(x0,x1)+x0*x2^2+x1*x3^2、ad*disc(f3)非零。捩れ付きH0=(Z/2)^2商、HH=(2,4,2)。一般pointed同型類次元2。
 - OUのAS surfaceなら完全強例外列があり、HHは次数0に集中。従ってどちらもOU型でない。
 
-符号型のH3認識およびfixed ambientでの二次元分類は nc-cubic-moduli/papers/sections/cubic_noncy_sign_example.tex に依拠する既存結果。非AS性とHH計算は本原稿の新しい部分。全intrinsic moduliの成分性は未証明。
+符号型のH3認識およびfixed ambientでの二次元分類は nc-cubic-classification/papers/sections/cubic_noncy_sign_example.tex に依拠する既存結果。非AS性とHH計算は本原稿の新しい部分。全intrinsic moduliの成分性は未証明。
 
 ## III. 優先課題
 1. 符号型の退化twisted group algebra T=M2⊕M2に対するH作用・Reynolds full性・H0 corner縮約とprojective表現を独立に再監査する。
