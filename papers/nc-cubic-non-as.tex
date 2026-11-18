@@ -28,7 +28,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月19日／non-as-v4}
+\date{2026年11月19日／non-as-v5}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -37,7 +37,7 @@
 また、Hirzebruch曲面$\mathbb F_1$上の偶Clifford orderは次数三の反標準Hilbert関数を持ち、反標準環は次数一生成でありながら、その二次包絡の三次成分が十九次元となる。
 これは標準四次元AS正則代数の三次超曲面表示を、構造対象を忘れたアーベル圏としても排除する。
 次数一・二の二つのClifford orderについても、標準的な最小生成次数を持つ重み付きAS正則ambientによる超曲面表示は存在しない。一方、別の生成次数を持つAS正則ambientでは明示的な超曲面表示が存在する。
-さらにトーリック商スタック$[\mathbb P^2/\mu_3]$を取り上げ、rank三のAZ-ampleな対象、構造層の非ampleness、特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
+さらにトーリック商スタック$[\mathbb P^2/\mu_3]$では、反標準AZ-ampleなtorsion-free構造対象のrankが少なくとも三となることを証明し、構造層の非amplenessと特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
 \end{abstract}
 \tableofcontents
 
@@ -111,8 +111,10 @@ $\mathfrak H^{\mathrm{hyp}}_3$とする。
 $R(\mathcal A,\mathcal O,s)\cong G/(g)$となる表示を要求する。
 ここで圏と対はこの表示に適合しているものに限る。
 この条件は、単に数値Hilbert級数を課すより強い。
-後に導入する二次包絡の条件$\mathcal H_3$は、この
-超曲面表示のための必要条件である。
+二次包絡のAS正則性は、このHilbert級数と一次生成性の下では、
+命題\ref{prop:quadratic-envelope-recognition}により
+超曲面表示の必要十分条件となる。ただし後の$\mathcal H_3$は
+さらに例外性などの圏論的条件を伴う。
 
 さらに、Okawa--Ueda\cite[Definition~1.1]{OU}による
 三次del Pezzo型のAS surfaceのクラスを
@@ -127,6 +129,54 @@ $\mathfrak{AS}^{\mathrm{OU}}_3$と書き、
 得られる曲面圏であって、
 本稿の「四次元AS正則ambientの三次商」とは
 \emph{別の定義}である。
+
+\begin{proposition}[二次包絡による標準三次超曲面の認識]
+\label{prop:quadratic-envelope-recognition}
+$k$を標数零の体とし、$R=\bigoplus_{n\ge0}R_n$を連結次数付き代数で、
+$R_1$で生成され、$H_R(t)=(1-t^3)/(1-t)^4$を満たすとする。
+二次包絡
+\[
+ B=Q(R)=T_k(R_1)/\langle\ker(R_1\otimes R_1\longrightarrow R_2)\rangle
+\]
+が、左右noetherianな二次Koszul AS正則代数であり、
+大域次元四、Hilbert級数$(1-t)^{-4}$を持つなら、
+ある三次の左右正則正規元$g\in B_3$について
+\begin{equation}\label{eq:envelope-recognition}
+ R\cong B/(g),\qquad \ker(B\twoheadrightarrow R)=Bg=gB
+\end{equation}
+となる。$B$および直線$kg\subset B_3$は$R$から関手的に決まる。
+逆に、上述の型の$B$と左右正則正規元$g\in B_3$から得られる
+$R=B/(g)$は、二次包絡が$B$であり、このHilbert級数を持つ。
+\end{proposition}
+\begin{proof}
+AS正則性とHilbert級数から$\operatorname{GKdim} B=4$である。
+Levasseur\cite[Theorem~6.2(ii)]{Levasseur1992}により$B$は整域となる。
+自然な全射$B\twoheadrightarrow R$の核を$I$とすれば、
+$B_2\cong R_2$、$\dim B_3=20$、$\dim R_3=19$なので
+$I_3=kg$となる。さらに$\dim B_4=35$、$\dim R_4=31$から
+$\dim I_4=4$である。整域性のため、
+$gB_1$と$B_1g$はいずれも$I_4$に含まれる四次元部分空間であり、
+従って$gB_1=B_1g=I_4$となる。
+$B$は次数一で生成されるので$gB=Bg$であり、
+整域性から$g$は左右正則である。
+正規元による商のHilbert級数は
+$H_{B/(g)}=(1-t^3)H_B=H_R$だから、
+$B/(g)\twoheadrightarrow R$は同型となる。
+最後に$B$は二次関係の核から、$kg$は$B_3\to R_3$の核から復元される。
+逆向きは三次元の関係を加えても二次関係は変わらないことと、
+正則元による短完全列から従う。
+\end{proof}
+
+\begin{remark}[内在条件に何を追加すべきか]
+\label{rem:envelope-vs-category}
+上の認識は純粋に次数付き環についての必要十分条件であり、
+任意のExt-finiteアーベル圏がこの条件を自動的に満たすという主張ではない。
+Artin--Zhangの再構成により、適切なnoetherian条件の下では
+$\mathcal A\simeq\operatorname{qgr} R$となるが、
+二次包絡のAS正則性はそれとは独立の追加条件である。
+本命題は分類稿\cite[三次超曲面性の自動性]{Current}で用いた
+次数三・四の議論を本稿に独立に記載したものである。
+\end{remark}
 
 \begin{proposition}[本稿の例が与える真の階層]\label{prop:three-levels}
 標識を忘れたアーベル圏のクラスとして
@@ -217,13 +267,71 @@ $\dim\operatorname{Hom}(\mathcal E,s^n\mathcal E)
 \]
 と明示され、Hilbert級数は
 $(1-t^3)/(1-t)^4$である。
-その$\operatorname{Proj}$は三つの$A_2$特異点を持つ
-トーリック三次曲面であり、滑らかな反標準模型ではない。
+次数$3n$の不変単項式$x^ay^bz^c$では
+$a-b\equiv0\pmod3$かつ$a+b+c\equiv0\pmod3$から
+$a\equiv b\equiv c\pmod3$となる。共通の剰余を$r\in\{0,1,2\}$とすれば、
+その単項式は$U^uV^vW^wT^r$となるので、上の表示は全次数で成立する。
+この三次曲面のヤコビ行列は$(VW,UW,UV,-3T^2)$であり、
+特異点は三つの座標頂点のみである。
+各点の局所方程式は$vw=t^3$であるから$A_2$型となる。
+従って反標準模型は特異である。
 この例はrank一とHilbert級数の条件を両方外せば
 rank三のample構造対象を持つスタックも候補に入ること、
-しかしrank一・Hilbert級数・AZ-amplenessを一つずつ
-吟味する必要があることを示す。
+しかも命題\ref{prop:mu3-minimal-rank}により、
+この偏極に関してはtorsion-freeなample構造対象のrankは
+三以上でなければならない。
+従ってrank一・Hilbert級数・AZ-amplenessを一つずつ
+吟味する必要がある。
 \end{remark}
+
+\begin{proposition}[反標準AZ-ample対象の最小rank]
+\label{prop:mu3-minimal-rank}
+注意\ref{rem:mu3-stack}の$\mathfrak X=[\mathbb P^2/\mu_3]$と
+$s=-\otimes\omega_{\mathfrak X}^{-1}$について、
+$\mathcal F\in\operatorname{coh}\mathfrak X$をtorsion-freeとする。
+$(\mathcal F,s)$がArtin--Zhang ampleなら
+\[
+ \operatorname{rank}_{\mathfrak X}(\mathcal F)\ge3.
+\]
+この下界は$\mathcal E=\mathcal O_{\mathbb P^2}\otimes\mathbb C[\mu_3]$
+（同変層）によって達成される。
+\end{proposition}
+\begin{proof}
+$\mathcal F^{\vee\vee}$は滑らかな二次元Deligne--Mumfordスタック上の
+反射的層であるから局所自由であり、
+$Q=\mathcal F^{\vee\vee}/\mathcal F$は零次元に台を持つ。
+局所環が正則二次元であるため、任意の線束$M$について
+$\mathcal H\!om(Q,M)=\mathcal E\!xt^1(Q,M)=0$である。
+従って任意の整数$n$で
+\begin{equation}\label{eq:mu3-extension}
+ \operatorname{Hom}(\mathcal F^{\vee\vee}\otimes\omega_{\mathfrak X}^{n},M)
+ \xrightarrow{\ \sim\ }
+ \operatorname{Hom}(\mathcal F\otimes\omega_{\mathfrak X}^{n},M)
+\end{equation}
+となる。これは全ての射が二重双対まで延長することを意味する。
+
+$\mathbb P^2$の三つの座標固定点の一つ$p$を取る。
+その残留慣性群は$\mu_3$であり、反標準束の$p$での指標は自明である。
+実際、作用の重みは$(1,-1,0)$であり、$\mathcal O(3)$の
+固定点ファイバーは各点で重み$0\pmod3$を持つ。
+$\chi\in\widehat{\mu_3}$について、線束
+$M_\chi=\mathcal O_{\mathbb P^2}\otimes\chi$を取る。
+ample性の生成条件により、ある$n_i\gg0$について
+$\bigoplus_i s^{-n_i}\mathcal F\twoheadrightarrow M_\chi$が存在する。
+式\eqref{eq:mu3-extension}でその成分を$\mathcal F^{\vee\vee}$へ延長し、
+$p$の残留gerbeへ制限する。右辺のファイバーは一次元表現$\chi$、
+$s^{-n_i}$のファイバーは自明表現である。
+従って上の全射が可能となるには、
+$\mathcal F^{\vee\vee}|_p$が$\chi$を含まねばならない。
+これは三つの$\chi$すべてについて成り立つので、
+$\operatorname{rank}\mathcal F\ge3$である。
+
+逆に正則表現の全ての指標を含む$\mathcal E$については、
+$\mathcal O_{\mathbb P^2}(3)$のSerre生成・消滅を有限群同変化すると、
+$\mathcal E(-3n)$の直和からの全射と、十分大きい$n$での
+Homの全射性が従う。標数零では不変部分を取る操作が完全なので、
+$(\mathcal E,s)$はAZ-ampleである。
+\end{proof}
 
 \subsection{主結果の位置と先行研究}
 
