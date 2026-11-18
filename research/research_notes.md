@@ -4,7 +4,7 @@
 ## 二種類の成果と既存入力
 量子Fermat: CY ambientと中心三次。L=(Z/3)^2、H=L^vee、T=C_mu L=M3。Hの楕円固定sector4つがHH_{±1}に計2ずつ寄与し、HH0=5。smooth central切断のpointed同型類は一点。これまでの証明を主論文に保持する。
 
-符号型: q01=1、他の5組は-1。G=f3(x0,x1)+x0*x2^2+x1*x3^2、ad*Delta(f3)≠0。非CY ambientと非中心三次。H3認識とfixed sign ambientのpointed二次元分類は nc-cubic-moduli の papers/sections/cubic_noncy_sign_example.tex に既存証明がある。今回の新しいHochschild計算は HH_{-1,0,1}=(2,4,2)。
+符号型: q01=1、他の5組は-1。G=f3(x0,x1)+x0*x2^2+x1*x3^2、ad*Delta(f3)≠0。非CY ambientと非中心三次。H3認識とfixed sign ambientのpointed二次元分類は nc-cubic-classification の papers/sections/cubic_noncy_sign_example.tex に既存証明がある。今回の新しいHochschild計算は HH_{-1,0,1}=(2,4,2)。
 
 ## 符号型の本質的な注意点
 Gamma=(Z/2)^3、重み(x0,x1,x2,x3)=(e0,e0,e1,e2)、cocycle nu(u,v)=(-1)^(u1*v0+u2*v0+u2*v1)。交換形式のradicalは e0+e1+e2。従ってT=C_nu Gamma=M2⊕M2であり、M4と誤記してはいけない。H=Gamma^veeは二つの行列成分を交換し、その安定化群H0={(a,b,c):a+b+c=0}へMorita還元する。非退化Schur multiplierはH0上の一意の非自明類で、commutatorは(-1)^(a_g b_h+b_g a_h)。
