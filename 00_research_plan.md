@@ -15,7 +15,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 定義の境界とトーリック商スタック
 - 内在的候補 `I_d` はExt-finite・Serre functor・s=S^{-1}[2]のt-exact性・GK rank一torsion-freeなO・AZ ampleness・反標準Hilbert級数の条件からなる。exceptionalityやsmooth proper性を加えた強い条件は次数三Clifford節で証明。
-- `H_hyp` は標準四次元二次Koszul AS正則代数の正則正規三次商として反標準環が表示されるクラス。三段階の真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I_3`。量子Fermatが第一の真性、次数三Cliffordが第二の真性の証人。OU型一般がH_hypに含まれるかは未証明。
+- `H_hyp` は標準四次元二次Koszul AS正則代数の正則正規三次商として反標準環が表示されるクラス。三段階の真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I_3`。rank一とAS4超曲面表示を同時に証明した符号型族が第一の真性、次数三Cliffordが第二の真性の証人。量子FermatのGK rank一性はこの包含の証明に利用しない。OU型一般がH_hypに含まれるかは未証明。
 - 境界例 `[P^2/μ_3]` の対角作用は `(x:y:z)→(ζx:ζ^{-1}y:z)`。構造層はAZ-ampleでないが、その反標準環は `C[U,V,W,T]/(UVW−T^3)`。3つのA2特異点を持つ。正則表現で作るrank三対象EはAZ-ampleだがEnd(E)=C^3、Hilbert級数は異なる。証明は主論文のRemark `rem:mu3-stack` に記載。
 
 ## 主要な未解決問題と優先課題
