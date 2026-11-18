@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月19日／non-as-v4}
+\date{2026年11月19日／non-as-v5}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -36,6 +36,29 @@ $\dim\operatorname{Hom}(E,s^nE)=3\binom{3n+2}{2}$。
 本例はrank条件を緩める際にはconnectedness・exceptionality・
 反標準模型の特異性を個別に検討すべきことを示す。
 詳細な説明・証明は主論文の注意\texttt{rem:mu3-stack}を参照する。
+
+\subsection*{二次包絡の必要十分認識}
+主論文の命題\texttt{prop:quadratic-envelope-recognition}は、
+一次生成と標準三次Hilbert級数の下で$Q(R)$が14641型noetherian
+AS四次元正則環であることと、$R=Q(R)/(g)$（$g$は三次の正則正規元）
+であることの同値を示す。証明は次数三で核が1、次数四で核が4、
+従って$gB_1=B_1g$という有限次数の比較による。
+整域性はLevasseurの定理（文献\texttt{Levasseur1992}, Theorem 6.2(ii)）に依存する。
+これは分類稿の認識定理を本稿中で証明し直したもので、
+広い内在的候補で包絡正則性が自動だと主張しない。
+
+\subsection*{商スタックのrank障害の精密化}
+反標準束が慣性群$\mu_3$の三つの固定点ファイバーで自明指標を持つため、
+AZ-ampleなtorsion-free対象$F$の二重双対$F^{\vee\vee}$は
+各固定点で三つの既約指標を全て含まなければならず、rankは少なくとも3。
+証明に必要なのは、滑らかな二次元スタックで
+$Q=F^{\vee\vee}/F$が零次元、
+線束$M$に対して
+$\operatorname{Ext}^1(Q,M)=0$なので
+$\operatorname{Hom}(F^{\vee\vee},M)\cong\operatorname{Hom}(F,M)$
+であることと、AZ1の全射を各慣性群の表現で調べること。
+正則表現$E$（rank3）がこの境界を達成する。
+主論文の命題\texttt{prop:mu3-minimal-rank}に完全な証明がある。
 
 \section{三例の共通構造と次数一・二の補助知識}
 三例とも $\mathcal A=\operatorname{Cl}_0(\mathcal V,q,L)$、
