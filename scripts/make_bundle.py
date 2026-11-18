@@ -31,7 +31,7 @@ def main():
             files.append(ROOT/"build"/(stem+".pdf"))
     for f in files:
         if not f.is_file(): raise SystemExit("Missing: "+str(f))
-    dest=ROOT/"output"/"bundles"/("nc-cubic-non-as-2026-11-19-v3"+("-source" if a.source_only else "")+".zip")
+    dest=ROOT/"output"/"bundles"/("nc-cubic-non-as-2026-11-19-v4"+("-source" if a.source_only else "")+".zip")
     dest.parent.mkdir(parents=True,exist_ok=True)
     with ZipFile(dest,"w",ZIP_DEFLATED) as z:
         for f in sorted(set(files)):
