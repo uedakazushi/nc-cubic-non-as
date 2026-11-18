@@ -2,12 +2,40 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月19日／non-as-v3}
+\date{2026年11月19日／non-as-v4}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
 完成した全証明は一本の公表用論文 \path{papers/nc-cubic-non-as.tex} に収める。
 本ノートは証明を重複させず、主論文の各節を参照する。
+
+\section{候補定義の階層と商スタックの検査}
+主論文の内在的候補の定義
+に対応する内在的候補$\mathfrak I_d$に対し、次数三では
+\[
+ \mathfrak H^{\mathrm{hyp,OU}}_3
+ \subsetneq\mathfrak H^{\mathrm{hyp}}_3
+ \subsetneq\mathfrak I_3
+\]
+が示される。ただし最初のクラスは超曲面型とOU型の\emph{共通部分}であり、
+OU型がすべて超曲面型であるとは証明していない。
+第一の真性は量子Fermatの$\HH_{\pm1}=2$、第二はClifford例の
+$\dim Q(R)_3=19$とunpointed非表示による。
+比較の証明は主論文の冒頭と各定理を参照する。
+
+$\mathfrak X=[\mathbb P^2/\mu_3]$（対角重み$(1,-1,0)$）では
+$s=-\otimes\omega_{\mathfrak X}^{-1}$であり、
+$H^0(\mathbb P^2,\mathcal O(3n))^{\mu_3}$から
+$\mathbb C[U,V,W,T]/(UVW-T^3)$が得られる。
+固定点のstabilizerは$\mu_3$、接空間の非自明な二指標は
+$\chi,\chi^{-1}$であるため、粗い反標準模型は三つの$A_2$特異点を持つ。
+構造層の反標準twistは固定点で自明指標しか持たずAZ-ampleでない。
+一方、正則表現とのテンソル$E$はrank三、AZ-ample、
+$\operatorname{End}(E)=\mathbb C^3$、
+$\dim\operatorname{Hom}(E,s^nE)=3\binom{3n+2}{2}$。
+本例はrank条件を緩める際にはconnectedness・exceptionality・
+反標準模型の特異性を個別に検討すべきことを示す。
+詳細な説明・証明は主論文の注意\texttt{rem:mu3-stack}を参照する。
 
 \section{三例の共通構造と次数一・二の補助知識}
 三例とも $\mathcal A=\operatorname{Cl}_0(\mathcal V,q,L)$、

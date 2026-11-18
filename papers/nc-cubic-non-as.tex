@@ -26,38 +26,247 @@
 \newcommand{\Proj}{\operatorname{Proj}}
 \newcommand{\tr}{\operatorname{tr}}
 \newcommand{\rk}{\operatorname{rank}}
-\title{非可換del Pezzo曲面の非Artin--Schelter性と超曲面表示の障害\\\large 量子Fermat・符号型・Clifford order}
+\title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月19日／non-as-v3}
+\date{2026年11月19日／non-as-v4}
 \begin{document}
 \maketitle
 \begin{abstract}
-内在的な非可換del Pezzo曲面の条件と、Artin--Schelter型および標準反標準超曲面表示との相違を、具体例により比較する。
+非可換del Pezzo曲面の候補となる内在的条件、標準AS四次元三次超曲面表示、Okawa--UedaのAS surface性を区別し、三つの条件の間に真の階層が現れることを明示例で示す。
 次数三の量子Fermat点および非Calabi--Yau符号型二次元族では、離散torsion付き有限群商によってHochschild homologyに奇数次成分が現れ、Okawa--UedaのAS surfaceでない。
 また、Hirzebruch曲面$\mathbb F_1$上の偶Clifford orderは次数三の反標準Hilbert関数を持ち、反標準環は次数一生成でありながら、その二次包絡の三次成分が十九次元となる。
 これは標準四次元AS正則代数の三次超曲面表示を、構造対象を忘れたアーベル圏としても排除する。
 次数一・二の二つのClifford orderについても、標準的な最小生成次数を持つ重み付きAS正則ambientによる超曲面表示は存在しない。一方、別の生成次数を持つAS正則ambientでは明示的な超曲面表示が存在する。
-反標準Hilbert次数、Hochschild障害、graded ambientの制約を区別し、主要な幾何学的・圏論的証明および厳密な有限計算を収録する。
+さらにトーリック商スタック$[\mathbb P^2/\mu_3]$を取り上げ、rank三のAZ-ampleな対象、構造層の非ampleness、特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
 \end{abstract}
 \tableofcontents
 
 \section{はじめに}
-可換なdel Pezzo曲面は反標準環の重み付き超曲面表示と密接に結び付く。
-しかし非可換圏では、反標準Hilbert関数、構造対象のexceptionality、反Serre作用のample性だけから同様の表示が従うとは限らない。
-本稿は二つの異なる障害を示す。
-第一に、量子Fermat例と非CY符号型族は、標準的な四次元AS正則代数の三次商でありながら、曲面圏としてOkawa--Ueda\cite{OU}のAS surfaceではない。
-第二に、Clifford orderでは反標準環の二次包絡または最小生成次数が標準超曲面模型と一致せず、構造対象を変更しても指定された模型とアーベル圏同値にならない。
-これらは別々の非存在主張である。
+\label{sec:main-introduction}
 
-次数$e$は\(\dim R_n=1+e n(n+1)/2\)で定める反標準Hilbert次数とする。
-Clifford orderの有理標準因子については\(K_{\mathcal A}^2=e/4\)となり、中心上の自己交点とは区別する。
-以下の次数三のClifford例ではconnected gradedな標準AS四次元ambientを排除するのであり、任意の非周期的$\mathbb Z$-algebraを無条件に排除したものではない。
-次数一・二では、標準の最小生成次数に限定した非表示と、別の次数を持つambientでの表示の存在とを同時に証明する。
+可換な滑らかなdel Pezzo曲面$X$では、反標準束$-K_X$の豊富性と
+$K_X^2=d$が、反標準環のHilbert関数を決める。
+特に$d=3$なら反標準埋込みは$\mathbb P^3$内の三次超曲面である。
+非可換の場合、これに対応する\emph{内在的な曲面の条件}、
+\emph{AS正則なambientを持つ超曲面表示}、
+\emph{Artin--Schelter surfaceであること}は区別しなければならない。
+本稿では、これらの条件の強さが異なることを、反標準自己同値を備えた
+明示的な非可換del Pezzo曲面を用いて示す。
 
-使用するClifford/conic bundleの対応は\cite{ChanIngalls2012}、半直交分解は\cite{KuznetsovQuadric}、AS正則性の構成には\cite{CV2010,CKS2019,LWW2014}を用いる。
-ramification型の分類\cite{Nasr2020}は既知入力であり、明示的反標準環と構造対象を忘れた非表示の組合せの新規性は未確認である。
-量子Fermatと符号型の有限群商・Hochschild計算の背景は\cite{Baranovsky,ACH,CGW,Ruan}を参照する。
-本稿でいう$\mathcal H_3$は、反標準環の一次生成と二次包絡の標準AS正則性を加えた強い内在的クラスである。弱い内在条件との区別は次数三Clifford節に明記する。
+\subsection{内在的な非可換del Pezzo曲面の候補定義}
+
+次の定義は、幾何学的な構造を表すための\emph{候補}であって、
+分類定理の結論を先取りしたものではない。
+$\mathcal A$は$\mathbb C$線型noetherianかつExt-finiteなアーベル圏とし、
+その有限長対象によるGabriel--Krull filtrationを考える。
+
+\begin{definition}[内在的な次数$d$の候補]\label{def:intrinsic-dp}
+対$(\mathcal A,\mathcal O)$が\emph{内在的非可換del Pezzo候補（次数$d$）}
+であるとは、次を満たすこととする。
+\begin{enumerate}[label=(\roman*)]
+\item $D^b(\mathcal A)$はSerre関手$S$を持ち、
+$s:=S^{-1}[2]$が$\mathcal A$に制限される完全自己同値である。
+\item $\mathcal O\in\mathcal A$はGabriel--Krull rank一かつtorsion-freeである。
+すなわち、次元一以下の対象で割った商でrank一を持ち、
+次元一以下の対象を非零部分対象に持たない。
+\item $(\mathcal O,s)$はArtin--Zhangの意味でampleな対である
+\cite{AZ1994}。
+\item 反標準orbit環
+\[
+ R(\mathcal A,\mathcal O,s)
+ :=\bigoplus_{n\geq0}\operatorname{Hom}_{\mathcal A}
+       (\mathcal O,s^n\mathcal O)
+\]
+のHilbert級数は、可換な次数$d$のdel Pezzo曲面と同じく
+\begin{equation}\label{eq:intrinsic-hilbert}
+ H_R(t)=\sum_{n\geq0}\left(1+\frac d2n(n+1)\right)t^n
+ =\frac{1+(d-2)t+t^2}{(1-t)^3}
+\end{equation}
+である。
+\end{enumerate}
+\end{definition}
+
+定義\ref{def:intrinsic-dp}は、構造対象のexceptionality、
+$\mathcal A$の大域次元二、導来圏のsmooth proper性をそれ自体では要求しない。
+本稿の次数三Clifford例は、これらを加え、
+負の次数の切断も指定した強い条件
+（定義\ref{def:weak-cubic}）を満たす。
+従って、以下で得る反例は内在的候補の条件が弱すぎることによる
+形式的な退化ではない。
+一方、Hilbert級数の定数項から
+$\operatorname{End}_{\mathcal A}(\mathcal O)=\mathbb C$は既に従うが、
+高次Ext群の消滅は従わない。
+
+\subsection{三つの条件と真の包含}
+
+次数三に限り、定義\ref{def:intrinsic-dp}を満たす対を少なくとも一つ
+持つアーベル圏のクラスを$\mathfrak I_3$と書く。
+そのうち、構造対象と反標準自己同値に適合する
+\emph{標準AS四次元三次超曲面表示}を持つものを
+$\mathfrak H^{\mathrm{hyp}}_3$とする。
+具体的には、連結次数付き二次Koszul AS正則代数$G$で
+大域次元四、Hilbert級数$(1-t)^{-4}$、
+最小自由分解型$(1,4,6,4,1)$を持つもの、および
+左右正則な正規三次元$g\in G_3$に対し、
+$R(\mathcal A,\mathcal O,s)\cong G/(g)$となる表示を要求する。
+ここで圏と対はこの表示に適合しているものに限る。
+この条件は、単に数値Hilbert級数を課すより強い。
+後に導入する二次包絡の条件$\mathcal H_3$は、この
+超曲面表示のための必要条件である。
+
+さらに、Okawa--Ueda\cite[Definition~1.1]{OU}による
+三次del Pezzo型のAS surfaceのクラスを
+$\mathfrak{AS}^{\mathrm{OU}}_3$と書き、
+\[
+ \mathfrak H^{\mathrm{hyp,OU}}_3
+ :=\mathfrak H^{\mathrm{hyp}}_3\cap
+   \mathfrak{AS}^{\mathrm{OU}}_3
+\]
+と置く。OUのAS surfaceとは、
+三次元AS正則$\mathbb Z$-algebraの$\operatorname{qgr}$として
+得られる曲面圏であって、
+本稿の「四次元AS正則ambientの三次商」とは
+\emph{別の定義}である。
+
+\begin{proposition}[本稿の例が与える真の階層]\label{prop:three-levels}
+標識を忘れたアーベル圏のクラスとして
+\begin{equation}\label{eq:three-levels}
+ \mathfrak H^{\mathrm{hyp,OU}}_3
+ \ \subsetneq\ 
+ \mathfrak H^{\mathrm{hyp}}_3
+ \ \subsetneq\
+ \mathfrak I_3
+\end{equation}
+が成り立つ。
+\end{proposition}
+\begin{proof}
+包含自体は定義から従う。
+古典的な滑らかな三次曲面は三つのクラスに入る。
+一方、量子Fermat三次商は標準AS四次元ambientを持つが、
+定理\ref{thm:not-OU-AS}により奇数次Hochschild homologyが非零で、
+OUのAS surfaceではない。
+従って第一の包含は真である。
+次数三のClifford orderは、定理\ref{thm:main}により
+内在的候補の条件（より強い条件さえ）を満たすが、
+構造対象を忘れても標準graded AS四次元ambientの正規三次商ではない。
+従って第二の包含も真である。
+\end{proof}
+
+\begin{remark}[包含の射程]\label{rem:ou-hyp-scope}
+式\eqref{eq:three-levels}の最小のクラスは
+$\mathfrak H^{\mathrm{hyp}}_3$と
+$\mathfrak{AS}^{\mathrm{OU}}_3$の\emph{共通部分}である。
+本稿はOUのAS surfaceがすべて標準AS四次元超曲面として
+表示できると主張しない。
+特に、非周期的AS正則$\mathbb Z$-algebraを許した一般のambient
+認識問題は、連結graded ambientの場合とは分けて扱う。
+\end{remark}
+
+\subsection{トーリック商スタックが示す境界}\label{subsec:stack-boundary}
+
+\begin{remark}[rank三のample構造対象と特異な反標準模型]
+\label{rem:mu3-stack}
+$\zeta^3=1$を原始根とし、$\mu_3$を
+\[
+ (x:y:z)\longmapsto(\zeta x:\zeta^{-1}y:z)
+\]
+によって$\mathbb P^2$に作用させる。
+滑らかなトーリックDeligne--Mumfordスタック
+$\mathfrak X=[\mathbb P^2/\mu_3]$について
+$\mathcal A=\operatorname{coh}\mathfrak X$と置く。
+このとき$D^b(\mathcal A)$のSerre関手は
+$S=(-\otimes\omega_{\mathfrak X})[2]$であり、
+$s=-\otimes\omega_{\mathfrak X}^{-1}$である。
+$\omega_{\mathfrak X}^{-1}$は自然な線形化を持つ
+$\mathcal O_{\mathbb P^2}(3)$に対応する。
+
+スタックの構造層$\mathcal O_{\mathfrak X}$は
+\emph{AZ-ampleな構造対象ではない}。
+実際、三つの固定点の慣性群は$\mu_3$で、
+反標準束の各冪の固定点ファイバーには自明指標しか現れない。
+従って$\mathcal O_{\mathfrak X}$の負の反標準twistの直和から
+非自明な指標を持つ固定点のskyscraper層への全射は存在せず、
+ample pairの生成条件に反する。
+
+これに対し、正則表現を用いた局所自由対象
+\[
+ \mathcal E=\mathcal O_{\mathbb P^2}\otimes_{\mathbb C}
+             \mathbb C[\mu_3]
+ \quad\text{（同変層として解釈する）}
+\]
+はgeneric rank三でtorsion-freeであり、
+$(\mathcal E,s)$はAZ-ampleである。
+これは$\mathcal O(3)$が粗い商に降下するample線束であり、
+同変Serreの生成と消滅に加えて、
+$\mathbb C[\mu_3]$が全ての既約指標を含むためである。
+ただし
+$\operatorname{End}_{\mathcal A}(\mathcal E)\cong\mathbb C^3$
+であり、$\mathcal E$はexceptionalではない。
+$\dim\operatorname{Hom}(\mathcal E,s^n\mathcal E)
+=3\binom{3n+2}{2}$なので、式\eqref{eq:intrinsic-hilbert}とも異なる。
+
+一方、$\mathcal O_{\mathfrak X}$による反標準環そのものは
+\[
+ \bigoplus_{n\geq0}
+ H^0(\mathbb P^2,\mathcal O(3n))^{\mu_3}
+ \cong
+ \mathbb C[U,V,W,T]/(UVW-T^3),
+ \quad (U,V,W,T)=(x^3,y^3,z^3,xyz),
+\]
+と明示され、Hilbert級数は
+$(1-t^3)/(1-t)^4$である。
+その$\operatorname{Proj}$は三つの$A_2$特異点を持つ
+トーリック三次曲面であり、滑らかな反標準模型ではない。
+この例はrank一とHilbert級数の条件を両方外せば
+rank三のample構造対象を持つスタックも候補に入ること、
+しかしrank一・Hilbert級数・AZ-amplenessを一つずつ
+吟味する必要があることを示す。
+\end{remark}
+
+\subsection{主結果の位置と先行研究}
+
+本稿で比較する現象には二種類ある。
+量子Fermat例と非Calabi--Yau符号型二次元族は
+標準四次元AS正則代数の三次商でありながら、
+Hochschild homologyの奇数次成分を持つため
+OUのAS surfaceではない。
+これに対し$\mathbb F_1$上のClifford orderでは、
+反標準環が次数一の四元で生成され、Hilbert級数が
+三次超曲面と一致するにもかかわらず、
+二次包絡の三次成分が$19$次元にとどまる
+（標準AS四次元代数なら$20$次元）。
+局所射影rank一exceptional対象の分類によって
+構造対象を取り替えても非表示であることを示す。
+さらに次数一・二のClifford orderでは、
+可換模型の標準最小生成次数を持つ重み付きAS ambientを排除する一方、
+別の最小生成次数を持つAS ambientによる超曲面表示が存在する。
+この違いは、Hilbert級数だけから最小生成次数を読み取れないことを表す。
+
+線束値二次形式からのClifford orderとconic bundleの関係は
+Chan--Ingalls\cite{ChanIngalls2012}、
+対応する導来圏の半直交分解は
+Kuznetsov\cite{KuznetsovQuadric}による。
+Hirzebruch曲面上のramification型は
+Nasr\cite{Nasr2020}による既知の分類に属する。
+AS正則ambientの構成には
+\cite{CV2010,CKS2019,CKZ2017,LWW2014}を、
+局所双対性には\cite{YZ1997}を用いる。
+Hochschild homologyについては
+\cite{Baranovsky,CGW,Ruan,ACH}を参照する。
+本研究の貢献は、新しいorderの型の存在そのものではなく、
+指定された具体例の反標準環の表示、
+計算可能な二次包絡の障害、
+および構造対象を忘れた非表示の証明にある。
+これらの組合せの初出についてはなお網羅的な確認を要する。
+
+以下のClifford orderの「次数」$e$は
+$\dim R_n=1+en(n+1)/2$で正規化した反標準Hilbert次数である。
+中心上の有理標準因子の自己交点は$K_{\mathcal A}^2=e/4$であり、
+これを反標準Hilbert次数と混同しない。
+また本稿の三次Clifford反例で排除するambientは
+連結gradedな標準quadratic AS正則代数であって、
+任意の非周期的AS正則$\mathbb Z$-algebraに
+無条件に拡張するものではない。
 
 \section{OUのAS surfaceと判定条件}
 Okawa--Ueda\cite[Definition~1.1(1), \S3]{OU}のAS surfaceとは，

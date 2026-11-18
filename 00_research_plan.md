@@ -1,8 +1,8 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-19 / non-as-v3。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-19 / non-as-v4。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
-内在的なrank-one torsion-free exceptional構造対象、反Serre ample性と反標準Hilbert次数を持つ曲面について、(I) Okawa--UedaのAS surface性と (II) 標準的なAS四次元ambientの超曲面表示を区別し、それぞれの障害の普遍性と既知模型との境界を明確にする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
+rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。`AS_OU⊆H_hyp` は主張しない。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
 
 ## 証明を保持した主要結果
 - **次数3・量子Fermat**（元`nc-cubic-non-as`）：中心正規三次商の反標準圏について、離散torsion付き`(μ_3)^2`商への導来Morita同値と `HH_{-1,0,1}=(2,5,2)`。OUのAS surfaceではないが、AS四次元ambientの超曲面にはなっている。計算：`computations/verify_quantum_fermat*.py`。
@@ -13,8 +13,13 @@
 
 ここで次数は `dim R_n=1+en(n+1)/2` による。Cliffordの有理標準因子では `K_A^2=e/4` であり、混同しない。奇数次HHが非零であることはOU型への障害であり、任意のAS4超曲面の非存在を意味しない。
 
+## 定義の境界とトーリック商スタック
+- 内在的候補 `I_d` はExt-finite・Serre functor・s=S^{-1}[2]のt-exact性・GK rank一torsion-freeなO・AZ ampleness・反標準Hilbert級数の条件からなる。exceptionalityやsmooth proper性を加えた強い条件は次数三Clifford節で証明。
+- `H_hyp` は標準四次元二次Koszul AS正則代数の正則正規三次商として反標準環が表示されるクラス。三段階の真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I_3`。量子Fermatが第一の真性、次数三Cliffordが第二の真性の証人。OU型一般がH_hypに含まれるかは未証明。
+- 境界例 `[P^2/μ_3]` の対角作用は `(x:y:z)→(ζx:ζ^{-1}y:z)`。構造層はAZ-ampleでないが、その反標準環は `C[U,V,W,T]/(UVW−T^3)`。3つのA2特異点を持つ。正則表現で作るrank三対象EはAZ-ampleだがEnd(E)=C^3、Hilbert級数は異なる。証明は主論文のRemark `rem:mu3-stack` に記載。
+
 ## 主要な未解決問題と優先課題
-1. **公表前監査と先行研究**：主論文の全引用について一次資料の指定定理・仮定・版を確認する。特に離散torsion付きMorita同値とorbifold HKRの指標、Artin--Zhangの原著、Clifford orderの非表示の初出、新規性は独立検証未完了。
+1. **公表前監査と先行研究**：OU一般とAS4超曲面の関係、rank-three stack型境界の他の例を整理し、主論文の全引用について一次資料の指定定理・仮定・版を確認する。特に離散torsion付きMorita同値とorbifold HKRの指標、Artin--Zhangの原著、Clifford orderの非表示の初出、新規性は独立検証未完了。
 2. **次数3の境界拡張**：一般の非周期的AS正則Z-algebraにおいて、自由対象のSerre helixと三次合成空間が20次元となるための条件を調べる。Mori--Nymanの訂正版の仮定を保持し、非存在を一般に断定しない。
 3. **符号型の精密化**：H3認識と固定ambientの二次元分類の既存分類稿との仮定を再照合し、versal変形・全intrinsicモジュライ成分性・OU locusの開閉性を検討する。
 4. **Clifford反標準環の高次関係**：次数3の二次包絡について次数4以降の核を計算し、超曲面でない現象の構造的説明を求める。現行の非表示定理の成立には不要。
