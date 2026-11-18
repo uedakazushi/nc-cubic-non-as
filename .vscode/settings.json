@@ -3,12 +3,6 @@
   "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build",
   "latex-workshop.latex.auxDir": "%WORKSPACE_FOLDER%/build",
   "latex-workshop.latex.recipe.default": "first",
-  "latex-workshop.latex.search.rootFiles.include": [
-    "papers/*.tex",
-    "papers/sections/*.tex",
-    "research/*.tex"
-  ],
-  "latex-workshop.bind.altKeymap.enabled": false,
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk (LuaLaTeX, repository root)",
@@ -28,10 +22,8 @@
         "-lualatex",
         "-synctex=1",
         "-interaction=nonstopmode",
-        "-halt-on-error",
         "-file-line-error",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
+        "%DOC_EXT%"
       ]
     }
   ],
