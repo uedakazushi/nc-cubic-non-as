@@ -1,0 +1,32 @@
+\usepackage{luatexja-fontspec}
+\IfFontExistsTF{Noto Serif CJK JP}
+ {\setmainjfont{Noto Serif CJK JP}\setsansjfont{Noto Sans CJK JP}}
+ {\IfFontExistsTF{Harano Aji Mincho}
+   {\setmainjfont{Harano Aji Mincho}\setsansjfont{Harano Aji Gothic}}
+   {\setmainjfont{Hiragino Mincho ProN}\setsansjfont{Hiragino Kaku Gothic ProN}}}
+\setmonofont{Latin Modern Mono}[Scale=0.88]
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage[a4paper,margin=24mm,headheight=16pt]{geometry}
+\usepackage{booktabs,longtable,array,enumitem,needspace,xcolor}
+\usepackage[unicode,bookmarksnumbered,linktoc=all]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=green!30!black,urlcolor=blue!50!black}
+\renewcommand{\contentsname}{目次}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\proofname}{証明}
+\newtheoremstyle{japanese}{8pt}{6pt}{\normalfont}{}{\bfseries}{．}{0.4em}{}
+\theoremstyle{japanese}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\numberwithin{equation}{section}
+\setlist{leftmargin=2em,itemsep=3pt,topsep=4pt}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.2em}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\versiondate}{2026年11月19日・第3版}
+\setcounter{tocdepth}{1}

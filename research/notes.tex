@@ -1,0 +1,351 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\input{tex/preamble.tex}
+\title{研究ノート：非AS性・Clifford orderと超曲面障害}
+\author{}
+\date{2026年11月19日／non-as-v3}
+\begin{document}
+\maketitle
+本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
+完成した全証明は一本の公表用論文 \path{papers/nc-cubic-non-as.tex} に収める。
+本ノートは証明を重複させず、主論文の各節を参照する。
+
+\section{三例の共通構造と次数一・二の補助知識}
+三例とも $\mathcal A=\operatorname{Cl}_0(\mathcal V,q,L)$、
+$\mathcal P=\operatorname{Cl}_1(\mathcal V,q,L)$ とし、右加群を用いる。
+反標準自己同値は $T=-\otimes_{\mathcal A}\mathcal P$ である。
+$a\in\operatorname{Hom}(F,T^mF)$、$b\in\operatorname{Hom}(F,T^nF)$ の orbit 積は
+$ab=T^n(a)\circ b$ とする。この規約で Clifford の通常の積と一致する。
+四対象の合成不変量の次元には、全ての矢を同時に逆順で記す選択は影響しないが、
+証明書と本文の文字順序は統一する。
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+\toprule
+$e$ & $Z$ & $L$ & $D$ & $g(D)$\\\midrule
+1 & $\mathbb P^2$ & $\mathcal O(1)$ & 五次曲線 & 6\\
+2 & $\mathbb P^1\times\mathbb P^1$ & $\mathcal O(1,1)$ & $(3,3)$ 曲線 & 4\\
+3 & $\mathbb F_1$ & $C+2f$ & $3C+4f$ & 3\\\bottomrule
+\end{tabular}
+\end{center}
+三例の全てで $\det\mathcal V=\omega_ZL^2$、
+$\mathcal P^{\otimes_{\mathcal A}2}=\mathcal A L$、
+$\omega_{\mathcal A}=\mathcal P^{-1}$ となる。
+smooth proper 性、Serre 双対性、rank 一の一般点、AZ ampleness と
+負次数を含む切断の条件は、それぞれの論文の構成節で証明している。
+
+\subsection{標準重みと別の ambient を区別する}
+次数二の反標準環は最小生成次数 $(1,1,1)$ の AS 正則四次元代数の
+中心四次超曲面であり、その Hilbert 級数の分母は
+$(1-t)^3(1-t^2)$ である。
+分母の $1-t^2$ は、独立な次数二生成元の存在を意味しない。
+次数一では最小生成次数 $(1,1,3)$ の AS 正則四次元代数と中心六次式を用い、
+分母は $(1-t)^2(1-t^2)(1-t^3)$ となる。
+これらの PBW・Ore 表示と正則性の全証明は、主論文の次数一・二部分の
+「反標準環の表示と AS-regular ambient」にある。
+指定した重みの非表示を、全ての AS 正則 ambient に対する非表示へ強めてはならない。
+
+両例とも $R_1\otimes R_1\to R_2$ が全射である。
+これに対し標準重みの ambient は独立な次数二生成元を一つ持ち、
+四次・六次式で割ってもその生成元は消えない。
+任意のアーベル圏同値で自由対象の像を分類した後、
+この三対象の合成写像の全射性を比較する。
+次数三では $\dim R_2=10$ が標準 cubic と一致するため、
+四対象の二次関係の三次帰結まで比較する必要がある。
+
+\subsection{次数一の接触 conic}
+次数一論文の判別式
+\[
+ \Delta=-u^5+2u^2vw^2+2uv^3w-2v^5-w^5
+\]
+に $(u,v,w)=(s^2,st,t^2)$ を代入すると
+\[
+ \Delta(s^2,st,t^2)=-(s^5-t^5)^2
+\]
+となる。従って $uw=v^2$ は判別五次曲線の五点接触 conic である。
+$s^5=t^5$ の五点は標数零で相異なり、各交点の重複度は二である。
+この恒等式は \path{scripts/nc_dp1_quintic_checks.py} で確認する。
+既知の $F_{5-}^{2}$ family の theta 特性との比較に使えるが、
+非表示定理の証明には必要ないため本ノートに保持する。
+
+\subsection{次数一・二の対象分類と Hochschild homology}
+局所射影 division rank 一の exceptional 対象は、次数二で
+$T^i\mathcal A\otimes\mathcal O(j,k)$、次数一で $T^n\mathcal A$ に尽くされる。
+Euler 行列の行列式はそれぞれ $16,1$ である。
+分岐一般点での局所自由性、reduced norm による行列式の平方条件、
+数値類から実際の同型へ移る議論を省略しない。
+一般点の中心上の rank だけでは分岐点での二つの射影型の重複度は決まらない。
+
+$HH_{-1},HH_0,HH_1$ の次元は次数二で $(3,4,3)$、次数一で $(5,3,5)$。
+非零次数は判別二重被覆の Prym の接・余接空間として記述できる。
+conic bundle の Chern class と Euler 数による独立計算も主論文の次数一・二部分に収める。
+これは射影圏の標準 dg enhancement の HH であり、affine graded 環 $R$ の HH ではない。
+これらの例自体が AS 超曲面表示と非零 $HH_{\pm1}$ の両立を示している。
+
+\section{次数三の構成の選び方と数値}
+quaternion order $\mathcal A$と可逆奇Clifford bimodule $\mathcal P$について
+$\mathcal P^2=\mathcal A\otimes L$、$\omega_{\mathcal A}=\mathcal P^{-1}$
+を実現するには、三変数二次束について
+$\det\mathcal V=\omega_ZL^2$と置くのが便利である。
+このとき$T^2=-\otimes L$であり、偶数次数の切断数の先頭項は
+$\rk_Z(\mathcal A)L^2m^2/2=2L^2m^2$となる。
+内在的次数を三にするには$L^2=3$が必要である。
+
+$Z=\mathbb F_1$で$L=C+2f$を取ると$L^2=3$であり、
+$\omega_ZL^2=\mathcal O(f)$である。
+$\mathcal V=\mathcal O^2\oplus\mathcal O(f)$はこの条件を最も単純に実現する。
+判別因子は
+\[
+D=3L-2c_1(\mathcal V)=3C+4f=-2K_Z-L.
+\]
+特に$K_Z+D=C+f$で種数は三、orderの標準因子は$-L/2$となる。
+$K_{\mathcal A}^2=3/4$と反標準Hilbert次数$3$を混同しない。
+
+固定する形式は
+\[
+q=\begin{pmatrix}cs^2+dt&ct^2&d\\ct^2&ct^2+ds&0\\d&0&c\end{pmatrix},
+\quad
+\deg(s,t,c,d)=(f,f,C,C+f).
+\]
+以下の到達点は全てこの明示式についてのものであり、
+任意の形式や一般のパラメータに関する無条件な主張に読み替えない。
+
+\section{主張の状態と証明の所在}
+\begin{longtable}{p{.36\linewidth}p{.55\linewidth}}
+\toprule
+主張&状態・証明\\\midrule
+判別曲線が滑らか・連結・種数三&
+主論文の次数三部分の判別曲線の補題。四チャートの特異点イデアルは$\mathbb Q$上で$[1]$。
+コードを実行済み。\\
+一般点のquaternion algebraがdivision&
+主論文の次数三部分の Clifford order の構成。
+判別二重被覆の2-torsion線束$\eta$の解像度から$H^0(\eta)=0$を証明。\\
+内在的三次曲面の全公理&
+論文の構成節。局所order、Serre関手、ample pair、例外性、
+Hilbert関数、smooth proper性の証明を記載し点検。\\
+$R$の次数一生成・左右noetherian・domain&
+主論文の次数三部分の反標準環の生成の命題。Cox単項式と一般点のdivision性による証明。\\
+$\dim Q(R)_3=19$&
+主論文の次数三部分の二次包絡の命題。
+六関係から得る整数行列について、四十五次小行列式$512$と
+独立な三本の整数核ベクトルを計算・検証。\\
+局所射影rank一exceptional対象の分類&
+論文の同名節。数値的群rank四、行列式の平方条件、Euler整数性、
+数値類からの同型への昇格。\\
+構造対象を忘れたgraded AS4三次商との非同値&
+論文の最終定理。自由対象の像の局所射影性・rank一性を導き、
+四対象の合成図式の十九次元と二十次元を比較。\\
+任意の非周期的$\mathbb Z$-algebraの排除&
+未完成。次節の追加仮定の下では同じ合成不変量で排除できる。\\
+新規性&
+未確認。ramification型の存在は既知。非表示定理の初出を今後照合する。\\
+\bottomrule
+\end{longtable}
+幾何学・圏論の証明の点検と、計算コードの実行は別の検証である。
+定理証明支援系による形式化は実施していない。
+
+\section{障害の内在化と一般$\mathbb Z$-algebraの境界}
+対象$F$について$E_i=T^iF$、$V_i=\operatorname{Hom}(E_i,E_{i+1})$、
+$W_i=\ker(V_i\otimes V_{i+1}\to\operatorname{Hom}(E_i,E_{i+2}))$と置く。
+\[
+D_3(F)=
+\frac{V_0\otimes V_1\otimes V_2}
+{W_0\otimes V_2+V_0\otimes W_1}
+\]
+の次元は、四対象の合成図式だけから定まり、対象の同型の選択に依存しない。
+本例の分類された全ての候補$F$で$\dim D_3(F)=19$となる。
+
+connected gradedなAS三次商$B$では、Nakayama自己同型があり得ても、
+$S(\pi B(i))\simeq\pi B(i-1)[2]$が対象として成り立つ。
+四対象を個別に自由対象列と同定すれば、合成図式は通常の積の図式になり、
+$\dim D_3=20$を得る。
+$T=(1)$という関手の等式や、反標準orbit環と$B$の無条件な次数付き同型は不要である。
+
+\begin{proposition}[追加仮定の下での拡張]\label{prop:conditional-Z}
+$\mathbb Z$-algebraの三次超曲面圏$\mathcal B$がSerre関手$S_{\mathcal B}$を持ち、
+$T_{\mathcal B}=S_{\mathcal B}^{-1}[2]$が完全自己同値であるとする。
+さらにtautological対象列$(\mathcal B_i)_{i\in\mathbb Z}$があり、
+以下を仮定する。
+\begin{enumerate}
+\item $\mathcal B_0$はexceptionalで、$T_{\mathcal B}\mathcal B_i\simeq\mathcal B_{i+1}$。
+\item 自由対象間のHomと合成は次数付き成分に飽和し、
+$\dim\operatorname{Hom}(\mathcal B_0,\mathcal B_n)=1+\frac32n(n+1)$ ($n\ge0$)。
+\item 任意のcoherent対象$M$について
+$\operatorname{Ext}^1(\mathcal B_{-n},M)=0$ ($n\gg0$)。
+\item 三連続の一次Homと二次合成核から作る空間$D_3(\mathcal B_0)$は二十次元。
+\end{enumerate}
+このとき$\mathcal B\not\simeq\operatorname{coh}\mathcal A$である。
+\end{proposition}
+\begin{proof}
+主論文の非表示定理の証明は、この四条件と
+$\operatorname{coh}\mathcal A$側の構造だけを使う。
+同値による$\mathcal B_0$の像は局所射影division rank一exceptionalとなり、
+分類と$D_3$の次元比較が十九と二十の矛盾を与える。
+\end{proof}
+
+任意の非周期的な標準AS正則$\mathbb Z$-algebraとその正規三次商が、
+この四条件を全て満たすという主張は、現稿では証明していない。
+特に必要なのは商のdualizing bimoduleとtautological対象列へのSerre作用である。
+Mori--Nyman\cite{MoriNyman}のv3にはcorrigendumがあり、
+旧Theorem~7.8は追加のNakayama bimodule条件なしには使えない。
+Corollary~7.6のrowwise局所コホモロジー公式だけから
+全bimodule双対性を結論しない。
+
+次の具体的方針は、両側14641型Koszul dualのFrobenius構造から
+周期四のNakayama bimoduleを取り出し、
+正規三次イデアルのshift三とnormal-divisor adjunctionを組み合わせることである。
+これは今後証明すべき技術的補題であり、現在のgraded定理の依存結果ではない。
+
+\section{使える補助事実と避けるべき推論}
+\subsection{Hochschild homology}
+次数三の例は
+\[
+(\dim HH_{-1},\dim HH_0,\dim HH_1)=(2,4,2)
+\]
+を持ち、full exceptional collectionを持たない。
+これはKuznetsov\cite[Theorem~8.12]{KuznetsovHH}と、
+種数三の曲線の非自明2-torsion線束のcohomologyから計算できる。
+ただし、非零の$HH_{\pm1}$それ自体を、
+全てのAS四次元三次超曲面に対する障害としては用いない。
+本稿の排除は二次包絡と候補構造対象の分類に基づく。
+
+\subsection{数値的群の計算}
+conic bundle $p:X\to Z$は滑らかな三次元多様体である。
+連結判別二重被覆により$p^{-1}(D)$は既約であり、
+一般conicへのPicard群制限から$\rho(X)=3$となる。
+$H^{>0}(X,\mathcal O_X)=0$とLefschetzの定理から
+$\rk K_{\mathrm{num}}(X)=8$、半直交分解から
+$\rk K_{\mathrm{num}}(\mathcal A)=4$を得る。
+$X$をambientのample divisorと仮定する必要はない。
+
+基底$(\mathcal A,\mathcal P,\mathcal A(C),\mathcal A(f))$で
+\[
+G=\begin{pmatrix}
+1&4&0&2\\1&1&-2&0\\-2&-1&1&-5\\0&1&-5&1
+\end{pmatrix},\qquad\det G=100.
+\]
+局所射影rank一$F$について
+$\det F=\det\mathcal A\otimes N^2$、$N=aC+bf$とすると、
+exceptionalityは
+\[
+\chi(\mathcal A,F)=1+\frac{N^2+NL}{2}
+\]
+を与える。整数性から$b$は偶数である。
+従って$N$のmodulo $2\operatorname{Pic}Z$の類は$0$または$L$になり、
+$\mathcal A(M)$、$\mathcal P(M)$が全候補となる。
+これは単なる数値的分類に止まらず、行列式とSerre双対性で実際の同型に上がる。
+
+\section{一次資料と既知の範囲}
+\begin{itemize}
+\item Chan--Ingalls\cite[Sections~2--3]{ChanIngalls2012}：
+線束値二次形式、Clifford偶部と奇部、conic bundleとの関係。
+Section~8の具体的minimal del Pezzo例は主として中心$\mathbb P^2$上を扱う。
+\item Nasr\cite[arXiv v1, Definition~2.1, Theorems~1.1(2), 2.16]{Nasr2020}：
+本例の$D=4H-C$、分岐指数二は既知の一点blow up型に含まれる。
+orderの有理標準因子は$K_Z+\tfrac12D$である。
+\item Kuznetsov\cite[Theorem~4.2]{KuznetsovQuadric}：
+flat quadric fibrationの半直交分解。
+本例では基底と全空間の滑らかさを先に確認して適用する。
+\item Yekutieli--Zhang\cite[Theorem~4.2, Corollary~4.3]{YZ1997}：
+左右noetherianなconnected AS-Gorenstein代数のbalanced dualizing complex、
+局所コホモロジーの右有界性、Serre双対性。
+原著のpp.\ 705--707を確認した。
+\item Artin--Zhang\cite[Theorem~4.5]{AZ1994}：
+ample pairの再構成に用いる。
+書誌・出版社ページを確認した。今回、当該原著の全文再取得はできていない。
+使用する再構成の標準的な定式化と、本例における仮定は本文で確認した。
+\item Cassidy--Vancliff\cite[Theorem~1.1]{CV2010}：
+basepoint-free な三つの二次形式から作る graded Clifford algebra の AS 正則性。
+次数二の別 ambient の構成で使う。著者公開 PDF の該当定理を確認した。
+\item Chirvasitu--Kanda--Smith\cite[arXiv v3, Propositions~1.6, 2.1]{CKS2019}：
+連結次数付き twisted Calabi--Yau と AS 正則性の関係、および正則正規拡大。
+DOI は \texttt{10.1090/tran/7672} である。
+\item Chen--Kirkman--Zhang\cite[Lemma~1.1]{CKZ2017} と
+Liu--Wang--Wu\cite[Theorem~3.3]{LWW2014}：
+down-up algebra と Ore 拡大の正則性。
+次数一の最小生成次数 $(1,1,3)$ の ambient に適用する。
+\item Bernardara--Macr\`i--Mehrotra--Stellari
+\cite[Propositions~2.9(ii), 2.12]{BMMS2012}：
+cubic-threefold Clifford 圏の数値的 Grothendieck 群の整数基底。
+次数一の対象分類に用いる。原著 PDF の両命題を確認した。
+\end{itemize}
+
+Chan--Ingalls の $F_{5-}^{2}$ 型は arXiv v1 では Section~9、
+最終著者版では Section~8 にある。本研究の次数一の分解と一致する。
+Kuznetsov の quadric 論文は出版版
+\emph{Adv. Math.} 218 (2008), 1340--1369 を引用し、
+Theorem~4.2 が p.~1357 にあることを確認した。
+Hochschild 論文は確認できた arXiv:0904.4330v1 を用い、未確認の雑誌情報を補わない。
+Nasr の書誌情報は出版版によるが、定義・定理番号は確認した arXiv v1 を明記する。
+Serre vanishing は Yekutieli--Zhang の局所双対性から本文で直接導き、
+今回原著本文を取得できなかった AZ Corollary~7.5 には依存させない。
+
+比較の出発点となる $\mathcal H_3$ の定義は、2026年11月19日に次の原稿で確認した。
+その二次包絡の $(1,4,6,4,1)$ 条件と本研究の十九次元の計算は直接比較できる。
+本例では、元の weak な内在的条件に加えて、smooth proper 性と
+全整数 $n$ に対する $\operatorname{Ext}^1(\mathcal O,T^n\mathcal O)=0$ も証明している。
+\begin{quote}\small
+\url{https://github.com/uedakazushi/nc-cubic-moduli}\par
+\texttt{papers/weak\_cubic\_axioms.tex}\par
+blob SHA: \texttt{7190004e0914225d186cb6dd383a5ed8d85af540}
+\end{quote}
+主論文には必要な定義を全て再掲してあり、再開に外部原稿の取得は不要である。
+
+\section{再現資産と検証状態}
+\path{scripts/verify_all.py} は、次数一・二の三つの計算と、
+次数三の滑らかさ・二次関係の二つの計算をまとめて実行する。
+五つとも Python 3.12.14、SymPy 1.14.0 で実行し、成功を確認した。
+計算では有理数・整数演算を用い、浮動小数点近似を用いない。
+行列証明書は \path{certificates/degree3_quadratic.json} として保持する。
+通常の検証はこれを読み取り、変更しない。
+四十五次小行列式が $512$、三本の整数核ベクトルが独立かつ実際に核に属することを確認する。
+証明書を再生成する場合だけ
+\texttt{python3 scripts/verify\_degree3\_relations.py --regenerate} を実行する。
+
+\path{scripts/build.py} は LuaLaTeX、BibTeX、latexmk で二つの文書を組版する。
+必要な依存関係と VS Code / Cursor の操作は README に記す。
+\path{scripts/make_bundle.py} は現在のソースと主論文と研究ノートのPDF だけをまとめ、
+ログ、キャッシュ、旧版、入れ子 ZIP を含めない。
+実行ログを保管する代わりに入力・コード・必要な数学的証明書を保持する。
+
+
+\section{量子Fermat点と非CY符号型族の現行の要点}
+本節は統合先に既にあった二つのH3例のうち、
+主論文に十分な証明がある事項の参照先と、再検証時の注意点を整理する。
+量子Fermatは三乗根の量子多項式環の中心三次商で、
+離散torsion付き$(\mu_3)^2$商によるMorita表示と
+$HH_{-1,0,1}=(2,5,2)$ を与える。
+非CY符号型では$q_{01}=1$、他の五つの交換係数は$-1$、
+$G=f_3(x_0,x_1)+x_0x_2^2+x_1x_3^2$、滑らかさ条件は
+$a d\Delta(f_3)\ne0$である。
+この族は固定ambientで一般に二次元のpointed同型類を持ち、
+$HH_{-1,0,1}=(2,4,2)$である。
+
+符号型では$\Gamma=(\mathbb Z/2)^3$、
+$\deg(x_0,x_1,x_2,x_3)=(e_0,e_0,e_1,e_2)$、
+cocycle $\nu(u,v)=(-1)^{u_1v_0+u_2v_0+u_2v_1}$を使う。
+交換形式のradicalは$e_0+e_1+e_2$なので、
+twisted group algebraは$M_2(\mathbb C)\oplus M_2(\mathbb C)$であり、
+$M_4(\mathbb C)$と取り違えない。
+その二成分を交換する$H=\Gamma^\vee$の安定化群は
+$H_0=\{(a,b,c):a+b+c=0\}$である。
+非自明なsector $g_A=(0,1,1)$の固定集合は
+$\mathbb P^1$と三点、$g_B=(1,0,1)$と$g_C=(1,1,0)$は
+それぞれ楕円曲線と一点を含む。
+$H^2$のtraceは$(7,3,-1,-1)$、$H^2$不変部分のrankは二である。
+twisted HKRの非零奇数次部分は二つの楕円sectorに由来する。
+詳細な導来Morita還元とsector算定の証明は主論文の
+量子Fermat・符号型節を参照し、計算確認は
+\path{computations/verify_all.py}に置く。
+
+本研究の二つの非存在概念は異なる。
+量子Fermat・符号型は標準四次元AS regular ambientの
+三次超曲面として表示されるがOU型AS surfaceでない。
+次数三のClifford例は、反標準環の二次包絡が
+標準四次元AS regular環でなく、裸のAbel圏としても
+その種の三次超曲面の\operatorname{qgr} と同値にならない。
+次数一・二Clifford例では指定最小生成次数の非表示と
+別ambientの存在を両立させる。
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

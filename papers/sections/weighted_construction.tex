@@ -1,0 +1,487 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{設定と主結果}
+\label{sec:main}
+
+基礎体を $k=\mathbb C$ とし，order の加群は右加群とする．
+$B$ が連結局所有限・左右 noetherian 次数付き algebra のとき，
+$\operatorname{qgr}B$ は有限生成次数付き右 $B$-module の圏を
+有限次元加群で割った Serre 商圏であり，$\pi$ はその商関手を表す．
+Hom と Ext が有限次元で高次 Ext が消滅する圏では
+$\chi(E,F)=\sum_i(-1)^i\dim_k\operatorname{Ext}^i(E,F)$ と置き，
+$K_{\mathrm{num}}$ は $K_0$ をこの Euler pairing の radical で割った群とする．
+ここで使う圏は Serre functor を持つので，左右の radical は一致する．
+導来圏の対象 $E$ が exceptional であるとは，
+$\operatorname{Hom}(E,E)\simeq k$ かつ
+$\operatorname{Hom}(E,E[i])=0$ for $i\ne0$ を満たすことをいう．
+
+\begin{definition}
+本稿で次数 $e$ の非可換 del Pezzo 曲面というとき，
+noetherian な $k$-線形アーベル圏 $\mathcal C_e$ と対象 $\mathcal O_e$ に対し，
+次の内在的条件を課す．圏の大域次元は二で，導来圏は smooth proper な
+dg enhancement と Serre functor $S_e$ を持つ．
+$T_e=S_e^{-1}[2]$ はアーベル圏の完全自己同値であり，
+$\mathcal O_e$ は Gabriel--Krull rank 一の torsion-free exceptional 対象，
+$(\mathcal O_e,T_e)$ は Artin--Zhang ample である．さらに
+\[
+ \dim\operatorname{Hom}(\mathcal O_e,T_e^n\mathcal O_e)
+ =\begin{cases}1+\frac e2 n(n+1)&n\ge0,\\0&n<0,\end{cases}
+ \qquad
+ \operatorname{Ext}^1(\mathcal O_e,T_e^n\mathcal O_e)=0
+ \quad(n\in\mathbb Z)
+\]
+を満たす．ここで torsion-free は低い Gabriel--Krull 次元の非零部分対象を
+持たないという意味であり，order の例では低次元の台を持つ部分対象の不存在を表す．
+\end{definition}
+
+その反標準環を
+\[
+ R^{(e)}=\bigoplus_{n\ge0}
+ \operatorname{Hom}_{\mathcal C_e}(\mathcal O_e,T_e^n\mathcal O_e)
+\]
+と定める．$f$ の次数が $m$，$g$ の次数が $n$ のとき，積の規約は
+$fg=T_e^n(f)\circ g$ とする．
+
+アーベル圏が曲面上の order の coherent module の圏である場合，
+台の次元が $1$ 以下の対象で割った商圏における長さを
+Gabriel--Krull rank と呼び，$\operatorname{GKrk}$ と書く．
+これは台の次元そのものとは異なる．
+以下では一般点の algebra が division algebra であることを証明するので，
+構造対象の Gabriel--Krull rank は $1$ となる．
+
+\begin{theorem}
+\label{thm:weighted-main}
+本稿で構成する $e=2,1$ の2つの組
+$(\mathcal C_e,\mathcal O_e)$ は次の性質を持つ．
+\begin{enumerate}
+\item $\mathcal C_e$ の大域次元は二で，導来圏は smooth proper な
+dg enhancement を持つ．$\mathcal O_e$ は torsion-free exceptional で，
+$\operatorname{GKrk}(\mathcal O_e)=1$ である．
+$(\mathcal O_e,T_e)$ は Artin--Zhang ample であり，
+$\mathcal C_e\simeq\operatorname{qgr}R^{(e)}$ である．
+\item すべての $n\ge0$ について
+\[
+ \dim_k R^{(e)}_n=1+\frac e2 n(n+1).
+\]
+従って
+\[
+ H_{R^{(2)}}(t)=\frac{1-t^4}{(1-t)^3(1-t^2)},\qquad
+ H_{R^{(1)}}(t)=\frac{1-t^6}{(1-t)^2(1-t^2)(1-t^3)}.
+\]
+\item $e=2$ の場合，最小生成次数 $(1,1,1,2)$，
+Hilbert 級数 $((1-t)^3(1-t^2))^{-1}$ の左右 noetherian
+AS-regular algebra $G$ の次数4の正則正規元 $f$ に対して，
+$\mathcal C_2\simeq\operatorname{qgr}(G/(f))$ となる
+$k$-線形アーベル圏同値は存在しない．
+$e=1$ の場合も，最小生成次数 $(1,1,2,3)$，
+Hilbert 級数 $((1-t)^2(1-t^2)(1-t^3))^{-1}$，
+次数6の正則正規元 $f$ に対して同じ非存在が成り立つ．
+ここで $G$ の大域次元は $4$ とする．
+\item 最小生成次数の条件を外すと，両例の反標準環は，
+第3項でそれぞれの $G$ に指定した Hilbert 級数を持つ
+大域次元 $4$ の左右 noetherian AS-regular algebra の中心正則超曲面になる．
+実際の ambient の最小生成次数は，それぞれ $(1,1,1)$ と $(1,1,3)$ である．
+\item 標準的な dg enhancement の Hochschild homology は
+\[
+\begin{array}{c|ccc}
+e&\operatorname{HH}_{-1}(\mathcal C_e)&
+\operatorname{HH}_0(\mathcal C_e)&\operatorname{HH}_1(\mathcal C_e)\\ \hline
+2&k^3&k^4&k^3\\
+1&k^5&k^3&k^5
+\end{array}
+\]
+であり，$|i|\ge2$ では $\operatorname{HH}_i(\mathcal C_e)=0$ である．
+\end{enumerate}
+\end{theorem}
+
+AS-regular は，有限大域次元，左右の AS-Gorenstein 条件，有限 GK 次元を
+満たす連結局所有限 $\mathbb N$-次数付き algebra の意味で用いる．
+大域次元を $d$ とすると，AS-Gorenstein parameter $\lambda$ は
+$\underline{\operatorname{Ext}}^i_G(k,G)=0$ for $i\ne d$，
+$\underline{\operatorname{Ext}}^d_G(k,G)\simeq k(\lambda)$
+（および左加群での同じ条件）で定まる整数である．
+最小生成次数は $G_+/(G_+)^2$ の次数付きベクトル空間としての次数を指す．
+主定理の非表示は，構造対象を保つ同値だけでなく，
+構造対象を指定しないアーベル圏同値も排除する．
+一方，Hilbert 級数だけで ambient を指定する意味の非表示は主張しない．
+第1，2項は本節と第\ref{sec:serre-rank}節，
+第4項は第\ref{sec:explicit-ambient}節，
+第3項は第\ref{sec:unpointed}節，
+第5項は第\ref{sec:hochschild}節で証明する．
+
+\subsection{Clifford algebra の規約}
+
+$Z$ を滑らかな射影曲面，$L$ を線束，
+$\mathcal V$ を階数 $3$ のベクトル束とし，
+$q:\operatorname{Sym}^2\mathcal V\to L$ を対称形式とする．
+局所的に $L$ と $\mathcal V$ を自明化したとき，Clifford relations は
+$xy+yx=2q(x,y)$ とする．偶部分と奇部分は
+\begin{equation}
+ \mathcal A=\operatorname{Cl}_0(\mathcal V,q,L)
+ =\mathcal O_Z\oplus(\wedge^2\mathcal V)\otimes L^{-1},
+ \qquad
+ \mathcal P=\operatorname{Cl}_1(\mathcal V,q,L)
+ =\mathcal V\oplus(\det\mathcal V)\otimes L^{-1}
+ \label{eq:clifford-bundles}
+\end{equation}
+である．これらの外積分解は，標数 $0$ における反対称化写像による
+$\mathcal O_Z$-加群の同型であり，積は Clifford multiplication で定める．
+$\mathcal P$ は $\mathcal A$-bimodule である．
+$\mathbb P_Z(\mathcal V)$ は $\mathcal V$ の直線をパラメータ化する規約とし，
+\[
+ X=\{q=0\}\subset\mathbb P_Z(\mathcal V),\qquad p:X\to Z
+\]
+を付随する conic bundle とする．
+
+\subsection{次数2の例}
+\label{subsec:example2}
+
+\[
+ Z_2=\mathbb P^1_s\times\mathbb P^1_t,\qquad
+ L_2=\mathcal O(1,1),\qquad \mathcal V_2=\mathcal O^{\oplus3}
+\]
+とする．Segre 座標
+$a=s_0t_0,\ b=s_0t_1,\ c=s_1t_0,\ d=s_1t_1$ は $ad=bc$ を満たす．
+二次形式を
+\begin{equation}
+ q_2=
+ \begin{pmatrix}
+ b&a+c&a+d\\
+ a+c&b&b\\
+ a+d&b&c
+ \end{pmatrix}
+ \label{eq:q2}
+\end{equation}
+で定める．その行列式は
+\begin{align}
+ \Delta_2={}&a^2b-a^2c+2abc-2ac^2-b^3+b^2c
+             +2bcd-bd^2-c^3 .
+ \label{eq:discriminant2}
+\end{align}
+$D_2=(\Delta_2=0)\subset Z_2$ は $(3,3)$ 曲線である．
+式\eqref{eq:clifford-bundles}から
+\begin{equation}
+ \mathcal A_2=\mathcal O\oplus\mathcal O(-1,-1)^{\oplus3},
+ \qquad
+ \mathcal P_2=\mathcal O^{\oplus3}\oplus\mathcal O(-1,-1).
+ \label{eq:bundles2}
+\end{equation}
+以後 $\mathcal C_2=\operatorname{coh}\mathcal A_2$，
+$\mathcal O_2=\mathcal A_2$ とする．
+
+\subsection{次数1の例}
+\label{subsec:example1}
+
+\[
+ Z_1=\mathbb P^2_{[u:v:w]},\qquad
+ L_1=\mathcal O(1),\qquad
+ \mathcal V_1=\mathcal O^{\oplus2}\oplus\mathcal O(-1)
+\]
+とし，
+\begin{equation}
+ q_1=
+ \begin{pmatrix}
+ u&v&w^2\\
+ v&w&u^2\\
+ w^2&u^2&2v^3
+ \end{pmatrix}
+ \label{eq:q1}
+\end{equation}
+で定める．その行列式は
+\begin{equation}
+ \Delta_1=-u^5+2u^2vw^2+2uv^3w-2v^5-w^5.
+ \label{eq:discriminant1}
+\end{equation}
+$D_1=(\Delta_1=0)\subset\mathbb P^2$ は5次曲線である．このとき
+\begin{equation}
+ \begin{split}
+ \mathcal A_1&=\mathcal O\oplus\mathcal O(-1)\oplus\mathcal O(-2)^{\oplus2},\\
+ \mathcal P_1&=\mathcal O^{\oplus2}\oplus\mathcal O(-1)\oplus\mathcal O(-2).
+ \end{split}
+ \label{eq:bundles1}
+\end{equation}
+$\mathcal C_1=\operatorname{coh}\mathcal A_1$，
+$\mathcal O_1=\mathcal A_1$ とする．
+
+\begin{lemma}
+\label{lem:smooth}
+$D_2,D_1$ は滑らかで連結であり，それぞれ種数 $4,6$ を持つ．
+また $q_e$ の rank はすべての点で $2$ 以上で，
+$p_e:X_e\to Z_e$ は滑らかな全空間を持つ flat conic bundle である．
+\end{lemma}
+\begin{proof}
+滑らかさは，付録\ref{sec:computation}で指定する厳密計算による．
+各標準アフィンチャートで，判別式 $F$ と2個の偏微分が生成する
+$\mathbb Q$ 上のイデアルの Gröbner 基底は $\{1\}$ である．
+$Z_2$ の4チャートと $Z_1$ の3チャートが全体を被覆するので，
+$D_e$ は $\mathbb C$ 上で滑らかである．
+完全列 $0\to\mathcal O_{Z_e}(-D_e)\to\mathcal O_{Z_e}\to
+\mathcal O_{D_e}\to0$ について，$H^1(\mathcal O_{Z_e}(-D_e))=0$ なので
+$H^0(\mathcal O_{D_e})=k$ であり，連結である．
+随伴公式は $g(D_2)=(3-1)(3-1)=4$，
+$g(D_1)=(5-1)(5-2)/2=6$ を与える．
+
+対称行列の rank が $1$ 以下なら全ての $2\times2$ minor が消え，
+行列式の微分も消えるため，$D_e$ の滑らかさに反する．
+従って各ファイバーは非零な2次式で定義され，
+一定の Hilbert 多項式を持つので $p_e$ は flat である．
+$D_e$ 外ではファイバーが滑らかである．$D_e$ 上では rank が $2$ で，
+退化 conic の特異点における基底方向の微分は
+判別式の非零微分に対応する．従って全空間 $X_e$ は滑らかである．
+\end{proof}
+
+\section{一般点の rank と反標準自己同値}
+\label{sec:serre-rank}
+
+この節では，添字 $e$ を省略する．両例に共通する等式は
+\begin{equation}
+ \det\mathcal V=\omega_Z\otimes L^2,\qquad L\ \text{は ample}.
+ \label{eq:detV}
+\end{equation}
+
+\subsection{判別二重被覆と division 性}
+\label{subsec:residue}
+
+$i:D\hookrightarrow Z$ とし，$q:\mathcal V\to\mathcal V^\vee\otimes L$ の
+余核を $i_*\mathcal M$ と書く．$\det q$ が非零で，$D$ 上の corank が
+ちょうど $1$ なので $\mathcal M$ は $D$ 上の線束である．
+$q|_D$ の radical を $\mathcal K$，
+$\mathcal W=\mathcal V|_D/\mathcal K$ とすると，$\mathcal W$ は
+$L|_D$ に値を持つ非退化な階数2の二次束であり，
+\[
+ \mathcal M=\mathcal K^\vee\otimes L|_D,\qquad
+ \eta:=\det\mathcal W\otimes L^{-1}|_D
+ =\mathcal M\otimes(\det\mathcal V)|_D\otimes L^{-2}|_D.
+\]
+誘導された非退化形式を $q_{\mathcal W}$ とし，その determinant の負号を取った同型
+\[
+ \vartheta=-\det(q_{\mathcal W}):\eta^{\otimes2}\xrightarrow{\sim}\mathcal O_D
+\]
+を用いて，$\mathcal O_D\oplus\eta$ に
+$(f,x)(g,y)=(fg+\vartheta(x\otimes y),fy+gx)$ という積を入れる．
+これにより有限非分岐二重被覆
+\[
+ \pi:\widetilde D=\operatorname{Spec}_D(\mathcal O_D\oplus\eta)\longrightarrow D,
+ \qquad
+ \pi_*\mathcal O_{\widetilde D}=\mathcal O_D\oplus\eta
+\]
+を得る．局所的に $L|_D$ を自明化し，$q_{\mathcal W}=\langle a,b\rangle$ と書くと，
+$\eta$ の外積基底に対応する元 $\xi$ は $\xi^2=-ab$ を満たす．
+等方直線 $[x:y]$ の式は $ax^2+by^2=0$ であり，$\xi=by/x$ によって
+この二重被覆の2点と対応する．等方直線の族
+$\rho:F_D=\{q_{\mathcal W}=0\}\subset\mathbb P_D(\mathcal W)\to D$ と，
+その tautological line $\mathcal U\subset\rho^*\mathcal W$ を取る．この対応は
+\[
+ \rho^*\det\mathcal W=\mathcal U\otimes(\rho^*\mathcal W/\mathcal U)
+ \xrightarrow{q_{\mathcal W}}\rho^*(L|_D)
+\]
+から定まるので局所基底に依存せず，$F_D\simeq\widetilde D$ を与える．
+各等方直線の $\mathcal V|_D$ 内の逆像を射影化すると退化 conic の1成分になるので，
+$\widetilde D$ はその2つの成分を区別する二重被覆である．
+式\eqref{eq:detV}より $\eta=\mathcal M\otimes\omega_Z|_D$ なので
+\begin{equation}
+ 0\longrightarrow \mathcal V\otimes\omega_Z
+ \xrightarrow{q} \mathcal V^\vee\otimes L\otimes\omega_Z
+ \longrightarrow i_*\eta\longrightarrow0 .
+ \label{eq:eta-resolution}
+\end{equation}
+次数2では左の2項は
+$\mathcal O(-2,-2)^3,\mathcal O(-1,-1)^3$，
+次数1では
+$\mathcal O(-3)^2\oplus\mathcal O(-4),
+\mathcal O(-2)^2\oplus\mathcal O(-1)$ である．
+前者の $H^1$ と後者の $H^0$ はともに消滅する．従って
+\begin{equation}
+ H^0(D,\eta)=0,\qquad \eta\not\simeq\mathcal O_D.
+ \label{eq:eta-nontrivial}
+\end{equation}
+$D$ が連結なので，$\widetilde D$ も連結である．
+
+\begin{proposition}
+\label{prop:division}
+$\mathscr D=\mathcal A\otimes_{\mathcal O_Z}k(Z)$ は quaternion division algebra
+であり，$\operatorname{GKrk}(\mathcal A)=1$ である．
+\end{proposition}
+\begin{proof}
+非退化な3変数二次形式の偶 Clifford algebra は quaternion algebra である．
+$D$ の一般点の離散付値環上で形式を
+$\langle a,b,sc\rangle$ と対角化する．ここで $a,b,c$ は単元，
+$s$ は一様化元である．偶 Clifford algebra の生成元
+$I=e_1e_2,\ J=e_1e_3$ は
+$I^2=-ab,\ J^2=-asc,\ IJ=-JI$ を満たす．
+その residue は $\sqrt{-ab}$ を加える二次拡大であり，
+これは $\widetilde D\to D$ の関数体拡大に等しい．
+式\eqref{eq:eta-nontrivial}よりこの residue は非自明なので，
+$\mathscr D$ の Brauer 類は非零である．次数2の central simple algebra
+は split でなければ division だから，$\mathscr D$ は division である．
+
+$\mathcal C_{\le1}\subset\operatorname{coh}\mathcal A$ を，台の次元が $1$ 以下の対象の
+Serre 部分圏とする．一般点への制限は
+$\operatorname{coh}\mathcal A/\mathcal C_{\le1}\simeq\operatorname{mod}\mathscr D$
+を与える．有限次元 $\mathscr D$-module とその射は分母を払って
+稠密開集合上に延長でき，2つの延長の差は一般点で消える対象で測られるためである．
+正則右 $\mathscr D$-module の長さは $1$ なので結論を得る．
+\end{proof}
+
+以後，一般点の右 $\mathscr D$-module が $\mathscr D^{\oplus r}$ であるとき，
+その整数 $r$ を division rank と呼ぶ．
+
+\subsection{局所正則性と Serre functor}
+
+閉点の完備局所環を $R=k[[s,t]]$ とする．$D$ 外では，非退化形式を対角化し，
+単元の平方根を取ることにより $\widehat{\mathcal A}\simeq M_2(R)$ を得る．
+$D=(s)$ 上では，$L$ と $\mathcal V$ を自明化して
+$q=\langle a,b,sc\rangle$ と対角化できる．ここで $a,b,c\in R^\times$ であり，
+最後の係数の位数が $1$ であることは $D$ の滑らかさによる．
+$R$ の単元は平方根を持つので，対応する Clifford の偶元を正規化して
+\[
+ I=\frac{e_1e_2}{\sqrt{-ab}},\qquad
+ J=\frac{e_1e_3}{\sqrt{-ac}},\qquad
+ I^2=1,\quad J^2=s,\quad IJ=-JI
+\]
+とできる．$R$-基底 $1,I,J,IJ$ に対し
+\[
+ I\longmapsto\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
+ J\longmapsto\begin{pmatrix}0&1\\s&0\end{pmatrix}
+\]
+は積を保ち，その像は次の order 全体を生成する．従って
+\begin{equation}
+ \widehat{\mathcal A}\simeq
+ \begin{pmatrix}R&R\\sR&R\end{pmatrix}.
+ \label{eq:local-order}
+\end{equation}
+この order の大域次元を確認するため，$U=k[[r,t]]$，$r^2=s$ とし，
+$g(r)=-r,\ g(t)=t$ で作用する位数 $2$ の群を用いて
+$\Lambda=U\rtimes\langle g\rangle$ と置く．その積は
+$g^2=1,\ gu=g(u)g$（$u\in U$）で定める．$U=Rr\oplus R$ 上の作用では，
+$r$ と $g$ の行列はそれぞれ上の $J$ と $-I$ である．
+従って $R$-基底 $1,g,r,rg$ の像を比較すると
+$\Lambda\simeq\widehat{\mathcal A}$ となる．
+任意の右 $\Lambda$-module $M$ に対し，積による全射
+$M\otimes_U\Lambda\to M$ は
+\[
+ m\longmapsto\frac12\bigl(m\otimes1+mg\otimes g\bigr)
+\]
+で右 $\Lambda$-線形に分裂する．$U$ は大域次元 $2$ の正則局所環で，
+$\Lambda$ は左右の $U$-module として自由なので，$U$ 上の長さ $2$ 以下の射影分解を
+$-\otimes_U\Lambda$ で誘導すれば $\operatorname{pd}_{\Lambda}M\le2$ となる．
+また $r=t=0,\ g=1$ で作用する加群 $k$ は，$U$ 上の射影次元が $2$ であり，
+$\Lambda$ 上の射影分解を $U$ に制限できることから
+$\operatorname{pd}_{\Lambda}k\ge2$ である．従って $\operatorname{gl.dim}\Lambda=2$ である．
+分岐外でも $M_2(R)$ の大域次元は $2$ である．
+有限表示加群の射影性は中心の忠実平坦な基底変換で降下するので，
+第2 syzygy にこれを適用すると，元の局所 order 上でも coherent module は
+長さ $2$ 以下の射影分解を持つ．
+
+各点の近傍で $q$ は単元を表すので，対応する Clifford の奇元は可逆である．
+その奇元による局所自明化を使うと，Clifford multiplication は
+\begin{equation}
+ \mathcal P\otimes_{\mathcal A}\mathcal P\simeq\mathcal A\otimes L
+ \label{eq:P-square}
+\end{equation}
+となる．射は元の multiplication から定まり，局所的に同型であるため
+選択に依存せず大域的な同型である．
+同じく最高外冪成分への pairing
+$\mathcal A\otimes\mathcal P\to\det\mathcal V\otimes L^{-1}$
+は完全であり，偶元と奇元について cyclic である．従って bimodule として
+\[
+ \mathcal A^\vee\simeq\mathcal P\otimes(\det\mathcal V)^{-1}\otimes L.
+\]
+$\omega_{\mathcal A}:=\mathcal Hom_{\mathcal O_Z}(\mathcal A,\omega_Z)$ と置くと，
+式\eqref{eq:detV}，\eqref{eq:P-square}は
+\begin{equation}
+ \omega_{\mathcal A}\simeq\mathcal P\otimes L^{-1}\simeq\mathcal P^{-1}
+ \label{eq:dualizing-order}
+\end{equation}
+を与える．$Z$ 上の Grothendieck--Serre duality を
+局所射影分解に適用すると
+\begin{equation}
+ S=(-\otimes_{\mathcal A}\mathcal P^{-1})[2],\qquad
+ T=S^{-1}[2]=-\otimes_{\mathcal A}\mathcal P,\qquad
+ T^2=-\otimes L.
+ \label{eq:Serre}
+\end{equation}
+特に $S[-2]$ と $T$ はアーベル圏の完全自己同値である．
+
+\subsection{構造対象についての AZ ampleness}
+
+任意の coherent $\mathcal A$-module $M$ は coherent $\mathcal O_Z$-module
+でもある．$m\gg0$ に対して $M\otimes L^m$ が大域生成されるので，
+随伴により $\mathcal A^{\oplus N}\twoheadrightarrow M\otimes L^m$ が得られる．
+従って $(T^{-2m}\mathcal A)^{\oplus N}\twoheadrightarrow M$ となり，
+ample pair の生成条件を満たす．
+
+全射 $M\twoheadrightarrow N$ の核を $K$ とし，$n=2m+r$，
+$r\in\{0,1\}$ と書く．$\mathcal A$ は局所射影なので
+\[
+ \operatorname{Ext}^1_{\mathcal A}(\mathcal A,T^nK)
+ =H^1\bigl(Z,(K\otimes_{\mathcal A}\mathcal P^r)\otimes L^m\bigr)=0
+ \qquad(m\gg0).
+\]
+これは ample pair の射の全射性の条件である．従って
+$(\mathcal A,T)$ は Artin--Zhang ample である．
+構造対象が noetherian，その自己準同型環が有限次元，
+すべての Hom が有限次元という条件も成り立つので，
+Artin--Zhang の再構成定理 \cite[Theorem~4.5(1)]{AZ1994} により
+\begin{equation}
+ \operatorname{coh}\mathcal A\simeq\operatorname{qgr}R,\qquad
+ R_n=H^0(Z,\mathcal P^{\otimes_{\mathcal A}n})
+ \label{eq:AZ-reconstruction}
+\end{equation}
+を得る．
+
+\subsection{Hilbert 級数と exceptionality}
+
+式\eqref{eq:Serre}から
+$R_{2m}=H^0(Z,\mathcal A\otimes L^m)$，
+$R_{2m+1}=H^0(Z,\mathcal P\otimes L^m)$ である．
+式\eqref{eq:bundles2}，\eqref{eq:bundles1}に代入すると
+\[
+\begin{array}{c|cc}
+ e&\dim R^{(e)}_{2m}&\dim R^{(e)}_{2m+1}\\ \hline
+2&(m+1)^2+3m^2=4m^2+2m+1&
+3(m+1)^2+m^2=4m^2+6m+3\\
+1&2m^2+m+1&2m^2+3m+2
+\end{array}
+\]
+となる．次数1の行では
+$h^0(\mathbb P^2,\mathcal O(r))=\binom{r+2}{2}$ を用いるが，
+現れる $r\ge-2$ について $r=-1,-2$ の値は $0$ である．
+従ってこの表は $m=0$ を含むすべての $m\ge0$ で成り立つ．
+これより主定理の Hilbert 関数と Hilbert 級数が従う．
+また
+\[
+ \operatorname{Ext}^i_{\mathcal A}(\mathcal A,\mathcal A)=H^i(Z,\mathcal A)
+ =\begin{cases}k&i=0,\\0&i\ne0,\end{cases}
+\]
+なので $\mathcal A$ は exceptional である．
+
+\begin{proposition}
+\label{prop:intrinsic-completion}
+上の二つの組は，定義に挙げた残りの内在的条件も満たす．
+\end{proposition}
+\begin{proof}
+$\mathcal A$ は中心上のベクトル束なので，低次元の台を持つ非零部分加群を持たず，
+torsion-free である．$n<0$ では
+$\mathcal A\otimes L^m$ ($n=2m$) と
+$\mathcal P\otimes L^m$ ($n=2m+1$) の各直和成分は負の線束であり，
+大域切断を持たない．次数二では全て $\mathcal O(r,r)$ の形で，
+K\"unneth 公式より $H^1(\mathcal O(r,r))=0$ が全整数 $r$ で成り立つ．
+次数一では $H^1(\mathbb P^2,\mathcal O(r))=0$ が全整数 $r$ で成り立つ．
+従ってすべての $n$ で所定の $\operatorname{Ext}^1$ は消滅する．
+
+式\eqref{eq:Serre}とアーベル圏の負の Ext の消滅から，
+任意の coherent $M,N$ と $i>2$ について
+\[
+ \operatorname{Ext}^i(M,N)
+ \simeq\operatorname{Hom}\bigl(N,M\otimes_{\mathcal A}\mathcal P^{-1}[2-i]\bigr)^*=0.
+\]
+一方 $\operatorname{Ext}^2(\mathcal A,\omega_{\mathcal A})
+\simeq\operatorname{End}(\mathcal A)^*\ne0$ なので大域次元は二である．
+局所射影分解により $D^b(\operatorname{coh}\mathcal A)$ は
+$\operatorname{Perf}(Z,\mathcal A)$ と一致する．
+滑らかな射影三次元多様体 $X$ に対する Kuznetsov の半直交分解
+\cite[Theorem~4.2]{KuznetsovQuadric} はこの圏を admissible 成分として実現する．
+対応する dg 圏は smooth proper な $\operatorname{Perf}_{\mathrm{dg}}(X)$ の
+admissible 成分なので，smooth proper である．
+\end{proof}
+

@@ -1,0 +1,304 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{局所射影rank一exceptional対象}
+\label{sec:exceptional-classification}
+
+\subsection{局所型と行列式}
+
+\begin{lemma}\label{lem:regular-rank-one}
+$F\in\operatorname{coh}\mathcal A$が局所射影で，一般点のquaternion division algebra上のrankが一なら，
+$F$は局所的に正則右加群$\mathcal A$と同型である．
+また，ある$N\in\operatorname{Pic}(Z)$に対し
+\[
+ \det F\simeq\det\mathcal A\otimes N^{\otimes2}
+\]
+となる．
+\end{lemma}
+\begin{proof}
+判別曲線の一般点の離散付値環上では，orderは
+$\mathcal A=R[I]\oplus R[I]J$，$J^2$が一様化元の単元倍という形であり，
+$R[I]$は非自明な剰余二次拡大を持つ．
+Jacobson radicalは$J\mathcal A$，その商は体であるから$\mathcal A$は局所環である．
+有限射影加群は自由であり，一般点のrankから自由階数は一となる．
+
+閉分岐点の中心の完備局所環を$R=k[[u,v]]$とすると，orderは
+$\left(\begin{smallmatrix}R&R\\uR&R\end{smallmatrix}\right)$である．
+二つの原始冪等元に対応する直既約射影を$P_1,P_2$と書けば，
+完備化した$F$は$P_1^{\oplus a}\oplus P_2^{\oplus b}$と分解する．
+形式的分岐因子の一般点への局所化は，分岐曲線の一般点で得た
+自由加群の基底変換である．この局所化の後も$P_1,P_2$は
+互いに非同型な直既約射影である．正則加群は$P_1\oplus P_2$なので，
+Krull--Schmidtの一意性から$a=b=1$となる．
+分岐外では完備orderは$M_2(R)$であり，中心上rank四の射影加群は正則加群と同型である．
+完備化上の生成元を中心の極大イデアルを法として持ち上げ，Nakayamaの補題を用いると，
+元の局所環でも$\mathcal A\to F$が全射になる．
+同じrankのベクトル束の全射なので同型である．
+
+従って遷移写像は$\mathcal A^\times$の元による左乗法である．
+quaternion algebraにおける左乗法の行列式はreduced normの二乗だから，
+reduced normの遷移関数で定まる線束$N$が所望の等式を与える．
+\end{proof}
+
+\begin{lemma}\label{lem:numerical-uniqueness}
+局所射影division rank一の$F$について
+$[F]=[\mathcal A]$ in $K_{\mathrm{num}}(\mathcal A)$なら，$F\simeq\mathcal A$である．
+\end{lemma}
+\begin{proof}
+忘却関手の左随伴は$E\mapsto E\otimes\mathcal A$なので
+\[
+ \chi_Z(E,\operatorname{Forg}F)=\chi_{\mathcal A}(E\otimes\mathcal A,F)
+\]
+である．従って忘却関手は数値的群上に降り，$c_1(F)=c_1(\mathcal A)$を得る．
+$\operatorname{Pic}(\mathbb F_1)$はtorsion-freeで$\operatorname{Pic}^0=0$だから，
+$\det F\simeq\det\mathcal A$である．一方
+\[
+ c_1(\mathcal A)=-3C-4f,\qquad c_1(\omega_{\mathcal A})=-5C-8f,
+ \qquad\det\omega_{\mathcal A}\otimes(\det F)^{-1}=\mathcal O_Z(-2L).
+\]
+非零な$F\to\omega_{\mathcal A}$は，division rank一により一般点で同型である．
+従ってその行列式は$\mathcal O_Z(-2L)$の非零切断となるが，$L$のample性に反する．
+Serre双対性から$\operatorname{Ext}^2_{\mathcal A}(\mathcal A,F)=0$を得る．
+$\chi(\mathcal A,F)=1$なので$\operatorname{Hom}(\mathcal A,F)\ne0$である．
+その非零写像の行列式は非零定数となるから，写像は全体で同型である．
+\end{proof}
+
+\subsection{数値的群とexceptional対象}
+
+\begin{lemma}\label{lem:numerical-rank-four}
+$K_{\mathrm{num}}(\mathcal A)_{\mathbb Q}$の次元は四であり，
+$[\mathcal A],[\mathcal P],[\mathcal A(C)],[\mathcal A(f)]$はその基底である．
+この順序のEuler行列は
+\[
+ \mathbf E=\begin{pmatrix}
+ 1&4&0&2\\
+ 1&1&-2&0\\
+ -2&-1&1&-5\\
+ 0&1&-5&1
+ \end{pmatrix},\qquad\det\mathbf E=100.
+\]
+\end{lemma}
+\begin{proof}
+前節のconic bundleを$p:X\to Z$とする．
+任意の素因子$E\subset Z$について$p^{-1}E$は素因子である．
+$E$が判別曲線と異なる場合は一般ファイバーが滑らかなconicであることから従う．
+判別曲線の場合は，その二つの幾何学的成分が連結な非分岐二重被覆によって交換されるため，
+基礎関数体上では既約となる．
+一般conicへの制限
+\[
+ \operatorname{Pic}(X)_{\mathbb Q}\longrightarrow
+ \operatorname{Pic}(X_{k(Z)})_{\mathbb Q}
+\]
+の核は垂直因子類で生成される．実際，一般ファイバーへの制限が自明な因子は，
+有理関数の因子を差し引くことで垂直因子にできる．
+$p$は相対次元一のflat射だから，垂直素因子の像は曲線である．
+従って上の既約性から，核は$p^*\operatorname{Pic}(Z)_{\mathbb Q}$に等しい．
+一般conicのPicard群はrank一で，相対$\mathcal O(1)$が非零類を与えるから$\rho(X)=\rho(Z)+1=3$である．
+$p_*\mathcal O_X=\mathcal O_Z$かつ$R^{i>0}p_*\mathcal O_X=0$から
+$H^{i>0}(X,\mathcal O_X)=0$を得る．
+Lefschetzの$(1,1)$定理とHard Lefschetzにより$H^2(X),H^4(X)$はともに代数的であり，
+Riemann--RochとPoincar\'e双対性から$\operatorname{rank}K_{\mathrm{num}}(X)=1+3+3+1=8$である．
+conic bundleの半直交分解\cite[Theorem~4.2]{KuznetsovQuadric}により
+\[
+ D^b(X)=\langle D^b(Z,\mathcal A),\ p^*D^b(Z)\otimes\mathcal O_{X/Z}(1)\rangle
+\]
+となるので，$\operatorname{rank}K_{\mathrm{num}}(\mathcal A)=8-4=4$である．
+ここでadmissibleな部分圏の包含と両随伴は数値的同値を保つため，
+半直交分解は数値的Grothendieck群の直和分解を誘導する．
+
+行列の計算は，$E=aC+bf$について
+\[
+ \chi(\mathcal A(E))=1+2(-a^2+2ab)+a+b,
+ \qquad
+ \chi(\mathcal P(E))=4+2(-a^2+2ab)+3(a+b)
+\]
+および$\mathcal P^{-1}=\mathcal P(-L)$を使う．
+これらは線束分解と曲面Riemann--Rochから従う．
+行列式が非零であることから，四つの類が基底である．
+\end{proof}
+
+\begin{proposition}\label{prop:exceptional-rank-one}
+$\operatorname{coh}\mathcal A$の局所射影division rank一のexceptional対象は，ちょうど
+\[
+ \mathcal A\otimes M,\qquad\mathcal P\otimes M,
+ \qquad M\in\operatorname{Pic}(Z)
+\]
+である．
+\end{proposition}
+\begin{proof}
+補題\ref{lem:regular-rank-one}により，ある整数$\alpha,\beta$について
+\[
+ c_1(F)=c_1(\mathcal A)+2(\alpha C+\beta f)
+\]
+と書ける．前の基底について，rankと第一Chern類の条件は，ある$\lambda\in\mathbb Q$を用いて
+\[
+ [F]=\left(1-\frac\alpha2-\frac\beta2+\frac\lambda2,
+ \lambda,\frac{\alpha-\lambda}{2},\frac{\beta-2\lambda}{2}\right)
+\]
+と表せる．Euler行列から
+\[
+ \chi(F,F)=1+\alpha^2-2\alpha\beta-2\alpha+5\lambda,
+ \quad
+ \chi(\mathcal A,F)=1-\frac\alpha2+\frac\beta2+\frac{5\lambda}{2}
+\]
+を得る．exceptionalityを用いて$\lambda$を消去すると
+\[
+ \chi(\mathcal A,F)=1+\frac{-\alpha^2+2\alpha\beta+\alpha+\beta}{2}
+ =1+\frac{N^2+N\cdot L}{2},\qquad N=\alpha C+\beta f.
+\]
+$\alpha^2-\alpha$が偶数であることと左辺の整数性から，$\beta$は偶数である．
+$\alpha$も偶数なら$\mathcal A(N/2)$，奇数なら$\mathcal P((N-L)/2)$が
+$F$と同じrank，第一Chern類，自己Euler数を持ち，従って同じ数値的類を持つ．
+この比較対象を$\mathcal A$に送る自己同値で$F$を正規化し，
+補題\ref{lem:numerical-uniqueness}を適用する．
+逆に表示した対象はいずれも，$\mathcal A$に自己同値を施して得られるため，
+局所射影division rank一でexceptionalである．
+\end{proof}
+
+\section{構造対象を指定しない超曲面表示の排除}
+\label{sec:unpointed-obstruction}
+
+\subsection{AS三次商の標準対象}
+
+\begin{lemma}\label{lem:AS-cubic-cohomology}
+$G,g$を定理\ref{thm:main}(iii)のように取り，
+$B=G/(g)$，$\mathcal B=\pi_BB$と置く．
+\begin{enumerate}[label=(\roman*)]
+\item 全ての整数$i,j$について
+\[
+ \operatorname{Hom}(\mathcal B(i),\mathcal B(j))=B_{j-i},\qquad
+ \operatorname{Ext}^1(\mathcal B(i),\mathcal B(j))=0
+\]
+であり，$\mathcal B$はexceptionalである．
+\item 任意の$M\in\operatorname{qgr}B$について，
+$n\gg0$なら$\operatorname{Ext}^1(\mathcal B(-n),M)=0$である．
+\item $D^b(\operatorname{qgr}B)$がSerre関手$S_B$を持つなら，
+\[
+ S_B(\mathcal B(i))\simeq\mathcal B(i-1)[2]
+ \qquad(i\in\mathbb Z)
+\]
+が対象として成り立つ．従って$T_B=S_B^{-1}[2]$について
+$T_B^n\mathcal B\simeq\mathcal B(n)$である．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$G$のAS-Gorenstein parameterを$\ell$とする．
+次数一生成，二次性，AS双対性から，自明加群の最小自由分解の
+交代Hilbert多項式は
+\[
+ 1-4t+6t^2-4t^{\ell-1}+t^\ell
+\]
+となる．これが$H_G(t)^{-1}=(1-t)^4$に等しいので$\ell=4$である．
+二項自由分解$0\to G(-3)\to G\to B\to0$と
+change-of-rings spectral sequenceにより，
+$\underline{\operatorname{Ext}}_G^q(B,G)$は$q=1$に集中し，
+その項はbimoduleの捩れを除いて$B(3)$である．
+従って，左右のAS-Gorenstein条件と有限injective dimensionは商へ降り，
+$B$のparameterは一，injective dimensionは三となる．
+
+Yekutieli--Zhang\cite[Theorem~4.2, Corollary~4.3]{YZ1997}により，
+$B$のbalanced dualizing complexはある次数付き自己同型$\sigma$を用いて
+${}_\sigma B(-1)[3]$と書ける．局所双対性から
+$H^j_{\mathfrak m}(B)=0$ ($j\ne3$)である．
+局所コホモロジーと切断の完全列，およびその高次版により，
+(i)のHomと$\operatorname{Ext}^1$の公式を得る．
+さらに$\operatorname{cd}(\operatorname{qgr}B)=2$であり，
+\[
+ \operatorname{Ext}^2(\mathcal B,\mathcal B)^*
+ =H^3_{\mathfrak m}(B)_0^*
+ =B(-1)_0=0
+\]
+だから，$\mathcal B$はexceptionalである．
+
+有限生成次数付き加群$\widetilde M$で$\pi_B\widetilde M=M$となるものを取る．
+同じ局所コホモロジー比較と\cite[Theorem~4.2(1)]{YZ1997}から
+\[
+ \operatorname{Ext}^1(\mathcal B(-n),M)
+ =H^2_{\mathfrak m}(\widetilde M)_n=0\qquad(n\gg0)
+\]
+となる．最後の消滅は局所コホモロジーの右有界性であり，これが(ii)である．
+
+$\operatorname{qgr}B$上の双対化対象は$\pi_B({}_\sigma B(-1))[2]$である．
+正則加群の自己同型による捩れは右加群として正則加群と同型なので，
+これは$\mathcal B(-1)[2]$と同型である．
+Serre関手が存在すれば，双対性を表現する対象の一意性から(iii)を得る．
+この主張は対象ごとの同型であり，$T_B$と次数移動の関手としての同一視を含まない．
+\end{proof}
+
+\subsection{アーベル圏同値の排除}
+
+\begin{theorem}\label{thm:unpointed-graded}
+$G$を連結局所有限かつ左右noetherianな二次AS正則代数で，大域次元四，
+$H_G(t)=(1-t)^{-4}$を満たすものとする．
+$g\in G_3$を正則正規元とすると，$k$線型アーベル圏同値
+\[
+ \operatorname{qgr}(G/(g))\simeq\operatorname{coh}\mathcal A
+\]
+は存在しない．
+\end{theorem}
+\begin{proof}
+$B=G/(g)$，$\mathcal B=\pi_B B$と置き，そのような同値$\Phi$があると仮定する．
+この同値は有界導来圏の同値を誘導する．従って
+$D^b(\operatorname{qgr}B)$はSerre関手$S_B$を持ち，
+$\Phi$は$T_B=S_B^{-1}[2]$と$T$を可換にする．
+補題\ref{lem:AS-cubic-cohomology}により
+$T_B^n\mathcal B\simeq\mathcal B(n)$である．
+
+$F=\Phi\mathcal B$とする．閉点に台を持つ任意の単純$\mathcal A$加群$Q_0$について
+$T^{2m}Q_0\simeq Q_0$だから
+\[
+ \operatorname{Ext}^1(F,Q_0)
+ \simeq\operatorname{Ext}^1(T^{-2m}F,Q_0)
+ \simeq\operatorname{Ext}^1(\mathcal B(-2m),\Phi^{-1}Q_0)=0
+ \qquad(m\gg0).
+\]
+最後は補題\ref{lem:AS-cubic-cohomology}(ii)による．
+値を取る加群が零次元なのでlocal-to-global spectral sequenceは，
+局所$\operatorname{Ext}^1$も零であることを示す．
+完備局所orderはsemiperfectであり，最小射影表示の核が非零ならその単純商への
+$\operatorname{Ext}^1$が非零となるから，$F$は完備化上で射影である．
+忠実平坦降下により$F$は局所射影である．
+
+一般点でのdivision rankを$r$とすると，
+$\mathcal H om_{\mathcal A}(F,F)$の中心上のrankは$4r^2$である．
+$L^2=3$，曲面Riemann--Roch，Serre消滅から
+\[
+ \dim\operatorname{Hom}(F,T^{2m}F)=6r^2m^2+O(m).
+\]
+一方，左辺は$\dim B_{2m}=6m^2+3m+1$だから$r=1$である．
+$F$はexceptionalなので，命題\ref{prop:exceptional-rank-one}により
+ある$M\in\operatorname{Pic}(Z)$について
+$F\simeq\mathcal A\otimes M$または$\mathcal P\otimes M$である．
+いずれも$T$と可換な自己同値によって$\mathcal A$から得られる．
+
+最後に四つの対象$F,TF,T^2F,T^3F$の間の合成を考える．
+連続するHom空間を$V_i=\operatorname{Hom}(T^iF,T^{i+1}F)$とし，
+二段の合成の核を
+\[
+ W_i=\ker\bigl(V_i\otimes V_{i+1}\longrightarrow
+ \operatorname{Hom}(T^iF,T^{i+2}F)\bigr)
+\]
+とする．二次合成関係から定まる三次空間は
+\begin{equation}
+ \frac{V_0\otimes V_1\otimes V_2}
+ {W_0\otimes V_2+V_0\otimes W_1}
+ \label{eq:intrinsic-cubic-envelope}
+\end{equation}
+である．この空間の次元は，対象間の同型やHom空間の基底の選択によらず，
+アーベル圏同値で保たれる．
+$F$の分類と補題\ref{lem:six-quadrics}によれば，その次元は十九である．
+式\eqref{eq:orbit-product}の積の規約では，時間順に並べた合成は
+反対環の積に対応するが，二次包絡の次元は変わらない．
+
+他方，$\Phi^{-1}T^iF\simeq\mathcal B(i)$であり，
+飽和性によって二次合成核は$G$の六本の二次関係と同一視される．
+従って上の空間は$(G^{\mathrm{op}})_3$と同型で，
+次元は二十でなければならない．
+これは矛盾である．対象としてのSerre公式から合成図式だけを比較したため，
+Nakayama捩れの選択やorbit環の積の同一視はこの結論に不要である．
+\end{proof}
+
+\begin{remark}
+ここでHochschild homologyの非零な次数$\pm1$成分を，一般のAS三次超曲面に対する障害として使っていない．
+障害は，任意の候補構造対象について二次関係の三次帰結がすでに四十五次元であり，
+標準AS四次元ambientに必要な三次成分二十次元を確保できない，という有限次数の合成不変量である．
+\end{remark}

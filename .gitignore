@@ -1,6 +1,11 @@
 build/
+output/
 *.pdf
+*.PDF
 *.aux
+*.bbl
+*.blg
+*.bcf
 *.log
 *.out
 *.toc
@@ -8,7 +13,10 @@ build/
 *.fls
 *.synctex.gz
 *.xdv
+*.run.xml
 __pycache__/
 *.pyc
 .DS_Store
+.venv/
 *.zip
+*.tar.gz

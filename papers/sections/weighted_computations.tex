@@ -1,0 +1,86 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{厳密計算の入力・方法・出力}
+\label{sec:computation}
+
+本付録の計算は Python 3 と SymPy を用いる有理数体上の厳密計算であり，
+浮動小数点近似を用いない．
+
+\subsection{判別曲線の滑らかさ}
+
+次数2の入力は式\eqref{eq:q2}の determinant $\det q_2$ である．
+$s_i=t_j=1$，$(i,j)\in\{0,1\}^2$ とする4チャートで，
+\[
+ (s_0,s_1)=
+ \begin{cases}(1,x)&i=0,\\(x,1)&i=1,\end{cases}
+ \qquad
+ (t_0,t_1)=
+ \begin{cases}(1,y)&j=0,\\(y,1)&j=1\end{cases}
+\]
+を同時代入して $F_{ij}\in\mathbb Q[x,y]$ を得る．
+次数1の入力は式\eqref{eq:q1}の determinant $\det q_1$ であり，
+$u=1,v=1,w=1$ の各チャートで残る2変数の多項式 $F$ を得る．
+それぞれ
+\[
+ I=(F,\partial_xF,\partial_yF)
+\]
+の辞書式順序の Gröbner 基底を計算すると，出力はすべて $\{1\}$ である．
+従って各 $I$ は単位イデアルであり，$\mathbb C$ 上にも共通零点を持たない．
+7チャートが曲面を被覆するので，これは判別曲線全体の滑らかさを証明する．
+
+\subsection{Hilbert 級数と Euler pairing}
+
+スクリプトは偶奇の Hilbert 関数を $m$ の多項式として展開し，
+本文の式との差が零多項式であることを確認する．
+Hilbert 級数の比較も有理関数の差を通分・約分し，
+恒等的に零になることを確認する．従って有限個の係数の一致からの推測ではない．
+また式\eqref{eq:Euler2}，\eqref{eq:Euler1}の determinant と，
+rank 1 の自己 Euler 数，式\eqref{eq:orbit-coordinates}の
+全整数 $n$ に関する多項式恒等式を確認する．
+
+\subsection{Hochschild homology の数値的検証}
+
+第\ref{sec:hochschild}節の証明に現れる種数，Euler 数，
+Betti 数，Hochschild homology の次元を整数として確認する．
+別に Chern class の積分によって Euler 数を計算する．
+次数2では
+\[
+ A^\bullet(\mathbb P^2\times\mathbb P^1\times\mathbb P^1)_{\mathbb Q}
+ =\mathbb Q[h,a,b]/(h^3,a^2,b^2),\qquad [X_2]=2h+a+b
+\]
+において
+\[
+ c(TX_2)=\frac{(1+h)^3(1+a)^2(1+b)^2}{1+2h+a+b}\bigg|_{X_2},
+ \qquad
+ c_3(TX_2)=2abh-ah^2-bh^2.
+\]
+$[X_2]c_3(TX_2)$ の $h^2ab$ の係数は $2$ である．
+次数1の cubic threefold については
+\[
+ c(TY)=\frac{(1+h)^5}{1+3h}\bigg|_Y,\qquad
+ c_3(TY)=-2h^3,\qquad \int_Yh^3=3,
+\]
+従って $e_{\mathrm{top}}(Y)=-6$ となる．直線に沿う blowup で
+$e_{\mathrm{top}}(\mathbb P^1)=2$ が加わり，
+$e_{\mathrm{top}}(X_1)=-4$ を得る．
+これは conic bundle のファイバーによる Euler 数の計算と一致する．
+
+\Needspace{75mm}
+\subsection{再現方法}
+
+repository の root から
+\begin{verbatim}
+python3 -m pip install -r requirements.txt
+python3 scripts/verify_all.py
+python3 scripts/build.py --papers
+\end{verbatim}
+を実行する．検証対象は次の3ファイルである．
+\begin{verbatim}
+scripts/del_pezzo_degree2_verification.py
+scripts/nc_dp1_quintic_checks.py
+scripts/hochschild_verification.py
+\end{verbatim}
+この三つに加え，検証の共通入口は同梱の次数三の二つのスクリプトも実行する．
+成功時の出力はその場で再生成し，重複する実行ログは収録しない．
+PDF の組版には LuaLaTeX，BibTeX と日本語フォントを用いる．
+必要な環境と Cursor からの実行方法は \texttt{README.md} に記す．
+

@@ -1,0 +1,382 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{Clifford order と内在的な三次曲面構造}
+\label{sec:construction}
+
+基礎体を $k=\mathbb C$ とし，加群は右加群とする．
+Hirzebruch 曲面 $Z=\mathbb F_1$ の負切断を $C$，
+射影 $\rho:Z\to\mathbb P^1$ のファイバー類を $f$ と書く．従って
+\[
+ C^2=-1,\qquad C\cdot f=1,\qquad f^2=0,
+ \qquad K_Z=-2C-3f.
+\]
+次の線束と階数3のベクトル束を固定する．
+\begin{equation}
+ L=\mathcal O_Z(C+2f),\qquad
+ \mathcal V=\mathcal O_Z^{\oplus2}\oplus\mathcal O_Z(f).
+ \label{eq:choice-LV}
+\end{equation}
+$\mathbb F_1$ 上の ample cone の記述から $L$ は ample であり，$L^2=3$ である．また
+\begin{equation}
+ \det\mathcal V=\omega_Z\otimes L^{\otimes2}
+ \label{eq:determinant-V}
+\end{equation}
+が成り立つ．
+
+\subsection{二次形式と判別曲線}
+
+$Z$ の Cox 座標を $s,t,c,d$ とし，その次数を
+\[
+ \deg s=\deg t=f,\qquad \deg c=C,\qquad \deg d=C+f
+\]
+とする．不安定集合を除いた座標空間は
+$\{(s,t)\ne(0,0),\ (c,d)\ne(0,0)\}$ である．
+$s,t$ のいずれかと $c,d$ のいずれかをそれぞれ1に正規化すると，
+$Z$ を被覆する4つの標準アフィンチャートを得る．
+
+$L$ に値を持つ対称形式 $q:\operatorname{Sym}^2\mathcal V\to L$ を
+\begin{equation}
+ q=
+ \begin{pmatrix}
+ cs^2+dt&ct^2&d\\
+ ct^2&ct^2+ds&0\\
+ d&0&c
+ \end{pmatrix}
+ \label{eq:explicit-q}
+\end{equation}
+で定める．第3行・列の束の次数は $f$ なので，
+例えば $q_{13}$ の次数は $L-f=C+f$，$q_{33}$ の次数は $L-2f=C$ であり，
+この行列は指定した束の間の射を定める．行列式は
+\begin{equation}
+ \begin{split}
+ \Delta={}&c^3s^2t^2-c^3t^4+c^2ds^3+c^2dt^3\\
+          &+cd^2st-cd^2t^2-d^3s.
+ \end{split}
+ \label{eq:explicit-discriminant}
+\end{equation}
+判別曲線を $D=(\Delta=0)$ と書く．その因子類は
+$3L-2c_1(\mathcal V)=3C+4f$ である．
+
+\begin{lemma}
+\label{lem:smooth-discriminant}
+$D$ は滑らかで連結な種数3の曲線である．
+$q$ の階数は全ての点で2以上であり，付随する conic bundle
+\[
+ p:X=\{q=0\}\subset\mathbb P_Z(\mathcal V)\longrightarrow Z
+\]
+は flat で，全空間 $X$ は滑らかである．
+ここで $\mathbb P_Z(\mathcal V)$ は $\mathcal V$ の直線をパラメータ化する．
+\end{lemma}
+
+\begin{proof}
+各アフィンチャートで式\eqref{eq:explicit-discriminant}を正規化した多項式を
+$F(u,v)$ とすると，特異点イデアル
+$(F,\partial_uF,\partial_vF)\subset\mathbb Q[u,v]$ の辞書式
+Gr\"obner 基底は次の通りである．
+\[
+\begin{array}{c|cccc}
+\text{正規化}&s=c=1&s=d=1&t=c=1&t=d=1\\\hline
+\text{Gr\"obner 基底}&[1]&[1]&[1]&[1]
+\end{array}
+\]
+この計算の入力と検証方法は第\ref{sec:reproducibility}節に記す．
+従って $D$ は $\mathbb C$ 上で滑らかである．
+$K_Z+D=C+f$ と $H^1(Z,\mathcal O_Z(C+f))=0$ より，
+Serre 双対性は $H^1(Z,\mathcal O_Z(-D))=0$ を与える．
+因子の完全列から $H^0(D,\mathcal O_D)=k$ であり，$D$ は連結である．
+また
+\[
+ 2g(D)-2=D(D+K_Z)=(3C+4f)(C+f)=4
+\]
+だから $g(D)=3$ である．
+
+行列の階数が1以下の点では全ての $2\times2$ 小行列式が消えるため，
+行列式の微分も消える．これは $D$ の滑らかさに反する．
+従って各ファイバーは非零な二次式で定義される conic であり，
+Hilbert 多項式の一定性から $p$ は flat である．
+$D$ 外のファイバーは滑らかである．$D$ 上では階数が2であり，
+退化 conic の特異点における基底方向の微分が
+判別式の非零微分に対応するので，$X$ も滑らかである．
+\end{proof}
+
+\subsection{Clifford order と一般点の階数}
+
+Clifford 関係を $xy+yx=2q(x,y)$ と規約し，
+偶部分と奇部分をそれぞれ
+\[
+ \mathcal A=\operatorname{Cl}_0(\mathcal V,q,L),\qquad
+ \mathcal P=\operatorname{Cl}_1(\mathcal V,q,L)
+\]
+と書く．反対称化による束としての分解は
+\begin{equation}
+ \begin{split}
+ \mathcal A
+  &=\mathcal O_Z\oplus
+     (\wedge^2\mathcal V)\otimes L^{-1}
+    =\mathcal O_Z\oplus\mathcal O_Z(-C-2f)
+       \oplus\mathcal O_Z(-C-f)^{\oplus2},\\
+ \mathcal P
+  &=\mathcal V\oplus(\det\mathcal V)\otimes L^{-1}
+    =\mathcal O_Z^{\oplus2}\oplus\mathcal O_Z(f)
+       \oplus\mathcal O_Z(-C-f)
+ \end{split}
+ \label{eq:underlying-bundles}
+\end{equation}
+である．積は Clifford 積であり，$\mathcal P$ は
+$\mathcal A$-bimodule となる．以下
+\[
+ \mathcal C=\operatorname{coh}\mathcal A,\qquad
+ \mathcal O=\mathcal A
+\]
+と置く．$\mathcal C$ は noetherian な $k$-線形アーベル圏である．
+
+\begin{proposition}
+\label{prop:division-degree-three}
+一般点の代数 $\mathcal A\otimes_{\mathcal O_Z}k(Z)$ は
+quaternion division algebra である．従って構造対象 $\mathcal O$ は
+torsion-free で Gabriel--Krull rank 1 を持つ．
+\end{proposition}
+
+\begin{proof}
+$i:D\hookrightarrow Z$ とし，
+$q:\mathcal V\to\mathcal V^\vee\otimes L$ の余核を $i_*\mathcal M$ と書く．
+$D$ 上での corank は1なので $\mathcal M$ は線束である．
+$\mathcal K=\ker(q|_D)$，$\mathcal W=\mathcal V|_D/\mathcal K$ と置くと，
+$\mathcal W$ は $L|_D$ に値を持つ非退化な階数2の二次束である．
+その判別線束
+\[
+ \eta=\det\mathcal W\otimes L^{-1}|_D
+     =\mathcal M\otimes\omega_Z|_D
+\]
+は $\eta^{\otimes2}\simeq\mathcal O_D$ を満たす．
+符号を含めて $-\det(q|_{\mathcal W})$ を用いると，
+$\mathcal O_D\oplus\eta$ は退化 conic の二つの成分を区別する
+非分岐二重被覆の代数となる．
+この線束には完全列
+\begin{equation}
+ 0\longrightarrow\mathcal V\otimes\omega_Z
+ \xrightarrow{q}\mathcal V^\vee\otimes L\otimes\omega_Z
+ \longrightarrow i_*\eta\longrightarrow0
+ \label{eq:eta-resolution-degree-three}
+\end{equation}
+がある．左の二つの束はそれぞれ
+\[
+ \mathcal O_Z(-2C-3f)^{\oplus2}\oplus\mathcal O_Z(-2C-2f),
+ \qquad
+ \mathcal O_Z(-C-f)^{\oplus2}\oplus\mathcal O_Z(-C-2f).
+\]
+後者はファイバー上の次数が $-1$ なので全コホモロジーが消える．
+前者の $H^1$ は Serre 双対性と
+$H^1(Z,\mathcal O_Z)=H^1(Z,\mathcal O_Z(-f))=0$ により消える．
+従って $H^0(D,\eta)=0$ であり，$\eta$ は非自明である．
+特に二重被覆 $\widetilde D\to D$ は連結である．
+
+$D$ の一般点の離散付値環で $q=\langle a,b,uc\rangle$ と対角化する．
+ここで $a,b,c$ は単元，$u$ は一様化元である．
+偶 Clifford 代数の生成元 $I=e_1e_2,J=e_1e_3$ は
+\[
+ I^2=-ab,\qquad J^2=-auc,\qquad IJ=-JI
+\]
+を満たす．その Brauer residue は $\sqrt{-ab}$ による二次拡大であり，
+上の二重被覆の関数体拡大と一致する．従って residue は非自明で，
+一般点の quaternion algebra は split でない．次数2の中心単純代数は
+split でなければ division である．
+中心上有限なorderについて，定義\ref{def:weak-cubic}の
+$\mathcal C_0$は零次元に台を持つ対象からなり，
+$\mathcal C_1$は台の次元が一以下の対象からなる．
+実際，零次元coherent加群は有限長であり，曲線に台を持つcoherent加群を
+零次元対象で割ると，有限個の曲線の一般点での有限長加群に帰着する．
+従って $\mathcal C/\mathcal C_1$ は，
+一般点の division algebra の有限次元右加群圏である．
+その正則加群の長さは一であり，$\mathcal A$は中心上局所自由なので
+低次元に台を持つ部分加群を持たない．これで結論を得る．
+\end{proof}
+
+\subsection{局所正則性と反標準自己同値}
+
+閉点の完備局所環を $B=k[[u,v]]$ とする．$D$ 外では
+$\widehat{\mathcal A}\simeq M_2(B)$ である．$D=(u)$ 上では
+単元の平方根を取って Clifford の偶生成元を正規化すると
+$I^2=1,J^2=u,IJ=-JI$ とでき，
+\begin{equation}
+ \widehat{\mathcal A}\simeq
+ \begin{pmatrix}B&B\\uB&B\end{pmatrix}
+ \label{eq:local-order-degree-three}
+\end{equation}
+を得る．これは $u=r^2$ と置いた
+$k[[r,v]]\rtimes\mu_2$ と同型であり，$\mu_2$ は $r$ の符号を変える．
+群の位数が可逆なので誘導加群の平均化による分裂を用いると，
+この skew group algebra の大域次元は2である．
+実際，$k[[r,v]]$ 上の長さ2の射影分解を誘導して上界を得，
+閉点加群の射影次元から下界を得る．
+忠実平坦な完備化から射影性が降下するので，元の局所 order でも
+coherent module の射影次元は2以下である．
+
+各点の近傍で $q$ は単元を表すので，可逆な Clifford の奇元を取ることができる．
+従って Clifford 積は bimodule の同型
+\begin{equation}
+ \mathcal P\otimes_{\mathcal A}\mathcal P\simeq\mathcal A\otimes L
+ \label{eq:odd-square}
+\end{equation}
+を与える．また最高外冪成分への完全 pairing
+\[
+ \mathcal A\otimes\mathcal P\longrightarrow
+       \det\mathcal V\otimes L^{-1}
+\]
+は偶元と奇元に関して cyclic なので，
+$\mathcal A^\vee\simeq
+\mathcal P\otimes(\det\mathcal V)^{-1}\otimes L$ は bimodule の同型である．
+式\eqref{eq:determinant-V}より
+\[
+ \omega_{\mathcal A}:=
+ \mathcal Hom_{\mathcal O_Z}(\mathcal A,\omega_Z)
+ \simeq\mathcal P\otimes L^{-1}\simeq\mathcal P^{-1}.
+\]
+局所射影分解と $Z$ 上の双対性から，Serre functor は
+\begin{equation}
+ S=(-\otimes_{\mathcal A}\mathcal P^{-1})[2],\qquad
+ T=S^{-1}[2]=-\otimes_{\mathcal A}\mathcal P,
+ \qquad T^2=-\otimes L
+ \label{eq:Serre-degree-three}
+\end{equation}
+である．従って $T$ はアーベル圏の完全自己同値である．
+Serre 双対性と標準$t$-構造により，$i>2$なら
+$\operatorname{Ext}^i_{\mathcal C}(M,N)=0$である．一方
+\[
+ \operatorname{Ext}^2_{\mathcal C}(\mathcal A,\mathcal P^{-1})
+ \simeq\operatorname{End}_{\mathcal C}(\mathcal P^{-1})^*\ne0
+\]
+だから，$\mathcal C$のhomological dimensionは正確に二である．
+Hom と Ext の有限次元性は中心 $Z$ の射影性から従う．
+さらに conic bundle の半直交分解\cite[Theorem~4.2]{KuznetsovQuadric}
+\begin{equation}
+ D^b(X)=\left\langle
+ D^b(Z,\mathcal A),\ p^*D^b(Z)\otimes\mathcal O_{X/Z}(1)
+ \right\rangle
+ \label{eq:conic-sod-degree-three}
+\end{equation}
+により，$D^b(\mathcal C)$ の標準 dg enhancement は smooth proper である．
+
+\begin{proposition}
+\label{prop:ample-degree-three}
+$(\mathcal O,T)$ は Artin--Zhang ample である．反標準環
+\[
+ R=\bigoplus_{n\ge0}\operatorname{Hom}_{\mathcal C}
+                  (\mathcal O,T^n\mathcal O)
+\]
+について $\mathcal C\simeq\operatorname{qgr}R$ が成り立つ．
+\end{proposition}
+
+\begin{proof}
+任意の coherent $\mathcal A$-module $M$ は中心上でも coherent である．
+$m\gg0$ では $M\otimes L^m$ は大域生成され，随伴により
+$\mathcal A^{\oplus N}\twoheadrightarrow M\otimes L^m$ を得る．
+これは $(T^{-2m}\mathcal O)^{\oplus N}\twoheadrightarrow M$ を与える．
+次に全射 $M\twoheadrightarrow N$ の核を $K$ とし，$n=2m+r$，$r=0,1$ と書く．
+$\mathcal A$ の局所射影性と Serre 消滅により
+\[
+ \operatorname{Ext}^1_{\mathcal A}(\mathcal A,T^nK)
+ =H^1\bigl(Z,(K\otimes_{\mathcal A}\mathcal P^r)\otimes L^m\bigr)=0
+ \qquad(m\gg0).
+\]
+これが ample pair のもう一つの条件である．
+再構成は Artin--Zhang の定理\cite[Theorem~4.5]{AZ1994}による．
+\end{proof}
+
+\subsection{全次数の Hilbert 関数とコホモロジー消滅}
+
+\begin{proposition}
+\label{prop:Hilbert-degree-three}
+構造対象 $\mathcal O$ は exceptional であり，全ての整数 $n$ に対して
+\[
+ \operatorname{Ext}^1_{\mathcal C}(\mathcal O,T^n\mathcal O)=0
+\]
+が成り立つ．$n<0$ では
+$\operatorname{Hom}_{\mathcal C}(\mathcal O,T^n\mathcal O)=0$，
+$n\ge0$ では
+\begin{equation}
+ \dim_k R_n=1+\frac32n(n+1),\qquad
+ \operatorname{Ext}^{i}_{\mathcal C}(\mathcal O,T^n\mathcal O)=0
+ \quad(i>0).
+ \label{eq:Hilbert-degree-three}
+\end{equation}
+特に
+\[
+ H_R(t)=\frac{1-t^3}{(1-t)^4}.
+\]
+\end{proposition}
+
+\begin{proof}
+射影 $\rho$ に沿った計算により，$a\ge0$ に対して
+\[
+ \rho_*\mathcal O_Z(aC+bf)
+       =\bigoplus_{i=0}^a\mathcal O_{\mathbb P^1}(b-i),
+ \qquad R^1\rho_*\mathcal O_Z(aC+bf)=0.
+\]
+従って $b\ge a$ なら
+\[
+ h^0\mathcal O_Z(aC+bf)
+   =\sum_{i=0}^a(b-i+1)
+   =(a+1)(b+1)-\frac{a(a+1)}2,
+\]
+かつ高次コホモロジーは消える．
+$a=-1$ の線束はファイバー上で acyclic なので全コホモロジーが消える．
+
+式\eqref{eq:odd-square}と\eqref{eq:underlying-bundles}から
+\[
+ R_{2m}=H^0(Z,\mathcal A\otimes L^m),\qquad
+ R_{2m+1}=H^0(Z,\mathcal P\otimes L^m).
+\]
+上の線束の公式を各直和因子に適用すると，$m\ge0$ の全範囲で
+\begin{equation}
+ \dim R_{2m}=6m^2+3m+1,\qquad
+ \dim R_{2m+1}=6m^2+9m+4
+ \label{eq:Hilbert-parities}
+\end{equation}
+を得る．$m=0$ で現れる負の線束はファイバー次数 $-1$ であり，
+この場合も公式は成立する．同時に高次コホモロジーの消滅を得る．
+$m<0$ では偶数・奇数のいずれの直和因子もファイバー次数が負なので，
+全ての $n<0$ に対して $\operatorname{Hom}(\mathcal O,T^n\mathcal O)=0$ となる．
+Serre 双対性は
+\[
+ \operatorname{Ext}^1(\mathcal O,T^n\mathcal O)^*
+ \simeq\operatorname{Ext}^1(\mathcal O,T^{-n-1}\mathcal O)
+\]
+を与えるため，負の $n$ に対する $\operatorname{Ext}^1$ の消滅も従う．
+$n=0$ の場合が構造対象の exceptionality である．
+\end{proof}
+
+\subsection{Hochschild homology}
+
+\begin{proposition}
+\label{prop:HH-degree-three}
+標準的な dg enhancement について，HKR の次数を $p-q=i$ と規約すると
+\[
+ \operatorname{HH}_{-1}(\mathcal C)=k^2,\qquad
+ \operatorname{HH}_0(\mathcal C)=k^4,\qquad
+ \operatorname{HH}_1(\mathcal C)=k^2,
+ \qquad \operatorname{HH}_i(\mathcal C)=0\quad(|i|\ge2)
+\]
+である．特に $D^b(\mathcal C)$ は full exceptional collection を持たない．
+\end{proposition}
+
+\begin{proof}
+滑らかな判別曲線を持つ conic bundle に対する公式
+\cite[Theorem~8.12]{KuznetsovHH}を上の次数規約に直すと
+\[
+ \operatorname{HH}_i(\mathcal C)
+ \simeq\operatorname{HH}_i(Z)
+ \oplus H^{-i}(D,\eta)
+ \oplus H^{1-i}(D,\omega_D\otimes\eta)
+\]
+となる．$Z=\mathbb F_1$ の Hodge cohomology は対角部分だけで，
+$\operatorname{HH}_0(Z)=k^4$ である．
+$\eta$ は種数3の曲線上の非自明な2-torsion 線束なので，
+Riemann--Roch と Serre 双対性は
+\[
+ h^1(D,\eta)=h^0(D,\omega_D\otimes\eta)=2,
+ \qquad h^0(D,\eta)=h^1(D,\omega_D\otimes\eta)=0
+\]
+を与える．これで主張を得る．
+full exceptional collection が存在すれば Hochschild homology の加法性により
+非零次数の部分が消えるため，最後の結論も従う．
+\end{proof}

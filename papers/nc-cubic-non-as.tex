@@ -1,14 +1,19 @@
+% !TEX program = lualatex
 \documentclass[11pt,a4paper]{ltjsarticle}
-\usepackage[margin=25mm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{booktabs,longtable,array,enumitem,needspace}
 \usepackage[haranoaji]{luatexja-preset}
 \usepackage[unicode,hidelinks]{hyperref}
 \setlength{\emergencystretch}{2em}
+\renewcommand{\proofname}{証明}
 \newtheorem{theorem}{定理}[section]
 \newtheorem{proposition}[theorem]{命題}
 \newtheorem{lemma}[theorem]{補題}
 \newtheorem{corollary}[theorem]{系}
-\theoremstyle{definition}\newtheorem{remark}[theorem]{注意}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{definition}[theorem]{定義}
 \newcommand{\kC}{\mathbb C}
 \newcommand{\cA}{\mathcal A}
 \newcommand{\cE}{\mathcal E}
@@ -21,39 +26,39 @@
 \newcommand{\Spec}{\operatorname{Spec}}
 \newcommand{\Proj}{\operatorname{Proj}}
 \newcommand{\tr}{\operatorname{tr}}
-\title{非可換三次曲面の非Artin--Schelter性\\\large 量子Fermat点と非CY符号型二次元族}
+\newcommand{\rk}{\operatorname{rank}}
+\title{非可換del Pezzo曲面の非Artin--Schelter性と超曲面表示の障害\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月17日 / non-as-v2}
-\begin{document}\maketitle
+\date{2026年11月19日／non-as-v3}
+\begin{document}
+\maketitle
 \begin{abstract}
-内在的な非可換三次del Pezzo曲面の条件は，
-Okawa--Uedaの意味のArtin--Schelter (AS) surfaceであることを含意しない．
-二種類の明示例について捩れ付き有限群商stackへの導来Morita同値を構成し，
-Hochschild homologyを計算する．中心三次を持つ量子Fermat点では
-$(\dim\HH_{-1},\dim\HH_0,\dim\HH_1)=(2,5,2)$を得る．
-さらに，非Calabi--Yauな量子多項式環の非中心正規三次商は
-二次元のpointed三次曲面族をなし，全ての滑らかな点で
-$(\dim\HH_{-1},\dim\HH_0,\dim\HH_1)=(2,4,2)$となる．
-固定楕円曲線上の離散torsion指標が奇数次Hochschild類を生み出し，
-AS surfaceなら存在する完全強例外列に対する障害となる．
+内在的な非可換del Pezzo曲面の条件と、Artin--Schelter型および標準反標準超曲面表示との相違を、具体例により比較する。
+次数三の量子Fermat点および非Calabi--Yau符号型二次元族では、離散torsion付き有限群商によってHochschild homologyに奇数次成分が現れ、Okawa--UedaのAS surfaceでない。
+また、Hirzebruch曲面$\mathbb F_1$上の偶Clifford orderは次数三の反標準Hilbert関数を持ち、反標準環は次数一生成でありながら、その二次包絡の三次成分が十九次元となる。
+これは標準四次元AS正則代数の三次超曲面表示を、構造対象を忘れたアーベル圏としても排除する。
+次数一・二の二つのClifford orderについても、標準的な最小生成次数を持つ重み付きAS正則ambientによる超曲面表示は存在しない。一方、別の生成次数を持つAS正則ambientでは明示的な超曲面表示が存在する。
+反標準Hilbert次数、Hochschild障害、graded ambientの制約を区別し、主要な幾何学的・圏論的証明および厳密な有限計算を収録する。
 \end{abstract}
-
+\tableofcontents
 
 \section{はじめに}
-反標準Serre作用，Hilbert多項式，例外的構造対象，ampleなshiftによる
-内在的三次del Pezzo型の認識条件は，
-Okawa--Ueda\cite{OU}のArtin--Schelter（AS）surfaceの条件より広い．
-本稿では導来Morita不変なHochschild homologyによって差を示す．
-二つの対照的なH3例を扱う：中心量子Fermat点と
-非Calabi--Yau ambient上の非中心正規三次商の二次元族である．
+可換なdel Pezzo曲面は反標準環の重み付き超曲面表示と密接に結び付く。
+しかし非可換圏では、反標準Hilbert関数、構造対象のexceptionality、反Serre作用のample性だけから同様の表示が従うとは限らない。
+本稿は二つの異なる障害を示す。
+第一に、量子Fermat例と非CY符号型族は、標準的な四次元AS正則代数の三次商でありながら、曲面圏としてOkawa--Ueda\cite{OU}のAS surfaceではない。
+第二に、Clifford orderでは反標準環の二次包絡または最小生成次数が標準超曲面模型と一致せず、構造対象を変更しても指定された模型とアーベル圏同値にならない。
+これらは別々の非存在主張である。
 
-後者のH3認識とpointed同型類の次元は
-\cite{Current}の現行分類稿で得られた結果であり，
-本稿で示す新しい点は離散torsionを持つ有限商への還元と，
-両種の奇数次Hochschild障害の導出である．
-有限商のHKR分解には\cite{Baranovsky,ACH}，
-discrete torsionの指標には\cite{CGW,Ruan}の枠組みを使う．
-以下のHodge計算のため基礎体は$\mathbb C$とする．
+次数$e$は\(\dim R_n=1+e n(n+1)/2\)で定める反標準Hilbert次数とする。
+Clifford orderの有理標準因子については\(K_{\mathcal A}^2=e/4\)となり、中心上の自己交点とは区別する。
+以下の次数三のClifford例ではconnected gradedな標準AS四次元ambientを排除するのであり、任意の非周期的$\mathbb Z$-algebraを無条件に排除したものではない。
+次数一・二では、標準の最小生成次数に限定した非表示と、別の次数を持つambientでの表示の存在とを同時に証明する。
+
+使用するClifford/conic bundleの対応は\cite{ChanIngalls2012}、半直交分解は\cite{KuznetsovQuadric}、AS正則性の構成には\cite{CV2010,CKS2019,LWW2014}を用いる。
+ramification型の分類\cite{Nasr2020}は既知入力であり、明示的反標準環と構造対象を忘れた非表示の組合せの新規性は未確認である。
+量子Fermatと符号型の有限群商・Hochschild計算の背景は\cite{Baranovsky,ACH,CGW,Ruan}を参照する。
+本稿でいう$\mathcal H_3$は、反標準環の一次生成と二次包絡の標準AS正則性を加えた強い内在的クラスである。弱い内在条件との区別は次数三Clifford節に明記する。
 
 \section{OUのAS surfaceと判定条件}
 Okawa--Ueda\cite[Definition~1.1(1), \S3]{OU}のAS surfaceとは，
@@ -466,44 +471,245 @@ $\operatorname{GL}_2\times((\mathbb G_m)^2\rtimes\mathfrak S_2)$．
 ambientのCY性・三次の中心性の有無のみではOU型を判定できない．
 \end{remark}
 
-\section{検証と今後の課題}
-両有限群の重み，固定点型，推移指標，Picard不変rankと
-$\HH_{-1,0,1}$の次元は付属Pythonスクリプトで列挙した．
-スクリプトは一般のMorita同値やorbifold HKR定理そのものを計算で証明しない．
-それらは上の標準的な代数論的証明と一次資料に依存する．
-外部査読・形式証明・文献の新規性網羅調査は未実施．
-二種類のH3例によりOUのAS surfaceより広い内在的曲面類が得られる．
-特に符号型は孤立点でなく二次元のpointed族である．
-全intrinsicモジュライの成分性，Hochschild層別化，
-これらの例のversal変形，OU locusの開閉性は未解決である．
 
-\begin{thebibliography}{9}
-\bibitem{OU} S.~Okawa and K.~Ueda,
-\emph{Marked Artin--Schelter surfaces of del Pezzo types},
-\href{https://arxiv.org/abs/2508.04986}{arXiv:2508.04986} (2025),
-Definition~1.1, Definition~3.1, (3.9)--(3.10), Definition~5.2.
-\bibitem{IU} A.~Ishii and K.~Ueda,
-\emph{A note on derived categories of Fermat varieties},
-\href{https://www.ms.u-tokyo.ac.jp/~kazushi/preprints/fermat_note.pdf}{author's preprint}, Theorem~1.1.
-\bibitem{Baranovsky} V.~Baranovsky,
-\emph{Orbifold cohomology as periodic cyclic homology},
-Int. J. Math. 14 (2003), 791--812,
-\href{https://math.uci.edu/~vbaranov/math/08orbicyclic.pdf}{author's PDF}.
-\bibitem{CGW} A.~C\u{a}ld\u{a}raru, A.~Giaquinto and S.~Witherspoon,
-\emph{Algebraic deformations arising from orbifolds with discrete torsion},
-J. Pure Appl. Algebra 187 (2004), 51--70,
-\href{https://arxiv.org/abs/math/0210027}{arXiv:math/0210027}.
-\bibitem{Ruan} Y.~Ruan,
-\emph{Discrete torsion and twisted orbifold cohomology},
-\href{https://arxiv.org/abs/math/0005299}{arXiv:math/0005299}.
-\bibitem{ACH} D.~Arinkin, A.~C\u{a}ld\u{a}raru and M.~Hablicsek,
-\emph{Formality of derived intersections and the orbifold HKR isomorphism},
-J. Algebra 540 (2019), 100--120,
-\href{https://arxiv.org/abs/1412.5233}{arXiv:1412.5233}.
-\bibitem{Current} K.~Ueda,
-\emph{内在的非可換三次曲面の公理とambient成分},
-H3の公理・認識と分類の現行研究稿（未投稿），
-\href{https://github.com/uedakazushi/nc-cubic-classification/blob/main/papers/nc-cubic-classification.tex}{nc-cubic-classification, papers/nc-cubic-classification.tex}，
-特に符号型の定理（\texttt{papers/sections/cubic\_noncy\_sign\_example.tex}，2026年11月）．
-\end{thebibliography}
+\section{次数三のClifford反例：主定理と適用範囲}
+\label{sec:introduction}
+
+\subsection{内在的な三次曲面構造}
+
+可換な滑らかな三次曲面は，反標準線形系によって
+$\mathbb P^3$内の三次超曲面として実現される．
+その反標準Hilbert級数は$(1-t^3)/(1-t)^4$である．
+非可換曲面について，このHilbert関数と反標準自己同値に関する内在的な条件から，
+同様の超曲面表示が従うかを考える．
+本稿の例は，以下の条件を全て満たしながら，
+標準四次元AS正則代数をambientとする三次超曲面表示を持たない．
+
+\begin{definition}\label{def:weak-cubic}
+$k=\mathbb C$とする．対$(\mathcal C,\mathcal O)$が次の条件を満たすとき，
+本稿では\emph{弱標識付き非可換三次曲面}と呼ぶ．
+\begin{enumerate}[label=(\arabic*)]
+\item $\mathcal C$は大域次元二の$k$線型noetherianアーベル圏であり，
+$D^b(\mathcal C)$はsmooth proper dg enhancementとSerre関手$S$を持つ．
+\item $T=S^{-1}[2]$は$\mathcal C$の完全自己同値であり，
+$(\mathcal O,T)$はArtin--Zhang ample pairである．
+\item 有限長対象からなるSerre部分圏を$\mathcal C_0$とし，
+$\mathcal C/\mathcal C_0$で有限長となる対象の逆像を$\mathcal C_1$とする．
+$\mathcal C/\mathcal C_1$における$\mathcal O$の像は非零単純であり，
+$\operatorname{Hom}(M,\mathcal O)=0$が全ての$M\in\mathcal C_1$について成り立つ．
+これをGabriel--Krull rank一かつtorsion-freeという．
+\item $\mathcal O$はexceptionalである．すなわち
+$\operatorname{End}(\mathcal O)=k$かつ
+$\operatorname{Ext}^{i}(\mathcal O,\mathcal O)=0$ ($i>0$)である．
+\item 全ての整数$n$について
+\[
+ \dim_k\operatorname{Hom}(\mathcal O,T^n\mathcal O)
+ =\begin{cases}
+ 1+\dfrac32n(n+1)&n\ge0,\\
+ 0&n<0
+ \end{cases}
+\]
+が成り立つ．
+\end{enumerate}
+\end{definition}
+
+以下，加群は右加群とする．反標準環を
+\begin{equation}
+ R=\bigoplus_{n\ge0}\operatorname{Hom}(\mathcal O,T^n\mathcal O),
+ \qquad
+ ab=T^n(a)\circ b\quad(a\in R_m,\ b\in R_n)
+ \label{eq:orbit-product}
+\end{equation}
+と定める．この規約では，Clifford orderから得られる反標準環の積は
+通常のClifford積と一致する．
+次数一で生成される連結次数付き代数$R$の\emph{二次包絡}を
+\[
+ Q(R)=T_k(R_1)\Big/\Big\langle
+ \ker(R_1\otimes R_1\longrightarrow R_2)\Big\rangle
+\]
+と書く．
+本稿で$\mathcal H_3$と呼ぶのは，定義\ref{def:weak-cubic}の条件に加えて，
+$R$が次数一で生成され，$Q(R)$が左右noetherianな標準四次元二次Koszul
+AS正則代数となるクラスである．ここで「標準」とは，
+Gorenstein parameterが四で，自明加群の最小自由分解が型$(1,4,6,4,1)$を持つことを指す．
+従って$H_{Q(R)}(t)=(1-t)^{-4}$である．
+
+\subsection{主結果}
+
+\begin{theorem}\label{thm:main}
+$Z=\mathbb F_1$とし，負切断を$C$，ファイバー類を$f$と書く．
+\[
+ C^2=-1,\qquad C f=1,\qquad f^2=0,\qquad
+ L=\mathcal O_Z(C+2f),\qquad
+ \mathcal V=\mathcal O_Z^{\oplus2}\oplus\mathcal O_Z(f)
+\]
+と置く．次数がそれぞれ$f,f,C,C+f$であるCox座標$s,t,c,d$を用い，
+\[
+ q:\operatorname{Sym}^2\mathcal V\longrightarrow L,
+ \qquad
+ q=\begin{pmatrix}
+ cs^2+dt&ct^2&d\\
+ ct^2&ct^2+ds&0\\
+ d&0&c
+ \end{pmatrix}
+\]
+と定める．$\mathcal A=\operatorname{Cl}_0(q)$，
+$\mathcal P=\operatorname{Cl}_1(q)$とすると，次が成り立つ．
+\begin{enumerate}[label=(\roman*)]
+\item $(\operatorname{coh}\mathcal A,\mathcal A)$は
+定義\ref{def:weak-cubic}を満たし，
+\[
+ T=-\otimes_{\mathcal A}\mathcal P,\qquad T^2=-\otimes L,
+ \qquad \operatorname{gldim}(\operatorname{coh}\mathcal A)=2
+\]
+である．さらに，全ての整数$n$について
+$\operatorname{Ext}^1(\mathcal A,T^n\mathcal A)=0$である．
+\item 反標準環$R$は次数一の四元で生成される左右noetherian domainであり，
+\[
+ H_R(t)=\frac{1-t^3}{(1-t)^4},\qquad \dim_k Q(R)_3=19
+\]
+を満たす．特にこの弱標識付き非可換三次曲面は$\mathcal H_3$に属さない．
+\item $G$を連結局所有限かつ左右noetherianな二次AS正則代数で，
+大域次元四，$H_G(t)=(1-t)^{-4}$を満たすものとする．
+$g\in G_3$が左右正則な正規元なら，$k$線型アーベル圏同値
+\[
+ \operatorname{coh}\mathcal A\simeq\operatorname{qgr}(G/(g))
+\]
+は存在しない．この主張において，構造対象，次数移動，偏極の保存は仮定しない．
+\end{enumerate}
+\end{theorem}
+
+証明は三段階からなる．まずClifford orderの局所構造と束のコホモロジーを用いて，
+内在的な条件と反標準環の次数一生成を示す．
+次に六本の二次関係が三次成分に張る部分空間の次元が四十五であることを計算する．
+従って二次包絡の三次成分は$64-45=19$次元となり，
+標準四次元AS正則代数の三次成分に必要な二十次元に達しない．
+最後に局所射影rank一exceptional対象を全て分類し，
+任意のアーベル圏同値のもとで候補構造対象をこの分類に帰着させる．
+四つの連続する反Serre像の間の合成を比較することで，
+構造対象を指定しない非表示が従う．
+
+\subsection{先行研究との関係と次数の規約}
+
+線束に値を持つ二次形式，conic bundle，quaternion orderの関係は既知であり，
+本稿の構成はChan--Ingalls\cite[Sections~2--3, 5--6]{ChanIngalls2012}の枠組みに属する．
+本例では
+\[
+ \det\mathcal V=\omega_Z\otimes L^2
+\]
+という行列式の条件が，奇Clifford bimoduleを反標準自己同値と同一視する鍵となる．
+滑らかなconic bundleのClifford成分のsmooth proper性には，
+Kuznetsovの半直交分解\cite[Theorem~4.2]{KuznetsovQuadric}を用いる．
+Artin--Zhangの再構成定理\cite[Theorem~4.5]{AZ1994}は，
+内在的なample pairを反標準環の$\operatorname{qgr}$に結び付ける．
+比較対象となるAS正則三次商の飽和性と双対性には，
+Yekutieli--Zhang\cite[Theorem~4.2, Corollary~4.3]{YZ1997}を用いる．
+
+判別曲線$D=(\det q=0)$の因子類は$3C+4f$である．
+$H=C+f$を$\mathbb P^2$の直線の引き戻しとすれば
+\[
+ D\sim 4H-C
+\]
+となる．従って本例のramification型は，
+四次分岐曲線上の一点で$\mathbb P^2$をblow upして得られる
+既知のterminal del Pezzo orderの型である．
+これはNasrの分類\cite[arXiv版，Theorems~1.1(2), 2.16]{Nasr2020}に含まれる．
+本稿で扱うのは，その型に属する明示的なorderについての反標準環と，
+構造対象を指定しないAS三次超曲面表示の障害である．
+この具体的な表示と非表示定理の既出性は未確認である．
+
+本稿の「次数三」は，反標準Hilbert関数における次数を指す．
+orderの有理標準因子の規約\cite[arXiv版，Definition~2.1]{Nasr2020}では
+\begin{equation}
+ K_{\mathcal A}=K_Z+\frac12D=-\frac12(C+2f),\qquad
+ K_{\mathcal A}^2=\frac34
+ \label{eq:canonical-order-degree}
+\end{equation}
+である．$\mathcal A$の中心上の階数が四であるため，
+反標準Hilbert関数の次数は$4K_{\mathcal A}^2=3$となる．
+この値とorderの有理交点数$K_{\mathcal A}^2$を区別する．
+
+定理\ref{thm:main}(iii)のambientは連結次数付き代数である．
+そのassociated $\mathbb Z$-algebraによる言い換えはできるが，
+任意の非周期的$\mathbb Z$-algebraをambientに許す主張は本稿の範囲に含めない．
+
+
+\input{papers/sections/cubic_construction.tex}
+\input{papers/sections/cubic_algebra.tex}
+\input{papers/sections/cubic_unpointed.tex}
+\section{有限計算の証明書}
+\label{sec:reproducibility}
+
+判別曲線の滑らかさと二次包絡の次元は，次の有理数体上の計算で検証できる．
+検証コードと入力は論文に付随する計算資料に含まれる．
+\begin{enumerate}
+\item \path{scripts/verify_degree3_smooth.py}は$q$の行列式を計算し，
+四つのアフィンチャートで特異点イデアルのGr\"obner基底を求める．
+四つの基底はいずれも$[1]$である．
+\item \path{scripts/verify_degree3_relations.py}は
+式\eqref{eq:six-quadrics}から$64\times48$整数行列を構成する．
+\path{certificates/degree3_quadratic.json}に記載した小行列の行列式は$512$であり，
+同ファイルの三本の整数右核ベクトルは独立である．
+従って行列のrankは正確に四十五である．
+このスクリプトは補題\ref{lem:numerical-rank-four}のEuler行列と，
+命題\ref{prop:exceptional-rank-one}で用いる整数性の式も計算する．
+\end{enumerate}
+コードの生成元$(A,B,C,D)$は本文の$(x,y,z,w)$に対応する．
+単項式の順序はこの順の辞書式順序とし，証明書の行・列の添字は零から数える．
+
+
+\section{次数一・二のClifford反例と重み付き超曲面}
+可換 del Pezzo 曲面の反標準環は，次数二では重み $(1,1,1,2)$ の四次式，
+次数一では重み $(1,1,2,3)$ の六次式によって記述される．
+非可換の場合には，反標準 Hilbert 級数と ambient の最小生成次数は
+独立に区別すべきデータである．本稿はこの違いを，
+構造対象を忘れたアーベル圏そのものの性質として示す明示例を与える．
+
+線束値二次形式，偶 Clifford algebra，quaternion order と conic bundle の
+対応は Chan--Ingalls~\cite{ChanIngalls2012} による既知の枠組みである．
+特に本稿の次数一の例は，同論文の $F_{5-}^{2}$ 型の対称分解に属し，
+滑らかな cubic threefold を直線に沿って blow up して得る conic bundle の
+Clifford 圏でもある．この圏の数値的 Grothendieck 群については
+Bernardara--Macr\`i--Mehrotra--Stellari~\cite{BMMS2012} を用いる．
+従って，これらの order の型や Clifford 圏の存在自体を新しい発見として扱わない．
+
+本稿で証明する中心的な事実は，具体的な二つの反標準環の表示と，
+指定した最小生成次数の ambient に対する非表示である．
+後者の核心は，任意のアーベル圏同値による自由対象の像を
+局所射影な division rank 一の exceptional 対象に限定し，その全てを分類した上で，
+隣接する三対象の合成写像の全射性を比較する点にある．
+したがって，単に与えた構造対象に対する環の生成元を数えるだけではない．
+存在する別の ambient は，graded Clifford algebra の正則性
+\cite{CV2010,CKS2019} と Ore 拡大の正則性 \cite{CKZ2017,LWW2014} を用いて構成する．
+この明示例と非表示定理の組合せについて，先行研究における初出は未確定である．
+
+ここで「次数」$e$ は反標準 Hilbert 関数で正規化した次数である．
+本稿の order は中心上で階数四，分岐指数二であり，
+通常の order の標準因子は
+\[
+ K_{\mathcal A_e}=K_{Z_e}+\tfrac12D_e=-\tfrac12L_e,
+ \qquad K_{\mathcal A_e}^{,2}=\tfrac e4.
+\]
+従って $e=\rk_{\mathcal O_{Z_e}}(\mathcal A_e)K_{\mathcal A_e}^{,2}$ である．
+order の分類で用いる自己交点 \cite{Nasr2020} とこの正規化を混同しない．
+Hochschild homology の計算には，quadric fibration の半直交分解
+\cite{KuznetsovQuadric} と判別二重被覆による公式 \cite{KuznetsovHH} を用いる．
+
+
+\input{papers/sections/weighted_construction.tex}
+\input{papers/sections/weighted_ambient.tex}
+\input{papers/sections/weighted_unpointed.tex}
+\input{papers/sections/weighted_hochschild.tex}
+
+\section{成果の比較と残る課題}
+量子Fermat点と符号型族の奇数次Hochschild homologyはOU型AS surfaceへの障害であるが、AS四次元ambientの超曲面表示自体を否定しない。
+次数三Clifford例では$\dim Q(R)_3=19$と標準AS四次元代数の$20$の差が、構造対象を忘れた非表示の核心である。
+次数一・二Clifford例は最小生成次数を固定した非表示であり、別のambientによる肯定的な表示も同時に得る。
+現在の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
+今回の統合によって新たな証明が自動的に得られたとは主張しない。
+
+\appendix
+\input{papers/sections/weighted_computations.tex}
+\bibliographystyle{amsplain}
+\bibliography{references}
 \end{document}

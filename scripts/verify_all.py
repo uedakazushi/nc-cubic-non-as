@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+"""Run all independently reproducible finite checks from both source programs."""
+from pathlib import Path
+import subprocess
+import sys
+
+ROOT=Path(__file__).resolve().parents[1]
+PROGRAMS=(
+    "computations/verify_all.py",
+    "computations/verify_boundary_fermat.py",
+    "scripts/del_pezzo_degree2_verification.py",
+    "scripts/nc_dp1_quintic_checks.py",
+    "scripts/hochschild_verification.py",
+    "scripts/verify_degree3_smooth.py",
+    "scripts/verify_degree3_relations.py",
+)
+def main():
+    for file in PROGRAMS:
+        print("VERIFY",file,flush=True)
+        subprocess.run([sys.executable,str(ROOT / file)],cwd=ROOT,check=True)
+    print("All requested finite calculation scripts completed.")
+if __name__=="__main__": main()

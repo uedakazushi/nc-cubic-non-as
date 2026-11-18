@@ -1,0 +1,199 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{Hochschild homology}
+\label{sec:hochschild}
+
+次数を $e\in\{1,2\}$ とし，対応する曲面，order，判別曲線を
+$Z_e,\mathcal A_e,D_e$ と書く．本節では
+\[
+ \operatorname{HH}_i(\mathcal C_e)
+ :=\operatorname{HH}_i\bigl(\operatorname{Perf}_{\mathrm{dg}}(Z_e,\mathcal A_e)\bigr),
+ \qquad \mathcal C_e=\operatorname{coh}\mathcal A_e,
+\]
+を計算する．$\mathcal A_e$ の局所大域次元は $2$ なので，これは
+$D^b(\mathcal C_e)$ の標準的な dg enhancement の Hochschild homology である．
+次数の規約は，滑らかな射影多様体 $W$ に対して
+\begin{equation}
+ \operatorname{HH}_i(W)
+ \simeq \bigoplus_{p-q=i} H^q(W,\Omega_W^p)
+ \label{eq:hh-hkr-convention}
+\end{equation}
+とする．
+
+\subsection{判別二重被覆による計算}
+
+$p_e:X_e\to Z_e$ を二次形式 $q_e$ の定める conic bundle とする．
+判別曲線 $D_e$ は滑らかであり，その上の退化 conic は相異なる2直線の和である．
+従って，退化 conic の一方の既約成分を選ぶ連結な非分岐二重被覆
+\[
+ \pi_e:\widetilde D_e\longrightarrow D_e,
+ \qquad
+ (\pi_e)_*\mathcal O_{\widetilde D_e}
+ =\mathcal O_{D_e}\oplus\eta_e
+\]
+がある．ここで $\eta_e$ は第\ref{subsec:residue}節で非自明性を示した2-torsion 線束である．
+
+Kuznetsov の quadric fibration の定理
+\cite[Theorem~4.2]{KuznetsovQuadric} を相対次元 $1$ に適用すると，
+\begin{equation}
+ D^b(X_e)
+ =\left\langle
+ D^b(Z_e,\mathcal A_e),\,
+ p_e^*D^b(Z_e)\otimes\mathcal O_{X_e/Z_e}(1)
+ \right\rangle .
+ \label{eq:hh-conic-sod}
+\end{equation}
+$X_e,Z_e,D_e$ が滑らかであることを確認済みなので，
+\cite[Theorem~8.12]{KuznetsovHH} の conic bundle に対する公式を適用できる．
+\eqref{eq:hh-hkr-convention} の規約に直すと，それは
+\begin{equation}
+ \operatorname{HH}_i(\mathcal C_e)
+ \simeq \operatorname{HH}_i(Z_e)
+ \oplus H^{-i}(D_e,\eta_e)
+ \oplus H^{1-i}(D_e,\omega_{D_e}\otimes\eta_e)
+ \label{eq:hh-discriminant-formula}
+\end{equation}
+となる．引用文献の homology の添字 $t$ は，ここでは $t=-i$ に対応する．
+
+以下，$g_e=g(D_e)$ と置く．非自明な次数 $0$ の線束 $\eta_e$ は
+非零切断を持たず，Serre duality により
+\[
+ H^0(D_e,\eta_e)=0,
+ \qquad
+ H^1(D_e,\omega_{D_e}\otimes\eta_e)
+ \simeq H^0(D_e,\eta_e^{-1})^*=0.
+\]
+曲線上の Riemann--Roch から
+\begin{equation}
+ h^1(D_e,\eta_e)=g_e-1,
+ \qquad
+ h^0(D_e,\omega_{D_e}\otimes\eta_e)=g_e-1.
+ \label{eq:hh-eta-dimensions}
+\end{equation}
+また $Z_2=\mathbb P^1\times\mathbb P^1$ と $Z_1=\mathbb P^2$ の
+Hodge cohomology は対角成分だけなので，
+\[
+ \operatorname{HH}_i(Z_2)=
+ \begin{cases}\mathbb C^4&i=0,\\0&i\ne0,\end{cases}
+ \qquad
+ \operatorname{HH}_i(Z_1)=
+ \begin{cases}\mathbb C^3&i=0,\\0&i\ne0.\end{cases}
+\]
+次数 $2$ の判別曲線は $(3,3)$ 曲線なので $g_2=4$，
+次数 $1$ の判別曲線は平面5次曲線なので $g_1=6$ である．
+従って次を得る．
+
+\begin{proposition}
+\label{prop:hh-values}
+本稿の2つの order に対し，Hochschild homology は
+\[
+\begin{array}{c|cccc}
+ e & \operatorname{HH}_{-1}(\mathcal C_e)
+   & \operatorname{HH}_{0}(\mathcal C_e)
+   & \operatorname{HH}_{1}(\mathcal C_e)
+   & \operatorname{HH}_{i}(\mathcal C_e)\ (|i|\ge2)\\\hline
+ 2 & \mathbb C^3 & \mathbb C^4 & \mathbb C^3 & 0\\
+ 1 & \mathbb C^5 & \mathbb C^3 & \mathbb C^5 & 0
+\end{array}
+\]
+である．
+\end{proposition}
+
+次数 $1$ と $-1$ の部分は，より具体的には
+\begin{equation}
+ \operatorname{HH}_1(\mathcal C_e)
+ \simeq H^0(D_e,\omega_{D_e}\otimes\eta_e),
+ \qquad
+ \operatorname{HH}_{-1}(\mathcal C_e)
+ \simeq H^1(D_e,\eta_e)
+ \label{eq:hh-prym-pieces}
+\end{equation}
+である．二重被覆の involution を $\iota_e$ とすると，有限射の射影公式から
+これらはそれぞれ
+\[
+ H^0(\widetilde D_e,\omega_{\widetilde D_e})^{-},
+ \qquad
+ H^1(\widetilde D_e,\mathcal O_{\widetilde D_e})^{-}
+\]
+に一致する．上付き $-$ は $\iota_e$ の $-1$ 固有空間を表す．
+従って非零次数の Hochschild homology は，判別二重被覆の Prym variety
+\[
+ \operatorname{Prym}(\widetilde D_e/D_e)
+ :=\ker\bigl(\operatorname{Nm}_{\pi_e}:
+ \operatorname{Pic}^0(\widetilde D_e)\to\operatorname{Pic}^0(D_e)\bigr)^0
+\]
+の単位元での余接空間と接空間を与えており，その次元は次数 $2$ の例で $3$，
+次数 $1$ の例で $5$ である．
+
+\subsection{幾何学的 Euler 数による別計算}
+
+\eqref{eq:hh-conic-sod} と Hochschild homology の加法性
+\cite[Corollary~7.5]{KuznetsovHH} を使い，$X_e$ の Hodge 数からも
+命題~\ref{prop:hh-values} を確認できる．滑らかな conic の位相的 Euler 数は
+$2$，相異なる2直線の和の Euler 数は $3$ なので，
+\begin{equation}
+ e_{\mathrm{top}}(X_e)
+ =2\,e_{\mathrm{top}}(Z_e\setminus D_e)+3\,e_{\mathrm{top}}(D_e)
+ =2\,e_{\mathrm{top}}(Z_e)+2-2g_e.
+ \label{eq:hh-euler-conic}
+\end{equation}
+ここでは proper morphism に沿った構成可能関数の Euler 積分を用いている．
+
+次数 $2$ では命題\ref{prop:classification2}の証明で用いた
+Weak Lefschetz により $b_1(X_2)=0$，$b_2(X_2)=3$ で，
+$H^2$ はすべて $(1,1)$ 型である．随伴公式は
+\[
+ \omega_{X_2}=\mathcal O_{X_2}(-1,-1,-1)
+\]
+を与えるので $h^{3,0}(X_2)=0$．Poincar\'e duality と
+\eqref{eq:hh-euler-conic} から
+\[
+ e_{\mathrm{top}}(X_2)=2,\qquad
+ b_3(X_2)=(1+3+3+1)-2=6,
+ \qquad h^{2,1}(X_2)=h^{1,2}(X_2)=3.
+\]
+従って $\operatorname{HH}_0(X_2)=\mathbb C^8$，
+$\operatorname{HH}_{\pm1}(X_2)=\mathbb C^3$ であり，
+$\operatorname{HH}_0(Z_2)=\mathbb C^4$ を除くと命題の第1行となる．
+
+次数 $1$ では $X_1$ は式\eqref{eq:cubic-threefold}の滑らかな cubic threefold $Y$ の直線
+$\ell\simeq\mathbb P^1$ に沿う blowup である．
+Weak Lefschetz により $b_1(Y)=0$，$b_2(Y)=1$ であり，
+$H^2(Y)$ は超平面類で生成される．blowup の cohomology 公式は
+$H^2$ と $H^4$ に各1次元を加え，$H^3$ には
+$H^1(\mathbb P^1)=0$ を加える．従って
+$b_1(X_1)=b_5(X_1)=0$，$b_2(X_1)=b_4(X_1)=2$ であり，
+$H^2(X_1)$ と $H^4(X_1)$ はそれぞれ $(1,1)$ 型と $(2,2)$ 型である．
+また $\omega_Y=\mathcal O_Y(-2)$ と blowup の公式から
+$h^{3,0}(X_1)=0$ である．よって
+\[
+ e_{\mathrm{top}}(X_1)=-4,\qquad
+ b_3(X_1)=(1+2+2+1)-(-4)=10,
+ \qquad h^{2,1}(X_1)=h^{1,2}(X_1)=5.
+\]
+従って $\operatorname{HH}_0(X_1)=\mathbb C^6$，
+$\operatorname{HH}_{\pm1}(X_1)=\mathbb C^5$ であり，
+$\operatorname{HH}_0(Z_1)=\mathbb C^3$ を除くと命題の第2行となる．
+
+\subsection{帰結}
+
+\begin{corollary}
+いずれの $D^b(\mathcal C_e)$ も full exceptional collection を持たない．
+また，次数 $e$ の滑らかな可換 del Pezzo 曲面の導来圏とは同値でない．
+\end{corollary}
+
+\begin{proof}
+exceptional object の生成する圏の Hochschild homology は次数 $0$ の
+$\mathbb C$ だけなので，加法性により full exceptional collection を持つ圏では
+$\operatorname{HH}_{i}=0$ for $i\ne0$ となる．これは
+命題~\ref{prop:hh-values} の $\operatorname{HH}_{\pm1}\ne0$ と矛盾する．
+導来同値の非存在は数値的 Grothendieck 群からも分かる．
+第\ref{sec:unpointed}節で求めたその rank は，次数2の例で $4$，次数1の例で $3$ である．
+一方，滑らかな可換 del Pezzo 曲面 $S$ では Kodaira vanishing より
+$H^i(S,\mathcal O_S)=0$ for $i>0$ で，Noether の公式は
+$e_{\mathrm{top}}(S)=12-K_S^2=12-e$ を与える．
+Hodge cohomology は対角成分だけで，$H^2$ は因子類で生成されるから，
+$\operatorname{rank}K_{\mathrm{num}}(S)=12-e$，すなわち $10$ または $11$ である．
+Euler pairing と数値的 Grothendieck 群は三角圏同値で保たれるため，導来同値は存在しない．
+\end{proof}
+
+

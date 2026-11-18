@@ -1,0 +1,267 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{反標準環の明示表示と AS-regular ambient}
+\label{sec:explicit-ambient}
+
+Clifford 積を用いて反標準環の次数付き algebra としての表示を与え，
+その ambient が AS-regular であることを示す．
+
+以下で用いる Clifford の PBW 性を確認する．
+$S$ を可換 $\mathbb C$-algebra，$Q=(q_{ij})$ を $S$ 上の対称行列とし，
+\[
+ C_S(Q)=S\langle x_1,\ldots,x_r\rangle/
+ (x_ix_j+x_jx_i-2q_{ij})
+\]
+と置く．$S$ はこの表示で中心に作用するものとする．
+順序付き積 $x_{i_1}\cdots x_{i_s}$，$i_1<\cdots<i_s$ は $S$-基底である．
+実際，関係式によりこれらは生成系となる．
+独立性には $E=S^r$ 上の外積代数を用い，$x_i$ を
+$c_i=e_i\wedge(-)+\iota_{q(e_i,-)}$ として作用させる．
+$c_ic_j+c_jc_i=2q_{ij}$ であり，$c_{i_1}\cdots c_{i_s}(1)$ の最高外積次数の成分は
+$e_{i_1}\wedge\cdots\wedge e_{i_s}$ である．
+従ってこの作用を $1$ に適用し，外積次数について降下すれば独立性が従う．
+この議論は $Q$ の非退化性を仮定しない．
+
+\subsection{次数2の反標準環}
+
+$S=\mathbb C[a,b,c,d]$，$\deg a=\deg b=\deg c=\deg d=2$ とし，
+\[
+ Q_2(a,b,c,d)=
+ \begin{pmatrix}
+ b&a+c&a+d\\
+ a+c&b&b\\
+ a+d&b&c
+ \end{pmatrix}.
+\]
+$\deg X_i=1$ として
+\begin{equation}
+ G^{(2)}=C_S(Q_2)
+ \label{eq:ambient-d2}
+\end{equation}
+を定める．PBW 性から，$G^{(2)}$ は $S$ 上，
+\[
+ 1,\quad X_1,X_2,X_3,\quad X_1X_2,X_1X_3,X_2X_3,
+ \quad X_1X_2X_3
+\]
+を基底とする自由加群である．従って
+\begin{equation}
+ H_{G^{(2)}}(t)
+ =\frac{(1+t)^3}{(1-t^2)^4}
+ =\frac{1}{(1-t)^3(1-t^2)}.
+ \label{eq:ambient-d2-hilbert}
+\end{equation}
+
+中心元 $h=ad-bc$ は $S$ 上で非零因子なので，$G^{(2)}$ 上でも正則である．
+$\mathcal V_2=\mathcal O^{\oplus3}$ の標準基底の切断を
+$\varepsilon_1,\varepsilon_2,\varepsilon_3$ とし，これらを
+\[
+ H^0(Z_2,\mathcal V_2)\subset H^0(Z_2,\mathcal P_2)=R^{(2)}_1
+\]
+の元と見る．また，Segre 切断 $a,b,c,d$ をスカラー成分
+\[
+ H^0(Z_2,L_2)\subset H^0(Z_2,\mathcal A_2\otimes L_2)=R^{(2)}_2
+\]
+の元と見る．これらの次数2の切断は Clifford 積に関して中心にあり，
+$\varepsilon_i\varepsilon_j+\varepsilon_j\varepsilon_i=2(Q_2)_{ij}$ と
+$ad-bc=0$ を満たす．従って $X_i\mapsto\varepsilon_i$ と，
+$a,b,c,d$ をそれぞれ同名の Segre 切断へ送る対応により，次数付き algebra の射
+\begin{equation}
+ G^{(2)}/(ad-bc)\longrightarrow R^{(2)}
+ \label{eq:d2-hypersurface-map}
+\end{equation}
+を定める．これが全次数で同型であることを確認する．
+Segre 埋め込みの切断環を，次数を $2$ 倍して
+\[
+ S'=\bigoplus_{m\geq0}H^0(\mathbb P^1\times\mathbb P^1,
+ \mathcal O(m,m)),\qquad \deg H^0(\mathcal O(m,m))=2m
+\]
+と書けば，$S'=S/(ad-bc)$ である．
+Clifford の外積分解から $R^{(2)}$ は $S'$ 上自由で，その基底の次数は
+\[
+ 0,\quad 1,1,1,\quad 2,2,2,\quad 3
+\]
+である．上記の順序付き Clifford 積は，その外積分解に対して対角成分が $1$ の
+三角形の基底変換を与える．従って \eqref{eq:d2-hypersurface-map} は $S'$-加群として
+同型であり，algebra としても同型である．
+
+\begin{proposition}
+$G^{(2)}$ は大域次元 $4$ の左右 noetherian AS-regular algebra であり，
+最小生成元の次数は $(1,1,1)$ である．
+従って $R^{(2)}$ は Hilbert 級数
+$((1-t)^3(1-t^2))^{-1}$ を持つ AS-regular algebra の中心正則 $4$ 次超曲面である．
+\end{proposition}
+
+\begin{proof}
+行列成分から
+\[
+ b=X_1^2,\qquad c=X_3^2,\qquad
+ a=\frac{X_1X_2+X_2X_1}{2}-c,\qquad
+ d=\frac{X_1X_3+X_3X_1}{2}-a
+\]
+を得る．従って $G^{(2)}$ は $X_1,X_2,X_3$ で生成され，これらは次数 $1$ の
+独立な元なので最小生成系である．
+
+PBW 性から $d$ は中心正則元である．対称係数行列を
+\[
+ M_a=\begin{pmatrix}0&1&1\\1&0&0\\1&0&0\end{pmatrix},\qquad
+ M_b=\begin{pmatrix}1&0&0\\0&1&1\\0&1&0\end{pmatrix},\qquad
+ M_c=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}
+\]
+と置けば，$Q_2|_{d=0}=aM_a+bM_b+cM_c$ である．
+中心生成元を $2a,2b,2c$ と取ると，$G^{(2)}/(d)$ は係数行列
+$M_a,M_b,M_c$ の graded Clifford algebra となる．
+可換変数の列ベクトル $\boldsymbol{\xi}=(x,y,z)^{\mathsf t}$ に対し，
+対応する二次形式は $\boldsymbol{\xi}^{\mathsf t}M_a\boldsymbol{\xi}$，
+$\boldsymbol{\xi}^{\mathsf t}M_b\boldsymbol{\xi}$，
+$\boldsymbol{\xi}^{\mathsf t}M_c\boldsymbol{\xi}$，すなわち
+\[
+ 2x(y+z),\qquad x^2+y^2+2yz,\qquad 2xy+z^2
+\]
+である．Basepoint-free criterion \cite[Theorem~1.1]{CV2010} によれば，これらの二次形式が
+$\mathbb P^2$ に共通零点を持たなければ，$G^{(2)}/(d)$ は大域次元 $3$ の
+AS-regular algebra である．
+実際，第 $1$ 式から $x=0$ または $y=-z$ である．
+$x=0$ なら第 $3$ 式，第 $2$ 式の順に $z=y=0$ となる．
+$x\neq0$ かつ $y=-z$ なら第 $3$ 式は $z(z-2x)=0$ となり，
+$z=0$ と $z=2x$ の場合に第 $2$ 式はそれぞれ $x^2$ と $-3x^2$ になる．
+従って共通の射影零点はなく，この criterion を適用できる．
+正則正規元による拡大の定理 \cite[Proposition~2.1]{CKS2019} を $d$ に適用すると，
+$G^{(2)}$ は大域次元 $4$ の AS-regular algebra となる．
+Noetherian 性は，中心の多項式環 $S$ 上の有限加群であることから従い，
+有限 GK 次元は \eqref{eq:ambient-d2-hilbert} から従う．
+\end{proof}
+
+\subsection{次数1の反標準環}
+
+\begin{equation}
+ H=\mathbb C\langle X,Y\rangle/
+ (X^2Y-YX^2,\;Y^2X-XY^2),\qquad \deg X=\deg Y=1
+ \label{eq:down-up-base}
+\end{equation}
+と置く．これは down-up algebra $D(0,1)$ である．
+従って大域次元 $3$ の左右 noetherian AS-regular domain であり，
+\[
+ H_H(t)=\frac1{(1-t)^2(1-t^2)}
+\]
+となる \cite[Lemma~1.1]{CKZ2017}．
+
+$u=X^2$，$w=Y^2$，$v=(XY+YX)/2$ は $H$ の中心元である．
+特に $v$ の中心性は
+\[
+ [X,XY+YX]=X^2Y-YX^2=0,\qquad
+ [Y,XY+YX]=Y^2X-XY^2=0
+\]
+から従う．
+形式的な多項式環 $S_0=\mathbb C[u,v,w]$ 上の Clifford algebra
+\[
+ S_0\langle X,Y\rangle/(X^2-u,\;Y^2-w,\;XY+YX-2v)
+\]
+と $H$ の間には，これらの式による互いに逆な準同型がある．
+従って PBW 性から $u,v,w$ は代数的に独立であり，
+$H$ は $S_0$ 上，$1,X,Y,XY$ を基底とする自由加群である．
+
+自己同型 $\sigma$ と $\sigma$-derivation $\delta$ を
+\[
+ \sigma(X)=-X,\quad\sigma(Y)=-Y,\qquad
+ \delta(X)=2Y^4,\quad\delta(Y)=2X^4
+\]
+で定める．ここでは $\delta(ab)=\sigma(a)\delta(b)+\delta(a)b$ を規約とする．
+$X^2,Y^2$ の中心性を使うと $\delta(X^2)=\delta(Y^2)=0$ であり，
+\[
+ \delta(XY+YX)
+ =-2X^5+2Y^5-2Y^5+2X^5=0.
+\]
+従って $\delta(u)=\delta(v)=\delta(w)=0$ である．
+また \eqref{eq:down-up-base} の関係に $\delta$ を適用した結果は
+それぞれ $[X^2,2X^4]=0$，$[Y^2,2Y^4]=0$ なので，$\delta$ は $H$ 上に降りる．
+
+\begin{equation}
+ G^{(1)}=H[Z;\sigma,\delta],\qquad
+ Z a=\sigma(a)Z+\delta(a),\qquad \deg Z=3
+ \label{eq:ambient-d1}
+\end{equation}
+と置く．$\sigma$ は次数を保ち，$\delta$ は次数 $3$ を持つので，
+これは連結次数付き Ore extension である．
+$\sigma\delta+\delta\sigma=0$ は $X,Y$ 上で成立し，その積公式により $H$ 全体で成立する．
+そのため $\delta^2$ は通常の derivation となる．
+$\delta^2(X)=\delta^2(Y)=0$ なので $\delta^2=0$ である．
+よって任意の $a\in H$ に対して
+\[
+ Z^2a=\sigma^2(a)Z^2+
+ (\delta\sigma+\sigma\delta)(a)Z+\delta^2(a)=aZ^2.
+\]
+従って $Z^2$ は中心元であり，$u,v,w$ も $G^{(1)}$ の中心元である．
+
+\begin{proposition}
+$G^{(1)}$ は大域次元 $4$ の左右 noetherian AS-regular domain であり，
+\[
+ H_{G^{(1)}}(t)=\frac1{(1-t)^2(1-t^2)(1-t^3)}.
+\]
+最小生成元の次数は $(1,1,3)$ であり，次数 $6$ の中心正則元について
+\begin{equation}
+ R^{(1)}\simeq G^{(1)}/(Z^2-2v^3)
+ \label{eq:d1-hypersurface}
+\end{equation}
+が成り立つ．
+\end{proposition}
+
+\begin{proof}
+自己同型を伴う Ore extension は noetherian 性と domain 性を保つ．
+また \cite[Theorem~3.3 and Remark~2.2]{LWW2014} を用いると，
+正次数の次数付き Ore extension は twisted Calabi--Yau 次元を $1$ 増やす．
+連結次数付きの場合の AS-regular 性との同値
+\cite[Proposition~1.6]{CKS2019}により，$G^{(1)}$ は
+大域次元 $4$ の AS-regular algebra である．
+Ore の自由加群分解 $G^{(1)}=\bigoplus_{n\geq0}HZ^n$ は上記の Hilbert 級数を与える．
+また，この分解から $Z$ は $X,Y$ で生成される部分 algebra に属さないので，
+$X,Y,Z$ は次数 $(1,1,3)$ の最小生成系である．
+
+$f=Z^2-2v^3$ は中心元である．Ore の自由加群分解における $Z^2$ の係数が $1$ なので
+$f\neq0$ であり，domain 性から正則である．
+$Z$ について monic な関係 $f=0$ で除算すれば，$G^{(1)}/(f)$ は
+$H$ 上 $1,Z$ を基底とする自由加群となる．
+従って $S_0$ 上の基底とその次数は
+\[
+ \begin{array}{c|cccccccc}
+ \text{基底}&1&X&Y&XY&Z&XZ&YZ&XYZ\\\hline
+ \text{次数}&0&1&1&2&3&4&4&5
+ \end{array}
+\]
+である．定義関係は
+\[
+ X^2=u,\quad Y^2=w,\quad XY+YX=2v,\quad
+ XZ+ZX=2w^2,\quad YZ+ZY=2u^2,\quad Z^2=2v^3.
+\]
+これらは次数 $1$ の例の二次形式
+\[
+ \begin{pmatrix}
+ u&v&w^2\\ v&w&u^2\\ w^2&u^2&2v^3
+ \end{pmatrix}
+\]
+の Clifford relations である．
+ここで $X,Y$ は $H^0(\mathcal P_1)$，$Z$ は
+$H^0(\mathcal P_1\otimes\mathcal O(1))$ の $\mathcal O$ 成分から取る．
+Clifford multiplication により $G^{(1)}/(f)\to R^{(1)}$ が定まる．
+一方，$R^{(1)}$ は $S_0=\bigoplus_{m\geq0}H^0(\mathbb P^2,\mathcal O(m))$
+（切断次数を $2$ 倍する）上，同じ $8$ 個の次数を持つ自由加群であり，
+順序付き Clifford 積の外積成分は上記の PBW 基底を与える．
+従ってこの準同型は全次数で同型である．
+\end{proof}
+
+\subsection{次数2の積}
+
+\begin{lemma}
+\label{lem:mu2-surjective}
+両方の反標準環で，積写像
+\[
+ \mu^{(e)}_2:R^{(e)}_1\otimes_{\mathbb C}R^{(e)}_1\longrightarrow R^{(e)}_2
+ \qquad(e=1,2)
+\]
+は全射である．
+\end{lemma}
+\begin{proof}
+次数2の例では，$R^{(2)}$ は次数1の $X_1,X_2,X_3$ の像で生成される．
+次数1の例では，$\deg Z=3$ と $\deg(Z^2-2v^3)=6$ より，
+式\eqref{eq:d1-hypersurface}を通じて $R^{(1)}_1=H_1$，$R^{(1)}_2=H_2$ と同定される．
+$H$ は次数1の $X,Y$ で生成されるので，$H_2=H_1H_1$ である．
+\end{proof}
+

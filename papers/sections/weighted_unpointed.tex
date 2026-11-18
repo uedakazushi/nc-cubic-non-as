@@ -1,0 +1,327 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{構造対象を忘れた超曲面表示の排除}
+\label{sec:unpointed}
+
+この節では，最小生成次数を指定した主定理の非表示を証明する．
+最初に局所射影な rank 1 の exceptional object を分類し，
+その後に仮定したアーベル圏同値の下で構造対象の像が
+この分類に入ることを示す．
+
+\subsection{局所正則型と数値的類}
+
+\begin{lemma}
+\label{lem:regular-type}
+$F$ が $\operatorname{coh}\mathcal A_e$ の局所射影対象で，
+一般点での division rank が $1$ なら，
+$F$ は局所的に正則右加群 $\mathcal A_e$ と同型である．
+特にある $N\in\operatorname{Pic}(Z_e)$ に対し
+\begin{equation}
+ \det F=\det\mathcal A_e\otimes N^2
+ \label{eq:norm-determinant}
+\end{equation}
+となる．
+\end{lemma}
+\begin{proof}
+$D_e$ の一般点の離散付値環上では，
+命題\ref{prop:division}の表示の $R[I]$ は非自明な剰余二次拡大を持つ．
+$\mathcal A_e=R[I]\oplus R[I]J$，$J^2$ は一様化元の単元倍であり，
+$J\mathcal A_e$ が Jacobson radical，その商は二次剰余体である．
+従って $\mathcal A_e$ はこの点で局所環であり，
+有限射影加群 $F$ は自由である．一般点での rank から自由階数は $1$ となる．
+
+閉分岐点で完備化し，式\eqref{eq:local-order}の
+2つの原始冪等元に対応する射影加群を $P_1,P_2$ とする．
+完備環は semiperfect なので
+$\widehat F=P_1^{\oplus r_1}\oplus P_2^{\oplus r_2}$ と書ける．
+形式的な分岐因子 $(s)$ の一般点で局所化すると，直前の自由性が
+基底変換される．そこでの2つの射影型は異なるため
+$r_1=r_2=1$ であり，$\widehat F\simeq\widehat{\mathcal A_e}$ である．
+分岐外では $\widehat{\mathcal A_e}=M_2(R)$ であり，
+同じ $\mathcal O_Z$-rank $4$ の射影加群は正則加群と同型になる．
+完備化上の生成元を中心の極大イデアル modulo で持ち上げ，
+Nakayama の補題を適用すると，元の局所環でも
+$\mathcal A_e\to F$ は全射になる．同じ階数のベクトル束の全射なので同型である．
+
+従って $F$ の遷移写像は $\mathcal A_e^\times$ の元 $u$ による左乗法である．
+quaternion algebra 上の左乗法の determinant は
+$\det(L_u)=\operatorname{Nrd}(u)^2$ である．
+reduced norm は乗法的で，単元を $\mathcal O_Z^\times$ に写すので，
+遷移関数 $\operatorname{Nrd}(u)$ が線束 $N$ を定め，
+式\eqref{eq:norm-determinant}を得る．
+\end{proof}
+
+\begin{lemma}
+\label{lem:numerical-to-isomorphism}
+$F$ を局所射影な division rank 1 の対象とし，
+$[F]=[\mathcal A_e]$ in $K_{\mathrm{num}}(\mathcal A_e)$ とする．
+このとき $F\simeq\mathcal A_e$ である．
+\end{lemma}
+\begin{proof}
+忘却関手 $\operatorname{Forg}:\operatorname{coh}\mathcal A_e
+\to\operatorname{coh}Z_e$ の左随伴は
+$E\mapsto E\otimes_{\mathcal O_{Z_e}}\mathcal A_e$ なので，
+\[
+ \chi_{Z_e}(E,\operatorname{Forg}F)
+ =\chi_{\mathcal A_e}(E\otimes\mathcal A_e,F).
+\]
+従って忘却関手は数値的 Grothendieck 群上に降り，
+$c_1(F)=c_1(\mathcal A_e)$ となる．$Z_e$ の Picard 群は torsion-free で
+$\operatorname{Pic}^0=0$ だから $\det F\simeq\det\mathcal A_e$ である．
+$H=c_1(\mathcal O_{\mathbb P^2}(1))$ と書くと，具体的に
+\[
+\begin{array}{c|cc}
+e&c_1(\mathcal A_e)&c_1(\omega_{\mathcal A_e})\\ \hline
+2&(-3,-3)&(-5,-5)\\
+1&-5H&-7H
+\end{array}
+\]
+なので $\det\omega_{\mathcal A_e}\otimes(\det F)^{-1}=L_e^{-2}$ である．
+非零な $F\to\omega_{\mathcal A_e}$ は一般点で非零で，
+division rank 1 より一般点で同型となる．その determinant は
+$L_e^{-2}$ の非零切断を与えて矛盾する．Serre duality により
+$H^2(Z_e,F)=0$ である．一方，$\chi(\mathcal A_e,F)=1$ なので
+$H^0(Z_e,F)\ne0$．非零写像 $\mathcal A_e\to F$ の determinant は
+非零定数であり，これは全体で同型である．
+\end{proof}
+
+\subsection{次数2の exceptional object}
+
+\begin{proposition}
+\label{prop:classification2}
+$\operatorname{coh}\mathcal A_2$ の局所射影で division rank 1 の
+exceptional object は，ちょうど
+\[
+ T_2^i\mathcal A_2\otimes\mathcal O(j,k)
+ \qquad (i,j,k\in\mathbb Z)
+\]
+である．
+\end{proposition}
+\begin{proof}
+$X_2\subset\mathbb P^2\times\mathbb P^1\times\mathbb P^1$ は
+滑らかな ample $(2,1,1)$ hypersurface である．
+Weak Lefschetz により $b_2(X_2)=3$ であり，
+$H^2$ は因子類で生成される．Hard Lefschetz により $H^4$ も代数的である．
+従って Riemann--Roch と Poincar\'e duality から
+$\operatorname{rank}K_{\mathrm{num}}(X_2)=1+3+3+1=8$ である．
+Kuznetsov の定理 \cite[Theorem~4.2]{KuznetsovQuadric} による
+\[
+ D^b(X_2)=\langle D^b(Z_2,\mathcal A_2),\,
+ p_2^*D^b(Z_2)\otimes\mathcal O_{X_2/Z_2}(1)\rangle
+\]
+を用いると
+$\operatorname{rank}K_{\mathrm{num}}(\mathcal A_2)=8-4=4$ となる．
+ここで数値的 Grothendieck 群の分解は，
+半直交性と Serre duality により Euler pairing の radical も分解することから従う．
+
+順序付きの対象
+$\mathcal A_2,\mathcal P_2,\mathcal A_2(1,0),\mathcal A_2(0,1)$ の
+Euler 行列は
+\begin{equation}
+ G_2=
+ \begin{pmatrix}
+ 1&3&2&2\\1&1&0&0\\0&0&1&-3\\0&0&-3&1
+ \end{pmatrix},\qquad\det G_2=16.
+ \label{eq:Euler2}
+\end{equation}
+この計算には
+\[
+ \chi(\mathcal A_2(a,b))=4ab+a+b+1,\qquad
+ \chi(\mathcal P_2(a,b))=4ab+3a+3b+3
+\]
+と $T_2^{-1}\mathcal A_2=\mathcal P_2(-1,-1)$ を用いる．
+従って4つの対象は $K_{\mathrm{num}}(\mathcal A_2)_{\mathbb Q}$ の基底である．
+
+補題\ref{lem:regular-type}より
+$c_1(F)=(-3,-3)+2(\alpha,\beta)$，$\alpha,\beta\in\mathbb Z$ と書ける．
+rank 条件とこの $c_1$ 条件を基底座標に直すと，ある $z\in\mathbb Q$ について
+\[
+ [F]=
+ \left(1-\frac{\alpha+\beta}{2},\
+ z,\ \frac{\alpha-z}{2},\ \frac{\beta-z}{2}\right).
+\]
+式\eqref{eq:Euler2}は
+\[
+ \chi(F,F)=1-2\alpha\beta+2z,\qquad
+ \chi(\mathcal A_2,F)=1+z+\frac{\alpha+\beta}{2}
+\]
+を与える．exceptionality から $z=\alpha\beta$，
+第2式の整数性から $\alpha\equiv\beta\pmod2$ である．
+両者が偶数なら $\mathcal A_2(\alpha/2,\beta/2)$，
+奇数なら $\mathcal P_2((\alpha-1)/2,(\beta-1)/2)$ が同じ数値的類を持つ．
+この対象を $\mathcal A_2$ に送る自己同値で $F$ を正規化し，
+補題\ref{lem:numerical-to-isomorphism}を適用する．
+逆に表示中の各対象が局所射影，rank 1，exceptional であることは，
+$\mathcal A_2$ の性質と自己同値から従う．
+\end{proof}
+
+\subsection{次数1の exceptional object}
+
+まず $\mathcal A_1$ を cubic threefold の Clifford algebra として記述する．
+\begin{equation}
+ Y=\{ux^2+2vxy+wy^2+2w^2x+2u^2y+2v^3=0\}
+ \subset\mathbb P^4_{[x:y:u:v:w]}
+ \label{eq:cubic-threefold}
+\end{equation}
+は直線 $\ell=(u=v=w=0)$ を含む．
+ここでは射影束 $\mathbb P(\mathcal V_1)$ を $\mathcal V_1$ 内の
+1次元部分空間の射影束とする．射
+\[
+ \mathbb P_{\mathbb P^2}(\mathcal O^{\oplus2}\oplus\mathcal O(-1))
+ \longrightarrow\mathbb P^4,
+ \qquad ([u:v:w],[\xi_0:\xi_1:t])
+ \longmapsto[\xi_0:\xi_1:tu:tv:tw]
+\]
+は，$\mathbb P^4\dashrightarrow\mathbb P^2$，
+$[x:y:u:v:w]\mapsto[u:v:w]$ のグラフの閉包であり，
+$\ell$ に沿う blowup を与える．この射で式\eqref{eq:cubic-threefold}を引き戻し，
+例外因子の方程式 $t$ を除くと，狭義変換の方程式は
+\[
+ u\xi_0^2+2v\xi_0\xi_1+w\xi_1^2
+ +2w^2\xi_0t+2u^2\xi_1t+2v^3t^2=0
+\]
+となる．これは式\eqref{eq:q1}の conic bundle なので
+$X_1\simeq\operatorname{Bl}_{\ell}Y$ である．
+$X_1$ は滑らかなので $Y\setminus\ell$ も滑らかである．
+$\ell$ 上の法線方向の偏微分は $x^2,2xy,y^2$ で，同時には消えない．
+従って $Y$ は滑らかな cubic threefold である．
+
+\begin{proposition}
+\label{prop:classification1}
+$\operatorname{coh}\mathcal A_1$ の局所射影で division rank 1 の
+exceptional object は，ちょうど $T_1^n\mathcal A_1$，$n\in\mathbb Z$ である．
+\end{proposition}
+\begin{proof}
+Bernardara--Macr\`i--Mehrotra--Stellari
+\cite[Propositions~2.9(ii) and 2.12]{BMMS2012} によれば，
+cubic threefold の Clifford algebra について
+$[\mathcal B_1],[\mathcal B_0],[\mathcal B_{-1}]$ は
+数値的 Grothendieck 群の整数基底である．
+本例では $\mathcal B_0=\mathcal A_1$，
+$\mathcal B_1=\mathcal P_1$，
+$\mathcal B_{-1}=\mathcal P_1(-1)$ である．
+$T_1$ を適用して並べ替えると，
+$[\mathcal A_1],[\mathcal P_1],[\mathcal A_1(1)]$ が整数基底となる．
+
+すべての $m\in\mathbb Z$ に対して Riemann--Roch より
+$p(m):=\chi(\mathcal A_1,T_1^m\mathcal A_1)=1+m(m+1)/2$ である．
+従ってこの基底の Euler 行列は
+\begin{equation}
+ G_1=(p(j-i))_{0\le i,j\le2}
+ =\begin{pmatrix}1&2&4\\1&1&2\\2&1&1\end{pmatrix},
+ \qquad\det G_1=1.
+ \label{eq:Euler1}
+\end{equation}
+$[F]=(x,y,z)$ と書くと $x,y,z\in\mathbb Z$，
+rank 条件は $x+y+z=1$ である．
+$n=y+2z$ と置けば
+$\chi(F,F)=1+y+4z-n^2$ なので，exceptionality から
+\begin{equation}
+ (x,y,z)=
+ \left(\frac{(n-1)(n-2)}2,\ n(2-n),\
+ \frac{n(n-1)}2\right).
+ \label{eq:orbit-coordinates}
+\end{equation}
+この列ベクトルに $G_1$ を掛けると
+$(p(n),p(n-1),p(n-2))^{\mathsf t}$ になるため，
+式\eqref{eq:orbit-coordinates}は $[T_1^n\mathcal A_1]$ の座標である．
+$T_1^{-n}$ で正規化して
+補題\ref{lem:numerical-to-isomorphism}を適用する．
+逆向きは自己同値から従う．
+\end{proof}
+
+\subsection{任意のアーベル圏同値に対する障害}
+
+$B=G/(f)$ を主定理の第3項の algebra とし，
+$\pi_B:\operatorname{gr}B\to\operatorname{qgr}B$ を商関手とし，
+$\mathcal B=\pi_B B$ と書く．
+AS-regular algebra の最小自由分解を双対化した相反公式は
+$H_G(t^{-1})=t^\lambda H_G(t)$ を与える．
+所定の Hilbert 級数から AS-Gorenstein parameter $\lambda$ は
+$5$ または $7$ である．正則正規元による商の change-of-rings 公式から，
+$B$ は injective dimension $3$，parameter $\lambda-\deg f=1$ の
+AS-Gorenstein algebra となる．
+
+Yekutieli--Zhang \cite[Theorem~4.2 and Corollary~4.3]{YZ1997} を適用すると，
+$B$ は $\chi$ を満たし，$\operatorname{qgr}B$ の双対化対象は
+$\mathcal B(-1)[2]$ である．同じ局所双対性は
+$\mathfrak m=B_{>0}$ に対して
+$H_{\mathfrak m}^j(B)=0$ for $j\ne3$ を与え，局所コホモロジーの完全列から
+\begin{equation}
+ \operatorname{Hom}(\mathcal B,\mathcal B(n))=B_n,\qquad
+ \operatorname{Ext}^1(\mathcal B,\mathcal B(n))=0
+ \label{eq:saturation}
+\end{equation}
+を得る．さらに双対性から
+$\operatorname{Ext}^2(\mathcal B,\mathcal B)
+\simeq\operatorname{Hom}(\mathcal B,\mathcal B(-1))^*=B_{-1}^*=0$
+であり，コホモロジー次元が $2$ なので，これより高次の Ext も消滅する．
+$\operatorname{End}(\mathcal B)=B_0=k$ と合わせて，
+$\mathcal B$ は exceptional である．
+
+仮に $k$-線形アーベル圏同値
+$\Phi:\operatorname{qgr}B\xrightarrow{\sim}\mathcal C_e$ が存在するとする．
+それは導来圏同値を誘導し，Serre functor と可換である．
+$T_B=\Phi^{-1}T_e\Phi$ と置く．
+双対性とその表現対象の一意性から
+\begin{equation}
+ S_B(\mathcal B(n))\simeq\mathcal B(n-1)[2],\qquad
+ T_B^n\mathcal B\simeq\mathcal B(n)
+ \label{eq:Serre-on-free}
+\end{equation}
+を得る．ここで第1式は次数移動自己同値が Serre functor と可換であることも用いる．
+
+$F=\Phi(\mathcal B)$ は exceptional である．
+閉点に台を持つ任意の単純 $\mathcal A_e$-module $Q$ は
+$T_e^2Q\simeq Q$ を満たす．従って $m\gg0$ に対して
+\[
+ \operatorname{Ext}^1(F,Q)
+ \simeq\operatorname{Ext}^1(T_e^{-2m}F,Q)
+ \simeq\operatorname{Ext}^1(\mathcal B(-2m),\Phi^{-1}Q)=0.
+\]
+最後は Yekutieli--Zhang の局所双対性
+\cite[Theorem~4.2(1)]{YZ1997} による Serre vanishing である．
+実際，$\Phi^{-1}Q=\pi_B M$ と書けば，有限生成次数付き $M$ に対して
+\[
+ \operatorname{Ext}^1(\mathcal B(-n),\pi_B M)
+ =H^2_{\mathfrak m}(M)_n=0\qquad(n\gg0)
+\]
+となる．最後の消滅は balanced dualizing complex による
+局所コホモロジーの右有界性から従う．
+$Q$ に値を持つ局所 $\mathcal Hom$ と $\mathcal Ext$ は0次元の台を持つので，
+local-to-global spectral sequence によりこれは局所 $\operatorname{Ext}^1$ の消滅でもある．
+完備局所 order は semiperfect である．その上の最小射影表示の核が非零なら，
+核の非零な単純商があるため，ある単純加群への $\operatorname{Ext}^1$ が非零となる．
+従って $F$ は完備化上で射影であり，忠実平坦性により局所射影である．
+
+$F$ の一般点での $\mathscr D$-rank を $r$ とすると，
+$\mathcal End_{\mathcal A_e}(F)$ の中心上の rank は $4r^2$ である．
+$L_e^2=e$ なので，Riemann--Roch と Serre vanishing は
+\[
+ \dim\operatorname{Hom}(F,T_e^{2m}F)
+ =2er^2m^2+O(m)
+\]
+を与える．式\eqref{eq:saturation}，\eqref{eq:Serre-on-free}により
+左辺は $\dim B_{2m}=2em^2+em+1$ であるから $r=1$ となる．
+命題\ref{prop:classification2}，\ref{prop:classification1}により，
+$F$ は $T_e$ と可換な自己同値で $\mathcal A_e$ から得られる．
+
+最後に次数2の積を比較する．補題\ref{lem:mu2-surjective}から
+$R^{(e)}_2=R^{(e)}_1R^{(e)}_1$ である．
+従って $\Gamma(F,T_e)=\bigoplus_{n\ge0}\operatorname{Hom}(F,T_e^nF)$ について
+\[
+ \dim\frac{\Gamma(F,T_e)_2}
+ {\Gamma(F,T_e)_1\Gamma(F,T_e)_1}=0.
+\]
+一方，式\eqref{eq:Serre-on-free}の対象としての同型を選ぶと，
+orbit product の像の次元は合成写像
+\[
+ \operatorname{Hom}(\mathcal B,\mathcal B(1))
+ \otimes\operatorname{Hom}(\mathcal B(1),\mathcal B(2))
+ \longrightarrow\operatorname{Hom}(\mathcal B,\mathcal B(2))
+\]
+の像の次元に等しい．これは式\eqref{eq:saturation}から
+$\dim B_1B_1$ である．$G$ の独立な次数2の最小生成元は1個で，
+$\deg f>2$ なので
+$\dim B_2/(B_1B_1)=1$ となり，矛盾する．
+これで主定理の第3項が証明された．
+

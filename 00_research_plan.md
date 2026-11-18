@@ -1,28 +1,42 @@
-# 研究方針：非AS型の内在的非可換三次曲面
-2026-11-17 / non-as-v2 / **研究再開時に最初に読む**。次に主論文 papers/nc-cubic-non-as.tex と research/research_notes.md を読む。正本はGitHub main。
+# 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
+2026-11-19 / non-as-v3。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
-## I. 恒常的な研究原則・保存許可
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して価値を最大化する。必要に応じ方針を現行版として書き直し、変更履歴を蓄積しない。主張を証明済み・仮定付き・未完成・予想・計算的観察に区分し、原稿の証明／今回の監査／計算の実行を混同しない。先行研究の一次資料を確認し、未確認事項や新規性は未確認と記す。論文は日本語LuaLaTeXを基本とし、十分な証明を残す。ノートは現行有効な着想・障害を整理し、作業履歴・旧ZIP・重複・キャッシュは収録しない。
+## 現行目標・価値基準
+内在的なrank-one torsion-free exceptional構造対象、反Serre ample性と反標準Hilbert次数を持つ曲面について、(I) Okawa--UedaのAS surface性と (II) 標準的なAS四次元ambientの超曲面表示を区別し、それぞれの障害の普遍性と既知模型との境界を明確にする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
 
-研究区切りの承諾不要Library保存は一般許可されるが、この研究ではGitHub mainを正本とし、push成功時はLibrary保存せず、push失敗時のみ緊急避難に利用する。既存Libraryファイルは明示指示なしに削除しない。PDF・ZIP・中間生成物はGit追跡せずTeXソースから再生する。PR、Actions、force pushを使わずmainへfast-forwardする。生成・検証・push・Library保存を別状態として報告する。
+## 証明を保持した主要結果
+- **次数3・量子Fermat**（元`nc-cubic-non-as`）：中心正規三次商の反標準圏について、離散torsion付き`(μ_3)^2`商への導来Morita同値と `HH_{-1,0,1}=(2,5,2)`。OUのAS surfaceではないが、AS四次元ambientの超曲面にはなっている。計算：`computations/verify_quantum_fermat*.py`。
+- **次数3・非CY符号型二次元族**（元`nc-cubic-non-as`）：非中心正規三次商、退化twisted group algebra `M_2 ⊕ M_2` のMorita還元、`HH=(2,4,2)` とOU非AS性。fixed ambientでのpointed同型類は一般に二次元。H3認識は既存分類稿の結果に依存。計算：`computations/verify_sign_family_sectors.py`。
+- **次数3・Clifford order**（元`nonas-ncdp`）：`Z=F_1, L=C+2f, V=O^2⊕O(f)`。反標準環は次数一生成の左右noetherian domainで `(1-t^3)/(1-t)^4`、二次包絡の三次成分は **19** 次元。connected gradedな標準quadratic AS4 ambientの三次正規商とは、構造対象を忘れたアーベル圏としても同値でない。任意の非周期的Z-algebraへの拡張は未証明。証明書：`certificates/degree3_quadratic.json`。
+- **次数2・Clifford order**：Hilbert級数 `(1-t^4)/((1-t)^3(1-t^2))`、標準最小生成次数(1,1,1,2)の四次商とのunpointed非同値。他方、最小生成次数(1,1,1)の別のAS4 ambientの中心四次商になる。`HH=(3,4,3)`。
+- **次数1・Clifford order**：Hilbert級数 `(1-t^6)/((1-t)^2(1-t^2)(1-t^3))`、標準最小生成次数(1,1,2,3)の六次商とのunpointed非同値。他方、最小生成次数(1,1,3)の別のAS4 ambientの中心六次商になる。`HH=(5,3,5)`。
 
-## II. 目標と到達点
-Okawa--Ueda Definition 1.1 のAS surfaceと、内在的H3条件の差を明確な導来Morita不変量で公表する。主論文は papers/nc-cubic-non-as.tex。
-- 中心量子Fermat（三乗根、CY ambient、中心三次）：捩れ付き(mu3)^2商、HH_{-1,0,1}=(2,5,2)。
-- 符号型（二位数、非CY ambient、非中心正規三次）：G=f3(x0,x1)+x0*x2^2+x1*x3^2、ad*disc(f3)非零。捩れ付きH0=(Z/2)^2商、HH=(2,4,2)。一般pointed同型類次元2。
-- OUのAS surfaceなら完全強例外列があり、HHは次数0に集中。従ってどちらもOU型でない。
+ここで次数は `dim R_n=1+en(n+1)/2` による。Cliffordの有理標準因子では `K_A^2=e/4` であり、混同しない。奇数次HHが非零であることはOU型への障害であり、任意のAS4超曲面の非存在を意味しない。
 
-符号型のH3認識およびfixed ambientでの二次元分類は nc-cubic-classification/papers/sections/cubic_noncy_sign_example.tex に依拠する既存結果。非AS性とHH計算は本原稿の新しい部分。全intrinsic moduliの成分性は未証明。
+## 主要な未解決問題と優先課題
+1. **公表前監査と先行研究**：主論文の全引用について一次資料の指定定理・仮定・版を確認する。特に離散torsion付きMorita同値とorbifold HKRの指標、Artin--Zhangの原著、Clifford orderの非表示の初出、新規性は独立検証未完了。
+2. **次数3の境界拡張**：一般の非周期的AS正則Z-algebraにおいて、自由対象のSerre helixと三次合成空間が20次元となるための条件を調べる。Mori--Nymanの訂正版の仮定を保持し、非存在を一般に断定しない。
+3. **符号型の精密化**：H3認識と固定ambientの二次元分類の既存分類稿との仮定を再照合し、versal変形・全intrinsicモジュライ成分性・OU locusの開閉性を検討する。
+4. **Clifford反標準環の高次関係**：次数3の二次包絡について次数4以降の核を計算し、超曲面でない現象の構造的説明を求める。現行の非表示定理の成立には不要。
+新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
-## III. 優先課題
-1. 符号型の退化twisted group algebra T=M2⊕M2に対するH作用・Reynolds full性・H0 corner縮約とprojective表現を独立に再監査する。
-2. 二本の楕円曲線のPoincare residueの指標、Hodge次数とdiscrete torsionの符号、HH0固定点寄与を点検する。
-3. OU Definition 1.1、Arinkin--Caldararu--Hablicsek、Baranovsky、Caldararu--Giaquinto--Witherspoonの一次資料と本稿の適用条件を精査し、新規性を確認する。
-4. 符号型二次元族のversal変形と全H3モジュライの既約成分性、OU locusの開閉性を調べる。
+## 主張と検証の状態
+既存両リポジトリの論文には主張の証明がある。今回の統合作業は、内容・入力順・引用・コンパイル構成の整合を検査する作業であって、全圏論的証明を形式化したものではない。有限行列、Groebner基底、Hochschild sector のコードは計算部分の検証に限る。前稿記載の数値と文献記述を無断で新規性確定に読み替えない。文献の未確認箇所や証明の追加仮定は現行ノートに明記する。
 
-## IV. 再現
-- python3 -m pip install -r requirements.txt
-- python3 computations/verify_all.py
-- latexmk -lualatex papers/nc-cubic-non-as.tex
+## 恒常的研究原則と保存許可
+1. 研究の価値を最大化するため、重要性・新規性・理解・応用・正確性・実現可能性に従い方針を柔軟に更新する。変更理由と元目標の解決・残存部分を現在形で記す。時系列履歴を残さない。
+2. 証明済み、追加仮定付き、未完成、予想、計算的観察を区別し、仮定・依存する結果・証明箇所を明示する。原稿に証明があること、今回精査したこと、計算実行したことを混同しない。誤りと依存主張を訂正し、有用な反例・障害のみノートへ残す。
+3. 公表論文では重要主張の一次文献を調査し、仮定と既存結果・本研究の関係をIntroductionで具体的に説明する。未確認の書誌情報を補完しない。必要な識別子とリンクを保持し、外部PDFの大量収録をしない。
+4. 論文は日本語LuaLaTeXを基本とし、公表価値がある現在有効な成果・証明を削除せず、論理的に一本へ統合する。研究ノートは研究日誌とせず、再取得困難な着想・反例・計算・文献比較を保存する。
+5. この方針を再開入口とし、現行の論文、ノート、証明書、計算・再生成手順だけから研究を再開できるようにする。旧版・会話・別保存のノートを必要としない。
+6. bundleは現在のソースと必要なPDF・データ・コード・証明書のみを含む。過去ZIP、編集履歴、ログ、重複、キャッシュを除去する。数学的証明・検証可能性を犠牲にした容量制限は設けない。
+7. **ユーザーの一般的な保存許可に基づき、研究の区切りごとに追加承諾を求めず現行の研究継続bundleをLibraryへ保存してよい。** GitHub mainも正本としてpushする。既存Libraryファイルは明示指示なしに削除しない。生成、検証、GitHub push、Library保存を別状態として報告する。PR・Actions・force pushは用いずmainへfast-forwardで反映する。
 
-finite-sectorプログラムは群と指標の有限計算のみを検査し、dg Morita同値やorbifold HKRの数学的証明を代替しない。
+## 再現
+```sh
+python3 -m pip install -r requirements.txt
+python3 scripts/verify_all.py
+latexmk papers/nc-cubic-non-as.tex
+python3 scripts/make_bundle.py
+```
+原稿はLuaLaTeX、BibTeX、latexmkで組版する。PDFとSyncTeXは`build/`に出力しGitで追跡しない。実際に実行した検証だけを報告する。

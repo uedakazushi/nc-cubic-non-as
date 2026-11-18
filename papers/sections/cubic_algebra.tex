@@ -1,0 +1,147 @@
+% !TEX root = ../nc-cubic-non-as.tex
+\section{反標準環と二次包絡}
+\label{sec:quadratic-obstruction}
+
+\subsection{次数一生成と環論的性質}
+\label{subsec:generation-all-degrees}
+
+$\mathcal V=\mathcal O_Z^{\oplus2}\oplus\mathcal O_Z(f)$の大域切断
+\[
+ x=(1,0,0),\qquad y=(0,1,0),\qquad
+ z=(0,0,s),\qquad w=(0,0,t)
+\]
+を，$\mathcal V\hookrightarrow\mathcal P$を通して$R_1$の元とみなす．
+式\eqref{eq:underlying-bundles}より，これらは$R_1$の基底である．
+
+\begin{proposition}
+\label{prop:generation-all-degrees}
+$R$ は次数一の四元 $x,y,z,w$ で生成される．さらに $R$ は
+有限生成可換中心部分環上の有限加群であり，左右 noetherian な domain である．
+\end{proposition}
+
+\begin{proof}
+中心の切断環を
+\[
+ S=\bigoplus_{m\ge0}H^0(Z,L^m),\qquad
+ \deg H^0(Z,L^m)=2m
+\]
+と置く．$\mathcal A$ のスカラー部分と Clifford 積により，
+$S$ は $R$ の中心部分環である．Cox 座標での展開は
+\begin{equation}
+ H^0(Z,L^m)
+ =\bigoplus_{j=0}^m c^{m-j}d^j\,k[s,t]_{2m-j}
+ \qquad(m\ge0)
+ \label{eq:scroll-monomials}
+\end{equation}
+である．二変数斉次多項式の積が各次数で全射になることから，
+$S$ は5つの切断
+\[
+ cs^2,\quad cst,\quad ct^2,\quad ds,\quad dt
+\]
+で生成される．一方，式\eqref{eq:explicit-q}の Clifford 関係は
+\begin{equation}
+ cs^2=z^2,\qquad cst=zw=wz,\qquad ct^2=w^2,
+ \qquad ds=\frac{xz+zx}{2},\qquad dt=\frac{xw+wx}{2}
+ \label{eq:scalar-generators}
+\end{equation}
+を与える．従って $S$ 全体が $x,y,z,w$ の生成する部分代数に含まれる．
+
+同様に
+\[
+ H^0(Z,L^m\otimes\mathcal O_Z(f))
+ =\bigoplus_{j=0}^m c^{m-j}d^j\,k[s,t]_{2m+1-j}
+\]
+なので，次数付き $S$-加群
+$\bigoplus_{m\ge0}H^0(Z,L^m\otimes\mathcal O_Z(f))$ は
+最初の成分 $H^0(Z,\mathcal O_Z(f))=\langle s,t\rangle$ で生成される．
+従って式\eqref{eq:underlying-bundles}の外積分解を用いると，
+偶数次数部分は $S$ 上，スカラー $1$ と
+\[
+ x\wedge y,\quad x\wedge z,\quad x\wedge w,\quad
+ y\wedge z,\quad y\wedge w
+\]
+で生成される．ここに現れる外積は全て次数2の元であり，
+例えば $x\wedge y=(xy-yx)/2$ なので
+$x,y,z,w$ の積の線形結合である．
+奇数次数部分は $S$ 上，$x,y,z,w$ と
+\[
+ x\wedge y\wedge z,\qquad x\wedge y\wedge w
+\]
+で生成される．最後の二つは次数3に属し，それぞれ
+$x,y,z$ と $x,y,w$ の積を全反対称化した元である．
+以上より $R$ の全ての次数が $x,y,z,w$ で生成される．
+同時に上の有限生成系は $R$ が $S$ 上有限であることを示す．
+$S$ は有限生成可換 $k$-代数なので，$R$ は左右 noetherian である．
+
+最後に一般点で $D_0=\mathcal A\otimes k(Z)$ と置く．
+命題\ref{prop:division-degree-three}により $D_0$ は division algebra である．
+可逆 bimodule $\mathcal P\otimes k(Z)$ は右 $D_0$-加群として階数1であり，
+その tensor 冪の直和は skew polynomial ring と同型になる．
+各 $\mathcal P^{\otimes_{\mathcal A}n}$ は中心上のベクトル束なので，
+その大域切断は一般点の切断に単射する．従って $R$ はこの
+skew polynomial ring の部分代数であり，domain である．
+\end{proof}
+
+\subsection{六本の二次関係と三次成分の計算}
+
+命題\ref{prop:generation-all-degrees}より積$R_1\otimes R_1\to R_2$は全射である．
+命題\ref{prop:Hilbert-degree-three}から$\dim R_1=4$，$\dim R_2=10$なので，
+その核は六次元である．
+
+\begin{lemma}\label{lem:six-quadrics}
+上の核は次の独立な六本の二次関係で張られる．
+\begin{align}
+ r_1&=zw-wz,&
+ r_2&=yz+zy,&
+ r_3&=yw+wy,\notag\\
+ r_4&=2x^2-2z^2-xw-wx,&
+ r_5&=xy+yx-2w^2,&
+ r_6&=2y^2-2w^2-xz-zx.
+ \label{eq:six-quadrics}
+\end{align}
+$V=R_1$，$W=\langle r_1,\ldots,r_6\rangle$と置くと，二次包絡
+$Q=T_k(V)/(W)$は
+\[
+ \dim_k Q_3=19
+\]
+を満たす．
+\end{lemma}
+\begin{proof}
+六本の式がClifford関係から従うことは，
+式\eqref{eq:explicit-q}と\eqref{eq:scalar-generators}から分かる．
+それらの独立性は，順に$zw,yz,yw,x^2,xy,y^2$の係数を見ると従う．
+核の次元が六であるからこれで核全体となる．
+
+三次成分は
+\[
+ Q_3=V^{\otimes3}/(W\otimes V+V\otimes W)
+\]
+である．$(x_1,x_2,x_3,x_4)=(x,y,z,w)$とし，
+三次単項式をこの順の辞書式順序で並べる．
+$(r_jx_i)_{j,i}$，$(x_ir_j)_{j,i}$をこの順に並べた
+$64\times48$整数行列を$M$とする．
+$M$には行列式$512$の$45\times45$小行列が存在し，
+また三本の独立な整数右核ベクトルが存在する．
+小行列の添字，核ベクトル，および有理数体上の検証コードを
+第\ref{sec:reproducibility}節に指定する．
+したがって$\operatorname{rank}M\ge45$かつ
+$\operatorname{rank}M\le48-3=45$であり，
+$\dim Q_3=64-45=19$となる．
+\end{proof}
+
+命題\ref{prop:generation-all-degrees}より$Q_3\to R_3$は全射であり，
+両辺の次元が十九なので同型である．すなわち，二次関係の三次帰結だけで
+反標準環の三次成分の次元に達している．
+
+\subsection{構造対象と偏極を保持した非表示}
+
+標準的なnc $\mathbb P^3$の斉次座標環は，次数一で生成される
+二次AS正則代数$G$で$H_G(t)=(1-t)^{-4}$を満たすものとする．
+$g\in G_3$が正則正規元なら$B=G/(g)$について
+$B_1=G_1$，$B_2=G_2$であり，$G$は二次であるから
+\[
+ G=T_k(B_1)/\bigl(\ker(B_1\otimes B_1\longrightarrow B_2)\bigr).
+\]
+従ってその二次包絡の三次成分は必ず$\dim G_3=20$である．
+補題\ref{lem:six-quadrics}は，$R$がこのような三次商に次数付き同型でないことを示す．
+以下では構造対象を保存しないアーベル圏同値も排除する．

@@ -1,17 +1,46 @@
-# 非AS型非可換三次曲面 — nc-cubic-non-as
+# 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**まず [研究方針](00_research_plan.md) を読む。** 公表用LuaLaTeX原稿は [nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex)。補足は [研究ノート](research/research_notes.md)。
+**現行版 2026-11-19 / non-as-v3。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
-Okawa–UedaのAS surfaceより内在的な三次del Pezzo型曲面の条件が広いことを、二種類の例で示す。
+研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
-- **量子Fermat点**：CY ambient、中心三次、Hochschild homologyの次元（−1,0,1）=(2,5,2)。
-- **符号型二次元族**：非CY ambient、非中心正規三次。滑らかさ ad*Delta(f3)≠0 のもとでHH=(2,4,2)。固定符号ambientの一般pointed同型類の次元は2。
+## 公表用主論文の構成
 
-どちらもdiscrete torsion付き有限商stackへの導来Morita同値と、固定楕円曲線上のtwisted orbifold HKRによる。符号型のH3認識とpointed分類は[ H3主研究](https://github.com/uedakazushi/nc-cubic-classification)の既存結果に依存する。全intrinsicモジュライの成分性・新規性の網羅的調査は未完成。
+量子Fermat点、非Calabi--Yau符号型二次元族、`\mathbb F_1`上の次数3 Clifford order、次数2・1のClifford orderを同一原稿で扱います。数学的に別の二種類の障害を区別します。
 
-再現:
-- python3 -m pip install -r requirements.txt
-- python3 computations/verify_all.py
-- latexmk -lualatex papers/nc-cubic-non-as.tex
+| ケース | 証明する性質 | 関係する制限 |
+|---|---|---|
+| 次数3・量子Fermat | HH_{-1,0,1}=(2,5,2)、OUのAS surfaceでない | AS四次元ambientの三次超曲面**ではある** |
+| 次数3・非CY符号型二次元族 | HH=(2,4,2)、OU非AS性 | AS四次元ambientの非中心正規三次商**ではある** |
+| 次数3・Clifford | 反標準環は次数1生成、二次包絡の三次部分が19次元、構造対象を忘れた非表示 | connected gradedな標準quadratic AS4 ambientの正規三次商について |
+| 次数2・Clifford | (1,1,1,2)型ambientの正規四次商とのunpointed非同値、HH=(3,4,3) | 別の(1,1,1)型AS4 ambientの中心四次商にはなる |
+| 次数1・Clifford | (1,1,2,3)型ambientの正規六次商とのunpointed非同値、HH=(5,3,5) | 別の(1,1,3)型AS4 ambientの中心六次商にはなる |
 
-GitHub mainを正本とし、PDF・ZIP・中間生成物は追跡しない。関連研究は [ambient比較](https://github.com/uedakazushi/nc-cubic-ambient)、[標識忘却](https://github.com/uedakazushi/nc-cubic-unmark) および [H3分類](https://github.com/uedakazushi/nc-cubic-classification)。
+次数`e`は `dim R_n=1+e n(n+1)/2` で規格化した反標準Hilbert次数です。Clifford orderでの有理標準因子の自己交点は`e/4`です。**奇数次HHの非零性だけでは、AS四次元ambient内の超曲面表示の非存在を証明できません。** 本文では両者を別々に扱います。
+
+主論文から `papers/sections/cubic_*.tex`、`weighted_*.tex` を読み込みます。これらは別の論文ではなく、同じ原稿の証明節です。著者欄は空欄、日本語LuaLaTeXです。
+
+## 再生成
+
+TeX Live/MacTeX（LuaLaTeX、LuaTeX-ja、BibTeX、latexmk）、Python 3、SymPy 1.14.0を利用します。
+
+```sh
+python3 -m pip install -r requirements.txt
+python3 scripts/verify_all.py
+latexmk papers/nc-cubic-non-as.tex
+# または
+python3 scripts/build.py --all
+python3 scripts/make_bundle.py
+```
+
+`scripts/verify_all.py` は元の有限群sector計算と、次数1・2・3のClifford次数・判別曲線・二次包絡の検証をまとめて実行します。証明書 `certificates/degree3_quadratic.json` は45次小行列式と核ベクトルを保持します。有限計算は圏論的なMorita同値や一般の分類定理を形式証明するものではありません。
+
+PDFとSyncTeX、auxiliary filesは`build/`に生成し、Gitでは追跡しません。主論文のPDFは`build/nc-cubic-non-as.pdf`、研究ノートは`build/notes.pdf`です。`python3 scripts/make_bundle.py` は必要なソース・証明書・再現コード・二つのPDFを含む現行bundleを`output/bundles/`に作り、CRCを確認します。PDFなしなら`--source-only`を指定します。
+
+### VS Code / LaTeX Workshop
+
+リポジトリのルートをVS Codeで開き、主論文`papers/nc-cubic-non-as.tex`を表示してください。`Cmd+Option+B`でビルド、`Cmd+Option+V`でPDF表示、`Cmd+Option+J`でSyncTeXによる位置対応です。節ファイルにも主原稿へのroot指定があります。`.vscode/settings.json`のレシピと`.latexmkrc`はいずれも`build/`を出力先とします。変更をpullした後は必要なら **Developer: Reload Window** を実行してください。
+
+## 文献と検証上の注意
+
+書誌情報は [references.bib](references.bib) に統合してあります。Clifford/conicとramification型は既知の枠組みです。量子Fermat・符号型のH3認識の一部は [nc-cubic-classification](https://github.com/uedakazushi/nc-cubic-classification) の結果に依存します。初出・新規性の網羅的調査、非周期的`\mathbb Z`-algebra ambientへの拡張、相対変形の成分性は未解決です。追加仮定と証明の所在は研究方針・研究ノートで確認してください。
