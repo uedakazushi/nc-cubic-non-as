@@ -133,6 +133,123 @@ acyclicである。自明な場合も$T\mathcal O_E=\mathcal O_E$を用いれば
 $T_{L'}T_L^{-1}=(-\otimes Q)T_L(-\otimes Q^{-1})T_L^{-1}\in K$である。
 \end{proof}
 
+\begin{lemma}[古典参照型の幾何性：豊富性を仮定しない版]
+\label{lem:ou-reduced-classical-reference}
+$\delta_{\rm md}=0$とする。第一ブロック内の順序$(a,b,v)$について
+（$a,b,v$は多重次数ベクトル）、第二ブロックの和を$B$とし、
+\[
+ H=B-2a-v,\quad
+ p_i=\operatorname{mdeg}V_i-a,\quad
+ p_{j+3}=B-a-v-\operatorname{mdeg}W_j
+ \qquad(1\leq i,j\leq3)
+\]
+と置く。$H$の全成分が正で、$p_i$がすべて標準単位ベクトルなら
+\emph{古典参照型}と呼ぶ。
+この条件が元の多重次数型、または
+\[
+ (U,V,W)\longmapsto(V,W,U+w)
+\]
+という多重次数の巡回操作と共通捩りによる正規化を高々二回行った型で
+成立するならば、$h$は幾何的である。
+ここで$w$の正性は仮定しない。巡回操作はこの段階では
+多重次数ベクトルの操作であって、元の九線束に対する
+反標準移動が線束を保つと仮定しているのではない。
+\end{lemma}
+\begin{proof}
+$\delta_{\rm md}=0$から次の恒等式を得る。
+\[
+ b-a=\sum_{\nu=1}^6p_\nu-2H,\qquad
+ v-a=\sum_{\nu=1}^3p_\nu-H,\qquad
+ w=3H-\sum_{\nu=1}^6p_\nu,\qquad \sum_a H_a=3.
+\]
+まず古典参照型を同じ曲線$E$上に実現する。
+$H$の多重次数を持つ線束は全成分で正、全次数三なのでvery ampleである
+（命題\ref{prop:ou-reduced-cubic-geometric}の証明の部分曲線による議論）。
+この線束で$E$を平面三次曲線に埋め込み、指定された成分上の相異なる
+六つの滑らかな点を選ぶ。ここでは六点の一般位置を要求しない。
+六点の爆発$X$は滑らかな有理曲面であり、
+$H_X$を直線の引戻し、$E_i$を例外曲線とする。
+反標準因子である$E$の狭義変換は元の$E$に同型である。
+
+次の順序付き線束列は、点の一般位置を仮定しなくても
+full exceptional collectionである：
+\[
+\begin{gathered}
+ \mathcal O_X(-2H_X+\sum_{\nu=1}^6 E_\nu),\
+ \mathcal O_X(-H_X+E_1+E_2+E_3),\
+ \mathcal O_X,\\
+ \mathcal O_X(E_1),\ \mathcal O_X(E_2),\ \mathcal O_X(E_3),\\
+ \mathcal O_X(H_X-E_4),\ \mathcal O_X(H_X-E_5),\
+ \mathcal O_X(H_X-E_6).
+\end{gathered}
+\]
+これはAOU\cite[(4.1)]{AOU2024}の線束の集合と同じであるが、
+第一ブロックの順序をここでは固定している。
+実際、後ろの対象から前の対象への差の因子を
+$D=tH_X+\sum d_iE_i$とすると、
+36組全てで
+\[
+ 1+\frac{t(t+3)-\sum_i d_i(d_i-1)}2=0.
+\]
+さらに$D$と$K_X-D$はともに$H_X$係数が負、
+またはその係数が零で負の例外曲線係数を持つ。
+このことは上の九因子を順に差し引けば直接確かめられる。
+$H_X$と交わらない有効因子は例外曲線の非負和なので、
+どちらも有効でない。Riemann--RochとSerre双対性から
+後ろ向きExtは全て零である。各線束は有理曲面上で例外的である。
+この列の厚い生成部分圏には
+$\mathcal O_{E_i}(-1)$ ($i=1,2,3$) が
+$\mathcal O_X\to\mathcal O_X(E_i)$の余核として入る。
+第二の線束からこれらを順に除いて$\mathcal O_X(-H_X)$を得る。
+$j=4,5,6$について、相異なる六点の爆発なので
+\[
+ 0\longrightarrow\mathcal O_X(-H_X+E_j)
+ \longrightarrow\mathcal O_X^{\oplus2}
+ \longrightarrow\mathcal O_X(H_X-E_j)\longrightarrow0
+\]
+は$j$番目の点を通る直線のpencilによる完全列である。
+これと$\mathcal O_X(-H_X)$から残る$\mathcal O_{E_j}(-1)$を得る。
+第一の線束から六つの例外曲線を順に除けば$\mathcal O_X(-2H_X)$も得る。
+よって平面のBeilinson collectionと爆発の半直交分解からfullである。
+以上の後ろ向き消滅・生成性には$-K_X$の豊富性も
+参照線束のstrong性も必要ない。
+
+この列を反標準因子$i:E\hookrightarrow X$へ制限した線束の多重次数は、
+共通捩りを戻せば、所望の三ブロックに一致する。
+元の三ブロック内は完全直交するから、
+元の第一ブロックのtwistは上の参照列の順序に並べ替えてよい。
+参照列自体に完全直交性を仮定する必要はない。
+後ろ向きExtの消滅と反標準制限の三角により
+前向きの導来Homは$X$から$E$への制限で保存される。
+従ってOU\cite[(3)--(5)]{OUSpherical2020}の
+full exceptional collectionからの積の公式を参照列に適用できる。
+制限された九線束のtwist積は
+$\operatorname{Cone}(Li^*i_*\to\mathrm{id})
+ \simeq(-\otimes\mathcal O_E(-E))[2]$である。
+この式は反標準因子のCartier分解から得られ、
+$\Perf E$上でも、$i_*M$が滑らかな$X$上で完全となるため
+$D^b(\coh E)$上でも成立する。
+従って$h_{\rm ref}=(-\otimes\mathcal O_E(E))$は幾何的で、
+その多重次数は$w$である。
+
+巡回した型から元の型へ戻すには、
+参照列に対して$(U',V',W')\mapsto(h_{\rm ref}^{-1}W',U',V')$
+を施す。三つのブロックのtwist積を$D_1,D_2,D_3$とすれば、
+$D=D_1D_2D_3$、$h_{\rm ref}^{-1}=D[-2]$なので新しい積は
+$DD_3D^{-1}D_1D_2=D$である。
+共通捩りによる正規化は共役で戻せる。
+$\delta_{\rm md}=0$のとき多重次数の巡回操作は$w$を保ち、
+三回で共通捩りを除き元の型になる。
+従って巡回操作を要した場合にも、元の多重次数と一致する参照列を
+$h_{\rm ref}$が幾何的なまま得る。
+
+最後に補題\ref{lem:ou-reduced-md-twist}により、
+各twistは対応する参照twistと左からの$K$の元を除いて同じであり、
+$K$の元を積の左へ順に移せる。
+ゆえに$\mathcal D=\kappa\mathcal D_{\rm ref}$ ($\kappa\in K$)。
+従って$h=h_{\rm ref}\kappa^{-1}$は幾何的である。
+\end{proof}
+
 \begin{theorem}[幾何的かつampleな反標準移動の判定]
 \label{thm:ou-reduced-md-criterion}
 上記の直交性・Ext消滅を持つ九線束に対し、
@@ -141,30 +258,18 @@ $h=\alpha^*(-)\otimes N$（$N$はample）と書けることと
  \delta_{\rm md}=0,\qquad w_i>0\quad(1\leq i\leq c)
 \]
 は同値である。これは二成分の横断・接触の場合と、
-三直線の三角形・共点の場合をすべて含む。
+三直線の三角・共点の場合をすべて含む。
 \end{theorem}
 \begin{proof}
 必要性は命題\ref{prop:ou-reduced-md-action}による。
-十分性を有限計算と幾何的比較に分ける。
-補題\ref{lem:ou-reduced-md-bounds}により、共通の全次数零線束で捩って
-第一ブロックの辞書式最小の多重次数を零としたとき、
+十分性には補題\ref{lem:ou-reduced-classical-reference}を使う。
+補題\ref{lem:ou-reduced-md-bounds}により、共通捩りで
+第一ブロックの辞書式最小の多重次数を零とすれば、
 各成分の座標は三ブロックでそれぞれ$[-1,1],[-1,2],[-1,3]$に入る。
 成分には順序を付け、ブロック内の三つのベクトルはソートする。
-この規約で全次数$0,1,2$と補題のすべての二項条件を満たす候補を
-整数演算だけで列挙する。
-
-第一ブロックの順序$(a,b,v)$について、$B$を第二ブロックの和とし、
-\[
- H=B-2a-v,\qquad
- p_i=\operatorname{mdeg}V_i-a,\qquad
- p_{j+3}=B-a-v-\operatorname{mdeg}W_j
-\]
-を定める。$H$の全成分が正で全次数三、各$p_i$が単位ベクトルであれば
-これを古典参照型と呼ぶ。この場合$\delta_{\rm md}=0$のもとで
-$b-a=\sum p_i-2H,\ v-a=\sum_{i\leq3}p_i-H,\ w=3H-\sum p_i$となる。
-巡回変更は三ブロックを$(V,W,U+w)$とし、共通捩りで再正規化する。
-$\delta_{\rm md}=0$ならこの操作は$w$を保ち、三回で元に戻る。
-計算結果は次の通りである（これは実際の圏や線束配置の同型類の個数ではない）。
+この規約で全次数$0,1,2$と二項条件を満たす候補を列挙し、
+$w>0$かつ$\delta_{\rm md}=0$となる型について
+古典参照型への巡回帰着を確かめると、次の表を得る。
 \[
 \begin{array}{c|r|r|r|r|r}
  c&\text{二項条件}&w>0&\delta_{\rm md}=0,\ w>0&
@@ -173,51 +278,11 @@ $\delta_{\rm md}=0$ならこの操作は$w$を保ち、三回で元に戻る。
  3&15012&27&9&7&9
 \end{array}
 \]
-完全な列挙と各恒等式、巡回変更後に参照型が存在することの確認は
-\texttt{computations/verify\_ou\_reduced\_multidegrees.py}に収録した。
-すなわち必要な有限個の多重次数候補のすべてが古典参照型に帰着する。
-
-次に古典参照型を同じ曲線$E$上に実現する。
-多重次数$H$の線束は各成分上正で全次数三なのでvery ampleである
-（命題\ref{prop:ou-reduced-cubic-geometric}の部分曲線による証明）。
-これで$E$を平面三次曲線に埋め込み、指定された成分に六つの相異なる
-滑らかな点を選ぶ。$w>0$により直線成分上には高々二点、
-円錐曲線成分上には高々五点である。従って一般の選択で三点共線を避ける。
-六点共円錐曲線の条件は$2H-\sum p_i=w-H$の多重次数を持つ線束の
-非零切断の存在である。全次数は零で、各真部分曲線の次数は高々一なので、
-非零切断があれば全成分上非零であり線束は自明となる。
-滑らかな点$p$の$\mathcal O_E(p)$は同じ成分内で$p$を識別する
-（全次数一の切断の一意性）ので、一点を動かして自明性を避けられる。
-従って六点は通常の一般位置に選べる。
-
-六点の爆発$X$は滑らかな三次曲面である。例外曲線を$E_i$とすれば
-\cite[(4.1)]{AOU2024}のfull exceptional collection
-\[
- (\mathcal O,\mathcal O(-2H+\sum E_i),\mathcal O(-H+E_1+E_2+E_3)),
- \quad(\mathcal O(E_i))_{i=1}^3,\quad
- (\mathcal O(H-E_j))_{j=4}^6
-\]
-を用いる。$E$の固有変換は同じ曲線で反標準因子であり、
-九線束の制限は参照型の多重次数を持つ（共通捩りを戻し、同一ブロック内の順序は完全直交性により任意である）。
-OUのspherical collectionの積の公式
-\cite[(4),(5)]{OUSpherical2020}により、制限された九線束のtwistの積は
-$\operatorname{Cone}(Li^*i_*\to\mathrm{id})$（$i:E\hookrightarrow X$）である。
-反標準Cartier因子の公式
-$\operatorname{Cone}(Li^*i_*\to\mathrm{id})=(-\otimes\mathcal O_E(-E))[2]$
-から$h_{\mathrm{ref}}$は多重次数$w$のample線束による捩りである。
-この計算は$\Perf E$上で成立し、同じ評価の公式を$D^b(\coh E)$上にも
-適用できる（$i_*M$は滑らかな$X$上で完全）。
-ブロックの巡回変更を逆に戻すには、参照型に対して
-$(U',V',W')\mapsto(h_{\mathrm{ref}}^{-1}W',U',V')$とする。
-twistの共役公式から積$\mathcal D_{\mathrm{ref}}$は不変である。
-従って列挙で巡回変更を要した場合も元の多重次数の参照型が得られる。
-
-最後に補題\ref{lem:ou-reduced-md-twist}により、対応する各線束のtwistは
-参照型のtwistと左からの$K$の元を除いて同じである。
-$K$の元を積の左へ順に移せるので
-$\mathcal D=\kappa\mathcal D_{\mathrm{ref}}$（$\kappa\in K$）。
-ゆえに$h=h_{\mathrm{ref}}\kappa^{-1}$は幾何的であり、その捩りは
-多重次数$w$を持ちampleである。
+再現手順は\path{computations/verify_ou_reduced_multidegrees.py}にある。
+この表は圏や線束配置の同型類の数ではない。
+従って全候補が古典参照型に帰着し、
+補題\ref{lem:ou-reduced-classical-reference}により$h$は幾何的である。
+多重次数は命題\ref{prop:ou-reduced-md-action}により$w$なのでampleである。
 \end{proof}
 
 \begin{corollary}[可約被約曲線型の標識付き認識の範囲]
