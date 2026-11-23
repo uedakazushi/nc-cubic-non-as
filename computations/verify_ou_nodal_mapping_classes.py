@@ -7,7 +7,8 @@ standard horizontal and vertical Dehn twists (see the proof in the paper).
 No assertion of realizability of the multidegree patterns is made.
 """
 from collections import Counter
-from verify_ou_reduced_multidegrees import patterns, invariants, mul
+from itertools import product, permutations
+from verify_ou_reduced_multidegrees import patterns, invariants, mul, normalize
 
 
 def inv(word):
@@ -118,44 +119,110 @@ def verify_generators(c):
         assert all(cyclic_equiv(apply(F,p),p) for p in boundary)
 
 
+def line_word(c,d):
+    """Free homotopy class of a line bundle of multidegree d."""
+    return cyclic(vertical(c,d)[0])
+
+
+def transform_lines(c,T,F):
+    """Return the simultaneous new multidegrees, or None if not all are lines."""
+    result=[]
+    for block in T:
+        B=[]
+        for d in block:
+            word=apply(F,line_word(c,d))
+            rank,*x=abelian(word,c)
+            x=tuple(x)
+            if rank!=1 or sum(x)!=sum(d) or not cyclic_equiv(word,line_word(c,x)):
+                return None
+            B.append(x)
+        result.append(tuple(B))
+    return normalize(*result)
+
+
+def half_twist():
+    """Swap p_1 and p_2 in the three-punctured torus (DNB)."""
+    s=((1,),(2,),(2,-3,4),(4,))
+    si=((1,),(2,),(4,-3,2),(4,))
+    p=((-2,3),(-3,4),(-4,1,2,-1))
+    assert compose(s,si)==compose(si,s)==identity(3)
+    assert all(cyclic_equiv(apply(s,p[i]),p[j]) for i,j in enumerate((1,0,2)))
+    assert all(sum(abelian(s[j],3)[1:])==1 for j in (1,2,3))
+    return s,si
+
+
+def trial_maps(c):
+    """A finite family of rank/degree preserving mapping classes.
+
+    Enumerate first the pure maps G=V^v H^k V_i V_j^{-1} H^{-k} V^{-v}
+    with v in {-1,0,1}^c, k=+/-1. For c=3 also compose with the two
+    half-twist representatives, on either side. No classification of MCG is
+    used by this search; its successful word equalities are certificates.
+    """
+    z=(0,)*c
+    vs=[z]+[v for v in product(range(-1,2),repeat=c) if v!=z]
+    pure=[]
+    for v in vs:
+        for i,j in permutations(range(c),2):
+            for k in (1,-1):
+                d=tuple(int(t==i)-int(t==j) for t in range(c))
+                G=product_of((vertical(c,v),H(c,k),vertical(c,d),
+                              H(c,-k),vertical(c,mul(-1,v))),c)
+                pure.append(G)
+    yield from pure
+    if c==3:
+        for s in half_twist():
+            yield s
+            for G in pure:
+                yield compose(G,s)
+                yield compose(s,G)
+
+
+def base_case(c,T):
+    delta,w=invariants(*T)
+    assert not any(delta)
+    D=product_of((line_twist(c,d) for block in T for d in block),c)
+    assert abelian(D[0],c)==(1,)+mul(-1,w)
+    assert all(abelian(D[j],c)==tuple(int(k==j) for k in range(c+1))
+               for j in range(1,c+1))
+    geometric=is_inner(compose(D,vertical(c,w)))
+    zeros=sum(all(d[j]==0 for block in T for d in block) for j in range(c))
+    if min(w)>0:
+        assert geometric
+        return 'positive'
+    if geometric:
+        assert min(w)==0
+        return 'geometric_boundary'
+    if zeros:
+        assert zeros<c
+        return f'contract_{zeros}'
+    return None
+
+
 def classification(c):
     verify_generators(c)
+    admissible=[T for T in patterns(c) if not any(invariants(*T)[0])]
+    cases={T:base_case(c,T) for T in admissible}
+    targets={T:k for T,k in cases.items() if k is not None}
+    maps=list(trial_maps(c))
     counts=Counter()
-    for T in patterns(c):
-        delta,w=invariants(*T)
-        if any(delta):
+    for T in admissible:
+        if T in targets:
+            counts['direct_'+targets[T]]+=1
             continue
-        D=product_of((line_twist(c,d) for block in T for d in block),c)
-        # h=D^{-1} sends a in H_1 to a+sum_i w_i b_i.
-        # D sends a to a-sum_i w_i b_i, and fixes b_i in H_1.
-        assert abelian(D[0],c)==(1,)+mul(-1,w)
-        assert all(abelian(D[j],c)==tuple(int(k==j) for k in range(c+1))
-                   for j in range(1,c+1))
-        geometric=is_inner(compose(D,vertical(c,w)))
-        zeros=sum(all(d[j]==0 for block in T for d in block) for j in range(c))
-        residues=tuple(x%3 for x in w)
-        if min(w)>0:
-            assert geometric
-            case='positive'
-        elif geometric:
-            assert min(w)==0
-            case='geometric_boundary'
-        elif zeros:
-            case=f'contract_{zeros}'
-        elif c==2:
-            assert min(w)<0 and sorted(w)==[-1,4]
-            assert any(len(set(block))>1 for block in T)
-            case='two_axis_conjugacy'
-        elif len(set(residues))==1 and residues[0]!=0:
-            case='three_axis_conjugacy'
+        for F in maps:
+            new=transform_lines(c,T,F)
+            if new in targets:
+                counts['changed_'+targets[new]]+=1
+                break
         else:
-            case='remaining'
-        counts[case]+=1
+            raise AssertionError(('no simultaneous line-bundle change',T))
     expected={
-        2: {'positive':6,'geometric_boundary':4,'contract_1':2,
-            'two_axis_conjugacy':4},
-        3: {'positive':9,'geometric_boundary':42,'contract_1':42,
-            'contract_2':3,'three_axis_conjugacy':18,'remaining':54},
+      2:{'direct_positive':6,'direct_geometric_boundary':4,'direct_contract_1':2,
+         'changed_positive':4},
+      3:{'direct_positive':9,'direct_geometric_boundary':42,'direct_contract_1':42,
+         'direct_contract_2':3,'changed_positive':18,'changed_geometric_boundary':36,
+         'changed_contract_1':18},
     }
     assert dict(counts)==expected[c],counts
     return counts
