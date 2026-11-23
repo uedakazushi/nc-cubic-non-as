@@ -535,6 +535,28 @@ $Jk(p)$は無限個存在する。これは矛盾。
 従って$w_a=0$の成分はなく、$N$はampleである。
 \end{proof}
 
+\begin{remark}[残余候補の数値的範囲]\label{rem:ou-residual-counts}
+前節の同じ正規化と二項条件に対する整数列挙を
+$\delta_{\rm md}=0$の全候補に広げると次の表を得る。
+\[
+\begin{array}{c|r|r|r|r}
+ c & \delta_{\rm md}=0 &
+ \min w_i>0 & \min w_i=0 & \min w_i<0\\ \hline
+ 2 & 16 & 6 & 6 & 4\\
+ 3 &168 & 9 &81 &78
+\end{array}
+\]
+右の三列は$\delta_{\rm md}=0$の候補を分けたものである。
+\texttt{computations/verify\_ou\_reduced\_multidegrees.py}で
+従来の列挙と合わせて検証する。
+非零の$\epsilon$を持つ内在的標識が存在するためには、
+少なくともこの16型または168型の範囲に入る必要がある。
+うち6型・9型は既に超曲面として認識できる。
+他の列については、幾何的な$h$を持つ場合は内在的標識を排除できるが、
+非幾何的な$h$まで排除したとは主張しない。
+これは線束配置やOU型の同型類の個数ではない。
+\end{remark}
+
 \begin{remark}
 定理\ref{thm:ou-residual-geometric-ample}により、内在的三次標識を持つ
 被約可約曲線表示では、幾何的$h$ならば自動的に多重次数判定の肯定範囲に入る。
