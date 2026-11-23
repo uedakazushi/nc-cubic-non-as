@@ -2204,11 +2204,354 @@ IV型の168必要多重次数候補のうち90候補は条件付き認識、
 残る6候補は命題\ref{prop:ou-iv-residual-relation-family}による。
 \end{proof}
 
+\subsection{周期対象による残存IV関係代数族の排除}
+\label{subsec:ou-iv-periodic-obstruction}
+
+命題\ref{prop:ou-iv-residual-relation-family}の関係代数族を
+$\Lambda_x$と書く。この節では、曲線側の自己同値の幾何性を
+調べるのでなく、$\Perf\Lambda_x$内の周期対象と
+それらの有限長拡大を用いる。以下で右$\Lambda_x$加群は
+九頂点のdirected categoryの反変線型表現として扱う。
+頂点$Z$の表現可能射影を$P_Z=\operatorname{Hom}(-,Z)$、
+対応する入射を$I_Z=\operatorname{Hom}(Z,-)^*$と書く。
+
+\begin{lemma}[三つの反標準周期対象]
+\label{lem:ou-iv-periodic-three}
+$i=0,1,2$について、右加群$Q_i$を、
+$U_i,V_i,W_i$で一次元、その他の頂点で零、
+対角矢印$A_{ii},B_{ii}$の作用が恒等である表現として定める。
+これは$\Lambda_x$加群であり、
+\[
+ S_\Lambda Q_i\simeq Q_i[2],\qquad
+ sQ_i\simeq Q_i,\qquad s=S_\Lambda^{-1}[2].
+\]
+また$Q_i$は2-spherical objectである。
+ここまでの主張には係数$x_{ik}$間の線形関係を要しない。
+\end{lemma}
+\begin{proof}
+対角の関係式に$p_{iii}$が含まれないので、$Q_i$は全ての関係を満たす。
+次の射影分解を構成する：
+\begin{equation}\label{eq:ou-iv-periodic-resolution}
+ 0\longrightarrow P_{U_i}
+ \longrightarrow \bigoplus_{j\ne i}P_{V_j}
+ \longrightarrow P_{W_i}\longrightarrow Q_i\longrightarrow0.
+\end{equation}
+中央から右への射は$B_{ji}$、左から中央への射は
+$A_{ij}$に対角関係の係数$\pm1$を掛けたものである。
+頂点$W_l,V_l$における完全性は定義から直ちに従う。
+頂点$U_l$で調べると、$P_{W_i}$の値は
+三本の長さ二の経路の張る空間を一関係で割った二次元空間である。
+$l\ne i$の場合、関係の経由頂点$j=i$の係数は$-1$であり非零。
+従って$j\ne i$の二経路は商空間の基底になる。
+$l=i$の場合、その二経路は対角関係により等しく、
+それらの間の唯一の関係が最初の射の像である。
+残った対角経路は非零で$Q_i$の値を与える。
+従って\eqref{eq:ou-iv-periodic-resolution}は完全である。
+
+Serre関手は$P_Z$を$I_Z$に移し、射も対応する入射間の射に移す。
+$s^{-1}=S_\Lambda[-2]$を$Q_i$に施した複体は、次数$0,1,2$に
+\[
+ I_{U_i}\longrightarrow \bigoplus_{j\ne i} I_{V_j}
+ \longrightarrow I_{W_i}
+\]
+を持つ。これは上の頂点別計算を反対側から双対化して計算できる。
+$U_l,V_l$におけるコホモロジーは次数零にのみあり、
+$l=i$のとき一次元、他は零。
+$W_l$での最初の写像は$U_i$から$W_l$への経路のうち
+$j\ne i$を通るものの張る空間への制限の双対である。
+$l\ne i$なら省いた$j=i$の係数は$1$なので同型、
+$l=i$ならrank一であり、対角関係の係数により
+次の写像への完全性を得る。
+$W_i$での次数零のコホモロジーは
+$j\ne i$を通る経路を消す汎関数の一次元空間。
+その対角経路上の値は非零であり、二つの対角矢印の作用も非零となる。
+よってこの複体は$Q_i$に準同型である。
+従って$s^{-1}Q_i\simeq Q_i$を得る。
+
+\eqref{eq:ou-iv-periodic-resolution}に
+$\operatorname{Hom}(-,Q_i)$を施せば、次数$0,1,2$の空間の次元は
+$1,0,1$であり、従って$\operatorname{Ext}^\bullet(Q_i,Q_i)$は
+$k\oplus k[-2]$である。Serre関手の式と合わせて2-spherical性を得る。
+$i\ne j$についても同じ分解から
+$\operatorname{Ext}^1(Q_i,Q_j)=k$、
+他の次数は零と分かる。
+\end{proof}
+
+\begin{lemma}[標準helix heartにおける単純性]
+\label{lem:ou-iv-periodic-simple}
+$\Lambda_x$の標準noetherian OU helix比較を仮定し、
+対応するheartを$\mathcal C$とする。
+補題\ref{lem:ou-iv-periodic-three}の三対象$Q_i$は
+$\mathcal C$の互いに非同型な単純対象である。
+\end{lemma}
+\begin{proof}
+九つの射影を$P_j$と総称する。
+導来同値の下で、$Q_i$は$\Lambda_x$加群なので
+$\operatorname{Hom}(P_j,Q_i[k])=0$ ($k\ne0$)。
+$sQ_i\simeq Q_i$を用いると、この消滅は全ての$s^{-n}P_j$について
+成立する。補題\ref{lem:ou-residual-helix-growth}の
+高次消滅・生成性・有界複体に対する最後の式により
+$Q_i$は$\mathcal C$のheartに属する。
+また切断数$\sum_j\dim\operatorname{Hom}(s^{-n}P_j,Q_i)=3$が
+有界なので有限長である。
+
+さらに、$Q_i$の任意の部分対象$X$について、十分大きい$n$で
+\[
+ 0\leq \chi(s^{-n}P_j,X)
+ =\dim\operatorname{Hom}(s^{-n}P_j,X)
+ \leq \dim\operatorname{Hom}(P_j,Q_i).
+\]
+左辺は$n$の多項式なので、全$j$について定数である。
+射影の類を基底とする$K_0$のEuler行列を
+\[
+ D=\begin{pmatrix}I_3&J_3&2J_3\\0&I_3&J_3\\0&0&I_3\end{pmatrix},
+ \qquad S_0=D^{-1}D^{\mathsf t}
+\]
+と書く（$J_3$は全成分一の行列）。
+Euler行列の非退化性と定数性から、$X$の類は$S_0$で固定される。
+実際、Euler次元ベクトルは$D S_0^{-n}[X]$であり、
+これが十分大きい$n$で一定だからである。
+任意の固定ベクトル$z$について$D z=D^{\mathsf t}z$。
+$z$の三ブロックの成分和を$(a,b,c)$とすれば、
+この等式は$a=c,\ b=-2a$を与え、
+$D z$の三ブロックの成分和は$(a,a,a)$となる。
+従って上の非負の切断数の三ブロックの和は等しい。
+各ブロックにおいて$Q_i$の切断数は一次元なので、
+$X$の三つの和は全て零または全て一である。
+前者なら高い切断の生成性から$X=0$。
+後者なら$D[X]=D[Q_i]$であり、商$Q_i/X$の類は零となる。
+その十分高い切断数も零なので商は零である。
+よって$Q_i$は単純である。
+異なる$i$については九頂点の切断次元が異なるので非同型である。
+\end{proof}
+
+\begin{lemma}[固定したhelix対象の任意長の有限長商]
+\label{lem:ou-iv-periodic-thickenings}
+命題\ref{prop:ou-iv-residual-relation-family}の係数条件を仮定する。
+標準helix比較の下、固定した対象
+\[
+ F=P_{W_0}\oplus P_{W_1}\oplus P_{W_2}
+\]
+は任意の整数$m\geq1$について、三つの$Q_i$を
+それぞれ$m$個ずつ組成因子に持つ有限長商$T_m$を持つ。
+\end{lemma}
+\begin{proof}
+係数条件は$x_{ik}=-a_i-b_k$ ($i\ne k$) と書けることと同値である。
+$t$を形式parameterとし、各頂点で$k[[t]]/(t^m)$を値に取る
+反変表現$T_m$を次で定義する。
+各矢印は、次のスカラーによる乗法で作用する：
+\[
+ A_{ij}(t)=
+ \begin{cases}1-a_i t&i=j,\\ \eta_{ij}t&i\ne j,\end{cases}
+ \qquad
+ B_{jk}(t)=
+ \begin{cases}1+b_j t&j=k,\\ \eta_{jk}t&j\ne k.\end{cases}
+\]
+ここで$\eta_{12}=\eta_{21}=-1$、それ以外の非対角$\eta_{ij}=1$。
+右加群では矢印は逆向きに作用するが、これらの乗法は可換なので
+経路の値は二つのスカラーの積である。
+$i=k$の対角関係では二つの非対角経路はともに$t^2$となる。
+$i\ne k$では
+\[
+ A_{ii}(t)B_{ik}(t)-A_{ik}(t)B_{kk}(t)
+   =x_{ik}\eta_{ik}t^2.
+\]
+残りの添字$l$について$\eta_{il}\eta_{lk}=-\eta_{ik}$なので、
+$x_{ik}A_{il}(t)B_{lk}(t)$を加えれば零となる。
+従って全ての関係が$k[[t]]$上で恒等的に成立し、
+任意の$m$で表現が得られる。
+ここでは係数の線形関係を実際に使用している。
+
+$t$進filtrationの各逐次商は
+$Q=Q_0\oplus Q_1\oplus Q_2$である。
+これは$\Lambda_x$加群の完全列、従って導来圏の三角による
+filtrationである。$Q_i$は$\mathcal C$のheartに属し、
+heartは拡大で閉じているから全ての$T_m$とそのfiltrationの項は
+$\mathcal C$に属し、filtrationはheartの完全列を与える。
+従って$T_m$は有限長で、組成因子は主張通りである。
+
+任意の$i$について$\operatorname{Hom}(T_m,Q_i)=k$である。
+これは通常の右加群の射を計算すればよい。
+他の添字の頂点では射は零、$U_i$の値への線型写像は
+$i\ne j$の矢印$A_{ij}$が$\eta_{ij}t$を作用させるので
+$t(k[[t]]/(t^m))$を消す。
+残る二つの線型写像は対角矢印の作用が単元であることから決まる。
+よって$t=0$への剰余写像と$Q_i$への射影がHom空間を生成する。
+特に全ての単純商への射は自然な全射$T_m\twoheadrightarrow Q$を経由する。
+
+$F$から$Q$への全射がある。
+実際、$\operatorname{Hom}(P_{W_i},Q_j)$は$i=j$のとき一次元、
+そうでなければ零で、単純性から各非零射は全射である。
+また$\operatorname{Ext}^1(F,Q_i)=0$は射影対象との導来Homから従う。
+従って$T_m\twoheadrightarrow Q$の核への$\operatorname{Ext}^1(F,-)$も
+有限長filtrationと長完全列により零となる。
+よって$F\to Q$は$F\to T_m$へ持ち上がる。
+もしこの持ち上げが全射でなければ、その非零余核は有限長なので
+ある$Q_i$を単純商に持つ。対応する非零射$T_m\to Q_i$は
+$F$からの射を消すが、$T_m\to Q$を経由するので
+$F\to Q$の全射性に反する。
+従って$F\twoheadrightarrow T_m$である。
+\end{proof}
+
+\begin{theorem}[残存IV関係代数族の内在的三次条件からの排除]
+\label{thm:ou-iv-periodic-exclusion}
+命題\ref{prop:ou-iv-residual-relation-family}の$\Lambda_x$について、
+標準noetherian OU helix比較を持つ曲面圏$\mathcal C$が存在するとする。
+このとき$\mathcal C$は内在的三次候補$\mathfrak I_3$に属さない。
+すなわち、全ての$x$について、定義\ref{def:intrinsic-dp}を満たす
+三次の標識$\mathcal O$は存在しない。
+これは$\Lambda_x$がvery strong導来helixを持たないという主張ではない。
+\end{theorem}
+\begin{proof}
+内在的三次標識$\mathcal O$があると仮定する。
+射影基底における$K_0(\mathcal C)$の類$z$の全成分の和を
+$r(z)$と書く。これは数値的rankであり、この段階では
+Gabriel--Krull rankと同一視しない。
+上のEuler行列$D$に対し$N=S_0-I$とおくと
+\begin{equation}\label{eq:ou-iv-periodic-euler}
+ N^3=0,\quad
+ (N^2)^{\mathsf t}D=3J_9,\quad
+ N^{\mathsf t}D+D^{\mathsf t}N=6J_9,\quad
+ \mathbf1^{\mathsf t}S_0=\mathbf1^{\mathsf t},
+\end{equation}
+ここで$J_9$は全成分一の九次行列、$\mathbf1$は全成分一の列である。
+直接の整数行列計算であり、後述の再現コードでも検証する。
+従って$r$は$s$で不変であり、任意の対象$X$に対して
+\begin{equation}\label{eq:ou-iv-periodic-self-euler}
+ \chi(s^{-n}X,X)=\chi(X,X)+\frac32 n(n+1)r([X])^2
+\end{equation}
+が成り立つ。また固定した$P_j$に対し
+$\chi(s^{-n}P_j,X)=\frac32 r([X])n^2+O(n)$。
+$X\in\mathcal C$なら補題\ref{lem:ou-residual-helix-growth}によって
+十分大きい$n$でこれは切断数に等しいので、$r([X])\geq0$。
+AZ1により有限個の$s^{-a}\mathcal O$の直和から
+$P_j$への全射が存在する。核の$r$も非負で、$r([P_j])=1$だから
+$r([\mathcal O])$は正の整数である。
+
+$s$の完全性により$\operatorname{Ext}^{>2}$はSerre双対性から零である。
+また任意の$m>0$について$\operatorname{Hom}(\mathcal O,s^{-m}\mathcal O)=0$。
+実際、rank一torsion-free性によりこのような非零射は単射となる。
+これで後合成すれば
+$\operatorname{Hom}(s^{-m}\mathcal O,\mathcal O)$は
+$\operatorname{End}(s^{-m}\mathcal O)=k$に単射するが、
+前者の次元は$1+\frac32 m(m+1)>1$で矛盾する。
+従って$n\geq0$で
+\[
+ \operatorname{Ext}^2(s^{-n}\mathcal O,\mathcal O)
+ \simeq\operatorname{Hom}(\mathcal O,s^{-n-1}\mathcal O)^*=0.
+\]
+内在的Hilbert関数と\eqref{eq:ou-iv-periodic-self-euler}を比較すると
+\[
+ \chi(\mathcal O,\mathcal O)+\frac32n(n+1)r([\mathcal O])^2
+ \leq 1+\frac32 n(n+1).
+\]
+従って$r([\mathcal O])=1$である。
+さらに
+\begin{equation}\label{eq:ou-iv-periodic-ext-self-bound}
+ \dim\operatorname{Ext}^1(s^{-n}\mathcal O,\mathcal O)
+   =e:=1-\chi(\mathcal O,\mathcal O)\qquad(n\geq0).
+\end{equation}
+この議論では$\mathcal O$のexceptionalityを仮定しない。
+
+次に、任意の固定した$X\in\mathcal C$について
+$\operatorname{Ext}^2(s^{-n}\mathcal O,X)=0$ ($n\gg0$)。
+Serre双対性により$\operatorname{Hom}(X,s^{-n-1}\mathcal O)^*$に等しく、
+AZ1で固定した有限直和$\bigoplus_\nu s^{-a_\nu}\mathcal O
+\twoheadrightarrow X$を取れば、上の負次数のHom消滅が適用できる。
+さらに$F'$を任意の固定したheart対象とし、
+このような全射の核を$K$とすると、長完全列から
+\[
+ \bigoplus_\nu\operatorname{Ext}^1
+ (s^{-n}\mathcal O,s^{-a_\nu}\mathcal O)
+ \twoheadrightarrow\operatorname{Ext}^1(s^{-n}\mathcal O,F')
+ \qquad(n\gg0)
+\]
+となる。実際、$\operatorname{Ext}^2(s^{-n}\mathcal O,K)=0$だからである。
+\eqref{eq:ou-iv-periodic-ext-self-bound}により右辺の次元は
+固定の上界$C_{F'}=e\cdot\#\{\nu\}$を持つ。
+
+AZ2をここで使う。任意の固定したheartの完全列
+$0\to X\to Y\to Z\to0$について、十分大きい$n$で
+$\operatorname{Hom}(s^{-n}\mathcal O,Y)\to
+ \operatorname{Hom}(s^{-n}\mathcal O,Z)$は全射である。
+上で証明した$\operatorname{Ext}^2$の消滅と合わせると
+\begin{equation}\label{eq:ou-iv-periodic-ext1-exact}
+ 0\to\operatorname{Ext}^1(s^{-n}\mathcal O,X)
+ \to\operatorname{Ext}^1(s^{-n}\mathcal O,Y)
+ \to\operatorname{Ext}^1(s^{-n}\mathcal O,Z)\to0
+ \qquad(n\gg0)
+\end{equation}
+を得る。一般にAZ2だけを高次Ext消滅と同一視することはできないので、
+ここではこの完全列と有界性を別々に示した。
+
+補題\ref{lem:ou-iv-periodic-thickenings}の固定対象$F$と
+各有限長商$T_m$を用いる。固定した$m$について、
+その有限filtrationの各完全列に
+\eqref{eq:ou-iv-periodic-ext1-exact}を適用する。
+各$Q_i$は$s$で固定されるから
+\[
+ \dim\operatorname{Ext}^1(s^{-n}\mathcal O,T_m)
+ =m\sum_{i=0}^2\dim\operatorname{Ext}^1(\mathcal O,Q_i)
+ \qquad(n\gg0).
+\]
+$F\twoheadrightarrow T_m$にも同じ完全列を適用すれば、
+左辺は$\dim\operatorname{Ext}^1(s^{-n}\mathcal O,F)\leq C_F$以下。
+この$C_F$は$m$によらない。
+$n$の下限は$m$によって変わってよく、$m$を任意に大きく取れるため、
+$\operatorname{Ext}^1(\mathcal O,Q_i)=0$ ($i=0,1,2$)となる。
+周期性と上の$\operatorname{Ext}^2$消滅から
+$\operatorname{Ext}^2(\mathcal O,Q_i)=0$も従う。
+AZ1と周期性は$\operatorname{Hom}(\mathcal O,Q_i)\ne0$を強制する。
+従って
+\[
+ \chi(\mathcal O,Q_i)=\dim\operatorname{Hom}(\mathcal O,Q_i)\geq1
+ \qquad (i=0,1,2).
+\]
+
+ところが$Q=Q_0\oplus Q_1\oplus Q_2$は
+全ての射影$P_j$に対し$\chi(P_j,Q)=1$を満たす。
+よって$r([\mathcal O])=\chi(\mathcal O,Q)\geq3$である。
+これは既に示した$r([\mathcal O])=1$と矛盾する。
+従って内在的三次標識は存在しない。
+\end{proof}
+
 \begin{remark}
-残存関係代数族の係数の線形関係は、九線束表示の存在から来る
-必要十分な関係式のパラメータ化であるが、
-very strong性や標準OU比較・内在的三次条件の必要十分条件ではない。
-この族について、有限次元代数の逆Serre軌道を直接解析すること、
-別の曲線表示または古典的導来型を探すこと、
-内在的標識の反標準環を認識することが残る。
+補題\ref{lem:ou-iv-periodic-three}の経路空間、
+補題\ref{lem:ou-iv-periodic-thickenings}の形式parameter上の九関係、
+\eqref{eq:ou-iv-periodic-euler}の整数行列恒等式は
+\path{computations/verify_ou_iv_periodic_objects.py} で検算できる。
+排除の圏論的証明は上記の通りであり、有限個の逆Serre反復の
+計算からvery strong性の成立または不成立を推測するものではない。
+特に$\Lambda_x$に対応するOU曲面の存在自体はこの定理の結論ではない。
+\end{remark}
+
+\begin{theorem}[被約平面三次曲線表示を持つOU型の完全認識]
+\label{thm:ou-reduced-complete-recognition}
+$E$を被約平面三次曲線（既約または可約）とする。
+$E$上の全次数$0,1,2$の各三本の線束からなる三ブロック表示が
+同一ブロック内の完全直交性と前向き高次Ext消滅を満たし、
+対応する三次型AS surfaceが標準noetherian OU helix比較を持つとする。
+この圏に内在的三次標識$\mathcal O$が存在するならば、
+その標識の反標準環は標準二次Koszul AS四次元正則環の
+正則正規三次商である。
+\end{theorem}
+\begin{proof}
+既約の場合は定理\ref{thm:ou-integral-elliptic-recognition}、
+二成分・三成分の節点型は定理\ref{thm:ou-nodal-complete-recognition}、
+接触型（III型）は定理\ref{thm:ou-additive-partial-recognition}による。
+共点三直線（IV型）については系\ref{cor:ou-iv-six-residual}により
+90候補は条件付き認識、72候補は内在的条件から排除され、
+残る6候補は命題\ref{prop:ou-iv-residual-relation-family}の族に帰着する。
+この族は定理\ref{thm:ou-iv-periodic-exclusion}で排除される。
+従って被約平面三次曲線の全ての型を扱った。
+\end{proof}
+
+\begin{remark}
+IV型の168必要多重次数候補に対する現行の証明による処理件数は、
+90条件付き認識（縮約帰着を含む）、78排除、未判定零である。
+件数は同型類数でなく、候補の実現可能性も意味しない。
+全OU三次型がこの九線束表示と標準helix比較を持つことは
+別の問題であり、本定理から一般の逆包含を結論しない。
+非被約平面三次曲線および曲線表示を持たない型の認識を
+次の課題とする。
 \end{remark}
