@@ -90,6 +90,14 @@ def enumeration(c):
                 stat['necessary'] += 1
                 delta, w = invariants(U, V, W)
                 assert sum(delta) == 0 and sum(w) == 3
+                if delta == z:
+                    stat['delta_zero'] += 1
+                    if all(t >= 0 for t in w):
+                        stat['delta_zero_nonnegative_w'] += 1
+                    if any(t < 0 for t in w):
+                        stat['delta_zero_negative_w'] += 1
+                    elif any(t == 0 for t in w):
+                        stat['delta_zero_boundary_w'] += 1
                 if not all(t > 0 for t in w):
                     continue
                 stat['positive_w'] += 1
@@ -111,9 +119,11 @@ def enumeration(c):
 
 
 def main():
-    expected = {2: (180, 14, 6, 6, 6), 3: (15012, 27, 9, 7, 9)}
+    expected = {2: (180, 14, 6, 6, 6, 16, 12, 4, 6),
+                3: (15012, 27, 9, 7, 9, 168, 90, 78, 81)}
     keys = ('necessary', 'positive_w', 'positive_w_delta_zero',
-            'classical_direct', 'classical_after_rotation')
+            'classical_direct', 'classical_after_rotation', 'delta_zero',
+            'delta_zero_nonnegative_w', 'delta_zero_negative_w', 'delta_zero_boundary_w')
     for c in (2, 3):
         stat = enumeration(c)
         assert tuple(stat[k] for k in keys) == expected[c]
