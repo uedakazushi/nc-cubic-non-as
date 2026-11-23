@@ -72,49 +72,56 @@ def rotation(U, V, W, w):
     return normalize(V, W, tuple(add(x, w) for x in U))
 
 
-def enumeration(c):
+def patterns(c):
+    """Yield normalized triples of blocks satisfying all pairwise bounds."""
     z = (0,)*c
     p0 = [v for v in product(range(-1, 2), repeat=c) if sum(v) == 0 and v >= z]
     p1 = [v for v in product(range(-1, 3), repeat=c) if sum(v) == 1]
     p2 = [v for v in product(range(-1, 4), repeat=c) if sum(v) == 2]
-    stat = Counter()
+    b2 = blocks(p2)
     for U in blocks(p0):
         if U[0] != z:
             continue
         for V in blocks(p1):
             if not all(forward(x, y) for x in U for y in V):
                 continue
-            for W in blocks(p2):
-                if not all(forward(x, y) for x in U+V for y in W):
-                    continue
-                stat['necessary'] += 1
-                delta, w = invariants(U, V, W)
-                assert sum(delta) == 0 and sum(w) == 3
-                if delta == z:
-                    stat['delta_zero'] += 1
-                    if all(t >= 0 for t in w):
-                        stat['delta_zero_nonnegative_w'] += 1
-                    if any(t < 0 for t in w):
-                        stat['delta_zero_negative_w'] += 1
-                    elif any(t == 0 for t in w):
-                        stat['delta_zero_boundary_w'] += 1
-                if not all(t > 0 for t in w):
-                    continue
-                stat['positive_w'] += 1
-                if delta != z:
-                    continue
-                stat['positive_w_delta_zero'] += 1
-                T = (U, V, W)
-                if classical(*T):
-                    stat['classical_direct'] += 1
-                found = False
-                for _ in range(3):
-                    assert invariants(*T) == (z, w)
-                    found |= classical(*T)
-                    T = rotation(*T, w)
-                assert T == (U, V, W)
-                assert found, (c, U, V, W)
-                stat['classical_after_rotation'] += 1
+            for W in b2:
+                if all(forward(x, y) for x in U+V for y in W):
+                    yield U, V, W
+
+
+def enumeration(c):
+    z = (0,)*c
+    stat = Counter()
+    for U, V, W in patterns(c):
+        stat['necessary'] += 1
+        delta, w = invariants(U, V, W)
+        assert sum(delta) == 0 and sum(w) == 3
+        if delta == z:
+            stat['delta_zero'] += 1
+            if all(t >= 0 for t in w):
+                stat['delta_zero_nonnegative_w'] += 1
+            if any(t < 0 for t in w):
+                stat['delta_zero_negative_w'] += 1
+            elif any(t == 0 for t in w):
+                stat['delta_zero_boundary_w'] += 1
+        if not all(t > 0 for t in w):
+            continue
+        stat['positive_w'] += 1
+        if delta != z:
+            continue
+        stat['positive_w_delta_zero'] += 1
+        T = (U, V, W)
+        if classical(*T):
+            stat['classical_direct'] += 1
+        found = False
+        for _ in range(3):
+            assert invariants(*T) == (z, w)
+            found |= classical(*T)
+            T = rotation(*T, w)
+        assert T == (U, V, W)
+        assert found, (c, U, V, W)
+        stat['classical_after_rotation'] += 1
     return dict(stat)
 
 
