@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v9}
+\date{2026年11月24日／non-as-v10}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -99,11 +99,37 @@ $\deg N|_{E_i}>0$（各成分）、全次数三を得る。
 very ample性とregular triple性が従う。
 従って可約被約曲線でも上記仮定の下で標準AS4三次商。
 $R/zR$が整域であることはこの中心拡大判定に不要。
-残る核心は、可約曲線上の実際の九線束helixから幾何的でampleな$h$を得て
-$J$の完全性等を確認すること。幾何的でampleな$h$と標準helix比較があれば
-曲線heart認識は既約の場合と同じ方法で示せる。
+幾何的でampleな$h$と標準helix比較があれば曲線heart認識は
+既約の場合と同じ方法で示せる。次の多重次数判定によりこの範囲を特定した。
 非被約曲線では特異点集合が有限でないため、上の局所補題を流用しない。
 Burban--Kreu{\ss}ler Cor.~5.8の可約曲線への無条件拡張も行わない。
+
+\subsection*{可約被約三次曲線の多重次数判定}
+主論文の定理\texttt{thm:ou-reduced-md-criterion}と
+系\texttt{cor:ou-reduced-md-recognition}を参照。
+九線束のブロック和を$A,B,C$とし、
+$\delta_{\rm md}=A+C-2B,\ w=5B-3A-2C$とおく。
+この$\delta_{\rm md}$は楕円標識の$\Pic^0$の元$\delta$とは異なる。
+$K_0(\Perf E)$のdeterminantを用い、仮想階数$r$、全次数$d$、
+多重次数$x$に対する反復作用は
+\[
+ h^n:(r,d,x)\longmapsto
+ \left(r,d+3nr,x+nrw+
+       \left(nd+\frac{3r n(n+1)}2\right)\delta_{\rm md}\right).
+\]
+$\delta_{\rm md}=0$かつ$w_i>0$が幾何的ample移動の必要十分条件。
+十分性は多重次数零線束のtwist共役を点層・部分正規化・FM核で認識し、
+同じ曲線上の可換三次曲面由来の参照配置と比較する。
+Opper (JEMS 28 (2026), Prop.~8.40, Cor.~8.41) は節点cycleの比較に関係するが、
+接触・共点も含む今回の証明はその分類に依存しない。
+AOU (4.1)とOU (4),(5) を参照配置に適用する。
+必要条件$-1\leq y_i-x_i\leq d+1$から有限列挙を行い、
+成分を区別しブロック内をソート、共通捩りを正規化した規約で、
+2成分180型中6型、3成分15012型中9型が上の条件を満たす。
+すべて巡回変更で古典参照型に帰着。
+\path{computations/verify_ou_reduced_multidegrees.py} を実行済み。
+これは実際のOU圏や線束配置の同型類の個数ではない。
+新証明の全独立監査・組版・新規性確認は未実施。
 
 \subsection*{標識変更の独立な結果}
 命題\texttt{prop:ou-marking-walls}を参照。
@@ -121,18 +147,20 @@ AOU Thm.~9.4の全仮定をVdB一般位置のみと同一視しない。
 注意\texttt{rem:decuple-distinct-boundaries}）。
 
 \subsection*{残るOU型への具体的入口}
-被約可約平面三次曲線（直線と円錐曲線の横断・接触、
-三直線の三角形・共点）について、
-九線束のspherical twist積が幾何的か、その多重次数が正かを調べる。
-必要に応じ非幾何的または半ampleな場合に内在的条件が成立しないことを示す。
-AOUの$M_{\mathrm{rel}},M_\chi$における曲線表示の像・補集合と
-OU三次型の全定義範囲を区別し、非被約・非曲線型の残りを記述する。
-特異曲線上の局所自由性と、幾何的$h$が存在することは別の問題である。
-OU 2020のpp.~1--2、Burban--Kreu{\ss}ler arXiv v2 Cor.~5.8（p.~37）、
-VdB \S12 p.~121の一次資料を今回確認した。ATVのregular tripleは
-原著の公開テキスト抜粋と出版社書誌による確認で、原版PDF全体は未照合。
-標準noetherian qgr/導来比較は引き続き定理の仮定。
-独立監査と新規性の確認、組版は未実施である。
+$\delta_{\rm md}\ne0$または$w$の非正成分を持つ型では、
+指定表示の$h$が幾何的かつampleでないことが分かるが、
+$I_3$外や非超曲面と結論していない。
+$\delta_{\rm md}\ne0$では上の二次成長公式を起点として
+$h$の反復複体のコホモロジー振幅と成分ごとの次数を制御する。
+$I_3$のAZ1/AZ2を使えるのは実際に$J$のheartを認識した場合に限るので、
+曲線heartを仮定しない排除法、あるいは別のfoundationへの変更が必要である。
+$\delta_{\rm md}=0$で幾何的半ampleの場合は収縮成分の周期点や点層の
+分裂とrank障害を調べる。
+AOUの$M_{\mathrm{rel}},M_\chi$における被約曲線表示の像・補集合と
+OU三次型の全定義範囲を区別して非被約・非曲線型を記述する。
+非被約の場合には特異点有限性のAZ2補題を流用しない。
+標準noetherian qgr/導来比較は定理の仮定である。
+独立監査・網羅的新規性確認・組版は残る。
 
 \section{候補定義の階層と商スタックの検査}
 主論文の内在的候補の定義
