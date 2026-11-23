@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-24 / non-as-v12。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-24 / non-as-v13。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -26,10 +26,11 @@
 - **AZ2と可約被約曲線への条件付き認識**（`lem:ou-az2-singular-free`, `prop:ou-reduced-curve-rank`, `prop:ou-reduced-cubic-geometric`）：幾何的hに対するAZ2から全特異点で局所自由、Hilbert差から制限線束を得る。被約平面三次曲線で幾何的h・exact conservative J（像GK次元≤1）・指定twist積を仮定すると、全成分の正多重次数とvery ample性、regular triple性により標準三次商を認識する。
 - **可約被約三次曲線の多重次数認識**（`thm:ou-reduced-md-criterion`, `cor:ou-reduced-md-recognition`）：3ブロックの多重次数の和A,B,Cに対してδ_md=A+C−2B、w=5B−3A−2C。幾何的かつampleな反標準移動hの必要十分条件はδ_md=0, w_i>0。直線+円錐曲線（横断・接触）、三直線（三角・共点）を含む。2/3成分の6/9個の正かつδ_md=0の必要条件候補を列挙し、全ての古典参照型への巡回帰着を検算した。この条件と標準OU helix比較、内在的条件を持つ標識について標準AS4三次商表示を得る。
 - **可約残余型の内在的排除**（`prop:ou-residual-delta-obstruction`, `thm:ou-residual-geometric-ample`）：標準OU helix比較と内在条件の下で、反標準自然変換εがheart上で非零ならδ_md=0（曲線側の幾何性・Jの完全性は不要）。幾何的hならwの負成分はvery strong性、零成分は有限長対象に無限個の相異なる単純商が生じることから排除。従って幾何的hは自動的にampleとなり標準三次商表示を得る。δ_md=0候補の16/168型と内訳を整数列挙で再確認。
-- **節点cycle型の線形成長と反標準写像**（`thm:ou-nodal-cycle-growth`, `cor:ou-nodal-cycle-residual`）：横断する直線+円錐曲線、三角形の三直線では、標準noetherian OU helix比較とsのt-exact性から、内在的標識を仮定せずhの写像類が有限冪でmultitwist、全ての固定Mへの全HomがO(n)、δ_md=0、全helix対象上でε≠0と示す。Opperのgentle algebra模型とNielsen–Thurston分解を用いる。I_3があれば構造対象上でεは単射。非幾何的なmultitwist・gradingと接触・共点型は未解決。
+- **節点cycle型の線形成長と反標準写像**（`thm:ou-nodal-cycle-growth`, `cor:ou-nodal-cycle-residual`）：横断する直線+円錐曲線、三角形の三直線では、導来helixのvery strong性だけから、noetherian比較・内在的標識を仮定せずhの写像類が有限冪でmultitwist、全ての固定Mへの全HomがO(n)、δ_md=0、全helix対象上でε≠0と示す。Opperのgentle algebra模型とNielsen–Thurston分解を用いる。I_3があれば構造対象上でεは単射。接触・共点型にも変形によりδ_md=0を移すが、εの非零性は未解決。
+- **節点型の共役認識と自由群計算**（`thm:ou-nodal-multitwist-refinement`, `prop:ou-nodal-conjugate-nef`, `thm:ou-nodal-ample-conjugacy`, `thm:ou-two-component-nodal-recognition`, `cor:ou-three-component-nodal-reduction`）：grading幅から九曲線と交わる分離軸を排除、hの写像類自体がmultitwist。分離軸なしなら幾何的共役を取り、負指数を排除。基本群の外部自己同型を整数wordで計算し、二成分の16候補すべてを認識または内在的条件から排除。三成分168候補は72条件付き認識・42排除・54未判定。共通零成分は縮約して既約または二成分へ移す。指定の九線束表示と標準helix比較を仮定する。
 - **六標識の境界**（`prop:ou-marking-walls`）：第一ブロックの6順序でVdB一般位置を比較し、99の整数等式と3975のrank二行空間を得る。δ非torsionの場合に全標識が失敗する集合は余次元3以上。これはAOUの全仮定を回復する主張ではない。
 
-一般の包含は未解決です。次は節点cycle型の非幾何的multitwist・gradingの解析と別表示への帰着、接触・共点型における反標準自然変換εのheart上の非零性、非被約・曲線表示を持たない型の分類を優先します。幾何的hの場合の豊富性は内在条件から従います。曲線型の標準noetherian qgr/導来比較は仮定です。前版で `python3 computations/verify_ou_reduced_multidegrees.py` の整数列挙を再実行済みです。今回は9×9 Serre行列の自己helix Euler多項式をSymPyで検算しました。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
+一般の包含は未解決です。次は三成分節点型の残る54候補と接触・共点型の認識、非被約・曲線表示を持たない型の分類を優先します。標識付き認識には標準noetherian qgr/導来比較を仮定します。今回は `python3 computations/verify_ou_reduced_multidegrees.py` と `python3 computations/verify_ou_nodal_mapping_classes.py` を実行し、全候補の集計と自由群の等式判定を検証しました。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
 
 ## 二次包絡と商スタックの精密化
 標準三次Hilbert級数と一次生成性の下で、二次包絡Q(R)が14641型AS正則環であることと、Rがその正則正規三次商になることは同値です（Levasseurの整域性定理に依存）。トーリック商スタック[P²/μ₃]では反標準AZ-ampleなtorsion-free対象はrank 3以上であり、正則表現が最小rankを達成します。詳細な証明は主論文のIntroductionにあります。
