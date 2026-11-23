@@ -1,12 +1,13 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-24 / non-as-v9。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-24 / non-as-v10。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
 
 ## 証明を保持した主要結果
 - **既約種数一曲線型の内在的認識**（`thm:ou-integral-elliptic-recognition`）：滑らか・節点・尖点三次曲線上の次数0/1/2各3本の線束表示と標準noetherian qgr/導来helix比較を持つOU型では、I_3の与えられた標識の反標準環そのものが標準AS4正規三次商。Perf上のOU構成とDb(coh)への制限右随伴の拡張を区別し、Burban–Kreußler Cor.5.8と二段の評価核でhの偶数シフトを排除。K_0(Perf)のdeterminantでPic^0への作用を認識し、ATV regular triple条件を得る。六点一般位置・非torsion性は不要。曲線表示だけからI_3を主張しない。
-- **AZ2の特異点局所自由性と被約可約曲線の条件付き認識**（`lem:ou-az2-singular-free`, `prop:ou-reduced-curve-rank`, `prop:ou-reduced-cubic-geometric`）：幾何的hに対するAZ2をO_E→k(p)に適用して特異点での自由性を証明。被約連結種数1曲線で幾何的h（全次数3）、曲線への導来随伴・反標準三角・exact conservative J（像GK次元≤1）があれば、制限層は線束。被約平面三次曲線でさらにhが指定twist積に由来すれば、全次数0線束のdeterminantにより成分置換を排除、AZ1で正多重次数を得てvery ample性・regular triple性を示し標準AS4三次商を認識する。可約の場合にこれらのh・Jの仮定を一般に導くことは未解決。
+- **AZ2の特異点局所自由性と被約可約曲線の条件付き認識**（`lem:ou-az2-singular-free`, `prop:ou-reduced-curve-rank`, `prop:ou-reduced-cubic-geometric`）：幾何的hに対するAZ2をO_E→k(p)に適用して特異点での自由性を証明。被約連結種数1曲線で幾何的h（全次数3）、曲線への導来随伴・反標準三角・exact conservative J（像GK次元≤1）があれば、制限層は線束。被約平面三次曲線でさらにhが指定twist積に由来すれば、全次数0線束のdeterminantにより成分置換を排除、AZ1で正多重次数を得てvery ample性・regular triple性を示し標準AS4三次商を認識する。次項の多重次数条件でh・Jの仮定を導いた。条件外の型は未解決。
+- **可約被約三次曲線型の多重次数認識**（`thm:ou-reduced-md-criterion`, `cor:ou-reduced-md-recognition`）：3ブロック各3線束（全次数0/1/2、完全直交・前向きExt消滅）の多重次数の和A,B,Cに対し、δ_md=A+C−2B、w=5B−3A−2C。hが幾何的かつampleである必要十分条件はδ_md=0かつ全成分w_i>0。直線+円錐曲線の横断・接触、三直線の三角・共点を含む。同じ多重次数のtwistの比較を、滑らかな点と特異点の点層への作用および相対完全FM核から証明し、古典参照型へ帰着。有限整数列挙で二項条件180/15012型（2/3成分）、正のwかつδ_md=0は6/9型で全て巡回変更により古典参照型となる。標準noetherian qgr/導来helix比較とI_3を仮定すると与えられた標識のAS4三次商表示を得る。条件外をI_3外・非超曲面と断定しない。証明節 `papers/sections/cubic_reducible_recognition.tex`、計算 `computations/verify_ou_reduced_multidegrees.py`。
 - **六標識の一般位置境界**（`prop:ou-marking-walls`）：第一ブロックの6順序について各30条件、99 primitive行（81行は2標識、18行は1標識を妨げる）。3975の有理rank二行空間のうち全6標識を覆う30空間は全てδを含む。δ非torsionなら全失敗は余次元≥3。整数計算 `computations/verify_ou_decuple_markings.py` 実行済み。この結果はVdBの移動後六点一般位置のみで、AOU比較の全仮定とは区別する。
 - **可換弱del Pezzo導来型の認識**（`thm:recognition-weak-commutative`）：I_3 の圏が滑らかな次数3のweak del Pezzo Xと導来同値なら、Xはdel Pezzoであり標識付きでcoh Xとなる。反標準環の中心上有限性、一般点のrank=1、torsion-free性・中心の正規性、特異点での無限Extによる証明。OU仮定は不要。原稿に証明あり、新規性・独立監査未確認。
 - **AOUの既知の爆発範囲のheart認識**（`prop:helix-heart-upgrade`, `cor:aou-abelian-upgrade`）：helixの一対象が標準三次商FのπFへ移る導来同値は、Serre移動・very strong性・高次Ext消滅・負の生成対象を用いてt-exact。AOU Thm.9.4の比較が適用される範囲に標準三次超曲面のアーベル圏表示を得る。与えられた任意の標識の一致までは主張しない。
@@ -30,7 +31,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 - **商スタックのrank下界**：X=[P²/μ3]、s=⊗ω_X^{-1}では、AZ-ampleなtorsion-free Fのrankは必ず3以上。反射的双対F**に延長されるHomと、固定点での慣性群の三つの指標で証明。rank3の正則表現が下界を達成。構造層のみの非amplenessより強い。
 
 ## 主要な未解決問題と優先課題
-0. **最優先：`AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着。** 可換弱del Pezzo導来型、標準helix比較を持つ既約種数一曲線型（滑らか・節点・尖点）およびAOU Thm.9.4の既知比較範囲では肯定的認識を得た。次は被約可約三次曲線（line+conicの横断/接触、3直線の三角/共点）の場合を優先する。(a) 9線束のspherical twist積から幾何的hを認識し、全成分の正次数を導くか、非幾何的/半ampleの場合を排除する。(b) 幾何的でampleなhと通常のhelix比較からJのheart認識を得る（既存補題の拡張）。幾何的h・exact conservative J・GK次元≤1が得られれば被約可約曲線の環論的認識は既に証明済み。(c) AOU Mrel/Mχで既約曲線表示の像と可約・非被約・非曲線型を特定し、残る型では反標準自然変換の存在から調べる。非被約曲線では特異点有限性を用いたAZ2補題をそのまま適用しない。標準qgr/導来比較は仮定として維持。外部入力の適用と新証明の独立監査も行う。literal OU型の弱del Pezzo例はI_3外である。
+0. **最優先：`AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着。** 可換弱del Pezzo導来型、標準helix比較を持つ既約種数一曲線型、AOU Thm.9.4の既知比較範囲、そして可約被約曲線のδ_md=0かつw>0の範囲では肯定的認識を得た。(a) 残る多重次数型を調べる。前向きExt条件の必要範囲を満たす型のうちδ_md≠0またはwが非正の成分を持つものに対し、hの反復軌道と曲線への制限のheart・Hilbert成長を調べ、I_3による排除または別表示への帰着を目指す。h^nの行列式にはn²δ_md項が現れるため、実際の複体の振幅および部分曲線上の成長を制御することが第一の入口。wが非正の成分を持つ場合の幾何的半ample型では固定点・周期点・収縮上のrank障害を比較する。(b) AOU Mrel/Mχで曲線表示の像を特定し、非被約・非曲線型を調べる。特異点有限性を用いたAZ2補題を非被約曲線に流用しない。(c) 新しいtwist比較の相対完全FM核、古典参照型、標準OU qgr/導来比較、および既存の中心拡大の適用を独立監査する。内在的標識の存在や全OU型の被覆は仮定なく結論しない。literal OU型の弱del Pezzo例はI_3外である。
 1. **公表前監査と先行研究**：OU (arXiv:2508.04986v1) Def. 1.1, §3 と Levasseur (1992) Thm. 6.2(ii) を一次資料で確認済み。他の引用と独立検証を続け、OU一般とAS4超曲面の関係、rank-three stack型境界の他の例を整理し、主論文の全引用について一次資料の指定定理・仮定・版を確認する。特に離散torsion付きMorita同値とorbifold HKRの指標、Artin--Zhangの原著、Clifford orderの非表示の初出、新規性は独立検証未完了。
 2. **次数3の境界拡張**：一般の非周期的AS正則Z-algebraにおいて、自由対象のSerre helixと三次合成空間が20次元となるための条件を調べる。Mori--Nymanの訂正版の仮定を保持し、非存在を一般に断定しない。
 3. **符号型の精密化**：H3認識と固定ambientの二次元分類の既存分類稿との仮定を再照合し、versal変形・全intrinsicモジュライ成分性・OU locusの開閉性を検討する。
@@ -38,8 +39,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
 ## 主張と検証の状態
-現行版の既約種数一曲線認識・AZ2局所自由性・被約可約曲線の条件付き認識は主論文 `papers/sections/cubic_elliptic_recognition.tex` に証明を収録。OU arXiv:2007.07620v1 pp.1–2, (3)–(5), Prop.2, Thm.5 と Burban–Kreußler arXiv:math/0503496v2 Cor.5.8（p.37、原PDFを目視）、Prop.4.13、VdB arXiv:math/9809116v1 §12 p.121（中心拡大判定の明示的定式化）を今回再確認した。ATV (4.5), (4.8), Thms.6.6/6.8 は原著の公開テキスト抜粋と出版社書誌を確認し、原版PDF全体は未照合。特異曲線のPerfとDb(coh)を区別して証明したが、全圏論的証明の独立監査・網羅的新規性調査・形式化は未実施。OU 2025論文の今回のPDF再取得は失敗し、通常のnoetherian qgr/導来helix比較は引き続き仮定とする。
-六標識の99 primitive行・3975有理二次元行空間・30被覆空間の整数計算と、逆変換・27係数条件の検算は従来の実施記録を保持する。今回の全計算再実行とは区別する。弱del Pezzoの整数交点計算、Clifford関係・判別曲線・Hochschild sector の実施記録は研究ノート・再現コードを参照。LuaLaTeX/latexmkは実行環境にあるが、今回もGitHubへのDNS接続ができず全repoの取得と現行主稿の組版は未実施。形式証明器による確認は行っていない。現行主稿の10分割入力、ラベル・参照・引用キー、新認識節の環境の整合性を静的に確認し、twistの2×2整数行列の積が [[1,0],[-3,1]] となることを再計算した。これらを圏論的証明全体の検証と混同しない。
+現行認識定理は主論文 `papers/sections/cubic_elliptic_recognition.tex` と `cubic_reducible_recognition.tex` に証明を収録。AOU arXiv:2404.00175v1 (4.1)（p.8）とOU arXiv:2007.07620v1 (4),(5)（p.2）の原PDFを今回再確認。Opper, JEMS 28 (2026), 171–236, Prop.8.40/Cor.8.41 (p.217), DOI 10.4171/JEMS/1473のKodaira cycleの比較を確認したが、接触・共点まで扱う新証明はその分類定理に依存しない。既存入力Burban–Kreußler arXiv:math/0503496v2 Cor.5.8、VdB arXiv:math/9809116v1 §12 p.121、OU 2020の確認範囲は保持。ATV (4.5),(4.8), Thms.6.6/6.8は公開テキスト抜粋・書誌確認に留まる。通常のnoetherian qgr/導来helix比較は仮定。新しい多重次数列挙のPythonコードを実行し、180/15012候補、6/9の正かつδ_md=0型、全型の古典参照型への巡回帰着を確認した。その他の整数計算、Clifford関係・判別曲線・Hochschild sectorの実施記録は保持し、今回の全計算再実行と区別する。LuaLaTeX/latexmkは利用可能だがGitHub DNS接続に失敗し、全repoの取得と現行主稿の組版は未実施。新証明の独立監査・網羅的新規性調査・形式化は未実施。
 
 ## 恒常的研究原則と保存許可
 1. 研究の価値を最大化するため、重要性・新規性・理解・応用・正確性・実現可能性に従い方針を柔軟に更新する。変更理由と元目標の解決・残存部分を現在形で記す。時系列履歴を残さない。
