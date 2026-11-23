@@ -1243,6 +1243,7 @@ $\delta_{\rm md}=0$が必要である。ここではその有限個の候補を
 
 \begin{proposition}[基本群による幾何性の判定]
 \label{prop:ou-nodal-free-group}
+定理\ref{thm:ou-nodal-cycle-growth}の導来helix仮定の下で、
 $c$穿孔トーラスにおける水平曲線$a$と$c$本の垂直曲線を、
 後者が順に$a$と一回ずつ交わり、隣接する垂直曲線間に
 ちょうど一つの穿孔があるように取る。
@@ -1415,7 +1416,7 @@ $a$を固定する内自己同型の共役元は$a$の冪なので、
 その同じ$k$で全生成元の像が一致することが必要十分である。
 この手続は自由群の正規形による有限の等式判定である。
 
-計算結果は、次の互いに素な四つの場合で尽くされる。
+計算結果は次の表である（二成分の場合は四つの非空の行で尽くされる）。
 \begin{center}
 \begin{tabular}{lrr}
 \toprule
@@ -1436,7 +1437,8 @@ $c=3$の残り：$w_i\bmod3$が同じ非零値 &0&18\\
 これは二項条件の候補数であり、実際に実現される線束配置や
 OU圏の同型類の個数を意味しない。
 
-第一行は定理\ref{thm:ou-reduced-md-criterion}から認識済み。
+第一行は自由群計算による幾何性と$w>0$から、
+定理\ref{thm:ou-nodal-ample-conjugacy}（共役を恒等と取る）で認識する。
 第二行は命題\ref{prop:ou-nodal-free-group}により$h$が幾何的なので、
 定理\ref{thm:ou-residual-geometric-ample}により内在的三次条件と矛盾する。
 第三行の二成分の場合は、全九線束がある成分上次数零なので
@@ -1510,8 +1512,8 @@ $\delta_{\rm md}=0$の全候補に広げると次の表を得る。
 右の三列は$\delta_{\rm md}=0$の候補を分けたものである。
 \texttt{computations/verify\_ou\_reduced\_multidegrees.py}で
 従来の列挙と合わせて検証する。
-非零の$\epsilon$を持つ内在的標識が存在するためには、
-少なくともこの16型または168型の範囲に入る必要がある。
+定理\ref{thm:ou-reduced-delta-deformation}により、導来helix条件の下では
+この16型または168型の範囲に入る必要がある。
 正の6型・9型は既に超曲面として認識できる。
 さらに節点型の完全な二成分判定と三成分の部分判定は
 定理\ref{thm:ou-two-component-nodal-recognition}、
@@ -1525,7 +1527,7 @@ $\delta_{\rm md}=0$の全候補に広げると次の表を得る。
 また$\delta_{\rm md}\ne0$の残余型には、命題\ref{prop:ou-residual-delta-obstruction}により
 反標準自然変換$\epsilon$のheart上の零性が必要となる。
 節点cycleについては定理\ref{thm:ou-nodal-cycle-growth}により、
-標準helix比較の下で$\delta_{\rm md}=0$と$\epsilon$の非零性が自動となる。
+導来helix条件の下で$\delta_{\rm md}=0$と$\epsilon$の非零性が自動となる。
 節点型の写像類は定理\ref{thm:ou-nodal-multitwist-refinement}でさらに制約され、
 全軸正の最大非分離multitwistについては定理\ref{thm:ou-nodal-ample-conjugacy}で認識する。
 負の指数は命題\ref{prop:ou-nodal-conjugate-nef}で排除した。
