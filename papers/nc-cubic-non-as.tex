@@ -28,7 +28,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月24日／non-as-v6}
+\date{2026年11月24日／non-as-v7}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -37,7 +37,7 @@
 また、Hirzebruch曲面$\mathbb F_1$上の偶Clifford orderは次数三の反標準Hilbert関数を持ち、反標準環は次数一生成でありながら、その二次包絡の三次成分が十九次元となる。
 これは標準四次元AS正則代数の三次超曲面表示を、構造対象を忘れたアーベル圏としても排除する。
 次数一・二の二つのClifford orderについても、標準的な最小生成次数を持つ重み付きAS正則ambientによる超曲面表示は存在しない。一方、別の生成次数を持つAS正則ambientでは明示的な超曲面表示が存在する。
-逆向きについては、弱del Pezzo曲面の反標準収縮からOUの三次型AS surfaceを構成し、全反標準ample対象の導来rankが少なくとも二となることを示す。従ってこの曲面は標準三次超曲面型にも内在的三次候補にも属さない。内在的候補に制限したOU型の逆包含は残る問題である。
+逆向きについては、弱del Pezzo曲面の反標準収縮からOUの三次型AS surfaceを構成し、全反標準ample対象の導来rankが少なくとも二となることを示す。従ってこの曲面は標準三次超曲面型にも内在的三次候補にも属さない。内在的候補に制限したOU型の逆包含については、可換弱del Pezzo導来型を認識し、既知の非可換六点爆発の導来同値をアーベル圏の同値に強め、楕円データから二次関係の消失条件を計算する。一般の場合は未解決である。
 さらにトーリック商スタック$[\mathbb P^2/\mu_3]$では、反標準AZ-ampleなtorsion-free構造対象のrankが少なくとも三となることを証明し、構造層の非amplenessと特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
 \end{abstract}
 \tableofcontents
@@ -214,6 +214,246 @@ $\mathfrak{AS}^{\mathrm{OU}}_3$の\emph{共通部分}である。
 ただし内在的候補にも属するOU型に限った逆包含は未解決である。
 特に、非周期的AS正則$\mathbb Z$-algebraを許した一般のambient
 認識問題は、連結graded ambientの場合とは分けて扱う。
+\end{remark}
+
+\subsection{内在的三次条件による可換導来型の認識}
+\label{subsec:recognition-commutative}
+本稿で最優先に扱う問題は、標識を忘れたクラスの包含
+\begin{equation}\label{eq:intrinsic-ou-question}
+ \mathfrak{AS}^{\mathrm{OU}}_3\cap\mathfrak I_3
+ \stackrel{?}{\subseteq}\mathfrak H^{\mathrm{hyp}}_3
+\end{equation}
+である。OUの箙型だけの逆包含とは異なる。まず可換導来型を排除し、
+次に非可換爆発による既知の構成において導来同値をアーベル圏の同値に強める。
+
+\begin{theorem}[可換弱del Pezzo導来型の認識]\label{thm:recognition-weak-commutative}
+$(\mathcal C,\mathcal O)$が定義\ref{def:intrinsic-dp}の次数三の条件を満たし、
+$X$が滑らかな次数三の弱del Pezzo曲面で、
+$k$線型三角同値 $D^b(\mathcal C)\simeq D^b(\coh X)$ が存在するとする。
+このとき$-K_X$はampleであり、
+$(\mathcal C,\mathcal O,s)$は
+$(\coh X,\mathcal O_X,-\otimes\omega_X^{-1})$に同値である。
+特に$\mathcal C\in\mathfrak H^{\mathrm{hyp}}_3$である。
+OU型であるという仮定は不要である。
+\end{theorem}
+\begin{proof}
+$L=\omega_X^{-1}$とし、反標準射$f:X\to Y$を考える。
+次数三の弱del Pezzo曲面の反標準模型$Y$は正規三次曲面であり、
+$f$は双有理で$L=f^*M$、$M=\mathcal O_Y(1)$である
+（\cite[Section~1]{CVGL2007}）。
+与えられた同値の下で$\mathcal O$に対応する完全複体を$P$とする。
+Serre関手の一意性により$s$は$-\otimes L$に対応する。
+この同定を反復してorbit積と両立するように取ると
+\[
+ R=\bigoplus_{n\ge0}\operatorname{Hom}_{D^b(X)}(P,P\otimes L^n)
+\]
+を得る。$S_Y=\bigoplus_{n\ge0}H^0(Y,M^n)$は切断による乗法で
+$R$に中心的に作用する。
+
+$Y$上の連接代数層
+\[
+ \mathscr B=\mathcal H^0(Rf_*R\mathcal Hom_X(P,P))
+\]
+を考える。アフィン開集合上では対応する逆像への$P$の制限の
+導来自己準同型環であり、積は合成である。射影公式と
+hypercohomology spectral sequence、有限個のコホモロジー層に
+対するSerre消滅により、十分大きい$n$について
+\[
+ R_n \xrightarrow{\sim} H^0(Y,\mathscr B\otimes M^n).
+\]
+この写像は制限から得られ、積および$S_Y$作用と両立する。
+従って$R$は$S_Y$上有限である（高次の切断加群は有限生成で、
+残る有限個の次数も有限次元である）。
+$M$の次数一切断による標準アフィン開被覆で中心局所化し
+次数零部分を取ると、局所化した代数は$\mathscr B$となる。
+同じ操作を有限生成次数付き右加群に行い、逆に連接
+$\mathscr B$加群の十分高次の切断を取るSerreの構成から、
+$\qgr R\simeq\coh(Y,\mathscr B)$を得る。
+有限次数部分はこの商圏では零である。Artin--Zhang再構成
+\cite[Theorem~4.5]{AZ1994}と合わせると、この同値は
+$\mathcal O$を$\mathscr B$、$s$を$-\otimes M$に対応させる。
+
+$K=k(Y)$、$\eta$を一般点とする。$f$が一般点上で同型なので
+\[
+ \mathscr B_\eta=\operatorname{End}_{D^b(K)}(P_\eta)
+   \cong\prod_i\operatorname{End}_K(H^i(P_\eta)).
+\]
+$M^2=3$であり、Hilbert多項式の最高次係数を比較すると
+\[
+ \tfrac32=\tfrac32\dim_K\mathscr B_\eta,\qquad
+ \sum_i\dim_K H^i(P_\eta)^2=1.
+\]
+従って$\mathscr B_\eta\cong K$である。
+$\ker(\mathscr B\to\mathscr B_\eta)$は一次元以下の台を持つ
+連接右イデアルである。中心上有限の連接代数加群のうち
+一次元以下の台を持つものはGabriel--Krull次元が一以下である：
+曲線の一般点での局所化は有限長であり、その局所化を零とする
+部分は零次元の台を持ち有限長である。これを台の有限個の
+既約成分について適用すればよい。
+従って$\mathcal O$のtorsion-free性からこのイデアルは零である。
+$\mathscr B$は$\mathcal O_Y$を含む$K$内の有限代数となり、
+$Y$の正規性から$\mathscr B=\mathcal O_Y$である。
+
+従って$D^b(\coh Y)\simeq D^b(\coh X)$である。
+もし$Y$に特異閉点$y$が存在すれば、
+特異局所環の剰余体の最小自由分解は無限であり、
+$\operatorname{Ext}^i_Y(k(y),k(y))$は任意に大きい$i$で非零となる。
+局所Extの台が一点なのでこの計算は大域Extにも一致する。
+一方、滑らかな$X$上では固定した二つの有界連接複体の間の
+Extは十分大きい次数で零となる。これは矛盾である。
+よって$Y$は滑らかであり、反標準収縮は同型である
+（非自明な滑らかな曲面間の双有理射には$(-1)$曲線が
+収縮されるが、$L$とその交点は正である）。
+以上の標識付き同値で$\mathcal O$は$\mathcal O_X$に対応し、
+反標準環は滑らかな可換三次曲面の斉次座標環となる。
+\end{proof}
+
+\begin{remark}
+証明は特定のexceptional collectionや反標準ample対象の
+virtual rankの計算に依存しない。特に後述する弱del Pezzo境界の
+OU型は、別の標識を選んでも式\eqref{eq:intrinsic-ou-question}の反例には
+なり得ない。
+\end{remark}
+
+\subsection{非可換六点爆発のheartと楕円曲線データ}
+\label{subsec:ou-blowup-heart}
+
+\begin{proposition}[helixの一対象によるheartの同定]\label{prop:helix-heart-upgrade}
+$\mathcal C=\qgr A$をOU三次型とし、$P_i$をhelixの標準対象とする。
+$P_{i+9}\simeq sP_i$であり、十分前方の組に対して
+$\operatorname{Hom}(P_i,P_j[k])=0$ ($k\ne0$) とする。
+$F$は標準AS四次元三次商で、$\qgr F$において
+$S^{-1}[2]\simeq(1)$とする。
+$D^b(\mathcal C)\simeq D^b(\qgr F)$という同値$\Phi$が
+ある$P_{i_0}$を$\pi F$に移すなら、$\Phi$は$t$-exactである。
+ここでは両方の$\qgr$について通常のnoetherian加群の商圏を用いる。
+\end{proposition}
+\begin{proof}
+Serre関手との可換性から
+$\Phi(P_{i_0-9n})\simeq\pi F(-n)$である。
+標準AS正則代数の正規商の局所コホモロジーの右有界性
+\cite[Theorem~4.2]{YZ1997}により、固定した連接対象$N$について
+$\operatorname{Ext}^{p}(\pi F(-n),N)=0$ ($p>0$, $n\gg0$)。
+従って任意の固定有界複体$T$に対して、十分大きい$n$では
+hyperExt spectral sequenceから
+\[
+ \operatorname{Hom}(\pi F(-n),T[k])
+ \cong\operatorname{Hom}(\pi F(-n),H^k(T)).
+\]
+任意の連接対象は任意に深い負のtwistの有限直和の商である。
+$T=\Phi(P_j)$に対して、左辺はhelixのvery strong性から
+$k\ne0$について零となる。従って$H^k(T)=0$ ($k\ne0$)、
+すなわち$\Phi(P_j)$は標準heartに属する。
+
+一般にheartの生成対象族$(G_a)$に対して
+\[
+ D^{\ge0}=\{T:\operatorname{Hom}(G_a,T[k])=0
+                      \text{ for all }a,\ k<0\}.
+\]
+実際、右辺の条件を満たすのに最低の非零コホモロジーが$q<0$なら、
+最低次数の切断三角から
+$\operatorname{Hom}(G_a,T[q])\cong
+\operatorname{Hom}(G_a,H^q(T))$であり、生成性に矛盾する。
+$\qgr F$では上記の負のtwist族、
+$\qgr A$では十分負の添字の標準対象族が生成する
+（次数付き有限生成加群の高次切断の自由加群表示）。
+前者の$\Phi^{-1}$による像も、後者の$\Phi$による像も
+それぞれ相手のheartに属する。上の判定を両方向に適用すると、
+$\Phi$は$D^{\ge0}$を同一視する。直交性から$D^{\le0}$も
+同一視し、結論を得る。
+\end{proof}
+
+\begin{corollary}[既知の非可換爆発の範囲]\label{cor:aou-abelian-upgrade}
+AOU\cite[Theorem~9.4 and its proof, (9.53), (9.57)]{AOU2024}
+の非可換六点爆発とhelixの比較が適用される範囲では、
+同論文の導来同値は標準三次商$F$とのアーベル圏同値を与える。
+従ってその範囲では、標識を忘れた標準三次超曲面表示が存在する。
+\end{corollary}
+\begin{proof}
+AOUの構成では、三ブロックhelixの指定された一対象が爆発の
+構造対象に対応し、さらに$\qgr F$の$\pi F$に対応する。
+同論文のLemma~9.2は$S=(-1)[2]$を与える。
+従って命題\ref{prop:helix-heart-upgrade}を適用できる。
+$F$の標準四次元AS正則ambientによる表示は
+\cite[Section~12]{VdBBlowup2001}の構成による。
+ここで元の内在的標識がこの表示の標準対象と一致するとは主張しない。
+\end{proof}
+
+次にAOUの楕円曲線上のデータから、この比較の適用条件の
+一部を直接計算する。以下、線束の積はtensor積であり、逆元を
+負の冪で表す。三ブロックを共通の次数零線束で捩って
+\[
+ (U_0,U_1,U_2)=(\mathcal O_E,U,V),\quad
+ (M_1,M_2,M_3),\quad(N_1,N_2,N_3)
+\]
+とし、それぞれの次数を$0,1,2$とする。
+$M=M_1M_2M_3$, $N=N_1N_2N_3$と書く。
+
+\begin{proposition}[楕円データの逆変換]\label{prop:decuple-inverse}
+AOUの式(9.53)に現れる次数三線束$L_0,L_1$と
+六つの次数一線束$P_\nu$は、正規化したブロックデータから
+\[
+ D=MV^{-1},\qquad L_0=UNM^{-1},\qquad L_1=L_0^2D^{-1},
+ \quad P_i=M_i,\quad P_{j+3}=DN_j^{-1}\quad(1\le i,j\le3)
+\]
+により一意に復元される。
+\end{proposition}
+\begin{proof}
+$P_A=P_1P_2P_3$, $P_B=P_4P_5P_6$と置くと、元の式は
+$D=L_0^2L_1^{-1}$,
+$U=L_0D^{-3}P_AP_B$, $V=D^{-1}P_A$,
+$M_i=P_i$, $N_j=DP_{j+3}^{-1}$である。
+$P_A=M$、$P_B=D^3N^{-1}$を代入すれば
+上の公式を得る。逆向きも直接代入で確認される。
+$\deg L_0=\deg L_1=3$、$\deg P_\nu=1$である。
+\end{proof}
+
+\begin{proposition}[三ブロックの二次関係の消失係数]
+\label{prop:decuple-zero-coefficients}
+固定した$U_i,N_k$に対し、中間の三対象$M_j$を経由する
+積の一意な線形関係において、$j=c$の係数が零となる必要十分条件は
+\[
+ U_iN_k=M_aM_b,\qquad \{a,b,c\}=\{1,2,3\}.
+\]
+ただし同じブロックの線束は相異なるものとする。
+逆変換を用いると、$i=0,2,1$の順に条件は
+\begin{align*}
+ P_aP_bP_{k+3}&=D,\\
+ P_c&=P_{k+3},\\
+ P_c\prod_{\substack{4\le\ell\le6\\\ell\ne k+3}}P_\ell
+       &=D^2L_0^{-1}.
+\end{align*}
+\end{proposition}
+\begin{proof}
+各積は次数二線束$N_kU_i^{-1}$の非零切断であり、
+零因子は$M_jU_i^{-1}$と$N_kM_j^{-1}$に対応する二点の和である。
+三つの第一の点は相異なるので、三つの積は全て比例することはない。
+次数二線束の切断空間は二次元なので関係は一次元である。
+$j=c$の係数が零であることは、他の二つの積が比例すること、
+すなわち零因子が一致することと同値である。
+第一の点が相異なるため、これは二点が交換されて一致する場合に限られ、
+$M_aU_i^{-1}=N_kM_b^{-1}$と同値である。
+後半は命題\ref{prop:decuple-inverse}の公式の代入で従う。
+\end{proof}
+
+\begin{remark}[一般位置の二種類の条件]\label{rem:decuple-distinct-boundaries}
+楕円データのadmissibility（\cite[Section~7]{AOU2024}）と
+命題\ref{prop:decuple-zero-coefficients}の二十七の非消失条件は、
+六点の同一視、三点積、六点積に関する明示的条件となる。
+一方、\cite[Definition~11.1.2, Theorem~11.1.3]{VdBBlowup2001}
+の一般位置は、同論文の指定する移動後の六点が$L_0$埋込みで
+一般位置にあるという条件である。
+移動を$\sigma$、$\sigma^*L_0=L_1$と書けば、
+元の点の線束では全点が相異なること、全ての三点積が$L_1$と異なること、
+六点積が$L_1^2$と異なることに相当する。
+可換の場合$L_1=L_0$では$D=L_0=D^2L_0^{-1}$であり、
+admissibilityと全係数の非消失を合わせると通常の六点一般位置となる。
+しかし$L_1L_0^{-1}$が非torsionの場合は、
+例えば混合三点積の禁止値$D$と$L_1$は異なる。
+他の点を一般に選ぶと一方のみを満たすことができる。
+従って関係係数の消失だけを非可換爆発の一般位置の判定と
+してはならない。またこれらの条件だけからAOUの比較の全仮定や
+内在的条件が従うとは主張しない。
 \end{remark}
 
 \subsection{弱del Pezzo曲面から得られるOU型の非超曲面例}
@@ -1299,7 +1539,7 @@ Hochschild homology の計算には，quadric fibration の半直交分解
 量子Fermat点と符号型族の奇数次Hochschild homologyはOU型AS surfaceへの障害であるが、AS四次元ambientの超曲面表示自体を否定しない。
 次数三Clifford例では$\dim Q(R)_3=19$と標準AS四次元代数の$20$の差が、構造対象を忘れた非表示の核心である。
 次数一・二Clifford例は最小生成次数を固定した非表示であり、別のambientによる肯定的な表示も同時に得る。
-最優先課題は、定理\ref{thm:ou-weak-cubic}の外部入力・非表示の独立監査と、内在的三次候補にも属するOU型についての逆包含の決着である。その他の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
+最優先課題は式\eqref{eq:intrinsic-ou-question}の決着である。定理\ref{thm:recognition-weak-commutative}と系\ref{cor:aou-abelian-upgrade}の範囲を除き、非可換六点爆発の比較が未確立の楕円境界および非楕円型において、内在的条件が超曲面表示を強制するかを調べる。定理\ref{thm:ou-weak-cubic}の外部入力・非表示の独立監査も残る。その他の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
 本稿の新しい反標準rank障害は上記の証明範囲に限る。独立検証と新規性調査は継続する。
 
 \appendix
