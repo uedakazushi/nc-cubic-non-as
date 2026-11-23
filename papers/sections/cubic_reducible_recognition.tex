@@ -545,9 +545,17 @@ $Jk(p)$は無限個存在する。これは矛盾。
 
 \begin{theorem}[節点cycleの線形成長と反標準写像]
 \label{thm:ou-nodal-cycle-growth}
-$E=C_c$とし、前節の三ブロック九線束表示が標準noetherian OU helix比較を
-持つとする。反標準移動$s$はheartを保つと仮定する。
-この定理では内在的標識$\mathcal O$の存在は仮定しない。
+$E=C_c$とし、前節の三ブロック九線束から作るdirected algebra
+$\Lambda$を考える。$\Perf\Lambda$上の射影対象$P_i$と
+$s=S_\Lambda^{-1}[2]$について、導来helixがvery strongであること、
+すなわち
+\begin{equation}\label{eq:ou-derived-very-strong}
+ \operatorname{Hom}_{\Perf\Lambda}(P_i,s^nP_j[k])=0
+ \quad (1\leq i,j\leq9,\ n\geq1,\ k\ne0)
+\end{equation}
+を仮定する。標準noetherian OU helix比較が成立すればこの仮定を満たす。
+この定理では商圏のnoetherian性、heart上の$s$の完全性、および
+内在的標識$\mathcal O$の存在を仮定しない。
 $h=(T_{L_1}\cdots T_{L_9})^{-1}[2]$とする。
 \begin{enumerate}[label=(\roman*)]
 \item 穿孔トーラスの曲線模型で$h$に対応する写像類$\varphi$は、
@@ -563,17 +571,30 @@ $\epsilon_{P_j}:s^{-1}P_j\to P_j$は非零である。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-まず補題\ref{lem:ou-residual-helix-growth}の証明に内在的標識の
-存在を用いていないことに注意する。特に$F\dashv J$、
-$Fs\simeq hF$と同補題から
+商圏を用いず$\Perf\Lambda$上で証明する。
+九線束の厚い生成部分圏は$[1]$で保たれ、
+$\omega_E\simeq\mathcal O_E$なのでOU\cite[(3)--(5)]{OUSpherical2020}の
+spherical collectionの構成が適用できる。
+従って反標準三角と$F\dashv J$、$Fs\simeq hF$が得られる。
+$J$は前述のように$D^b(\coh E)$全体からの導来Homによる制限として
+定義できる。$\Lambda$は有限大域次元なので、固定した$JM$は
+有限生成射影$\Lambda$加群の有界複体で表示できる。
+その各項は$P_j$の有限直和の直和因子である。
+\eqref{eq:ou-derived-very-strong}と
+補題\ref{lem:ou-residual-helix-growth}に記したEuler行列の計算
+（これは$\Perf\Lambda$の計算である）から、
+$\operatorname{Hom}(s^{-n}P_i,P_j[k])$は$n\geq1$で
+$k=0$に集中し、その次元は$O(n^2)$である。
+固定された有限複体への全Hom次元も、各項への全Hom次元の和で
+上から評価できる。従って
 \begin{equation}
  \label{eq:ou-nodal-growth-quadratic}
  \sum_k\dim\operatorname{Hom}_E(h^{-n}L_i,M[k])
- =\sum_k\dim\operatorname{Hom}_{D^b(\mathcal C)}(s^{-n}P_i,JM[k])
+ =\sum_k\dim\operatorname{Hom}_{\Perf\Lambda}(s^{-n}P_i,JM[k])
  =O(n^2).
 \end{equation}
-ここで$M$が完全複体である必要はない。$JM$は固定された有界複体であり、
-右辺の各コホモロジー層の切断数を同補題で評価できる。
+また右辺の非零次数は$n$に関して一様な有限区間に含まれる。
+この議論は$M$の完全性を要求しない。
 
 Opper\cite[Theorem~7.1]{Opper2026}によれば、$E$のspherical object
 （shiftを除く）は$c$点を除いたトーラス$\Sigma$上の
@@ -680,7 +701,7 @@ $-\frac32(\delta_{\rm md})_a$である。(ii)による線形上界と比較し�
  \lhook\joinrel\longrightarrow
  \operatorname{Hom}_E(h^{-n}L_i,L_i).
 \]
-補題\ref{lem:ou-residual-helix-growth}のEuler行列を$D$とし
+補題\ref{lem:ou-residual-helix-growth}に記したEuler行列を$D$とし
 $S=D^{-1}D^{\mathsf t}$とおく。直接計算すると
 $(S-I)^3=0$かつ$D,(S-I)^{\mathsf t}D,((S-I)^2)^{\mathsf t}D$
 の対角成分はそれぞれ$1,3,3$である。
@@ -697,20 +718,103 @@ $\epsilon$は非零である。
 
 \begin{corollary}
 \label{cor:ou-nodal-cycle-residual}
-定理\ref{thm:ou-nodal-cycle-growth}の節点型では、
+定理\ref{thm:ou-nodal-cycle-growth}の節点型で、標準noetherian OU helix比較と
 内在的三次標識を持つならその反標準自然変換は全$s^a\mathcal O$上で単射となる。
 前節の有限列挙の$\delta_{\rm md}=0$の16型（2成分）および
 168型（3成分）が残余候補の上界であり、この絞り込み自体には
 内在的標識の仮定は不要である。
 \end{corollary}
 \begin{proof}
-前半は命題\ref{prop:ou-residual-delta-obstruction}の非零性から単射性を
-導く部分、後半は定理\ref{thm:ou-nodal-cycle-growth}(iii)による。
+前半は標準noetherian OU helix比較と内在的三次標識を仮定し、
+命題\ref{prop:ou-residual-delta-obstruction}の非零性から単射性を
+導く部分を適用する。後半は定理\ref{thm:ou-nodal-cycle-growth}(iii)による。
 \end{proof}
+
+\begin{theorem}[被約可約三次曲線全体の多重次数の必要条件]
+\label{thm:ou-reduced-delta-deformation}
+$E$を任意の可約被約平面三次曲線とする。
+三ブロック九線束が前節の直交性と前向き高次Ext消滅を満たし、
+そのdirected algebra上の導来helixが
+\eqref{eq:ou-derived-very-strong}を満たすならば、
+\[
+ \delta_{\rm md}=A+C-2B=0.
+\]
+特に直線と円錐曲線が接触する場合および三直線が共点を持つ場合にも
+この条件は必要である。標準noetherian $\qgr$比較や内在的標識の
+存在を仮定しない。
+\end{theorem}
+\begin{proof}
+節点型は定理\ref{thm:ou-nodal-cycle-growth}で示したので、
+接触・共点型を扱う。平面内で各成分の次数を固定して変形する：
+直線と滑らかな円錐曲線は接触から横断する二交点へ、
+相異なる三直線は共点から三角形へ変形できる。
+具体的には一つの成分の方程式を一次パラメータで一般に摂動し、
+積を取った平面三次式で族を定義する。
+基底を必要なら縮小し、さらに閉点近傍でエタール基底変換して、
+各成分にラベルを付けた平坦族$\mathcal E\to T$を得る。
+特殊ファイバーは$E$、幾何的genericファイバーは$C_c$である。
+
+九線束の各々を滑らかな閉点のみからなるCartier因子の差で表示する。
+これは十分大きいample線束で捩り、有限個の特異点を避ける
+一般切断を選べばよい。滑らかな各閉点はエタール基底変換後に
+滑らかな相対点の切断へ延長できる（滑らかな射の局所切断）。
+同じ有限個の点を扱っているので共通の基底変換でよい。
+因子の差を相対因子へ延長して、九つの相対線束を得る。
+各成分上の次数は変わらないので$A,B,C,\delta_{\rm md}$は
+特殊・genericファイバーで一致する。
+
+特殊ファイバーでの直交性と前向き高次Ext消滅は、
+半連続性によりgenericファイバーでも成立する。
+有限個の対象間の前向きHomの次元はEuler数が一定なので一定であり、
+特殊点の近傍で前向きの$R^0$の押出しは有限局所自由、
+基底変換と両立する。対角成分を$\mathcal O_T$、
+後ろ向き成分を零としたrelative directed algebra
+$\boldsymbol\Lambda$を構成する。
+合成は相対線束の合成から得られ、各ファイバーのdirected algebraに一致する。
+
+導来helixの条件もgenericファイバーへ移ることを確認する。
+頂点の半単純相対環$\mathcal K=\mathcal O_T^9$上の
+relative normalized bar resolutionを使う。
+三ブロックの間だけに前向き成分があるので
+$\mathfrak r^{\otimes_{\mathcal K}3}=0$（$\mathfrak r$はstrictly directed部分）。
+従って対角bimoduleには長さ二の相対射影分解がある。
+各項は頂点射影bimoduleに有限局所自由な係数をtensorしたもので、
+任意のファイバーへの基底変換で同じbar分解を与える。
+そのdual
+\[
+ \boldsymbol\Theta=
+ R\operatorname{Hom}_{\boldsymbol\Lambda^e}
+ (\boldsymbol\Lambda,\boldsymbol\Lambda^e)
+\]
+は相対的な完全bimoduleであり、各ファイバーの逆Serre bimoduleに一致する。
+ここで$\boldsymbol\Lambda^e$は$\mathcal O_T$上のenveloping algebraである。
+従って固定した$n\geq1$について、相対射影対象から
+$(-\otimes^{\mathbf L}_{\boldsymbol\Lambda}\boldsymbol\Theta[2])^n$
+で移した相対射影対象への導来Homは、基底上の完全複体で、
+特殊およびgenericファイバーへの基底変換と両立する。
+特殊ファイバーで\eqref{eq:ou-derived-very-strong}が成り立つため、
+各$n$ごとに半連続性でgenericファイバーでも成り立つ。
+すべての$n$に共通の開集合を取る必要はない。
+幾何的generic点は特殊点の任意の非空開近傍に属するので、
+そこで全ての$n$の条件が成立する。
+
+定理\ref{thm:ou-nodal-cycle-growth}を幾何的genericファイバーへ
+適用する（同定理は標数零の代数閉体上の曲線模型を用いる）。
+そこで$\delta_{\rm md}=0$。多重次数は変形で不変なので特殊ファイバーでも
+同じ等式が成立する。
+\end{proof}
+
+\begin{remark}
+この変形は反標準自然変換の特殊ファイバーでの非零性や
+曲線側の自己同値の幾何性を保証しない。
+非零の写像が特殊化で零になることはあり得るので、
+接触・共点型の残る問題は別に扱う。
+\end{remark}
 
 \subsection{節点cycleのmultitwistの精密化と共役認識}
 \label{subsec:ou-nodal-graded-multitwist}
-以下では定理\ref{thm:ou-nodal-cycle-growth}の仮定を維持する。
+以下では定理\ref{thm:ou-nodal-cycle-growth}の仮定を維持し、
+必要なheartに関する主張では標準noetherian OU helix比較を仮定する。
 曲線の次数付き模型では、全Hom次元の増大だけでなく、
 非零Homが現れる次数の集合を利用できる。
 
@@ -738,7 +842,8 @@ $\Gamma_c$の有限個の単純加群$S_v$に対して、
  \cong\operatorname{Hom}_{D^b(\mathcal C)}(s^{-n}P_i,J\pi S_v[k]).
 \]
 右辺で$J\pi S_v$は固定した有界複体である。
-補題\ref{lem:ou-residual-helix-growth}の最後の式により、
+定理\ref{thm:ou-nodal-cycle-growth}の証明冒頭の射影複体による評価
+（または標準比較の下では補題\ref{lem:ou-residual-helix-growth}）から、
 $n\gg0$で右辺が非零となり得る$k$の範囲は一定である。
 有限個の$i,v$および残りの有限個の$n$を考えれば共通の区間を取れる。
 一方、Opperの閉曲線からの複体の構成
@@ -932,9 +1037,98 @@ $Y_i$のTor振幅は一様に有界で、rescalingや線束の捩りでは変わ
 従って$\ell=0$である。
 \end{proof}
 
+\begin{proposition}[幾何的共役における負の多重次数の排除]
+\label{prop:ou-nodal-conjugate-nef}
+定理\ref{thm:ou-nodal-cycle-growth}の仮定の下、
+$h$がある導来自己同値$\Theta$により
+$h'=\Theta h\Theta^{-1}=\alpha^*(-)\otimes N$に共役されるとする。
+$\alpha$は成分を個別に保つrescalingとする。
+このとき$\deg N=3$、かつ全ての成分$E_a$で
+\[
+ \deg(N|_{E_a})\geq0
+\]
+である。内在的標識や共役後の九対象の線束性は仮定しない。
+\end{proposition}
+\begin{proof}
+$Y_i=\Theta L_i$は完全複体である。$\Perf\Lambda$の反標準三角と
+\eqref{eq:ou-derived-very-strong}から全$n\geq1$で
+\[
+ \operatorname{Hom}(Y_i,h'^nY_j[k])=0\qquad(k>0,\ k<-1)
+\]
+となる。Euler行列による自己切断の差から
+$\chi(Y_i,h'^nY_i)=3n$である。仮想階数$r_i$に対する種数一曲線の
+Riemann--Rochは
+$\chi(Y_i,h'^nY_i)=nr_i^2\deg N$を与える。
+$r_i,\deg N$は整数なので$r_i=\pm1,\ \deg N=3$を得る。
+
+以下、$i$を固定し$Q_n=\mathcal H^0(Y_i^\vee\otimes^{\mathbf L}
+\alpha^{n*}Y_i)$と置く。各成分の一般点では体上の完全複体となり、
+$\alpha$は成分を固定する。従ってその点での$Q_n$のrankは
+$\sum_j(\dim H^j(Y_i|_{\eta_a}^{\mathbf L}))^2$であり、正である。
+（非零仮想階数から少なくとも一項が非零。）
+ここでは$Y_i$が線束である必要はない。
+
+$Q_n|_{E_a}$のHilbert多項式は有限個の候補しか持たない。
+実際、rescalingの代数的torusを$T_\alpha$とし、その作用を
+$a:E\times T_\alpha\to E$とすると
+$\operatorname{pr}_1^*(Y_i^\vee)\otimes^{\mathbf L}a^*Y_i$は
+固定した有限型基底上の完全複体である。
+基底を有限個の局所閉部分に分け、複体の導来制限の各コホモロジー層を
+基底上平坦にする（generic flatnessとNoetherian induction）。
+その部分ではファイバーコホモロジーが層の基底変換と可換である。
+さらに$E_a$への通常の制限層についてgeneric flatnessを用いて
+細分すれば、これらの層のHilbert多項式も各部分で一定になる。
+よって$\chi(E_a,Q_n|_{E_a})$は一様に有界である。
+
+$N_n=N\otimes\alpha^*N\otimes\cdots\otimes(\alpha^{n-1})^*N$と置く。
+各成分を$\alpha$が固定するので
+$\deg(N_n|_{E_a})=n\deg(N|_{E_a})$。
+仮に$\deg(N|_{E_a})<0$なら、$n\gg0$で
+\[
+ \chi(E_a,(Q_n|_{E_a})\otimes N_n|_{E_a})
+ =\chi(E_a,Q_n|_{E_a})+
+ n\deg(N|_{E_a})\operatorname{rank}(Q_n|_{E_a})<0 .
+\]
+従ってこの層の$H^1$は非零。制限による全射
+$Q_n\otimes N_n\twoheadrightarrow
+ i_{a*}((Q_n|_{E_a})\otimes N_n|_{E_a})$に
+コホモロジーを適用すると、曲線上の$H^2$消滅から
+$H^1(E,Q_n\otimes N_n)\ne0$を得る。
+一方、hypercohomology spectral sequenceは
+$H^0,H^1$の二列しかないので、この非零空間は
+\[
+ \mathbb H^1(E,Y_i^\vee\otimes^{\mathbf L}h'^nY_i)
+ =\operatorname{Hom}(Y_i,h'^nY_i[1])
+\]
+の部分空間となる。これは上の消滅と矛盾する。
+従って全成分で次数は非負である。
+\end{proof}
+
+\begin{corollary}[非分離multitwistの指数の有限リスト]
+\label{cor:ou-nodal-positive-exponents}
+定理\ref{thm:ou-nodal-cycle-growth}と
+定理\ref{thm:ou-nodal-multitwist-refinement}の下、
+$h$の写像類に分離軸がないとする。
+非分離軸の指数は全て正であり、その和は三である。
+従って零指数（軸のない成分）も含めた共役後の多重次数は、
+成分の適切な並べ替えを除いて
+\[
+ \begin{array}{c|l}
+ c=2 &(1,2),\ (3,0)\\
+ c=3 &(1,1,1),\ (2,1,0),\ (3,0,0)
+ \end{array}
+\]
+のいずれかである。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:ou-nodal-conjugate-geometric}により幾何的共役を取る。
+命題\ref{prop:ou-nodal-conjugate-nef}で負の指数が排除される。
+非零指数の和が三であることから整数の分割を列挙すればよい。
+\end{proof}
+
 \begin{theorem}[ampleな幾何的共役からの標識付き認識]
 \label{thm:ou-nodal-ample-conjugacy}
-定理\ref{thm:ou-nodal-cycle-growth}の節点cycle型で、
+定理\ref{thm:ou-nodal-cycle-growth}の節点cycle型で、標準noetherian OU helix比較を仮定する。
 $h$がある導来自己同値$\Theta$により
 $h'=\Theta h\Theta^{-1}=\alpha^*(-)\otimes N$に共役されるとする。
 ここで$\alpha$は成分を個別に保つrescaling、$N$はampleとする。
@@ -956,7 +1150,7 @@ $Y_i$は完全複体であって、現段階では線束とは限らない。
 またEuler数の差から$\chi(Y_i,h'^nY_i)=3n$。
 種数一のRiemann--Rochによりこれは$n\,\deg N\,r_i^2$である
 （$r_i$は$Y_i$の仮想階数）。
-従って$\deg N=3$かつ$r_i=\pm1$である。
+整数性（$r_i^2\deg N=3$）から$\deg N=3$かつ$r_i=\pm1$である。
 
 ここで$\mathcal H^k(Y_i^\vee\otimes^{\mathbf L}
 \alpha^{n*}Y_j)$が$n$に関して有界な族に属することを使う。
@@ -1032,8 +1226,9 @@ $F',J',h'$に対して、幾何的ampleな$h'$を用いる
 一般に導いたものではない。
 分離軸が残る場合は、その内側のarcの$J$による消滅と、
 より少ない成分数の曲線表示への帰着を検討する必要がある。
-非分離軸だけの場合にも、指数が非正である場合や軸が$c$本未満の場合を
-定理\ref{thm:ou-nodal-ample-conjugacy}だけで排除できない。
+非分離軸だけの場合、負の指数は命題\ref{prop:ou-nodal-conjugate-nef}で排除され、
+残るのは軸が$c$本未満の型（系\ref{cor:ou-nodal-positive-exponents}）である。
+定理\ref{thm:ou-nodal-ample-conjugacy}だけではこの欠落軸を排除できない。
 正の全軸の場合に共役認識が成立することと、
 全ての多重次数候補がその条件を満たすことを区別する。
 接触・共点型はこの節の曲線模型の対象外である。
@@ -1070,7 +1265,10 @@ $\delta_{\rm md}=0$の全候補に広げると次の表を得る。
 標準helix比較の下で$\delta_{\rm md}=0$と$\epsilon$の非零性が自動となる。
 節点型の写像類は定理\ref{thm:ou-nodal-multitwist-refinement}でさらに制約され、
 全軸正の最大非分離multitwistについては定理\ref{thm:ou-nodal-ample-conjugacy}で認識する。
-分離軸が九線束に見えない場合、非正・欠落指数、接触・共点型での非零性は残る。
+負の指数は命題\ref{prop:ou-nodal-conjugate-nef}で排除した。
+さらに定理\ref{thm:ou-reduced-delta-deformation}で接触・共点型にも
+$\delta_{\rm md}=0$を得た。
+分離軸が九線束に見えない場合、欠落指数、接触・共点型での自然変換の非零性は残る。
 これらの未解決条件外を内在的候補の反例や非表示例とは呼ばない。
 非被約曲線および曲線表示を持たないOU型も残る。
 \end{remark}
