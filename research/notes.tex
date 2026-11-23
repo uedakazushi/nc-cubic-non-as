@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v10}
+\date{2026年11月24日／non-as-v11}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -146,20 +146,78 @@ AOU Thm.~9.4の全仮定をVdB一般位置のみと同一視しない。
 （主論文の命題\texttt{prop:decuple-zero-coefficients}と
 注意\texttt{rem:decuple-distinct-boundaries}）。
 
+\subsection*{内在的条件による可約曲線の残余型の排除}
+命題\texttt{prop:ou-residual-delta-obstruction}および
+定理\texttt{thm:ou-residual-geometric-ample}を参照。
+標準noetherian qgr/導来helix比較を仮定する。
+反標準自然変換$\epsilon:s^{-1}\to\mathrm{id}$がheart上のどこかで
+非零なら、AZ1とrank-one torsion-free性から全ての$s^a\mathcal O$上で
+非零かつ単射となる。これは$h$の幾何性に依存しない。
+$\epsilon_{JM}=0$は$F\epsilon=0$と随伴から従うので、
+$s$の$t$-exact性により$J(M)$の各cohomologyも$\epsilon$で消される。
+そのような対象の切断数は、AZ1による有限直和からの全射と
+AZ2によるHom全射、$\dim R_n-\dim R_{n-1}=3n$から$O(n)$。
+この上界はhelixの切断数にも移る。$M=\mathcal O_{E_a}$について
+\[
+ \chi_E(h^{-n}L_i,\mathcal O_{E_a})
+ =1-(\operatorname{mdeg}h^{-n}L_i)_a
+ =-\tfrac32n^2(\delta_{\rm md})_a+O(n).
+\]
+Euler数の線形成長と比較して$\delta_{\rm md}=0$を得る。
+$J$の$t$-exact性も曲線側の幾何性もこの議論には不要。
+なお反標準三角が存在することから
+$\epsilon$がheart上のどこかで非零であることは自動ではない。
+
+$h$が幾何的ならば、very strong性から$w_a\geq0$、
+$\epsilon_{sP_i}\ne0$を得る。全閉点の$Jk(p)$はheartに属し、
+十分負のhelixからの切断数は9である。
+三ブロックEuler行列のSerre作用は$(S-1)^3=0$であり、
+十分負のhelixのExt消滅・生成性により
+切断数が有界なheart対象は有限長となる。
+$M=F\mathcal O$は完全複体で、点層へのHomとSerre双対性から
+Tor振幅$[-1,0]$。$H^0(M)$の特異点での自由性は
+$J$がheartを全体として保つと仮定せず、
+十分正の多重次数の$A_p$についてのみ
+$J(A_p)\twoheadrightarrow Jk(p)$を用いてAZ2から導く。
+$H^0(M)$と$M$の全成分で一定のrank、$w$の正の成分上での
+$H^{-1}(M)$の消滅判定により$H^{-1}(M)=0$。
+Hilbert差とtorsion長による不等式から$M$は線束となる。
+その結果、$Jk(p)$は単純であり、滑らかな点について
+$H^0(FJk(p))=k(p)$なので相異なる点が相異なる単純対象を与える。
+$w_a=0$なら成分$E_a\simeq\mathbb P^1$上の十分正の固定次数の線束の
+押出し$X_m$について$JX_m$は有限長であり、全滑らかな$p\in E_a$の
+$Jk(p)$がその単純商となる矛盾を得る。
+従って幾何的$h$は内在条件の下で自動的にample。
+先の標識付き超曲面認識の適用にはこれで十分である。
+
+多重次数の有限候補数を$\delta_{\rm md}=0$に限定すると
+2成分16型（$\min w>0,=0,<0$に分けて6,6,4）、
+3成分168型（9,81,78）である。
+\path{computations/verify_ou_reduced_multidegrees.py}を拡張して再実行した。
+この個数は実現した線束配置やOU圏の同型類の数ではない。
+正の6/9型は既認識、残りの幾何的$h$は$I_3$から排除されたが、
+非幾何的な$h$の排除とは異なる。
+
 \subsection*{残るOU型への具体的入口}
-$\delta_{\rm md}\ne0$または$w$の非正成分を持つ型では、
-指定表示の$h$が幾何的かつampleでないことが分かるが、
-$I_3$外や非超曲面と結論していない。
-$\delta_{\rm md}\ne0$では上の二次成長公式を起点として
-$h$の反復複体のコホモロジー振幅と成分ごとの次数を制御する。
-$I_3$のAZ1/AZ2を使えるのは実際に$J$のheartを認識した場合に限るので、
-曲線heartを仮定しない排除法、あるいは別のfoundationへの変更が必要である。
-$\delta_{\rm md}=0$で幾何的半ampleの場合は収縮成分の周期点や点層の
-分裂とrank障害を調べる。
-AOUの$M_{\mathrm{rel}},M_\chi$における被約曲線表示の像・補集合と
-OU三次型の全定義範囲を区別して非被約・非曲線型を記述する。
-非被約の場合には特異点有限性のAZ2補題を流用しない。
+最優先は曲線表示の反標準自然変換$\epsilon$のheart上の非零性を
+一般に証明するか、全てのheart対象で零となる場合を排除することである。
+具体的には$\epsilon_{P_i}$をdirected algebra上の
+$J(L_i)$の二つのコホモロジーの拡大類として計算する。
+$\Lambda$の射影$P_i$と対応する入射$I_i$を用いると、
+反標準三角は$I_i[-2]\to P_i\to J(L_i)$となり、
+調べる写像は$\operatorname{Ext}^2_\Lambda(I_i,P_i)$の元である。
+一つでも非零なら$\delta_{\rm md}=0$を導ける。
+この拡大類の非零性の一般証明はまだない。
+
+次に$\delta_{\rm md}=0$でなお非幾何的なtwist積の振幅と
+成分別の作用を解析し、幾何性・別表示・内在条件による排除を調べる。
+AOUの$M_{\mathrm{rel}},M_\chi$における曲線表示の像・補集合と
+OU三次型の全定義範囲を区別し、非被約・非曲線型を調べる。
+非被約の場合に特異点有限性のAZ2補題を流用しない。
 標準noetherian qgr/導来比較は定理の仮定である。
+OU arXiv:2007.07620v1 pp.~1--2, (3)--(5) と
+OU arXiv:2508.04986v1 Def.~1.1, \S3, Thm.~6.4を今回確認した。
+後者の曲線データとの比較はbirationalであり、全OU型の被覆ではない。
 独立監査・網羅的新規性確認・組版は残る。
 
 \section{候補定義の階層と商スタックの検査}
