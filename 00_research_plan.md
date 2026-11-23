@@ -47,7 +47,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
 ## 主張と検証の状態
-現行認識定理と残存族の排除は主論文 `papers/sections/cubic_elliptic_recognition.tex` と `cubic_reducible_recognition.tex` に証明を収録。今回 `verify_ou_iv_periodic_objects.py` をPython/SymPyで実行し、射影・入射複体の経路空間の判定、全9関係の形式円板上の多項式恒等式、Euler行列の冪零性・対称部分・数値rank・周期対象のaffine A2 Euler形式・固定ベクトルのブロック和を確認した。実行コードのGit blob SHAは55d8a7f863b511b7b1965742be541824a6bc4a21でmain上のファイルと一致。有限長商・AZ2とExt¹の有界性による排除は圏論的証明であり、任意の逆Serre反復の計算検証とは区別する。前段の全被約型の多重次数・自由群・関係式の記号計算の検証記録を保持し、今回の再実行とは区別する。今回OU 2025原PDFの再取得は失敗したため、既存のOU・AOU・Opper・Burban–Kreußler・Bodnarchuk–Drozd–Greuel・ATV・AZ・VdB等の確認記録を保持するが再確認済みとはしない。標準noetherian qgr/導来helix比較は標識付き認識の仮定で、全OU型の被覆とはしない。全証明の独立監査・網羅的新規性調査・形式化は未実施。git ls-remoteのGitHub DNS解決失敗を今回も確認したため、全repoの取得・全計算runner・LuaLaTeX組版は未実施。
+現行認識定理と残存族の排除は主論文 `papers/sections/cubic_elliptic_recognition.tex` と `cubic_reducible_recognition.tex` に証明を収録。今回 `verify_ou_iv_periodic_objects.py` をPython/SymPyで実行し、射影・入射複体の経路空間の判定、全9関係の形式円板上の多項式恒等式、Euler行列の冪零性・対称部分・数値rank・周期対象のaffine A2 Euler形式・固定ベクトルのブロック和を確認した。実行コードのGit blob SHAは55d8a7f863b511b7b1965742be541824a6bc4a21でmain上のファイルと一致。有限長商・AZ2とExt¹の有界性による排除は圏論的証明であり、任意の逆Serre反復の計算検証とは区別する。前段の全被約型の多重次数・自由群・関係式の記号計算の検証記録を保持し、今回の再実行とは区別する。今回OU 2025原PDFの再取得は失敗したため、既存のOU・AOU・Opper・Burban–Kreußler・Bodnarchuk–Drozd–Greuel・ATV・AZ・VdB等の確認記録を保持するが再確認済みとはしない。標準noetherian qgr/導来helix比較は標識付き認識の仮定で、全OU型の被覆とはしない。全証明の独立監査・網羅的新規性調査・形式化は未実施。git ls-remoteのGitHub DNS解決失敗を今回も確認したため、全repoの取得・全計算runner・LuaLaTeX組版は未実施。主稿の11分割入力、参照・ラベル重複・引用キー・環境対応を静的検査し異常なし。今回の計算コードのblob SHA、全計算runnerへの登録、研究ノート・READMEの版表記を確認。
 
 ## 恒常的研究原則と保存許可
 1. 研究の価値を最大化するため、重要性・新規性・理解・応用・正確性・実現可能性に従い方針を柔軟に更新する。変更理由と元目標の解決・残存部分を現在形で記す。時系列履歴を残さない。
