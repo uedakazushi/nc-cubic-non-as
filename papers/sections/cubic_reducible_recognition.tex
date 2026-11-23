@@ -1959,8 +1959,251 @@ $(-1,2,2)$が18候補、$(0,0,3)$が6候補である。
 この有限検証は各候補の実現可能性やOU圏の同型類の個数を
 判定したものではない。また現在用いた代数的同時変換の
 十分条件の範囲外にあることは、非存在の証明ではない。
-特に残る24候補の幾何性・反標準自然変換の非零性は未解決である。
+次節では24候補のうち18候補を関係代数の別表示によって認識し、
+残る6候補も一つの明示的関係代数族に帰着する。
 この節は節点型の半twistの持上げや変換後の線束性の
 特殊化を仮定せず、評価写像の完全列を直接用いる。
 \end{remark}
 
+
+\subsection{IV型の残余関係代数の直接比較}
+\label{subsec:ou-iv-relations}
+前節の代数的変換は、$\delta_{\rm md}=0$の下で
+$w=B-A$を$w\pm3q$に移す。従って$w$の成分ごとの
+三を法とする剰余は不変である。
+特に$w=(-1,2,2)$（成分順序を除く）の剰余はすべて二であり、
+全成分正の型にも共通零成分を持つ型にも移れない。
+そこでこの節では曲線上の導来自己同値を構成するのでなく、
+directed algebraの関係式を別の線束配置と直接比較する。
+
+\begin{lemma}[IV型の線束の合成写像]
+\label{lem:ou-iv-jet-relations}
+IV型の各正規化成分上で、共点の逆像を$t_a=0$とする座標を選び、
+前節のconductor条件が定数項の一致と一次微分の和零となるようにする。
+この座標と$\mathcal O_{\mathbb P^1}(d_a)$の標準自明化を固定すれば、
+多重次数$d=(d_0,d_1,d_2)$の線束を加法的gluing parameter
+$\lambda\in k$で記述できる。これを$L(d,\lambda)$と書く。
+その大域切断は各枝の多項式の組$(f_a)$であって
+\[
+ \deg f_a\leq d_a,\qquad
+ f_a(0)=f_b(0)=c,\qquad
+ \sum_a f'_a(0)=\lambda c
+\]
+を満たすものとなる（$d_a<0$なら$f_a=0$）。
+tensor積は$(d,\lambda)$の成分ごとの和であり、
+切断の積は枝ごとの多項式積である。
+
+特に全次数一、各座標$[-1,2]$の場合、
+一意的な非零切断の生成元を次のように選べる：
+\begin{enumerate}[label=(\roman*)]
+\item $d=e_i$なら、$i$番目の枝は$1+\lambda t_i$、
+      残りの枝は定数一。
+\item $d=-e_i+e_j+e_l$（$\{i,j,l\}=\{0,1,2\}$、$j<l$）なら、
+      $i$番目の枝は零、$j,l$番目の枝はそれぞれ$t_j,-t_l$。
+\item $d=-e_i+2e_j$（$i\ne j$）なら、$j$番目の枝は$t_j^2$、
+      残りの枝は零。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+補題\ref{lem:ou-additive-contract-common-zero}の証明で用いた
+conductorによる降下を適用する。各枝の線束のgluing単元の
+定数項を一に正規化し$1+\lambda_a t_a$と書けば、
+残る不変量は$\lambda=\sum_a\lambda_a$である。
+この単元の組で定数項一致・微分和零の部分加群を掛けると、
+表示した切断条件を得る。gluing単元の積では一次係数が加わるので、
+tensor積に関する主張も従う。三つの場合は全次数一の整数ベクトルで
+座標範囲を満たすすべての場合である。
+表示された多項式を条件に代入すれば、切断空間はちょうどその一次元の
+張る空間である。
+\end{proof}
+
+以下で用いる表では、$\mathbf0,e_0,e_1,e_2$を零ベクトルと
+単位ベクトルとし、$d_{ij}=e_i-e_j$、
+$s_i=\sum_{j\ne i}e_j-e_i$と略記する。
+九線束の各ブロック内の順序を固定し、添字は$0,1,2$とする。
+成分置換・ブロック内並べ替え・共通捩りで正規化した
+前節の未判定24候補は、次の六種類の代表にまとめられる。
+\begin{center}
+\small
+\begin{tabular}{clllr}
+\toprule
+型 & $U$ & $V$ & $W$ & 件数\\
+\midrule
+$\mathsf A$ & $(0,0,0)$ & $(s_0,e_2,e_1)$ &
+ $(s_0+e_2,s_0+e_1,e_1+e_2)$ &3\\
+$\mathsf B$ & $(0,0,d_{12})$ & $(s_0,e_1,e_1)$ &
+ $(s_0+e_1,s_0+e_1,e_1+e_2)$ &6\\
+$\mathsf C$ & $(0,0,d_{12})$ & $(e_1,s_2,s_2)$ &
+ $(s_2+e_1,s_2+e_1,s_2+e_0)$ &6\\
+$\mathsf D$ & $(0,d_{01},d_{02})$ & $(e_2,e_1,e_0)$ &
+ $(e_1+e_2,e_1+e_2,e_1+e_2)$ &3\\
+$\mathsf E$ & $(0,d_{12},d_{02})$ & $(e_2,e_1,e_0)$ &
+ $(2e_2,e_1+e_2,e_0+e_2)$ &3\\
+$\mathsf F$ & $(0,d_{01},d_{02})$ & $(e_2,d_{01}+e_2,e_0)$ &
+ $(2e_2,d_{01}+2e_2,e_0+e_2)$ &3\\
+\bottomrule
+\end{tabular}
+\end{center}
+ここで表の$0$は$\mathbf0$である。件数は成分を区別して
+正規化した多重次数候補の個数であり、同型類数ではない。
+曲線の三成分は任意に置換できる（共点から出る三直線の方向の
+射影変換による）。上の表の完全性は前節の候補列挙と帰着判定を
+共有したコードで検証する。
+
+\begin{proposition}[負の多重次数を持つ18候補の別表示]
+\label{prop:ou-iv-negative-relation-matches}
+上の表の$\mathsf A,\mathsf B,\mathsf C,\mathsf D$の各型は、
+同じIV型曲線上の九線束配置で、$\delta_{\rm md}=0$、
+$w=(1,1,1)$となる別表示と同じdirected algebraを持つ。
+これは元の九線束の同一ブロック内の完全直交性と
+前向き高次Ext消滅を満たすすべてのgluing parameterについて成立する。
+元の$h$を曲線の導来自己同値で共役できるとは主張しない。
+\end{proposition}
+\begin{proof}
+次の三つの別表示を取る。添字の順序を変えず、
+元の線束のgluing parameterをそのまま用いる。
+\begin{center}
+\small
+\begin{tabular}{clll}
+\toprule
+型 & $U'$ & $V'$ & $W'$\\
+\midrule
+$\mathsf A'$ & $(0,0,0)$ & $(e_2,e_1,e_0)$ &
+ $(e_1+e_2,e_0+e_2,e_0+e_1)$\\
+$\mathsf B'$ & $(0,0,d_{12})$ & $(e_0,e_1,e_1)$ &
+ $(e_0+e_1,e_0+e_1,e_1+e_2)$\\
+$\mathsf D'$ & $(0,d_{12},d_{02})$ & $(e_1,e_0,s_2)$ &
+ $(e_0+e_1,e_0+e_1,e_0+e_1)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+対応は$\mathsf A\mapsto\mathsf A'$、
+$\mathsf B,\mathsf C\mapsto\mathsf B'$、
+$\mathsf D\mapsto\mathsf D'$である。
+どの対応でも同一ブロック内で多重次数が一致する組は
+前後で全く同じである。従って元の線束の直交性から必要となる
+gluing parameterの相異性が別表示でも成立する。
+多重次数の二項条件は変換先で成立することを確認する。
+この条件は全次数の差が正の場合の前向き高次Ext消滅を保証する：
+双対の線束は全次数が負、真の部分曲線上の次数は高々一なので
+非零切断を持たない。同一ブロックの全次数零の差の線束についても、
+自明でないことと同じ部分曲線の議論からacyclicである。
+従って別表示も指定の三ブロックの条件を満たす。
+直接計算で三つの別表示はいずれも$\delta_{\rm md}=0$、
+$w=(1,1,1)$である。
+
+gluing parameterを$u_i,v_j,z_k$と書く。
+$U_i\to V_j\to W_k$の三つの合成を、
+補題\ref{lem:ou-iv-jet-relations}の生成切断の積として表す。
+これらを多項式係数の列ベクトルに並べた行列を$M_{ik}$とすれば、
+$\ker M_{ik}$が関係式である。
+$H^0(W_k\otimes U_i^{-1})$は二次元なのでrankは高々二である。
+有限個の表の各$(i,k)$について、二行の外積から
+関係ベクトル$r_{ik}$を計算する。その成分の少なくとも一つは
+$\pm1$または同一ブロック内の同じ多重次数の二線束の
+gluing parameterの差（符号を含む）となる。
+後者は直交性により非零である。
+従って採用した二行は全ての許容parameterで独立であり、
+rankはちょうど二、関係ベクトルは核を生成する。
+このようにgeneric rankだけで判定しない。
+
+次の符号変更を元の矢印に施す（表にない矢印はそのまま）。
+\[
+\begin{array}{c|l}
+ \text{対応}&\text{符号を反転する矢印}\\ \hline
+ \mathsf A\mapsto\mathsf A'&V_2\to W_0\\
+ \mathsf B\mapsto\mathsf B'&\text{なし}\\
+ \mathsf C\mapsto\mathsf B'&U_2\to V_0,\ V_0\to W_2\\
+ \mathsf D\mapsto\mathsf D'&U_2\to V_0
+\end{array}
+\]
+すると関係ベクトルは各$(i,k)$で別表示のものと比例する。
+例えば$\mathsf A$の$i$行、$0$列の関係は
+\[
+ (1,-1,u_i-v_0-v_1+z_0)
+\]
+であり、$\mathsf A'$では最後の成分のみ符号が反転する。
+全四対応、各九個の関係の比較は
+\path{computations/verify_ou_iv_relation_matches.py}に収録した。
+このコードは係数多項式上で二行の外積を実際に計算し、
+非零minorの証明書を検証する。二つの関係ベクトルの外積が
+恒等的に零であることを確認するので、特別なparameterで
+可変係数が零となる場合にも同じ結論が成立する。
+許容条件以外の分母の非零性は仮定していない。
+
+全ての$U_i\to W_k$が合成によって生成され、関係空間が一致するから、
+矢印の符号変更によるpath algebraの同型は
+directed algebraの同型を誘導する。従って元の標準OU比較と
+内在的標識は変わらない。
+\end{proof}
+
+\begin{proposition}[残る六候補の単一関係代数族]
+\label{prop:ou-iv-residual-relation-family}
+型$\mathsf E,\mathsf F$のdirected algebraは同じ一つの明示的な
+関係代数族で表される。$U_i\to V_j$の矢印を$A_{ij}$、
+$V_j\to W_k$の矢印を$B_{jk}$と書き、合成
+$B_{jk}A_{ij}$を$p_{ijk}$と書く。
+各$(i,k)$の関係は、巡回添字を法三として
+\[
+ \begin{cases}
+ p_{i,i+1,i}-p_{i,i+2,i}=0,&i=k,\\
+ p_{iik}-p_{ikk}+x_{ik}p_{ilk}=0,&i\ne k,\
+                 \{i,k,l\}=\{0,1,2\}.
+ \end{cases}
+\]
+ここで
+\[
+ x_{01}+x_{12}+x_{20}=x_{02}+x_{21}+x_{10}
+\]
+である。逆にこの線形等式を満たす任意の六つの係数は
+両方の型の九線束配置から得られる。
+ただしvery strong導来helix、標準OU比較および内在的標識の
+存在までは主張しない。係数の空間は五次元アフィン空間だが、
+その次元を同型類のmoduliの次元とは同一視しない。
+\end{proposition}
+\begin{proof}
+前命題と同じ生成切断の積の計算を用いる。
+$\mathsf E,\mathsf F$では同一ブロックの多重次数は全て相異なるので、
+gluing parameterに相異性の追加条件はない。
+全ての関係で二行の外積に$\pm1$の成分があり、rankは常に二。
+\path{computations/verify_ou_iv_relation_matches.py}は
+同じparameterを用いた二つの型の関係が比例すること、および
+表示した九関係が各核を生成することを多項式恒等式として検証する。
+計算で$i\ne k$の可変係数は
+\[
+ x_{ik}=-u_i+v_i+v_k-z_k
+       =-(u_i-v_i)-(z_k-v_k)
+\]
+となる。ここで$u_i,v_i,z_i$は元の三ブロックのgluing parameterである。
+従って六つの係数は上の線形関係を満たす。
+逆に任意の$a_i,b_k$から$x_{ik}=-a_i-b_k$を得ることができる。
+この線形写像の核は$a_i=c,\ b_k=-c$という一次元部分空間に等しい
+（$i\ne k$の二部graphは連結である）。
+従って像は五次元であり、表示した線形等式で定まる空間に一致する。
+\end{proof}
+
+\begin{corollary}[IV型の認識の残存範囲]
+\label{cor:ou-iv-six-residual}
+定理\ref{thm:ou-additive-partial-recognition}の仮定の下、
+IV型の168必要多重次数候補のうち90候補は条件付き認識、
+72候補は内在的条件から排除され、残るのは6候補である。
+その6候補は命題\ref{prop:ou-iv-residual-relation-family}の
+単一の関係代数族に帰着する。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:ou-additive-partial-recognition}で残った24候補を、
+上の六種類に分ける。命題\ref{prop:ou-iv-negative-relation-matches}の
+18候補は同じdirected algebraの$w=(1,1,1)$の表示を持つため、
+系\ref{cor:ou-reduced-md-recognition}で内在的標識を認識する。
+前節の72条件付き認識と72排除を加えると結論となる。
+残る6候補は命題\ref{prop:ou-iv-residual-relation-family}による。
+\end{proof}
+
+\begin{remark}
+残存関係代数族の係数の線形関係は、九線束表示の存在から来る
+必要十分な関係式のパラメータ化であるが、
+very strong性や標準OU比較・内在的三次条件の必要十分条件ではない。
+この族について、有限次元代数の逆Serre軌道を直接解析すること、
+別の曲線表示または古典的導来型を探すこと、
+内在的標識の反標準環を認識することが残る。
+\end{remark}
