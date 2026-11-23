@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-24 / non-as-v15。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-24 / non-as-v16。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -29,9 +29,10 @@
 - **節点cycle型の線形成長と反標準写像**（`thm:ou-nodal-cycle-growth`, `cor:ou-nodal-cycle-residual`）：横断する直線+円錐曲線、三角形の三直線では、導来helixのvery strong性だけから、noetherian比較・内在的標識を仮定せずhの写像類が有限冪でmultitwist、全ての固定Mへの全HomがO(n)、δ_md=0、全helix対象上でε≠0と示す。Opperのgentle algebra模型とNielsen–Thurston分解を用いる。I_3があれば構造対象上でεは単射。接触・共点型にも変形によりδ_md=0を移すが、εの非零性は未解決。
 - **全被約節点cycle型の完全認識**（`thm:ou-nodal-complete-recognition`, `prop:ou-nodal-complete-word-certificate`）：三ブロック九線束の曲線を有限個の具体的写像類で同時に線束の曲線へ移す。Opperの曲線模型と導来自己同値群、自由群の共役類の等式、共通shiftの除去、共通零成分の縮約により、二成分16候補は12条件付き認識・4排除、三成分168候補は90条件付き認識・78排除、未判定0。標準OU helix比較と内在的条件の下で与えられた標識の反標準環そのものが標準AS4三次商。候補数は実現可能性や同型類数ではない。従来のgrading・multitwist精密化、幾何的共役、負指数排除も独立の結果として保持する。
 - **加法型の代数的認識**（`thm:ou-additive-partial-recognition`）：単純rank二ベクトル束の評価・双対評価、spherical twistの九線束同時変換、一次jetによる共通零成分の縮約、一般位置を仮定しない古典参照型で、III型の16候補は12条件付き認識・4排除・未判定0、IV型の168候補は72条件付き認識・72排除・24未判定。未判定wは(-1,2,2)（18候補）と(0,0,3)（6候補）。条件付き認識は標準OU比較と内在的条件の下での帰着であり、曲面の存在や同型類数を意味しない。
+- **IV型残余の関係代数の比較**（`prop:ou-iv-negative-relation-matches`, `prop:ou-iv-residual-relation-family`, `cor:ou-iv-six-residual`）：一次jetで切断・合成を明示し、負の多重次数の18候補の関係式を、許容される全gluing parameterでw=(1,1,1)の別表示と同定した（矢印の符号変更のみ）。IV型168候補のうち90条件付き認識・72排除・6未判定。残る6候補は同じ五パラメータ関係代数族（六係数に一線形関係）で表される。曲線側の自己同値による共役は主張せず、directed algebraの同型を用いる。係数空間と同型類moduli、線束表示とI_3の存在は区別する。
 - **六標識の境界**（`prop:ou-marking-walls`）：第一ブロックの6順序でVdB一般位置を比較し、99の整数等式と3975のrank二行空間を得る。δ非torsionの場合に全標識が失敗する集合は余次元3以上。これはAOUの全仮定を回復する主張ではない。
 
-一般の包含は未解決です。次はIV型（共点三直線）の未判定24候補、非被約・曲線表示を持たない型の分類を優先します。標識付き認識には標準noetherian qgr/導来比較を仮定します。今回は `python3 computations/verify_ou_reduced_algebraic_moves.py` を実行し、III/IV型の184候補中160候補の代数的帰着を検証しました。節点型の全184候補の自由群検算は既存の検証記録として保持します。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
+一般の包含は未解決です。次はIV型の残る6候補を代表する一つの関係代数族の認識、非被約・曲線表示を持たない型の分類を優先します。標識付き認識には標準noetherian qgr/導来比較を仮定します。今回は `python3 computations/verify_ou_iv_relation_matches.py` と `python3 computations/verify_ou_reduced_algebraic_moves.py` を実行し、既存の代数的帰着を再検算し、残余18候補の全許容parameterでの関係代数同型と残り6候補の単一関係代数族への帰着を検証しました。節点型の全184候補の自由群検算は既存の検証記録として保持します。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
 
 ## 二次包絡と商スタックの精密化
 標準三次Hilbert級数と一次生成性の下で、二次包絡Q(R)が14641型AS正則環であることと、Rがその正則正規三次商になることは同値です（Levasseurの整域性定理に依存）。トーリック商スタック[P²/μ₃]では反標準AZ-ampleなtorsion-free対象はrank 3以上であり、正則表現が最小rankを達成します。詳細な証明は主論文のIntroductionにあります。
