@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-24 / non-as-v9。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-24 / non-as-v10。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -24,9 +24,10 @@
 
 - **既約種数一曲線型の内在的認識**（`thm:ou-integral-elliptic-recognition`）：滑らか・節点・尖点三次曲線上の指定9線束と標準OU helix比較を持つ型に対し、内在的標識の反標準環を標準AS4三次商と認識。PerfとDb(coh)を区別したspherical functor・Burban–Kreußler Cor.5.8・評価核の計算により幾何的hを得る。六点一般位置・非torsion性は不要。
 - **AZ2と可約被約曲線への条件付き認識**（`lem:ou-az2-singular-free`, `prop:ou-reduced-curve-rank`, `prop:ou-reduced-cubic-geometric`）：幾何的hに対するAZ2から全特異点で局所自由、Hilbert差から制限線束を得る。被約平面三次曲線で幾何的h・exact conservative J（像GK次元≤1）・指定twist積を仮定すると、全成分の正多重次数とvery ample性、regular triple性により標準三次商を認識する。
+- **可約被約三次曲線の多重次数認識**（`thm:ou-reduced-md-criterion`, `cor:ou-reduced-md-recognition`）：3ブロックの多重次数の和A,B,Cに対してδ_md=A+C−2B、w=5B−3A−2C。幾何的かつampleな反標準移動hの必要十分条件はδ_md=0, w_i>0。直線+円錐曲線（横断・接触）、三直線（三角・共点）を含む。2/3成分の6/9個の正かつδ_md=0の必要条件候補を列挙し、全ての古典参照型への巡回帰着を検算した。この条件と標準OU helix比較、内在的条件を持つ標識について標準AS4三次商表示を得る。
 - **六標識の境界**（`prop:ou-marking-walls`）：第一ブロックの6順序でVdB一般位置を比較し、99の整数等式と3975のrank二行空間を得る。δ非torsionの場合に全標識が失敗する集合は余次元3以上。これはAOUの全仮定を回復する主張ではない。
 
-一般の包含は未解決です。次は被約可約三次曲線で幾何的hと曲線heart認識を導くこと、および非被約・曲線表示を持たない型の分類を優先します。既約曲線型の標準noetherian qgr/導来比較は仮定です。`computations/verify_ou_decuple_markings.py` の整数検算は従来の実施記録を保持し、今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
+一般の包含は未解決です。次は可約被約曲線の残る多重次数型（δ_md≠0またはwが非正の成分を持つもの）の内在的条件による排除・別表示への帰着、非被約・曲線表示を持たない型の分類を優先します。曲線型の標準noetherian qgr/導来比較は仮定です。`python3 computations/verify_ou_reduced_multidegrees.py` の新計算を実行済みです。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
 
 ## 二次包絡と商スタックの精密化
 標準三次Hilbert級数と一次生成性の下で、二次包絡Q(R)が14641型AS正則環であることと、Rがその正則正規三次商になることは同値です（Levasseurの整域性定理に依存）。トーリック商スタック[P²/μ₃]では反標準AZ-ampleなtorsion-free対象はrank 3以上であり、正則表現が最小rankを達成します。詳細な証明は主論文のIntroductionにあります。
@@ -60,7 +61,7 @@ python3 scripts/build.py --all
 python3 scripts/make_bundle.py
 ```
 
-`scripts/verify_all.py` は六標識の整数行空間の計算、元の有限群sector計算と、次数1・2・3のClifford次数・判別曲線・二次包絡の検証をまとめて実行します。証明書 `certificates/degree3_quadratic.json` は45次小行列式と核ベクトルを保持します。有限計算は圏論的なMorita同値や一般の分類定理を形式証明するものではありません。
+`scripts/verify_all.py` は六標識の整数行空間・可約三次曲線の多重次数の計算、元の有限群sector計算と、次数1・2・3のClifford次数・判別曲線・二次包絡の検証をまとめて実行します。証明書 `certificates/degree3_quadratic.json` は45次小行列式と核ベクトルを保持します。有限計算は圏論的なMorita同値や一般の分類定理を形式証明するものではありません。
 
 PDFとSyncTeX、auxiliary filesは`build/`に生成し、Gitでは追跡しません。主論文のPDFは`build/nc-cubic-non-as.pdf`、研究ノートは`build/notes.pdf`です。`python3 scripts/make_bundle.py` は必要なソース・証明書・再現コード・二つのPDFを含む現行bundleを`output/bundles/`に作り、CRCを確認します。PDFなしなら`--source-only`を指定します。
 
