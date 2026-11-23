@@ -392,7 +392,9 @@ $\Lambda$が滑らかな可換三次曲面のAOU (4.1)の九線束型の
 一方向は定理\ref{thm:ou-dense-rank-two-commutative}を
 巡回表示に適用して得る。
 ここで元のfoundationも同じ可換曲面上の九線束の
-巡回操作を逆に戻したものとなる。
+巡回操作を逆に戻したものとなる。後述の逆向きの議論をその
+巡回列にも適用すれば全てのrankが二となり、元のfoundationにも
+定理\ref{thm:ou-dense-rank-two-commutative}を適用できる。
 逆向きは、任意の巡回foundationの最初の二ブロックを
 可換三次曲面$X$上で考える。
 隣接ブロック間の九射はそれぞれ反標準次数一の非零切断なので
@@ -429,11 +431,11 @@ AOU (4.1)の因子類から全て相異なる
 \subsection{rank三の切断に対する係数による復元判定}
 \label{subsec:ou-dense-rank-three-tests}
 
-全係数非零で導来helixがvery strongであるという前節の仮定を維持する。
-行列式線形式のrankが三とする。
+全係数非零、行列式線形式のrankが三、かつ$F|_\Pi\ne0$とする。
 その$3\times6$係数行列を$\mathcal L$とし、零平面を$\Pi$とする。
-補題\ref{lem:ou-dense-determinant-rank}により$E=T\cap\Pi$は
-三次曲線である。添字$e,o$はそれぞれ偶置換・奇置換を走る。
+$E=T\cap\Pi$は三次曲線である。導来helixがvery strongであれば
+$F|_\Pi\ne0$は補題\ref{lem:ou-dense-determinant-rank}から従うが、
+以下の曲線復元の計算自体にはvery strong性を用いない。添字$e,o$はそれぞれ偶置換・奇置換を走る。
 次の有限個の条件を考える。
 \begin{enumerate}[label=(\roman*)]
 \item\label{item:ou-grid-independent}
