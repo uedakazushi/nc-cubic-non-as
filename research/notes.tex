@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v7}
+\date{2026年11月24日／non-as-v8}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -55,35 +55,57 @@ AOU Theorem 9.4 の比較が適用される範囲では
 VdBの爆発定理が適用されることと、AOUのhelix比較が
 適用されることも区別する。
 
-\subsection*{優先探索：非可換楕円境界}
-AOU (9.53) の逆変換および二次関係係数の条件は主論文の
-命題\texttt{prop:decuple-inverse},
-\texttt{prop:decuple-zero-coefficients}を参照。
-$D=L_0^2L_1^{-1}$ とし、$L_1L_0^{-1}$が非torsionであるデータを考える。
-例えば$P_1P_2P_4=L_1$を課し、他の点を一般に取れば、
-VdBの三点一般位置を外れながら、同じ三点について
-二次関係の消失条件$P_1P_2P_4=D$は成立しない。
-このため、可換の場合の関係係数消失による境界判定を
-そのまま移してはならない。逆の差も生じる。
+\subsection*{滑らかな楕円型の直接認識と境界の計算}
+主論文の定理\texttt{thm:ou-smooth-elliptic-recognition}は、
+admissible smooth elliptic decupleの標準noetherian qgr/導来helix比較
+を持つOU型が内在的三次候補でもあるとき、与えた標識の反標準環を
+標準AS4三次商と認識する。爆発の一般位置を仮定しない。
+OU spherical functorの三角$s^{-1}\to\mathrm{id}\to JF$から出発する。
+曲線側自己同値$h$は九本のtwistの積の逆を$[2]$したもの。
+実際のheartを確認するため、degree 2の線束をdegree 1三本の評価核
+（rank 2, degree 1）とdegree 0三本の評価核へ順に移し、
+シフトを打ち消して線束にする。その後点対象へのHomで全heartを認識する。
+$h$はdegree 3の捩りと平行移動。$J$はhelixの十分負の対象からの
+Hom消滅により標準heart上完全であり、中心一次元で消される対象の
+圏を通じて像のGK次元は一以下。
+$\mathcal O$のtorsion-free性から
+$0\to s^{-1}\mathcal O\to\mathcal O\to JF\mathcal O\to0$、
+AZ1から$F\mathcal O$のrank正、AZ2から$n\gg0$のHomの差$3n$。
+ベクトル束rank$r$とtorsion長$\ell$の下界$3nr^2+r\ell$により
+$r=1,\ell=0$。全正次数で制限が全射、正則中心一次元の商は次数3 THCR。
+二次包絡の正則性は中心拡大判定で認識する（証明は主論文）。
+admissibility自体から$I_3$を結論するわけではなく、
+一般のOU型が滑らかな楕円decupleを持つとも主張しない。
 
-まずこのような混合三点条件の一般点で、
-(1) 全helix・OU正則性・noetherian性、
-(2) 標識変更による別の爆発表示の有無、
-(3) rank-one torsion-free反標準ample対象の存在、
-(4) その環の二次包絡の正則性
-を順に判定する。特に(1)だけでは内在的候補ではない。
-$\sigma^*L_0=L_1$を満たす平行移動$\sigma$は、
-楕円曲線上の3倍写像から一般に9通り得られる。
-非torsionの$L_1L_0^{-1}$なら各$\sigma$は無限位数。
-6点の復元とこの平行移動の選択は異なる操作である。
+標識変更の独立な結果は命題\texttt{prop:ou-marking-walls}。
+第一ブロック内の六順序でVdBの移動後一般位置を判定すると、
+99 primitive行（18行は1順序、81行は2順序）を得る。
+その3975の有理二次元行空間のうち全順序を覆う30空間は
+すべて$\delta=L_1-L_0$を含む。
+従って$\delta$非torsionなら全順序失敗は余次元3以上。
+再現コード \path{computations/verify_ou_decuple_markings.py} を実行済み。
+単一の混合三点等式の一般点は別の順序で回復できる。
+AOU Thm.9.4の全仮定をVdB一般位置のみと同一視しない。
+また非torsionの場合の三点一般位置条件と関係係数非消失条件は
+異なる（主論文の命題\texttt{prop:decuple-zero-coefficients}と
+注意\texttt{rem:decuple-distinct-boundaries}）。
 
-もう一つの入口は、内在的標識の反標準環$R$の
-正則正規一次元$z$と、$R/zR$の標準AS3三次商表示の存在を調べること。
-VdB \S12 およびLe Bruyn--Smith--Van den Berghの
-一次中心拡大判定が使える範囲を確認する。
-これらの仮定は現状の内在的条件から未導出であり、
-非中心正規元や楕円曲線が退化する場合の拡張も必要である。
-主論文の証明の独立監査、新規性照合は継続する。
+\subsection*{残るOU型への具体的入口}
+次に滑らかな楕円表示を持たないOU型を調べる。
+AOUの$M_{\mathrm{rel}},M_\chi$における楕円表示の像・補集合の
+幾何と、OUの三次型の全定義範囲を区別する。
+特異な算術種数一Gorenstein曲線への拡張では
+$\operatorname{Perf}E$と$D^b(\coh E)$が同じでないことに注意する。
+滑らかな場合に用いたhereditary性、点対象の完全性、
+torsion-free sheafの局所自由性は一般には失敗する。
+まず既存のtwistの積が幾何的自己同値となる条件と、
+制限functorのcohomological amplitudeを調べる。
+次にrank一torsion-free制限層が線束になるための追加条件を、
+AZ2・局所Extあるいは曲線特異点の局所環で判定する。
+可約曲線では多重rank・多重次数のHilbert差を計算し、
+非楕円型では反標準の自然変換または正規一次元の存在自体を問う。
+これらは今後の課題である。
+外部入力の適用条件と新規性は独立に確認する。
 
 \section{候補定義の階層と商スタックの検査}
 主論文の内在的候補の定義
@@ -419,9 +441,11 @@ blob SHA: \texttt{7190004e0914225d186cb6dd383a5ed8d85af540}
 主論文には必要な定義を全て再掲してあり、再開に外部原稿の取得は不要である。
 
 \section{再現資産と検証状態}
-\path{scripts/verify_all.py} は、次数一・二の三つの計算と、
-次数三の滑らかさ・二次関係の二つの計算をまとめて実行する。
-五つとも Python 3.12.14、SymPy 1.14.0 で実行し、成功を確認した。
+\path{scripts/verify_all.py} は、元の有限群sector計算、Clifford次数一・二の計算、
+次数三の滑らかさ・二次関係の計算と六標識の整数行空間の計算をまとめて実行する。
+従来のCliffordの五計算は Python 3.12.14、SymPy 1.14.0 での成功記録があり、
+現行版の一括再実行とは区別する。
+六標識の新しいコードはPython標準ライブラリで再実行し成功を確認した。
 計算では有理数・整数演算を用い、浮動小数点近似を用いない。
 行列証明書は \path{certificates/degree3_quadratic.json} として保持する。
 通常の検証はこれを読み取り、変更しない。
