@@ -39,7 +39,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
 ## 主張と検証の状態
-現行認識定理は主論文 `papers/sections/cubic_elliptic_recognition.tex` と `cubic_reducible_recognition.tex` に証明を収録。AOU arXiv:2404.00175v1 (4.1)（p.8）とOU arXiv:2007.07620v1 (4),(5)（p.2）の原PDFを今回再確認。Opper, JEMS 28 (2026), 171–236, Prop.8.40/Cor.8.41 (p.217), DOI 10.4171/JEMS/1473のKodaira cycleの比較を確認したが、接触・共点まで扱う新証明はその分類定理に依存しない。既存入力Burban–Kreußler arXiv:math/0503496v2 Cor.5.8、VdB arXiv:math/9809116v1 §12 p.121、OU 2020の確認範囲は保持。ATV (4.5),(4.8), Thms.6.6/6.8は公開テキスト抜粋・書誌確認に留まる。通常のnoetherian qgr/導来helix比較は仮定。新しい多重次数列挙のPythonコードを実行し、180/15012候補、6/9の正かつδ_md=0型、全型の古典参照型への巡回帰着を確認した。その他の整数計算、Clifford関係・判別曲線・Hochschild sectorの実施記録は保持し、今回の全計算再実行と区別する。LuaLaTeX/latexmkは利用可能だがGitHub DNS接続に失敗し、全repoの取得と現行主稿の組版は未実施。新証明の独立監査・網羅的新規性調査・形式化は未実施。
+現行認識定理は主論文 `papers/sections/cubic_elliptic_recognition.tex` と `cubic_reducible_recognition.tex` に証明を収録。AOU arXiv:2404.00175v1 (4.1)（p.8）とOU arXiv:2007.07620v1 (4),(5)（p.2）の原PDFを今回再確認。Opper, JEMS 28 (2026), 171–236, Prop.8.40/Cor.8.41 (p.217), DOI 10.4171/JEMS/1473のKodaira cycleの比較を確認したが、接触・共点まで扱う新証明はその分類定理に依存しない。既存入力Burban–Kreußler arXiv:math/0503496v2 Cor.5.8、VdB arXiv:math/9809116v1 §12 p.121、OU 2020の確認範囲は保持。ATV (4.5),(4.8), Thms.6.6/6.8は公開テキスト抜粋・書誌確認に留まる。通常のnoetherian qgr/導来helix比較は仮定。新しい多重次数列挙のPythonコードを実行し、180/15012候補、6/9の正かつδ_md=0型、全型の古典参照型への巡回帰着を確認した。その他の整数計算、Clifford関係・判別曲線・Hochschild sectorの実施記録は保持し、今回の全計算再実行と区別する。LuaLaTeX/latexmkは利用可能だがGitHub DNS接続に失敗し、全repoの取得と現行主稿の組版は未実施。現行主稿の11分割入力、ラベル重複、未解決参照・引用キー、新節の環境対応を静的検査し問題なし。実行した多重次数コードのGit blob SHAとmain上のSHAの一致を確認した。新証明の独立監査・網羅的新規性調査・形式化は未実施。
 
 ## 恒常的研究原則と保存許可
 1. 研究の価値を最大化するため、重要性・新規性・理解・応用・正確性・実現可能性に従い方針を柔軟に更新する。変更理由と元目標の解決・残存部分を現在形で記す。時系列履歴を残さない。
