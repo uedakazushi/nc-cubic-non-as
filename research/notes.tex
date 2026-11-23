@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v11}
+\date{2026年11月24日／non-as-v12}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -198,27 +198,68 @@ $Jk(p)$がその単純商となる矛盾を得る。
 正の6/9型は既認識、残りの幾何的$h$は$I_3$から排除されたが、
 非幾何的な$h$の排除とは異なる。
 
+\subsection*{節点cycle型：線形成長による非零性}
+主論文の定理\texttt{thm:ou-nodal-cycle-growth}、
+系\texttt{cor:ou-nodal-cycle-residual}を参照。
+横断する直線と円錐曲線および三角形の三直線では、
+標準noetherian OU helix比較と$s$の$t$-exact性のみを仮定し、
+内在的標識なしで次を得る。
+Opperの$c$穿孔トーラス模型で$h$は九つの非分離loopに沿う
+逆Dehn twistの積$\varphi$として作用する。随伴とhelix切断の
+多項式上界により任意の固定$M\in D^b(\coh E)$に対し
+\[
+ \sum_k\dim\operatorname{Hom}(h^{-n}L_i,M[k])=O(n^2).
+\]
+非分離loopの有限filling familyを用いた交点数の比較は
+擬Anosov成分の拡大laminationとの指数増大を排除する。
+その成分をすべての生成twistの曲線が避ければ、生成twistの積
+そのものがそこで恒等となるので、擬Anosov成分は存在しない。
+従って$\varphi$は有限冪でmultitwistとなり、固定arc/loopとの交点数は
+線形増大に留まる。
+$\Perf E$のloop部分圏への埋め込みと境界arcによるVerdier商を用いると、
+完全な始域$h^{-n}L_i$から任意の固定$M$への全Homにも
+$O(n)$の評価を得る（高rank局所系はrank-one局所系による有限拡大）。
+これを各成分の構造層に対するEuler数に適用して$\delta_{\rm md}=0$。
+もし$\epsilon_{P_i}=0$なら反標準三角の分裂により
+$\operatorname{Hom}(s^{-n}P_i,P_i)$は曲線側のHomに単射するが、
+左辺は$n\gg0$で$1+\frac32n(n+1)$次元なので矛盾。
+すべてのhelix対象上で$\epsilon\ne0$が従う。
+$I_3$がある場合は既存の命題により構造対象上で単射となる。
+
+この定理の適用に必要なOpper (JEMS 28 (2026), 171--236,
+DOI 10.4171/JEMS/1473) の\S4.3, Proposition~4.10,
+Corollary~4.11, Theorems~6.10, 7.1, Proposition~8.2,
+Lemma~8.4, Proposition~8.6, Remark~8.7を原PDFで確認した。
+測度付きlaminationとNielsen--Thurston分解については
+Farb--Margalit, Chapters 13,15およびFLP, Chapters 5,6,9に帰属。
+全証明の独立監査、新規性確認は未了。
+節点型の$\delta_{\rm md}=0$への絞り込み（16/168候補）は
+内在的標識なしに成立するが、非幾何的multitwistの排除はまだない。
+
 \subsection*{残るOU型への具体的入口}
-最優先は曲線表示の反標準自然変換$\epsilon$のheart上の非零性を
-一般に証明するか、全てのheart対象で零となる場合を排除することである。
-具体的には$\epsilon_{P_i}$をdirected algebra上の
-$J(L_i)$の二つのコホモロジーの拡大類として計算する。
+節点型での中心課題はmultitwistの分離曲線成分やgradingを
+制御することである。固定$M$に対する$\operatorname{Hom}^k(h^{-n}L_i,M)$は、
+随伴とhelix切断により$n\gg0$で一様に有限な次数範囲にある。
+Opperのgrading・交点の次数公式（Lemma~4.13等）と分離曲線の
+windingの変化を比較する方法を検討する。twistの反復で実際に
+次数範囲が広がるか、他のtwistによる変化と相殺しないかを証明する
+必要があり、この段階では幾何性は未証明である。
+これに加えて非幾何的な表示から別の幾何的表示へ帰着する方法を調べる。
+
+接触する直線と円錐曲線および共点三直線はOpperのKodaira cycleの
+模型の対象外である。この場合は引き続き
+$\epsilon_{P_i}$をdirected algebra上の$J(L_i)$の二つの
+コホモロジーの拡大類として計算する。
 $\Lambda$の射影$P_i$と対応する入射$I_i$を用いると、
 反標準三角は$I_i[-2]\to P_i\to J(L_i)$となり、
 調べる写像は$\operatorname{Ext}^2_\Lambda(I_i,P_i)$の元である。
-一つでも非零なら$\delta_{\rm md}=0$を導ける。
-この拡大類の非零性の一般証明はまだない。
+一つでも非零なら$I_3$の下で$\delta_{\rm md}=0$を導ける。
 
-次に$\delta_{\rm md}=0$でなお非幾何的なtwist積の振幅と
-成分別の作用を解析し、幾何性・別表示・内在条件による排除を調べる。
 AOUの$M_{\mathrm{rel}},M_\chi$における曲線表示の像・補集合と
 OU三次型の全定義範囲を区別し、非被約・非曲線型を調べる。
 非被約の場合に特異点有限性のAZ2補題を流用しない。
 標準noetherian qgr/導来比較は定理の仮定である。
-OU arXiv:2007.07620v1 pp.~1--2, (3)--(5) と
-OU arXiv:2508.04986v1 Def.~1.1, \S3, Thm.~6.4を今回確認した。
-後者の曲線データとの比較はbirationalであり、全OU型の被覆ではない。
-独立監査・網羅的新規性確認・組版は残る。
+OU 2025の曲線データとの比較はbirationalであり、全OU型の被覆ではない。
 
 \section{候補定義の階層と商スタックの検査}
 主論文の内在的候補の定義
