@@ -2552,6 +2552,247 @@ IV型の168必要多重次数候補に対する現行の証明による処理件
 件数は同型類数でなく、候補の実現可能性も意味しない。
 全OU三次型がこの九線束表示と標準helix比較を持つことは
 別の問題であり、本定理から一般の逆包含を結論しない。
-非被約平面三次曲線および曲線表示を持たない型の認識を
-次の課題とする。
+非被約平面三次曲線については次節で曲線表示を認識する。
+\end{remark}
+
+\subsection{非被約平面三次曲線の九線束表示}
+\label{subsec:ou-nonreduced-cubic}
+
+以下は非被約の曲線上の局所自由性を内在的条件から導こうと
+するのではなく、最初から与えられた九線束のdirected algebraを
+調べる。ここで全次数は$\deg L=\chi(E,L)-\chi(E,\mathcal O_E)$とする。
+平面三次曲線について$\chi(E,\mathcal O_E)=0$、
+$\omega_E\simeq\mathcal O_E$は非被約の場合も成立する。
+
+\begin{proposition}[三重直線と二重直線の多重次数]
+\label{prop:ou-nonreduced-multidegrees}
+三重直線$E=3\ell$上には全次数一の線束が存在しない。
+$E=2\ell+m$（$\ell,m$は相異なる直線）とし、
+$D=2\ell$、$M=m$と書く。
+$E$上の三ブロック各三本の線束が全次数$0,1,2$を持ち、
+ブロック内の完全直交性と前向き高次Ext消滅を満たすとする。
+各線束の多重次数を
+\[
+ (a,b)=(\deg(L|_\ell),\deg(L|_M))
+\]
+で表すと、全次数は$2a+b$である。
+共通の全次数零の線束による捩りを除き、三ブロック内の
+多重次数はそれぞれ一定であり、次の三候補に限られる：
+\[
+\begin{array}{c|ccc}
+ & U&V&W\\ \hline
+ \mathrm{I}&(0,0)&(0,1)&(0,2)\\
+ \mathrm{II}&(0,0)&(0,1)&(1,0)\\
+ \mathrm{III}&(0,0)&(1,-1)&(1,0)
+\end{array}
+\]
+（ここでのI,II,IIIは候補番号であってKodaira型の記号ではない。）
+\end{proposition}
+\begin{proof}
+三重直線には冪零イデアルのfiltrationがあり、その三つの
+逐次商は$\mathcal O_\ell,\mathcal O_\ell(-1),\mathcal O_\ell(-2)$。
+線束の$\ell$への制限次数を$a$とすると
+$\chi(L)=\sum_{j=0}^2(a-j+1)=3a$なので、全次数一は不可能。
+
+次に$E=2\ell+m$を扱う。$Z=D\cap M$は$M$上の長さ二の
+Cartier因子$2p$であり、$p=\ell\cap m$である。
+$D$のnilradical $\mathcal J$は$\mathcal O_\ell(-1)$、
+$\mathcal J^2=0$である。単元の完全列
+\[
+ 1\to 1+\mathcal J\to\mathcal O_D^\times
+ \to\mathcal O_\ell^\times\to1
+\]
+と$H^1(\mathcal O_\ell(-1))=H^2(\mathcal O_\ell(-1))=0$により
+$\Pic(D)\xrightarrow{\sim}\Pic(\ell)=\mathbb Z$。
+従って$D$上の線束は$\mathcal O_D(a)$で尽くされる。
+構造層のfiber productによる完全列
+\begin{equation}\label{eq:ou-double-line-union}
+ 0\to\mathcal O_E\to\mathcal O_D\oplus\mathcal O_M
+ \to\mathcal O_Z\to0
+\end{equation}
+（各閉部分スキームからの押出しを略記する）を線束で捩ると、
+$\chi(E,L)=(2a+1)+(b+1)-2=2a+b$を得る。
+
+前向きの二線束$L,L'$について$N=L'\otimes L^{-1}$の
+多重次数を$(a,b)$とする。Serre双対性と前向き高次Ext消滅より
+$H^0(E,N^{-1})=0$である。
+$D,M$の定義方程式を用いると
+\[
+ \mathcal O_D(-1)\hookrightarrow\mathcal O_E,\qquad
+ \mathcal O_M(-2)\hookrightarrow\mathcal O_E
+\]
+を得る。例えば最初は$m$の方程式を掛けて得る写像で、
+その像は$M$への制限の核である。
+これらを$N^{-1}$で捩れば
+\[
+ H^0(D,\mathcal O_D(-a-1))=0,\qquad
+ H^0(M,\mathcal O_M(-b-2))=0.
+\]
+前者は$a\geq0$を、後者は$b\geq-1$を強制する。
+同一ブロックでは両方向にこの条件が成り立つので
+多重次数は一致する。第一ブロックの一線束の逆を共通に捩り、
+その多重次数を$(0,0)$とする。
+ブロック$j$の多重次数は$(a_j,j-2a_j)$、$a_0=0$と書ける。
+前向き条件から$0\leq a_1\leq a_2$、
+第一ブロックから第三ブロックへの条件から$2-2a_2\geq-1$。
+従って$0\leq a_1\leq a_2\leq1$であり、表示した三候補を得る。
+これは必要条件の列挙で、存在の主張ではない。
+\end{proof}
+
+\begin{lemma}[非被約型における合成の生成性の障害]
+\label{lem:ou-double-line-composition}
+命題\ref{prop:ou-nonreduced-multidegrees}の三候補のうち、
+候補IIとIIIでは任意の$U_i,W_k$について
+\[
+ \sum_j
+ \operatorname{Hom}_E(V_j,W_k)\circ
+ \operatorname{Hom}_E(U_i,V_j)
+ \ \subsetneq\ \operatorname{Hom}_E(U_i,W_k).
+\]
+従って、隣接ブロック間の18本の矢印で生成される
+AOUの三ブロックdirected algebraにはならない。
+\end{lemma}
+\begin{proof}
+IIでは$W_k\otimes V_j^{-1}$の多重次数が$(1,-1)$、
+IIIでは$V_j\otimes U_i^{-1}$の多重次数が$(1,-1)$である。
+どちらの場合も、その線束の$M$への制限は$\mathcal O_M(-1)$
+なので、全ての大域切断が$M$上で零になる。
+従ってどの合成も$M$上で零になる。
+一方、$N=W_k\otimes U_i^{-1}$の多重次数は$(1,0)$であり、
+\[
+ \ker\bigl(H^0(E,N)\to H^0(M,N|_M)\bigr)
+ \simeq H^0(D,N|_D(-1))
+ \simeq H^0(D,\mathcal O_D)=k.
+\]
+この同型は\eqref{eq:ou-double-line-union}または
+$M$の方程式を掛けた完全列から従う。
+最後に前向き高次Ext消滅と$\chi(N)=2$により
+$h^0(E,N)=2$なので、合成の像は高々一次元で、全空間を生成しない。
+
+AOU\cite[Figure~4.1, (4.2), Definition~4.1]{AOU2024}の
+三ブロック箙には第一から第三ブロックへ直接進む原始矢印はない。
+OU\cite[(5.3), Definition~5.2]{OU}の原始射・箙型の規約に従えば、
+標準のこの箙型のhelix比較は上の合成写像の全射性を含む。
+従って両候補はこの箙型の九線束表示から排除される。
+単にvery strong性だけから原始矢印の個数を決めるのではない。
+\end{proof}
+
+\begin{lemma}[二重直線の縮約と線束の降下]
+\label{lem:ou-double-line-contraction}
+$E=2\ell+m$とし、$D=2\ell$、$M=m$、$p=\ell\cap m$とする。
+$D$を一点に収縮する固有射
+\[
+ f:E\longrightarrow E'
+\]
+で、$E'$が既約尖点三次曲線であり、
+$Rf_*\mathcal O_E=\mathcal O_{E'}$となるものが存在する。
+さらに$L|_D\simeq\mathcal O_D$を満たす任意の線束$L$は
+$E'$上の線束$L'$の引戻しであり、
+$\deg_{E'}L'=\deg_M L|_M$である。
+\end{lemma}
+\begin{proof}
+$M\simeq\mathbb P^1$の$p$を$t=0$、別の一点を$\infty$と取る。
+$M$の$t=0$における長さ二の部分スキーム$Z$を
+$\Spec k$にpinchして得る曲線$E'$は尖点三次曲線に同型である。
+具体的に$E'\setminus\{\infty\}$は$\Spec k[t^2,t^3]$であり、
+残りの開集合$M\setminus\{p\}$と自然にglueする。
+$D$を尖点へ送り、$M$上で正規化射となる射$f$を構成する。
+実際、$E\setminus\{\infty\}$上の構造層の大域切断は
+\eqref{eq:ou-double-line-union}により
+\[
+ k[t]\times_{k[t]/(t^2)} k
+ \simeq k+t^2k[t]=k[t^2,t^3].
+\]
+ここで$H^0(D,\mathcal O_D)=k$を使った。
+これが尖点のアフィン開集合への射を与え、
+$p$の外側での同型とglueする。$E$は射影的で$E'$は分離的だから
+$f$は固有である。
+
+同じ完全列を$f$で押し出して高次直像を調べる。
+尖点のアフィン開集合において、$M$側はその正規化のアフィン開集合、
+$D$側は二重直線全体であり、どちらも$H^1(\mathcal O)=0$である。
+後者は$0\to\mathcal O_\ell(-1)\to\mathcal O_D
+\to\mathcal O_\ell\to0$から従う。
+さらに$k[t]\to k[t]/(t^2)$は全射なので、
+\eqref{eq:ou-double-line-union}における差の写像も大域切断上で全射。
+従ってその開集合上の$H^1(\mathcal O_E)$は零、$H^0$は上のfiber product
+である。尖点以外では$f$が同型なので、
+アフィン開集合上のLeray spectral sequenceから
+$Rf_*\mathcal O_E=\mathcal O_{E'}$を得る。
+
+線束の降下は一次jetのgluingで確認できる。
+$D$上で$L$を自明化し、$M$上の線束$L_M$の$Z$への
+制限の自明化を取る。$L$はこれらを$Z$上の単元
+$u\in(k[t]/(t^2))^\times$でglueしたものである。
+これは\eqref{eq:ou-double-line-union}の局所環のfiber productを
+用いた線束の貼り合わせである。
+正規化上の$L_M$を$E'$の尖点で同じ単元$u$を用いて降下すれば
+線束$L'$を得る。より具体的には、正規化からの押出しの中で
+$Z$へのjetが一次元部分空間$ku$に入る切断からなる部分層を取る。
+尖点の局所環では、$u$を正規化局所環の単元$\widetilde u$に持ち上げ、
+その部分加群は$\widetilde u\,\mathcal O_{E',f(p)}$と書けるため
+局所自由階数一である。尖点以外は$L_M$と同じ。
+$f^*L'$は$D$上で自明、$M$上で$L_M$、
+$Z$上のgluingも構成から同じなので$L$に同型である。
+正規化完全列から$\chi(E',L')=\chi(M,L_M)-1=\deg L_M$。
+$\chi(\mathcal O_{E'})=0$だから全次数も主張通りである。
+\end{proof}
+
+\begin{theorem}[非被約平面三次曲線表示の帰着]
+\label{thm:ou-nonreduced-plane-recognition}
+非被約平面三次曲線$E$上の全次数$0,1,2$の各三本の線束からなる
+三ブロック表示が同一ブロック内完全直交、前向き高次Ext消滅を満たす
+とする。さらにそのdirected algebraは隣接ブロックの射で生成される
+とする（特にAOUの標準三ブロック箙型の比較の下ではこの条件が成立）。
+このとき三重直線の場合は起こらず、二重直線と直線の和の場合は
+既約尖点三次曲線上の九線束表示と同じdirected algebraを持つ。
+従って対応する三次型AS surfaceが標準noetherian OU helix比較を
+持ち、内在的三次標識を持つなら、その標識の反標準環は
+標準二次Koszul AS四次元正則環の正則正規三次商である。
+\end{theorem}
+\begin{proof}
+代数閉体上の非被約平面三次曲線は三重直線または
+二重直線と相異なる直線の和である。
+命題\ref{prop:ou-nonreduced-multidegrees}と
+補題\ref{lem:ou-double-line-composition}から後者の候補Iだけが残る。
+共通捩りの後の九線束は全て$D$に自明に制限されるので、
+補題\ref{lem:ou-double-line-contraction}で尖点三次曲線$E'$上の
+九線束$L'_i$に降下する。次数は$0,1,2$のままである。
+射影公式と$Rf_*\mathcal O_E=\mathcal O_{E'}$により
+\[
+ R\operatorname{Hom}_{E'}(L'_i,L'_j)
+ \xrightarrow{\ \sim\ }
+ R\operatorname{Hom}_{E}(f^*L'_i,f^*L'_j)
+\]
+であり、これは引戻しの自然な写像なので合成と両立する。
+従ってブロック内直交・前向きExt消滅・隣接ブロックの生成性・
+directed algebraを全て保つ。共通捩りもこれらを変えない。
+同じdirected algebraの射影列と逆Serre関手から生成する
+helixは変わらないので、標準OU helix比較は同じものを用いる。
+既約尖点三次曲線に対する
+定理\ref{thm:ou-integral-elliptic-recognition}を適用すれば結論を得る。
+\end{proof}
+
+\begin{theorem}[平面三次曲線による九線束表示の認識]
+\label{thm:ou-all-plane-cubic-recognition}
+$E$を任意の平面三次曲線とする。全次数$0,1,2$の各三本の線束からなる
+三ブロック表示が同一ブロック内の完全直交性と前向き高次Ext消滅を満たし、
+AOUの三ブロック箙型の標準noetherian OU helix比較を与えるとする。
+対応する曲面圏に内在的三次標識$\mathcal O$が存在すれば、
+その標識の反標準環は標準二次Koszul AS四次元正則環の
+正則正規三次商である。
+\end{theorem}
+\begin{proof}
+被約の場合は定理\ref{thm:ou-reduced-complete-recognition}、
+非被約の場合は定理\ref{thm:ou-nonreduced-plane-recognition}による。
+\end{proof}
+
+\begin{remark}
+この非被約型の帰着は三つの多重次数候補、合成の生成性、
+尖点への収縮と線束の降下の証明に基づき、変形や非被約曲線上の
+AZ2局所自由性を仮定しない。
+多重次数候補の数値計算は
+\path{computations/verify_ou_plane_curve_reduction.py}に含まれる。
+一般のOU三次箙型について、平面三次曲線による九線束表示の存在や
+標準noetherian比較が自動であるとは主張しない。
 \end{remark}
