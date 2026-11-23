@@ -28,7 +28,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月19日／non-as-v5}
+\date{2026年11月24日／non-as-v6}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -37,6 +37,7 @@
 また、Hirzebruch曲面$\mathbb F_1$上の偶Clifford orderは次数三の反標準Hilbert関数を持ち、反標準環は次数一生成でありながら、その二次包絡の三次成分が十九次元となる。
 これは標準四次元AS正則代数の三次超曲面表示を、構造対象を忘れたアーベル圏としても排除する。
 次数一・二の二つのClifford orderについても、標準的な最小生成次数を持つ重み付きAS正則ambientによる超曲面表示は存在しない。一方、別の生成次数を持つAS正則ambientでは明示的な超曲面表示が存在する。
+逆向きについては、弱del Pezzo曲面の反標準収縮からOUの三次型AS surfaceを構成し、全反標準ample対象の導来rankが少なくとも二となることを示す。従ってこの曲面は標準三次超曲面型にも内在的三次候補にも属さない。内在的候補に制限したOU型の逆包含は残る問題である。
 さらにトーリック商スタック$[\mathbb P^2/\mu_3]$では、反標準AZ-ampleなtorsion-free構造対象のrankが少なくとも三となることを証明し、構造層の非amplenessと特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
 \end{abstract}
 \tableofcontents
@@ -208,10 +209,236 @@ OUのAS surfaceではない。
 式\eqref{eq:three-levels}の最小のクラスは
 $\mathfrak H^{\mathrm{hyp}}_3$と
 $\mathfrak{AS}^{\mathrm{OU}}_3$の\emph{共通部分}である。
-本稿はOUのAS surfaceがすべて標準AS四次元超曲面として
-表示できると主張しない。
+逆包含は、OUの箙型による定義のままでは
+定理\ref{thm:ou-weak-cubic}により成り立たない。
+ただし内在的候補にも属するOU型に限った逆包含は未解決である。
 特に、非周期的AS正則$\mathbb Z$-algebraを許した一般のambient
 認識問題は、連結graded ambientの場合とは分けて扱う。
+\end{remark}
+
+\subsection{弱del Pezzo曲面から得られるOU型の非超曲面例}
+\label{subsec:ou-weak-del-pezzo}
+OUの定義\cite[Definition~1.1(2), Definition~5.2]{OU}における
+del Pezzo型は箙と単純加群の分解の型で指定され、rank一の反標準ample対象の
+存在は要求されない。この点を利用すると逆包含自体を否定できる。
+以下ではAOUの三ブロック型\cite[Sections~4, 7]{AOU2024}を用いる。
+
+\begin{theorem}[OU三次型の反標準rank障害]\label{thm:ou-weak-cubic}
+滑らかな平面三次曲線$E$上の相異なる六点$p_1,\ldots,p_6$を、
+$p_1,p_2,p_4$のみが共線な三点組となるように選ぶ。
+$X=\operatorname{Bl}_{p_1,\ldots,p_6}\mathbb P^2$をその爆発とし、
+$H$を直線の引戻し、$E_i$を例外曲線、
+$L=-K_X$、$C=H-E_1-E_2-E_4$を共線直線の狭義変換とする。
+このとき、OUの三次del Pezzo型AS surface $\mathcal C$ で
+$D^b\mathcal C\simeq D^b\coh X$を満たし、かつ以下を満たすものが存在する。
+\begin{enumerate}[label=(\roman*)]
+\item $s=S_{\mathcal C}^{-1}[2]$は完全自己同値である。
+\item 任意のAZ-ampleな対$(P,s)$について、対応する$D^b\coh X$の対象の
+virtual rank $r$は$r\geq 2$であり、
+\[
+ \dim\operatorname{Hom}_{\mathcal C}(P,s^nP)
+      =\frac{3r^2}{2}n^2+O(n)\qquad(n\longrightarrow\infty).
+\]
+\item 従って$\mathcal C\notin\mathfrak I_3$であり、
+特に$\mathcal C\notin\mathfrak H^{\mathrm{hyp}}_3$である。
+\end{enumerate}
+ここでの非表示は特定の構造対象の失敗ではなく、全ての反標準ample対象を
+排除するものである。
+\end{theorem}
+
+\begin{proof}
+まず六点の存在は、$E$と横断的に交わる直線の三交点を
+$p_1,p_2,p_4$として、残りの三点を一般に選べばよい。
+この六点を通るconicは存在しない。存在すれば三つの共線点を含む直線が
+その成分となり、残る三点も共線でなければならない。
+$E$の狭義変換を同じ記号$E$で表すと$E\in|L|$である。
+$H^1(X,\mathcal O_X)=0$および
+\[
+ 0\to\mathcal O_X\to\mathcal O_X(L)
+   \to\mathcal O_E(L)\to0
+\]
+から$h^0(X,L)=4$であり、$\deg_E L=3$なので$|L|$はbasepoint-freeである
+（$E$上は制限写像の全射性、$E$外は$E$の定義切断を用いる）。
+従って$f:X\to Y\subset\mathbb P^3$を反標準射とすることができる。
+$L^2=3$と像の非退化性から、$Y$は整な三次曲面、$f$は双有理であり、
+$L=f^*\mathcal O_Y(1)$である。
+$C\simeq\mathbb P^1$、$C^2=-2$、$L\cdot C=0$なので$f(C)=y$は一点である。
+
+\medskip
+\noindent\textbf{三ブロックhelixとOU型の確認.}
+次の九つの線束を三ブロックに並べる
+（各成分はその因子に対応する線束を表す）。
+\[
+\begin{split}
+ (T_1,T_2,T_3)&=(\mathcal O_X,\mathcal O_X(-2H+\textstyle\sum E_i),
+                  \mathcal O_X(-H+E_1+E_2+E_3)),\\
+ (T_4,T_5,T_6)&=(\mathcal O_X(E_1),\mathcal O_X(E_2),\mathcal O_X(E_3)),\\
+ (T_7,T_8,T_9)&=(\mathcal O_X(H-E_4),\mathcal O_X(H-E_5),\mathcal O_X(H-E_6)).
+\end{split}
+\]
+これはAOUの(4.1)と同じ因子類であるが、点の一般位置の仮定が異なるので、
+fullnessとstrongnessを改めて確認する。
+Orlovの爆発分解から
+$(U_1,\ldots,U_6,\mathcal O(-2H),\mathcal O(-H),\mathcal O)$
+はfull exceptionalである。ただし$U_i=\mathcal O_{E_i}(-1)$。
+AOU\cite[(9.28)--(9.40)]{AOU2024}の変異はここでも次の完全列で実現される。
+$M|_{E_i}\simeq\mathcal O_{E_i}$のとき
+$0\to M\to M(E_i)\to U_i\to0$を用いて、
+$(U_i,M)$を$(M(E_i),U_i)$または$(M,M(E_i))$に取り替える。
+これは変異と個別のshiftによる操作である。
+まず$\mathcal O(-2H)$を全ての$U_i$の左へ第一の操作で移し、
+次に$\mathcal O(-H)$を$U_6,U_5,U_4$の左へ第二の操作で移す。
+$\mathcal O$を三つの$\mathcal O(E_i-H)$の左へ移す際には、
+$p_i$を通る直線のpencilによる完全列
+$0\to\mathcal O(E_i-H)\to\mathcal O^{\oplus2}\to\mathcal O(H-E_i)\to0$
+を用いる。残る$U_1,U_2,U_3$を第一の操作で$\mathcal O(-H)$の右へ、
+次いで第二の操作で$\mathcal O$の右へ移せば、
+最初の三対象が$(T_2,T_3,T_1)$となるfull exceptional collectionを得る。
+これらの制限の$E$上の次数は各ブロックで順に$0,1,2$である。
+第一ブロックの制限が相異なることは、六点がconic上にないことと、
+$\{p_1,p_2,p_3\},\{p_4,p_5,p_6\}$のいずれも共線でないことによる。
+第二・第三ブロックでは点の相異性による。
+例外対$(F,G)$に対して
+$\operatorname{RHom}_X(F,G(-E))=0$がSerre双対性と
+$\operatorname{RHom}_X(G,F)=0$から従うので、
+$\operatorname{RHom}_X(F,G)\simeq\operatorname{RHom}_E(F|_E,G|_E)$である。
+従って同一ブロック内は直交し、順序を$(T_1,\ldots,T_9)$へ直せる。
+異なるブロックの前向き差の次数は正なので、全collectionはstrongとなる。
+
+更に任意の$i,j$と$n\geq1$で
+$\deg_E(T_i^\vee T_j L^n)\geq3n-2>0$である。
+上の反標準完全列と$n=0$でのstrongnessによる帰納法から
+$H^{>0}(X,T_i^\vee T_j L^n)=0$。
+従って$T_{i+9}=T_i\otimes L$で延長したhelixはvery strongである。
+型については、制限$(E,(T_i|_E)_i)$がAOU Definition~7.1の
+admissible elliptic decupleであることに注意する。
+AOU Lemma~7.4とその直後の構成はこれに三次型のAS正則
+$\{0,1,2\}\times\mathbb Z$-algebra $A$を対応させる。
+そのfoundationの全射影対象のendomorphism algebraは、
+制限による上の同型により$\operatorname{End}_X(T)$と一致する
+（$T=\bigoplus_iT_i$）。
+従ってAOU Theorem~9.4の証明で用いられた
+full strong foundationとそのendomorphism algebraによる議論を適用し、
+$D^b\coh X\simeq D^b\qgr A$を得る。この同値はfoundationを対応させ、
+Serre関手を保つためhelix全体を対応させる。
+特にOU\cite[Section~3, (3.10)]{OU}により、
+$A$は$X$上のhelixの前向きHomから得られる代数に同型である。
+$\mathcal C=\qgr A$と置けば、OUの定義における三次型である。
+この議論は非可換爆発についてのAOU Theorem~9.4の一般位置の仮定を
+弱めて適用しているのではなく、admissible decupleとそのfoundationの
+比較のみを用いる。
+
+\medskip
+\noindent\textbf{反標準収縮上のheart.}
+周期をまとめた代数と$Y$上の連接代数層を
+\[
+ B=\bigoplus_{n\geq0}\operatorname{Hom}_X(T,T\otimes L^n),
+ \qquad \mathscr B=f_*\mathcal End_X(T)
+\]
+と置く。積はorbitの合成、中心作用は$Y$の斉次座標環からの作用とする。
+射影公式で$B_n=H^0(Y,\mathscr B(n))$であるから$B$は中心の斉次座標環上有限、
+左右noetherianである。周期付き添字を$9n+i$と展開すると、
+次数付き$B$加群の各冪等元成分は$A$加群と同一視され、
+次数上方有界な加群も対応する。従って$\qgr A\simeq\qgr B$である。
+中心に関する通常のSerreの層化（斉次中心元で局所化し次数零を取る）
+から$\qgr B\simeq\coh(Y,\mathscr B)$を得る。逆は十分高次の切断加群を取る。
+この同値で射影対象は$e_i\mathscr B$、周期移動は$\mathcal O_Y(1)$の捩りになる。
+
+また$R^{>0} f_*\mathcal End_X(T)=0$である。
+実際、射影公式・Lerayと$Y$上のSerre消滅により、十分大きな$n$では
+各高次直像の$n$-twistの切断は$H^{>0}(X,\mathcal End(T)L^n)$と一致して零となる。
+従って
+\[
+ \Phi=Rf_*R\mathcal Hom_X(T,-):
+     D^b\coh X\longrightarrow D^b\coh(Y,\mathscr B)
+\]
+は$\Phi(T_i)=e_i\mathscr B$とし、その間の全導来Homを同型にする。
+右加群作用は$f^*\mathscr B\to\mathcal End_X(T)$による前合成である。
+両側のfull foundationにより$\Phi$は同値である。
+射影公式で$\Phi(-\otimes L)\simeq\Phi(-)\otimes\mathcal O_Y(1)$。
+従ってSerre関手の一意性から$s=(-)\otimes\mathcal O_Y(1)$となり、完全である。
+
+\medskip
+\noindent\textbf{収縮曲線の二つのheart対象.}
+$i:C\hookrightarrow X$と書く。上の九対象の$C$への制限次数は順に
+$(0,1,1,1,1,0,0,1,1)$である。
+従って$\mathbb P^1$上の線束のコホモロジーを各成分で計算すると
+\[
+ M_0=\Phi(i_*\mathcal O_C),\qquad
+ M_1=\Phi(i_*\mathcal O_C(-1)[1])
+\]
+はいずれも非零の$\coh(Y,\mathscr B)$の対象で、$y$に台を持つ。
+任意の$x\in C$について$M_x=\Phi(\mathcal O_x)$もheartにあり、
+$0\to\mathcal O_C(-1)\to\mathcal O_C\to\mathcal O_x\to0$の三角形から
+\[
+ 0\to M_0\to M_x\to M_1\to0
+\]
+を得る。$s$は$M_0,M_1,M_x$をそれぞれ同型の範囲で固定する。
+
+\medskip
+\noindent\textbf{全ample対象に対する障害.}
+$(P,s)$をAZ-ampleとする。まず$P$は局所射影$\mathscr B$加群である。
+実際、中心の豊富束を用いると有限個の$\mathscr B(-a)$の直和$F$から
+$P$への全射がある。AZ2をこの全射に用いれば、十分大きい$m$で
+$\operatorname{Hom}(P(-m),F)\to\operatorname{Hom}(P(-m),P)$が全射である。
+両者は連接層$\mathcal Hom_{\mathscr B}(P,F)(m)$と
+$\mathcal End_{\mathscr B}(P)(m)$の大域切断である。
+Serre消滅と高次twistの大域生成から、層のHom写像自体が全射になる
+（核・像・余核に高次twistを取り切断完全性を用いる）。
+従って局所的に恒等射が持ち上がり、$P$は$F$の局所直和因子である。
+これから有限台の$M$に対し$\operatorname{Ext}^{>0}(P,M)=0$が従う。
+
+AZ1を$M_0,M_1$に適用し、これらが$s$で固定されることを使うと
+$\dim\operatorname{Hom}(P,M_j)\geq1$（$j=0,1$）。
+$P'=\Phi^{-1}P$のvirtual rankを$r$とすると、
+滑らかな$X$上で$P'$はperfectだから
+\[
+ r=\chi_X(P',\mathcal O_x)=\chi_{\mathcal C}(P,M_x)
+  =\chi_{\mathcal C}(P,M_0)+\chi_{\mathcal C}(P,M_1)\geq2.
+\]
+この不等式に$P'$の局所自由性や層であることは不要である。
+局所射影性とSerre消滅で$n\gg0$では
+$\operatorname{Ext}^{>0}_{\mathcal C}(P,s^nP)=0$。
+Hirzebruch--Riemann--Rochにより
+\[
+ \dim\operatorname{Hom}_{\mathcal C}(P,s^nP)
+ =\chi_X(P',P'\otimes L^n)
+ =\frac{r^2L^2}{2}n^2+O(n)=\frac{3r^2}{2}n^2+O(n).
+\]
+これは内在的三次Hilbert級数の先頭係数$3/2$と両立しない。
+\end{proof}
+
+\begin{corollary}[構造対象を忘れても非表示]\label{cor:ou-weak-unpointed}
+定理\ref{thm:ou-weak-cubic}の$\mathcal C$は、
+本稿の標準的な左右noetherian二次AS正則四次元代数$G$の
+左右正則正規三次商$R=G/(g)$の$\qgr R$とアーベル圏として同値でない。
+\end{corollary}
+\begin{proof}
+そのような同値があれば$D^b\qgr R$もsmooth properである。
+標準三次商のAS-Gorenstein双対性
+（Gorenstein parameter $4-3=1$、\cite{YZ1997}、
+本稿のClifford非表示証明で用いる標準商の双対性と同じ入力）
+により、$S^{-1}[2]$は次数一移動と次数付き自己同型による捩りの合成となる。
+自由対象$\pi R$の捩りは同型なので、
+$(\pi R,S^{-1}[2])$はAZ-ampleであり、その反標準切断は
+十分高次で$R_n$と同じ次元を持つ。
+（標準次数移動のAZ-ample性とAS-Gorensteinの局所コホモロジー消滅を使用。）
+従ってその先頭係数は$3/2$である。
+同値はSerre関手、Hom、AZ1、AZ2を保存するから定理に矛盾する。
+\end{proof}
+
+\begin{remark}[反例の範囲と残る中心問題]\label{rem:ou-weak-scope}
+この反例は$\mathfrak{AS}^{\mathrm{OU}}_3\not\subset
+\mathfrak H^{\mathrm{hyp}}_3$をOUの箙型による定義のもとで示す。
+しかし$\mathcal C\notin\mathfrak I_3$でもあるので、
+$\mathfrak{AS}^{\mathrm{OU}}_3\cap\mathfrak I_3
+ \subseteq\mathfrak H^{\mathrm{hyp}}_3$
+の真偽は別の未解決問題である。
+また$\mathcal C$は$D^b\coh X$と導来同値だが、
+$\coh X$そのものを反例としたのではない。
+反標準収縮のファイバーでrank一のample対象が失われることが本質であり、
+既存の奇数次Hochschild homology障害とは異なる。
+この構成とrank障害の初出は未確認である。
 \end{remark}
 
 \subsection{トーリック商スタックが示す境界}\label{subsec:stack-boundary}
@@ -1023,8 +1250,8 @@ Hochschild homology の計算には，quadric fibration の半直交分解
 量子Fermat点と符号型族の奇数次Hochschild homologyはOU型AS surfaceへの障害であるが、AS四次元ambientの超曲面表示自体を否定しない。
 次数三Clifford例では$\dim Q(R)_3=19$と標準AS四次元代数の$20$の差が、構造対象を忘れた非表示の核心である。
 次数一・二Clifford例は最小生成次数を固定した非表示であり、別のambientによる肯定的な表示も同時に得る。
-現在の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
-今回の統合によって新たな証明が自動的に得られたとは主張しない。
+最優先課題は、定理\ref{thm:ou-weak-cubic}の外部入力・非表示の独立監査と、内在的三次候補にも属するOU型についての逆包含の決着である。その他の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
+本稿の新しい反標準rank障害は上記の証明範囲に限る。独立検証と新規性調査は継続する。
 
 \appendix
 \input{papers/sections/weighted_computations.tex}
