@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-24 / non-as-v7。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-24 / non-as-v8。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -22,7 +22,10 @@
 - AOU Thm.9.4の指定された非可換爆発の比較が適用される範囲では、helixの一対象と自由対象との対応により導来同値がt-exactとなり、標識を忘れた標準AS4三次商の表示を得る（`prop:helix-heart-upgrade`, `cor:aou-abelian-upgrade`）。
 - AOU (9.53) の楕円データを逆変換し、27の二次関係の消失係数を線束の等式で記述した（`prop:decuple-inverse`, `prop:decuple-zero-coefficients`）。非可換の場合、関係係数の全非消失とVdBの六点一般位置を混同できない。
 
-一般の包含は未解決です。次は非torsion楕円境界におけるrank-one反標準ample対象の存在と標識の取り替えを調べます。逆変換と27条件の指数ベクトルによる検算は実施済みです。今回の組版・全文独立監査・新規性確認は未実施です。
+- **滑らかな楕円decuple型の内在的認識**（`thm:ou-smooth-elliptic-recognition`）：標準OU helix比較を持つ型では、spherical functorとAZ1/AZ2から制限対象が線束、反標準環が正則中心一次元を持ち、その商が次数3 THCRとなる。中心拡大判定により与えられた標識の反標準環が標準AS4三次商であることを証明する。六点一般位置・非torsion性を不要とする。
+- **六標識の境界**（`prop:ou-marking-walls`）：第一ブロックの6順序でVdB一般位置を比較し、99の整数等式と3975のrank二行空間を得る。δ非torsionの場合に全標識が失敗する集合は余次元3以上。これはAOUの全仮定を回復する主張ではない。
+
+一般の包含は未解決です。次は滑らかな楕円表示を持たないOU型（特異・可約曲線や非楕円型）の分類と内在的認識を優先します。`computations/verify_ou_decuple_markings.py` の整数検算を実行済み。新規証明の独立監査・新規性確認は未実施です。
 
 ## 二次包絡と商スタックの精密化
 標準三次Hilbert級数と一次生成性の下で、二次包絡Q(R)が14641型AS正則環であることと、Rがその正則正規三次商になることは同値です（Levasseurの整域性定理に依存）。トーリック商スタック[P²/μ₃]では反標準AZ-ampleなtorsion-free対象はrank 3以上であり、正則表現が最小rankを達成します。詳細な証明は主論文のIntroductionにあります。
@@ -56,7 +59,7 @@ python3 scripts/build.py --all
 python3 scripts/make_bundle.py
 ```
 
-`scripts/verify_all.py` は元の有限群sector計算と、次数1・2・3のClifford次数・判別曲線・二次包絡の検証をまとめて実行します。証明書 `certificates/degree3_quadratic.json` は45次小行列式と核ベクトルを保持します。有限計算は圏論的なMorita同値や一般の分類定理を形式証明するものではありません。
+`scripts/verify_all.py` は六標識の整数行空間の計算、元の有限群sector計算と、次数1・2・3のClifford次数・判別曲線・二次包絡の検証をまとめて実行します。証明書 `certificates/degree3_quadratic.json` は45次小行列式と核ベクトルを保持します。有限計算は圏論的なMorita同値や一般の分類定理を形式証明するものではありません。
 
 PDFとSyncTeX、auxiliary filesは`build/`に生成し、Gitでは追跡しません。主論文のPDFは`build/nc-cubic-non-as.pdf`、研究ノートは`build/notes.pdf`です。`python3 scripts/make_bundle.py` は必要なソース・証明書・再現コード・二つのPDFを含む現行bundleを`output/bundles/`に作り、CRCを確認します。PDFなしなら`--source-only`を指定します。
 
