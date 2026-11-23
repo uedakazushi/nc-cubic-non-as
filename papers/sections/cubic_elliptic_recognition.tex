@@ -1,65 +1,88 @@
 % !TeX root = ../nc-cubic-non-as.tex
-\subsection{滑らかな楕円型の内在的認識}
+\subsection{既約種数一曲線型の内在的認識}
 \label{subsec:ou-elliptic-recognition}
 
 六点爆発の一般位置を仮定せず、反標準spherical functorから
-超曲面表示を回復する。以下は特にadmissible elliptic decuple
-\cite[Definition~7.1, Lemma~7.4]{AOU2024}によるOU型を対象とする。
+超曲面表示を回復する。滑らかなadmissible elliptic decuple
+\cite[Definition~7.1, Lemma~7.4]{AOU2024}の型に加えて、
+節点・尖点三次曲線による表示にも適用する。
 任意のOU三次型がこのような表示を持つとは仮定しない。
 
-\begin{theorem}[滑らかな楕円helixを持つ内在的三次候補]
+\begin{theorem}[既約種数一曲線のhelixを持つ内在的三次候補]
+\label{thm:ou-integral-elliptic-recognition}
 \label{thm:ou-smooth-elliptic-recognition}
-$E$を滑らかな楕円曲線とし、$(L_1,\ldots,L_9)$を
-次数$0,1,2$の各三本の線束からなり各ブロック内で相異なる
-admissible elliptic decupleとする。$\Lambda$をそのdirected
-endomorphism algebra、$\mathcal C$を対応するOU helix algebraの
-noetherian $\qgr$とする。標準のhelix比較
-$D^b(\mathcal C)\simeq\Perf\Lambda$の下で標準対象が
-対応するfull very strong helix $(P_i)_{i\in\mathbb Z}$に移り、
-$P_{i+9}\simeq sP_i$とする（\cite[Section~3]{OU}、
-\cite[Proposition~2, Theorem~5]{OUSpherical2020}の通常の設定）。
+$E$を標数零の代数閉体上の既約被約射影算術種数一曲線
+（滑らかな楕円曲線、節点三次曲線または尖点三次曲線）とし、
+$(L_1,\ldots,L_9)$を次数$0,1,2$の各三本の線束からなり、
+各ブロック内で相異なるものとする。
+$\Lambda$をそのdirected endomorphism algebraとし、
+$\mathcal C=\qgr A$を対応するOU三次型のnoetherian helix商圏とする。
+標準の比較$D^b(\mathcal C)\simeq\Perf\Lambda$が成立し、
+標準対象がfull very strong helix $(P_i)$に移り
+$P_{i+9}\simeq sP_i$と仮定する
+（滑らかな場合はAOUのadmissible elliptic decupleの設定）。
 $(\mathcal C,\mathcal O)$が定義\ref{def:intrinsic-dp}を満たすなら、
-その与えられた標識の反標準環$R$について
+与えられた標識の反標準環$R$について
 \[
  R=Q(R)/(g),\qquad H_{Q(R)}(t)=(1-t)^{-4},
 \]
 ここで$Q(R)$は標準二次Koszul AS四次元正則環、
 $g$は正則正規三次元である。さらに$R$には正則中心一次元$z$があり、
-$R/zR$は$E$上の次数三線束と平行移動によるtwisted homogeneous
-coordinate ringである。
+$R/zR$は$E$上の次数三線束と$\Pic^0(E)$に自明に作用する
+自己同型によるtwisted homogeneous coordinate ringである。
 \end{theorem}
 
-証明のために曲線側の自己同値を先に決定する。
-$\langle L_i\rangle$は$D^b(\coh E)$を厚く生成する。
-実際、次数差一の二本の間の非零射の余核はある点の構造層であり、
-その点と一方の線束から、点による正負の捩りの完全列によって
-任意の整数冪の捩りを得る。これらは導来圏を生成する。
-従ってspherical collectionのdirected categoryの構成において、
-曲線側の圏を$D^b(\coh E)$と取れる。
-制限functorを$J:D^b(\coh E)\to D^b(\mathcal C)$、
-その左adjointを$F$、右adjointを$G$と書く。
-ここで$J$は曲線上のsheafをdirected categoryに沿って制限する
-dg functorであり、この段階ではheartについての完全性を主張しない。
-\cite[(3)--(5), Proposition~2]{OUSpherical2020}から
+証明では、特異曲線の場合に$\Perf E$と$D^b(\coh E)$を区別する。
+$E$はGorensteinかつ$\omega_E\simeq\mathcal O_E$であり、
+$\Perf E$のSerre関手は$[1]$である。
+次数差一の二線束の非零射の余核は滑らかな一点の構造層：
+実際、次数一線束の非零切断の零因子は長さ一の有効Cartier因子で、
+特異点では極大イデアルが主イデアルにならない。
+この点と一方の線束から、点による正負の捩りの完全列を用いて
+任意の整数冪の捩りを得る。これらは$\Perf E$を厚く生成する。
+例えば任意のベクトル束に対する十分負の捩りによる二段の全射分解は
+$\operatorname{Ext}^2$の消滅（第一変数がベクトル束）により
+もとの束をその二項複体の直和因子として与える。
+
+曲線へのfunctorを$F:\Perf\Lambda\to\Perf E$とし、
+$F(P_i)=L_i$とする。これはdirected dg categoryの埋込みからの
+導来拡大である。右随伴$J$は$\Perf E$上の制限functorであるが、
+\emph{全ての}$D^b(\coh E)$に
 \[
- F(P_i)=L_i\ (1\leq i\leq9),\qquad
+ J(M)=\operatorname{RHom}_E\bigl(\bigoplus_{i=1}^9 L_i,M\bigr)
+ \quad\text{（directed algebraへの制限）}
+\]
+と定義して拡張できる。各$L_i$は完全なのでこの複体は有界有限次元、
+$\Lambda$は有限大域次元なのでその値は$\Perf\Lambda$に属する。
+$F\dashv J$は生成射影上の随伴から全ての$\Perf\Lambda$について従う。
+特異曲線の$D^b(\coh E)$自体のSerre関手は仮定していない。
+
+$\Perf E$上でOU\cite[(3)--(5), p.~2]{OUSpherical2020}の
+spherical collectionの構成を適用すると、
+\[
  s^{-1}\xrightarrow{\epsilon}\mathrm{id}\longrightarrow JF,\qquad
  D:=\operatorname{Cone}(FJ\longrightarrow\mathrm{id})
    =T_{L_1}\cdots T_{L_9}.
 \]
-$T_L$はspherical twistである。右adjointについて
-$G\simeq Fs[-1]$（Serre双対性）であり、また
-$G\simeq D^{-1}F[1]$（\cite[Definition~5.2, (5.12)]{AnnoLogvinenko2017}）
-なので、$h=D^{-1}[2]$とおけば
+ここで$T_L$はspherical twistである。
+右随伴の右随伴について$G\simeq Fs[-1]$（$\Perf$上のSerre双対性）
+および$G\simeq D^{-1}F[1]$
+（\cite[Definition~5.2, (5.12)]{AnnoLogvinenko2017}）から、
+$h=D^{-1}[2]$と置けば
 \begin{equation}\label{eq:ou-restriction-commute}
  Fs\simeq hF.
 \end{equation}
-以下ではこの同型を反復して用い、orbit積と両立する同定を選ぶ。
+各twistは完全なspherical対象$L_i$に沿うものであり、
+特異曲線でも$D^b(\coh E)$上の自己同値を与える
+（\cite[Sections~3--4]{BurbanKreu2006}）。
+従って$h$もこの大きい導来圏へ延長する。
+以下では上の同型を反復してorbit積と両立する同定を選ぶ。
 
 \begin{lemma}\label{lem:ou-elliptic-shift}
 $h$は$\coh E$の完全自己同値であり、
 $h(X)\simeq \alpha^*X\otimes N$と書ける。
-$\alpha$は$E$の平行移動、$N$は次数三の線束である。
+$N$は次数三の線束で、$\alpha^*|_{\Pic^0(E)}=\mathrm{id}$。
+滑らかな場合$\alpha$は平行移動である。
 \end{lemma}
 \begin{proof}
 $(r,d)$に対する次数$e$の線束のtwistの作用は
@@ -68,42 +91,45 @@ $(r,d)$に対する次数$e$の線束のtwistの作用は
 \]
 従って$h^{-1}=D[-2]$は
 $T_0^3T_1^3T_2^3=\left(\begin{smallmatrix}1&0\\-3&1\end{smallmatrix}\right)$
-を誘導する。シフトの偶奇だけでなく実際のheartを確認する。
+を誘導する。Burban--Kreu{\ss}ler
+\cite[Corollary~5.8]{BurbanKreu2006}により、
+次数$-3$のtensor積を取り除いた$h^{-1}$は、
+曲線自己同型・次数零線束・偶数シフトの合成となる。
+これは既約特異種数一曲線にも適用される。
+偶数シフトを次の実計算で決定する。
+
 最後のブロックの線束$L=L_9$について、同じブロックのtwistは
 $L$を保つ。次のブロックの三本（次数一）を$M_i$とすれば
-評価$\bigoplus_i M_i\to L$は全射である：各成分の零点は相異なる。
-核$K$はrank二、次数一の安定ベクトル束である。
-実際、次数一以上の部分線束から$\bigoplus_i M_i$への写像は
-存在しないか、ただ一つの同型成分を通るので、評価の核には入らない。
-従って$T_{M_1}T_{M_2}T_{M_3}L=K[1]$。
-最初のブロックの三本$U_i$について$\dim\operatorname{Hom}(U_i,K)=1$、
-$\operatorname{Ext}^1(U_i,K)=0$である。評価の任意の二成分は
-一般点で独立である：同一の飽和部分線束に入れば、その次数は
-安定性から零以下であり、非零射を持つ二本の$U_i$と同型となって矛盾する。
-二成分の行列式は次数一の線束の非零切断であり、一成分を共通とする
-二つの行列式の零点は相異なる。従って$\bigoplus_iU_i\to K$も全射で、
-その核は次数$-1$の線束である。同じブロックの線束は完全直交するため、
-twistの合成を上の同時評価で計算してよい。これより$h^{-1}L$は
-シフトのない線束となる。
+評価$\bigoplus_i M_i\to L$は全射である：各成分の零点は
+滑らかな相異なる一点である。核$K$はrank二、次数一のベクトル束。
+$K$は安定である。実際、次数一以上のrank一torsion-free部分層$H$
+からいずれかの$M_i$への非零射は単射であり、次数比較から
+$H\simeq M_i$でなければならない。相異なる他の成分への射は零なので、
+この一成分は評価の核には入らない。従って
+$T_{M_1}T_{M_2}T_{M_3}L=K[1]$。
+最初のブロックの三本$U_i$について安定性とSerre双対性
+（ベクトル束に対する双対性）から
+$\dim\operatorname{Hom}(U_i,K)=1$、
+$\operatorname{Ext}^1(U_i,K)=0$である。
+評価の任意の二成分は一般点で独立である：
+同じ飽和rank一部分層に入れば、その次数は安定性から零以下であり、
+二本の$U_i$からの単射と次数比較により両方と同型となって矛盾する。
+二成分の行列式は次数一の線束の非零切断であり、
+一成分を共通とする二つの行列式の零点は滑らかかつ相異なる。
+従って$\bigoplus_iU_i\to K$も全射、その核は次数$-1$の線束となる。
+同じブロックの線束は完全直交するため、
+twistの合成を上の同時評価で計算できる。
+よって$h^{-1}L$はシフトのない線束である。
+上記の偶数シフトは零となり、$h=\alpha^*(-)\otimes N$、
+$\deg N=3$を得る。
 
-曲線の導来圏はhereditaryなので、直既約対象は直既約sheafの
-シフトである。数値類$(0,1)$が保たれることから、
-$h^{-1}$は点の構造層を点の構造層のシフトへ送る。
-$L$から各点へのHomが次数零にのみ存在することと
-$h^{-1}L$が線束であることを比較すれば、このシフトは零である。
-同様に任意の直既約ベクトル束の像は、正のrankを持つsheafの
-シフトである（torsionは直和因子として分離する）。
-点へのHomを用いるとシフトは零となる。
-torsion sheafは点の構造層の拡大である。よって$h^{-1}$は
-標準heartを保ち、点を尽くし、逆向きにも同じHom判定が使えるので
-$h$も完全である。
-連接層圏の完全自己同値の標準的な再構成
-（\cite{Gabriel1962}、\cite[Section~3]{VdBBlowup2001}参照）から
-$h=\alpha^*(-)\otimes N$と書け、数値作用から$\deg N=3$。
-各線束twistは$K_0(E)$のrank、次数ともに零の部分には恒等として
-作用する（Euler形式がその部分上で零）。
-この部分はdeterminantで$\Pic^0(E)$と同一視されるから
-$\alpha^*|_{\Pic^0(E)}=\mathrm{id}$。従って$\alpha$は平行移動である。
+自己同型の$\Pic^0$上の作用を確認するには
+$K_0(\Perf E)$を用いる。特異曲線の$G_0(E)$で代用してはならない。
+任意の次数零線束$Q$について
+$x=[Q]-[\mathcal O_E]$のrank・次数は零なので、
+全ての$T_{L_i}$は$x$を固定する。
+$h$の幾何的表示の下でdeterminantを取ると
+$\alpha^*Q\simeq Q$である。これより主張を得る。
 \end{proof}
 
 \begin{lemma}[曲線のheartと次元]\label{lem:ou-elliptic-heart}
@@ -141,8 +167,10 @@ $\operatorname{Hom}(s^{-2}X,s^{-1}X)$上単射である。
 
 $(L_\bullet,h)$は$\coh E$のample pairである。
 $h^{-n}L_i$の次数が$-3n+\deg L_i$であり、固定したsheafへの
-Homによる生成性とExt消滅は次数の下界によるSerre消滅・大域生成性
-（例えばHarder--Narasimhanの最小傾斜を用いる）から従う。
+Homによる生成性とExt消滅が従う。具体的には固定sheafを固定した
+負のample線束の直和の商として表示する。十分高次数の任意の線束は
+大域生成かつ$H^1=0$であり（次数二以上なら大域生成、正なら$H^1=0$）、
+商の大域生成と$H^1$消滅を得る。この議論は特異な既約曲線でも成立する。
 このためArtin--Zhang再構成\cite[Theorem~4.5]{AZ1994}で
 $B_E$は右noetherian、$\qgr B_E\simeq\coh E$である。
 この応用では$B_E$の次数零部分は有限次元代数でよい。
