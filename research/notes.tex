@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v13}
+\date{2026年11月24日／non-as-v14}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -244,66 +244,73 @@ $c$本すべてあればample。相対Homのコホモロジーの有界な族と
 線束であることを得るので、既存の標識付き認識を適用できる。
 欠落軸の場合のこの局所論の延長は未完成。
 
-\subsection*{節点型：自由群による有限判定と縮約}
-\texttt{prop:ou-nodal-free-group}、
-\texttt{lem:ou-nodal-contract-common-zero}、
-\texttt{lem:ou-nodal-axis-congruences}、
-\texttt{thm:ou-two-component-nodal-recognition}、
-\texttt{cor:ou-three-component-nodal-reduction}を参照。
+\subsection*{全節点cycle型の同時線束変換と有限等式証明書}
+主稿の補題\texttt{lem:ou-nodal-simultaneous-line-change}、
+命題\texttt{prop:ou-nodal-complete-word-certificate}、
+定理\texttt{thm:ou-nodal-complete-recognition}を参照。
 $a,b_1,\ldots,b_c$を自由生成元とし、
 水平twistは$a\mapsto a,\ b_j\mapsto b_j a^{-1}$、
-垂直twist$V_i$は$a\mapsto b_i a$、
-$j>i$の$b_j$を$b_i$で共役する。
-多重次数$x$の線束twistは$V^xHV^{-x}$。
-九twistの積$D$について$DV^w$が内自己同型かどうかを
-自由群の被約語で判定すれば元の表示での幾何性を判定できる。
+垂直twist$V_i$は$a\mapsto b_i a$、$j>i$の$b_j$を$b_i$で共役する。
+多重次数$x$の線束の閉曲線は$[V^x(a)]$であり、そのtwistは$V^x H V^{-x}$。
+九twistの積$D$について$DV^w$が内自己同型かどうかで元の表示での幾何性を判定する。
+共通零次数成分の縮約は$Rf_*\mathcal O_E=\mathcal O_{E'}$と
+射影公式によりdirected algebraを保つ。
 abelianizationでは$h_*a=a+\sum w_i b_i$、$h_*b_i=b_i$。
-非分離軸一本なら$w_i\equiv0\pmod3$。
-$c=3$で二軸なら、軸の差は周辺loopの一つの類の符号付きなので、
-三を法として少なくとも一座標は零。
-従って$c=3$で全座標が同じ非零剰余なら三軸、分離軸なし、
-全指数一で共役認識可能。
-全九線束の共通零成分は節点に縮約でき、$Rf_*\mathcal O_E=\mathcal O_{E'}$
-と射影公式でdirected algebraが不変になる。
-共通線束での捩りによる正規化はこの操作の前に許される。
 
-整数計算は \path{computations/verify_ou_reduced_multidegrees.py} と
+全候補を処理するには、写像類の標準分解を求める必要がない。
+試行する純粋写像類は
+\[
+ G_{v,i,j,k}=V^v H^k V^{e_i-e_j}H^{-k}V^{-v},
+ \qquad v\in\{-1,0,1\}^c,\quad i\ne j,\quad k=\pm1.
+\]
+三成分ではさらに$\sigma^{\pm1}$を単独または左右に合成する。
+$\sigma$は$a,b_1,b_3$を固定し$b_2\mapsto b_1b_2^{-1}b_3$とする。
+周辺loop$p_1,p_2,p_3$はそれぞれ$p_2,p_2^{-1}p_1p_2,p_3$に移るので、
+Dehn--Nielsen--Baerにより向きを保つ写像類となる。
+Opper Cor.~8.41で持ち上げ、Theorem~9.20で線束の曲線を認識する。
+$G$が九線束の全曲線を他の線束曲線へ移すことを
+abelianizationだけでなく自由群の巡回被約語の共役で検証する。
+全次数の保存と隣接ブロックの次数零の一次元Homから
+像の線束のshiftは全て共通となる。
+これを取り除き、共通線束のtensor積で多重次数を正規化する。
+従って新旧のdirected algebraは同型であり、標準OU比較も同じである。
+
+再現コードは \path{computations/verify_ou_reduced_multidegrees.py} と
 \path{computations/verify_ou_nodal_mapping_classes.py}。
-二成分の16候補は正6、幾何的零境界4、共通零成分2、
-負の$w$の4。最後の4候補では同一ブロック内の多重次数差により
-分離軸がない：二穿孔を囲む軸の外側は一境界トーラスで、
-同じ原始傾きの曲線はそこで同位になり矛盾する。
-$w=(-1,4),(4,-1)$は一軸の合同条件に反するので二軸、
-指数1,2で共役認識。共通零成分2候補は既約節点へ縮約。
-幾何的零境界4候補は$I_3$と矛盾する。
-従って指定の標準helix比較を持つ二成分節点型は認識済み。
-三成分は正9、共通零成分45（C1またはC2）、合同条件18を
-条件付き認識、幾何的零境界42を排除、残り54候補。
-これらは多重次数の必要条件候補の数で、実現可能性や同型類数ではない。
+$c=2$の16候補、$c=3$の168候補のすべてで直接判定または
+上記の有限試行集合内の同時変換の等式証明書が得られる。
+二成分は直接に正6、幾何的零境界4、共通零成分2、変換後に正4。
+三成分は直接に正9、幾何的零境界42、共通零成分45、
+変換後に正18、幾何的零境界36、共通零成分18。
+未判定はない。縮約先における排除の可能性もあるので
+条件付き認識件数は実在する配置の個数ではない。
+標準noetherian OU比較と$I_3$を仮定すれば全節点cycle型の
+内在的標識を標準AS4三次商として認識する。
+この主定理は線形成長による$\delta_{\rm md}=0$を使うが、
+grading幅・標準還元曲線・任意の幾何的共役の認識には依存しない。
+後者の独立の結果は主稿に保持する。
 
 \subsection*{残るOU型への具体的入口}
-三成分節点型の54候補について、自由群自己同型の標準還元曲線を
-実際に計算して分離軸・非分離軸の指数を分類する。
-九曲線と交わらない分離軸の内側の穿孔を減らす表示、
-共通零成分のある別foundation、または内在的条件による欠落軸の排除を
-優先する。現在の自由群計算は元の表示での幾何性の等式判定で、
-一般の残余写像類の標準分解を実行したものではない。
-接触・共点型では$\delta_{\rm md}=0$を得たが、
-$\epsilon$の特殊点での非零性、非幾何的表示の認識は未解決。
-$\operatorname{Ext}^2_\Lambda(I_i,P_i)$の拡大類としての
-$\epsilon_{P_i}$の計算は引き続き候補となる。
-非被約曲線では特異点有限性のAZ2補題を流用しない。
-AOUの$M_{\mathrm{rel}},M_\chi$とOU三次型一般の曲線表示の範囲を区別する。
-標準noetherian qgr/導来比較は標識付き認識の仮定であり、
-OU 2025のbirationalな比較は全型の被覆ではない。
+接触する直線と円錐曲線および共点三直線では、
+$\delta_{\rm md}=0$は成分を保つ変形から得ている。
+次は上記同時変換を代数的に実現できる範囲を調べる。
+純粋写像類の語は点因子のtensor積と構造層のspherical twistの
+合成なので、これらの曲線上でも定義できる。
+ただし、節点genericファイバーの像が線束であることだけから
+特殊ファイバーでの線束性は従わない。
+個々の評価写像の全射・単射性、Ext消滅、局所自由性を調べる。
+$\sigma$については節点模型以外で同じ持上げが存在すると仮定しない。
+また、接触・共点型での共通零成分の縮約、反標準自然変換の非零性を調べる。
+非被約曲線では特異点有限性を使ったAZ2補題を流用しない。
+AOUの曲線表示が全OU型を覆うかは別問題であり、
+標準noetherian qgr/導来比較も標識付き認識定理の仮定として残る。
 
-Opperの原PDFでExample~4.7, Lemma~5.3,
-Proposition~8.40, Corollary~8.41, Figure~22などを確認。
-OU 2020の(3)--(5)も参照する。
-独立監査では特にgradingと自由群の表示、相対変形、
-縮約の合成保存、および既存の環論的認識への依存を点検する。
-今回の二つのPython検算を実行した。新証明全体の独立監査、
-網羅的新規性確認・組版は未完了である。
+今回、Opperの原PDFのLemma~5.3, Proposition~8.40,
+Corollary~8.41, Figure~22, Lemma~9.18/9.19,
+Theorem~9.20の該当箇所を確認した。
+Dehn--Nielsen--BaerはFarb--Margalit Ch.~8を参照する。
+二つのPython検算を実行し、全184候補の等式証明書を確認した。
+新証明の独立監査・網羅的新規性確認・組版は未完了である。
 
 \section{候補定義の階層と商スタックの検査}
 主論文の内在的候補の定義
