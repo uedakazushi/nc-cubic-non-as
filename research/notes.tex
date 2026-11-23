@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v8}
+\date{2026年11月24日／non-as-v9}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -55,57 +55,84 @@ AOU Theorem 9.4 の比較が適用される範囲では
 VdBの爆発定理が適用されることと、AOUのhelix比較が
 適用されることも区別する。
 
-\subsection*{滑らかな楕円型の直接認識と境界の計算}
-主論文の定理\texttt{thm:ou-smooth-elliptic-recognition}は、
-admissible smooth elliptic decupleの標準noetherian qgr/導来helix比較
-を持つOU型が内在的三次候補でもあるとき、与えた標識の反標準環を
-標準AS4三次商と認識する。爆発の一般位置を仮定しない。
-OU spherical functorの三角$s^{-1}\to\mathrm{id}\to JF$から出発する。
-曲線側自己同値$h$は九本のtwistの積の逆を$[2]$したもの。
-実際のheartを確認するため、degree 2の線束をdegree 1三本の評価核
-（rank 2, degree 1）とdegree 0三本の評価核へ順に移し、
-シフトを打ち消して線束にする。その後点対象へのHomで全heartを認識する。
-$h$はdegree 3の捩りと平行移動。$J$はhelixの十分負の対象からの
-Hom消滅により標準heart上完全であり、中心一次元で消される対象の
-圏を通じて像のGK次元は一以下。
-$\mathcal O$のtorsion-free性から
-$0\to s^{-1}\mathcal O\to\mathcal O\to JF\mathcal O\to0$、
-AZ1から$F\mathcal O$のrank正、AZ2から$n\gg0$のHomの差$3n$。
-ベクトル束rank$r$とtorsion長$\ell$の下界$3nr^2+r\ell$により
-$r=1,\ell=0$。全正次数で制限が全射、正則中心一次元の商は次数3 THCR。
-二次包絡の正則性は中心拡大判定で認識する（証明は主論文）。
-admissibility自体から$I_3$を結論するわけではなく、
-一般のOU型が滑らかな楕円decupleを持つとも主張しない。
+\subsection*{既約種数一曲線型の直接認識と境界の計算}
+主論文の定理\texttt{thm:ou-integral-elliptic-recognition}は
+滑らかな楕円曲線・節点・尖点三次曲線上の次数$0,1,2$各三本の線束と
+標準noetherian qgr/導来helix比較を持つOU型が内在的三次候補でもあるとき、
+与えた標識の反標準環を標準AS4三次商と認識する。
+爆発の一般位置を仮定しない。
+特異曲線の場合に$\operatorname{Perf}E$と$D^b(\coh E)$を区別する。
+OU spherical functorの三角は前者を用い、右随伴$J$は九線束からの
+導来Homにより後者にも延長する（$\Lambda$の有限大域次元を使用）。
+Burban--Kreu{\ss}ler Cor.~5.8 と二段の評価核の計算により、
+九本のtwistの積の逆を$[2]$した$h$は
+次数三の線束による捩りと曲線自己同型であり、偶数シフトは零。
+行列式を取るべきGrothendieck群は$K_0(\operatorname{Perf}E)$であり、
+特異曲線の$G_0(E)$で代用しない。
+この行列式から$\alpha^*$が全次数零の線束に恒等であること、
+ATVのregular triple条件$(\alpha^*-1)^2[\mathcal L]=0$が従う。
+$J$の完全性と像のGK次元一以下を確認し、反標準三角と
+$\mathcal O$のtorsion-free性、AZ1/AZ2で制限線束を認識する。
+正則中心一次元の商は次数3 THCR、二次包絡は中心拡大判定による。
+指定の曲線データだけで内在的条件や全OU型の被覆を結論しない。
 
-標識変更の独立な結果は命題\texttt{prop:ou-marking-walls}。
+\subsection*{AZ2からの局所自由性と可約曲線への帰着}
+主論文の補題\texttt{lem:ou-az2-singular-free}は連結被約射影曲線全般で
+幾何的$h$に対するAZ2から全特異点での局所自由性を導く。
+全射$\mathcal O_E\to k(p)$と$p$の周期を使い、
+剰余体値の全線形汎関数が局所環値の写像に持ち上がることから、
+Nakayamaの補題を二度適用する。被約性と有限特異点集合が必要。
+次に$M$はベクトル束と滑らかな点に台を持つ有限長層に分解する。
+命題\texttt{prop:ou-reduced-curve-rank}では、導来随伴$F\dashv J$、
+反標準三角、$Fs\simeq hF$、完全conservativeな$J$と像GK次元一以下、
+$\deg N=3$を仮定している。
+AZ2を曲線側へ移し、AZ1とHilbert差$3n$から
+$3n\ge 3nr^2+r\ell$で$r=1,\ell=0$となる。
+これは被約可約算術種数一曲線にも使える。
+
+命題\texttt{prop:ou-reduced-cubic-geometric}ではさらに$h$が
+九線束のtwist積に由来すると仮定し、全次数零線束への作用から
+成分置換を排除する。AZ1が曲線側に移るので
+$\deg N|_{E_i}>0$（各成分）、全次数三を得る。
+被約平面三次曲線では真の部分曲線とその補曲線の交叉長は二。
+この値と正多重次数から長さ二の部分スキームを分離でき、
+very ample性とregular triple性が従う。
+従って可約被約曲線でも上記仮定の下で標準AS4三次商。
+$R/zR$が整域であることはこの中心拡大判定に不要。
+残る核心は、可約曲線上の実際の九線束helixから幾何的でampleな$h$を得て
+$J$の完全性等を確認すること。幾何的でampleな$h$と標準helix比較があれば
+曲線heart認識は既約の場合と同じ方法で示せる。
+非被約曲線では特異点集合が有限でないため、上の局所補題を流用しない。
+Burban--Kreu{\ss}ler Cor.~5.8の可約曲線への無条件拡張も行わない。
+
+\subsection*{標識変更の独立な結果}
+命題\texttt{prop:ou-marking-walls}を参照。
 第一ブロック内の六順序でVdBの移動後一般位置を判定すると、
 99 primitive行（18行は1順序、81行は2順序）を得る。
 その3975の有理二次元行空間のうち全順序を覆う30空間は
 すべて$\delta=L_1-L_0$を含む。
 従って$\delta$非torsionなら全順序失敗は余次元3以上。
-再現コード \path{computations/verify_ou_decuple_markings.py} を実行済み。
+再現コード \path{computations/verify_ou_decuple_markings.py} の
+実行済み記録を保持する。今回の全計算再実行とは区別する。
 単一の混合三点等式の一般点は別の順序で回復できる。
-AOU Thm.9.4の全仮定をVdB一般位置のみと同一視しない。
-また非torsionの場合の三点一般位置条件と関係係数非消失条件は
-異なる（主論文の命題\texttt{prop:decuple-zero-coefficients}と
+AOU Thm.~9.4の全仮定をVdB一般位置のみと同一視しない。
+非torsionの場合の三点一般位置条件と関係係数非消失条件は異なる
+（主論文の命題\texttt{prop:decuple-zero-coefficients}と
 注意\texttt{rem:decuple-distinct-boundaries}）。
 
 \subsection*{残るOU型への具体的入口}
-次に滑らかな楕円表示を持たないOU型を調べる。
-AOUの$M_{\mathrm{rel}},M_\chi$における楕円表示の像・補集合の
-幾何と、OUの三次型の全定義範囲を区別する。
-特異な算術種数一Gorenstein曲線への拡張では
-$\operatorname{Perf}E$と$D^b(\coh E)$が同じでないことに注意する。
-滑らかな場合に用いたhereditary性、点対象の完全性、
-torsion-free sheafの局所自由性は一般には失敗する。
-まず既存のtwistの積が幾何的自己同値となる条件と、
-制限functorのcohomological amplitudeを調べる。
-次にrank一torsion-free制限層が線束になるための追加条件を、
-AZ2・局所Extあるいは曲線特異点の局所環で判定する。
-可約曲線では多重rank・多重次数のHilbert差を計算し、
-非楕円型では反標準の自然変換または正規一次元の存在自体を問う。
-これらは今後の課題である。
-外部入力の適用条件と新規性は独立に確認する。
+被約可約平面三次曲線（直線と円錐曲線の横断・接触、
+三直線の三角形・共点）について、
+九線束のspherical twist積が幾何的か、その多重次数が正かを調べる。
+必要に応じ非幾何的または半ampleな場合に内在的条件が成立しないことを示す。
+AOUの$M_{\mathrm{rel}},M_\chi$における曲線表示の像・補集合と
+OU三次型の全定義範囲を区別し、非被約・非曲線型の残りを記述する。
+特異曲線上の局所自由性と、幾何的$h$が存在することは別の問題である。
+OU 2020のpp.~1--2、Burban--Kreu{\ss}ler arXiv v2 Cor.~5.8（p.~37）、
+VdB \S12 p.~121の一次資料を今回確認した。ATVのregular tripleは
+原著の公開テキスト抜粋と出版社書誌による確認で、原版PDF全体は未照合。
+標準noetherian qgr/導来比較は引き続き定理の仮定。
+独立監査と新規性の確認、組版は未実施である。
 
 \section{候補定義の階層と商スタックの検査}
 主論文の内在的候補の定義
