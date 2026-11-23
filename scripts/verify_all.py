@@ -14,6 +14,7 @@ PROGRAMS=(
     "computations/verify_ou_iv_relation_matches.py",
     "computations/verify_ou_iv_periodic_objects.py",
     "computations/verify_ou_plane_curve_reduction.py",
+    "computations/verify_ou_determinant_cyclic.py",
     "computations/verify_boundary_fermat.py",
     "scripts/del_pezzo_degree2_verification.py",
     "scripts/nc_dp1_quintic_checks.py",
