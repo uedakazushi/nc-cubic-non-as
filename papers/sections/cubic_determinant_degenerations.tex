@@ -732,6 +732,178 @@ $[1:1:1]$を持ち、そこで二次項は非退化なので普通の節点で�
 有用になることを示す。
 \end{example}
 
+\subsection{三巡回同時の核rank障害を排除する高次syzygy}
+\label{subsec:ou-dense-higher-syzygies}
+
+\begin{theorem}[全係数非零の場合の三巡回同時rank落ちの排除]
+\label{thm:ou-dense-no-triple-torus-failure}
+全ての$c_{ijk}$が非零で、導来helixがvery strongであるとする。
+このとき三つの巡回表示の少なくとも一つは
+条件\ref{item:ou-torus-rank-drop}を満たす。
+この主張に内在的三次標識、標準noetherian helix比較、
+あるいは行列式線形式のrank三の仮定は不要である。
+\end{theorem}
+
+\begin{proof}
+三方向全てで条件(iii)が失敗すると仮定する。
+各方向の障害となるsliceの添字を独立に$0$へ移す。
+矢印$A_{ij},B_{jk},C_{ki}$のスカラー倍はpotentialの係数に
+二添字の非零スカラーの積を掛けることに対応する。
+従って
+\[
+ c'_{ijk}=
+ \frac{c_{ijk}c_{i00}c_{0j0}c_{00k}}
+ {c_{ij0}c_{i0k}c_{0jk}c_{000}}
+\]
+に取り替えてよい。実際、この係数の比は三つの二添字関数の積であり、
+全巡回二次関係と経路空間の次元を保存する。
+以下プライムを省略する。添字の一つでも$0$なら$c_{ijk}=1$である。
+各方向で非零slice同士の成分比のrankは、この正規化の前後で
+行・列の非零スカラー倍しか変化しない。
+障害sliceが全成分$1$になったので、全方向の全sliceのrankは二以下。
+各sliceの第零行・列を用いた消去により、
+$d_{ijk}=c_{ijk}-1$ ($i,j,k\in\{1,2\}$) の六つの
+$2\times2$面のrankは一以下である。
+系\ref{cor:ou-cyclic-support-obstruction}より各面は非零。
+実際、零面があればそのsliceと第零sliceの比はrank一となる。
+
+$d$の非零成分の集合を立方体の頂点集合とみなす。
+各面の台は非空な長方形（行添字集合と列添字集合の直積）である。
+台にHamming距離二の二点があれば、その面は全て非零。
+反対面にも少なくとも一点がある。この点と隣接する位置の
+最初の面の点を組にすると、距離二の条件から反対面の隣接点も
+非零となり、繰り返して反対面全体が非零となる。
+距離二の二点がなければ、任意の異なる二点間の距離は奇数なので
+立方体のparityにより高々二点である。
+六面が全て非零なので、二点は対頂点でなければならない。
+従って以下の二場合だけを考えればよい。
+
+\smallskip
+\noindent\textbf{対頂点型.}
+添字$1,2$の交換により
+$c_{ijk}=1+\alpha\delta_{i1}\delta_{j1}\delta_{k1}
++\beta\delta_{i2}\delta_{j2}\delta_{k2}$とできる
+（$\alpha,\beta\ne0$）。
+$U_0\to sV_0$の長さ四の経路の商空間の双対を考える。
+中間添字を$(j,k,i)$とし、双対係数を$H_{jki}$とする。
+最初と最後の二次関係は
+$\sum_jH_{jki}=0$、$\sum_iH_{jki}=0$である。
+従って各$k$の行列$H_k$は、行和と列和が零の四次元空間に属する。
+中間の関係は
+\[
+ \sum_k H_{jki}
+ +\alpha\delta_{j1}\delta_{i1}H_{111}
+ +\beta\delta_{j2}\delta_{i2}H_{222}=0 .
+\]
+左端の行列の行和は零なので$H_{111}=H_{222}=0$、
+従って$\sum_k H_k=0$。
+逆にこれらの条件は全ての関係を消す。
+十二次元の空間から四条件と高々二条件を引くので、
+双対の次元は六以上である。
+しかし補題\ref{lem:ou-cyclic-cubic-syzygy}のEuler行列
+$S_0^{\mathsf t}D$よりvery strongの場合の
+$\dim\operatorname{Hom}(U_0,sV_0)$は五である。
+巡回代数の二次表示も同補題により成立するから矛盾する。
+
+\smallskip
+\noindent\textbf{全台型.}
+全成分が非零の$d$の六面の小行列式消滅から
+$d_{ijk}=x_i y_j z_k$と書ける。
+例えば$d_{i11}d_{1j1}d_{11k}/d_{111}^2=d_{ijk}$は
+面の等式を順に用いて従う。
+$x_0=y_0=z_0=0$と置く。
+各方向の非零二値は相異なる（等しければ二つのsliceの
+成分比がrank一）。従って各$x,y,z$の三値は相異なる。
+
+$U_0\to sW_0$の長さ五の経路の双対係数を$H_{jkil}$とする。
+外側の二次関係から$j,l$の各方向の和が零である。
+$\mathbf1=(1,1,1)^{\mathsf t}$とし、$a$を
+$\mathbf1^{\mathsf t}a=y^{\mathsf t}a=0$を満たす非零ベクトル、
+$b=\operatorname{diag}(y)a$とする。
+三値の相異性とVandermonde行列から$a,b$は
+$\ker\mathbf1^{\mathsf t}$の基底で、
+$\operatorname{diag}(y)b$はこの空間に属さない。
+従って一意に
+\[
+ H_{jkil}=a_j a_l P_{ki}+b_j a_l Q_{ki}
+            +a_j b_l R_{ki}+b_j b_l M_{ki}
+\]
+と書ける。残りの二次関係は
+\[
+ \sum_k(1+x_i y_j z_k)H_{jkil}=0,\qquad
+ \sum_i(1+x_i y_l z_k)H_{jkil}=0 .
+\]
+$X=\operatorname{diag}(x),\, Z=\operatorname{diag}(z)$とする。
+$a,b,\operatorname{diag}(y)b$の係数を比較すると、
+第一の式は
+\[
+ \mathbf1^{\mathsf t}P=\mathbf1^{\mathsf t}R=0,\quad
+ \mathbf1^{\mathsf t}Q=-z^{\mathsf t}PX,\quad
+ \mathbf1^{\mathsf t}M=-z^{\mathsf t}RX,
+ \quad (z^{\mathsf t}Q)_i=(z^{\mathsf t}M)_i=0\ (i\ne0).
+\]
+第二の式は
+\[
+ P\mathbf1=Q\mathbf1=0,\quad
+ R\mathbf1=-ZPx,\quad M\mathbf1=-ZQx,\quad
+ (Rx)_k=(Mx)_k=0\ (k\ne0).
+\]
+これらは必要十分な線形方程式である。
+$Q\mathbf1=0$より$z^{\mathsf t}Q=0$、
+$\mathbf1^{\mathsf t}R=0$より$Rx=0$も従う。
+$P$には
+$\mathbf1^{\mathsf t}P=P\mathbf1=0$及び$z^{\mathsf t}Px=0$
+が必要で、これは三次元の空間を定める。
+最後の等式は四次元の行和列和零の空間上の非零線形形式である。
+
+任意のこのような$P$について、$Q$の条件は
+$\mathbf1^{\mathsf t}Q=-z^{\mathsf t}PX,\ z^{\mathsf t}Q=0,\
+Q\mathbf1=0$である。
+二つの独立な行汎関数による各列の指定は可能で、
+指定した二行の和は零なので、各列の共通核方向を調整して
+$Q\mathbf1=0$とできる。解の自由度は二。
+$R$も転置による同様の議論で自由度二である。
+
+最後に$M$について
+\[
+ A=\mathbf1^{\mathsf t}M=-z^{\mathsf t}RX,\qquad
+ C=M\mathbf1=-ZQx,\qquad
+ B=z^{\mathsf t}M,\qquad D'=Mx
+\]
+と書く。$B,D'$は第零成分を除き零であり、
+$B_0=z^{\mathsf t}C,\ D'_0=Ax$とする必要がある。
+二つの独立な行汎関数$(\mathbf1^{\mathsf t},z^{\mathsf t})$と
+二つの独立な列ベクトル$(\mathbf1,x)$に対してこの指定が
+可能であるための必要十分条件は
+\[
+ A\mathbf1=\mathbf1^{\mathsf t}C,\quad Ax=\mathbf1^{\mathsf t}D',
+ \quad B\mathbf1=z^{\mathsf t}C,\quad Bx=z^{\mathsf t}D'.
+\]
+実際、両側を基底に延長すれば左上の$2\times2$成分が
+一致する条件に過ぎず、残る自由度は一である。
+第一の等式は$Rx=0,z^{\mathsf t}Q=0$より両辺零、
+中央二式は定義から、最後は$x_0=z_0=0$より両辺零である。
+従って全解空間の次元は$3+2+2+1=8$。
+一方、Euler行列$S_0^{\mathsf t}D$により
+very strongなら$\dim\operatorname{Hom}(U_0,sW_0)=7$である。
+ここでも巡回二次表示により矛盾する。
+以上で全ての場合を排除した。
+\end{proof}
+
+\begin{remark}
+\label{rem:ou-dense-higher-syzygy-examples}
+例えば$x=(0,1,2),y=(0,3,5),z=(0,7,11)$の全台型と、
+$\alpha=1,\beta=2$の対頂点型は、全係数非零で
+各方向の異slice比のrankが一でなく、三方向とも(iii)に失敗する。
+従って三次syzygyの必要条件のみでは上の排除はできない。
+有理数体で長さ四・五の関係部分空間のrankを計算すると、
+全台型では$U_0\to sV_0,sW_0$の商次元はそれぞれ$5,8$、
+対頂点型では$U_0\to sV_0$の商次元は$6$である。
+\path{computations/verify_ou_dense_higher_syzygies.py} は
+二例の計算と立方体の全256台の有限確認を再現する。
+定理の一般証明は上の線形代数による。
+\end{remark}
+
 \begin{remark}
 ここでの可換locusの判定は全係数非零かつvery strong導来helixを
 持つ指定三ブロック箙型に限る。
@@ -739,8 +911,9 @@ $[1:1:1]$を持ち、そこで二次項は非退化なので普通の節点で�
 very strong性を保証しない。
 また一般のOU三次箙型が全係数非零と仮定することはできない。
 rank三の零平面については上の有限判定で扱う範囲が拡大した。
-三つの巡回表示が全てこの判定に失敗する型、あるいは係数零を持つ型は
-引き続き調べる必要がある。
+定理\ref{thm:ou-dense-no-triple-torus-failure}により三巡回全てで(iii)が失敗する型は排除された。
+残る全係数非零型では(iii)を満たす全ての巡回で(i)または(ii)が失敗する必要がある。
+この混合障害と係数零の型は引き続き調べる必要がある。
 関連する整数計算は
 \path{computations/verify_ou_determinant_cyclic.py}を参照。
 \end{remark}

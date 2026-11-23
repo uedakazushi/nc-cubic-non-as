@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-24 / non-as-v19。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-24 / non-as-v20。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -33,9 +33,10 @@
 - **全被約平面三次曲線型の完全認識**（`thm:ou-iv-periodic-exclusion`, `thm:ou-reduced-complete-recognition`）：IV型の最後の関係代数族を、三つの反標準周期単純対象と固定helix対象の任意長の有限長商から排除した。AZ1・AZ2とEuler形式は内在的標識の数値rankを1とする一方、三周期対象へのEuler数から3以上を強制する。IV型の168必要多重次数候補は90条件付き認識・78排除、未判定0。指定の九線束表示と標準noetherian OU比較を持つ全被約平面三次曲線型について、内在的三次条件から標準AS4三次商表示を得る。全OU型の被覆と残存関係代数族のvery strong性自体は未解決。
 - **全平面三次曲線表示の認識と行列式による復元**（`thm:ou-all-plane-cubic-recognition`, `thm:ou-smooth-determinant-reconstruction`, `thm:ou-integral-determinant-criterion`）：三重直線は全次数が3の倍数なので排除される。二重直線と直線の和は前向きExt消滅と箙の合成の生成性から九線束が二重直線上で共通捩りを除いて自明となり、尖点三次曲線へ縮約して同じdirected algebraを得る。従って任意の平面三次曲線の指定九線束表示、AOU三ブロック箙型の標準noetherian OU比較と内在的条件の下で標準AS4三次商表示を得る。一般の関係テンソルから三つの行列式の線形式により P⁵ の固定二項三次超曲面を切断する。3線形式が独立で切断が滑らかなら九線束表示を直接復元。既約特異切断では偶奇座標直線の九交点が滑らかで、特異点における三つの線束行列のrankが二であることが同じ頂点ラベルの既約曲線表示の必要十分条件。可約・非被約切断やrank落ち等の条件外は別問題。
 - **全係数非零のrank2可換locusとrank3可約切断の認識**（`cor:ou-cyclic-support-obstruction`, `cor:ou-dense-commutative-rank-criterion`, `thm:ou-reduced-determinant-grid`）：三次syzygyから各slice比のrank1を排除（係数零の場合はsupport graph条件）。全係数非零・very strong導来helixの三つの巡回表示で、行列式rank2が一つでも現れることと滑らかな可換三次曲面のAOU九線束型であることは同値。rank2の切断は滑らかな三次曲面で、九直線と行列核を六点爆発の標準線束列に同定し、標準helix比較ならcoh Xと同値。その他は全巡回rank3、零平面は二項三次内に含まれない。rank3の係数による復元条件は(i)零平面上の偶奇座標形式の独立、(ii)係数行列の偶奇2列の独立、(iii)各kに対してあるk'≠kでdet(C_k'/C_k)≠0（成分ごとの比）。この三条件で被約曲線の九線束を復元（可約も含む、既約では必要十分）。格子点の成分は行だけまたは列だけで決まるため多重次数・核・直交性を制御できる。巡回で既約rank障害が可約表示に移り解消する具体例も記号検算したが、その例のvery strong性・I_3は未確認。
+- **高次syzygyによる三巡回同時の核rank障害の排除**（`thm:ou-dense-no-triple-torus-failure`）：全係数非零かつvery strong導来helixなら少なくとも一つの巡回で(iii)が成立する。三方向の障害sliceを0とし係数をrescaleして全座標零面を1にすると、残る2×2×2立方体のc−1の各面は非零rank1。台は全立方体または対頂点のみ。積型では長さ5の経路商次元8（必要値7）、対頂点型では長さ4の経路商次元6以上（必要値5）となる。一般証明は主稿、標準比較・I_3・行列式rank3は不要。`computations/verify_ou_dense_higher_syzygies.py` で全256台と二つの有理数係数例を検算。三条件同時成立を保証するものではない。
 - **六標識の境界**（`prop:ou-marking-walls`）：第一ブロックの6順序でVdB一般位置を比較し、99の整数等式と3975のrank二行空間を得る。δ非torsionの場合に全標識が失敗する集合は余次元3以上。これはAOUの全仮定を回復する主張ではない。
 
-一般の包含は未解決です。次は全係数非零型の三巡回すべての復元条件の失敗locus、零係数を持つ関係テンソル、標準helix比較の適用範囲を優先します。標識付き認識には標準noetherian qgr/導来比較を仮定します。今回は `python3 computations/verify_ou_determinant_cyclic.py` を実行し、Euler行列、偶奇置換、双対Gauss恒等式、古典九直線の巡回類、巡回復元の例を検証しました。新たな可換認識と可約曲線の復元は主論文の証明によります。周期対象の検算は既存の検証記録として保持します。節点型の全184候補の自由群検算は既存の検証記録として保持します。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
+一般の包含は未解決です。三巡回同時の(iii)失敗を排除したので、次は(iii)が成立する全巡回で(i)または(ii)が失敗する混合障害、零係数を持つ関係テンソル、標準helix比較の適用範囲を優先します。今回は新スクリプトによる全256台と二例の有理数経路空間を検証しました。標識付き認識には標準noetherian qgr/導来比較を仮定します。既存の検証では `python3 computations/verify_ou_determinant_cyclic.py` を実行し、Euler行列、偶奇置換、双対Gauss恒等式、古典九直線の巡回類、巡回復元の例を検証しました。可換認識・可約曲線の復元・今回の高次syzygy排除は主論文の証明によります。周期対象の検算は既存の検証記録として保持します。節点型の全184候補の自由群検算は既存の検証記録として保持します。他の計算の過去の実施記録は今回の全計算再実行とは区別します。新規証明の独立監査・新規性確認・組版は未実施です。
 
 ## 二次包絡と商スタックの精密化
 標準三次Hilbert級数と一次生成性の下で、二次包絡Q(R)が14641型AS正則環であることと、Rがその正則正規三次商になることは同値です（Levasseurの整域性定理に依存）。トーリック商スタック[P²/μ₃]では反標準AZ-ampleなtorsion-free対象はrank 3以上であり、正則表現が最小rankを達成します。詳細な証明は主論文のIntroductionにあります。

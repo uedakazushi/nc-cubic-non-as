@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v19}
+\date{2026年11月24日／non-as-v20}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -678,9 +678,17 @@ $Fs=hF$から全巡回に同じ既約曲線表示を持つ。
 全逆Serre反復のvery strong性、標準比較、$I_3$の存在は未確認なので、
 これをOU型の実在例と断定しない。
 
-\subsection*{残るOU型への具体的入口}
-全係数非零のvery strong型のうち全三巡回がrank三であり、
-全ての切断が上の三条件に失敗するlocusを優先する。
+\subsection*{三巡回同時の核rank障害と残るOU型への具体的入口}
+主稿の定理\ref{thm:ou-dense-no-triple-torus-failure}により、
+全係数非零で三巡回とも(iii)が失敗する型はvery strongでない。
+各障害sliceを添字0とし矢印をrescaleすると座標零面の係数は1、
+残る立方体の$c-1$の各面は非零rank一。
+台は全立方体または対頂点のみ。前者は積型、後者は二係数変動型で、
+それぞれ長さ五、四の経路次元が必要値$7,5$を超える。
+証明は主稿参照。三次syzygyを満たす反例を
+\path{computations/verify_ou_dense_higher_syzygies.py}で有理数上検算した。
+残る全係数非零rank三の型では、少なくとも一つの巡回で(iii)が成立する。
+そのような全ての巡回で(i)または(ii)が失敗する混合障害を優先する。
 三条件は係数の有限なrank・行列式の等式/不等式なので、
 失敗理由を分けたstratificationと残存族の構造を調べる。
 (ii)の失敗は二つの置換積の比が全sliceで一定という局所的な
