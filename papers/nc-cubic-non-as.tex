@@ -463,15 +463,16 @@ Hirzebruch--Riemann--Rochにより
 \end{corollary}
 \begin{proof}
 そのような同値があれば$D^b\qgr R$もsmooth properである。
-標準三次商のAS-Gorenstein双対性
-（Gorenstein parameter $4-3=1$、\cite{YZ1997}、
-本稿のClifford非表示証明で用いる標準商の双対性と同じ入力）
-により、$S^{-1}[2]$は次数一移動と次数付き自己同型による捩りの合成となる。
-自由対象$\pi R$の捩りは同型なので、
-$(\pi R,S^{-1}[2])$はAZ-ampleであり、その反標準切断は
-十分高次で$R_n$と同じ次元を持つ。
-（標準次数移動のAZ-ample性とAS-Gorensteinの局所コホモロジー消滅を使用。）
-従ってその先頭係数は$3/2$である。
+標準三次商の補題\ref{lem:AS-cubic-cohomology}(i),(iii)により
+$(S^{-1}[2])^n\pi R\simeq\pi R(n)$であり、
+$\dim\operatorname{Hom}(\pi R,(S^{-1}[2])^n\pi R)=\dim R_n$である。
+次数移動の標準対$(\pi R,(1))$はAZ-ampleである
+（AS-Gorensteinの局所コホモロジー消滅と
+\cite{AZ1994,YZ1997}、同補題の証明）。
+AZ1, AZ2は負移動された構造対象の同型類だけに依存する。
+従って移送した$(\pi R,S^{-1}[2])$もAZ-ampleであり、
+先頭係数は$3/2$である。
+ここではSerre移動と次数移動の関手としての同一視は不要である。
 同値はSerre関手、Hom、AZ1、AZ2を保存するから定理に矛盾する。
 \end{proof}
 
