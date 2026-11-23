@@ -2,9 +2,10 @@
 2026-11-24 / non-as-v6。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
-rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題はOU三次del Pezzo型から標準AS4三次超曲面型への逆包含の決着である。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については下記の弱del Pezzo境界構成による否定を原稿に収録する方針、後者は未解決である。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
+rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題はOU三次del Pezzo型から標準AS4三次超曲面型への逆包含の決着である。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
 
 ## 証明を保持した主要結果
+- **OU三次型の逆包含反例（新規性未確認）**：弱del Pezzoの反標準収縮上のheart `coh(Y,f_*End(T))` はOU三次型。全反標準AZ-ample対象のvirtual rank r≥2、反標準Hilbert多項式の先頭係数3r²/2≥6。従って標準AS4三次超曲面とunpointed非同値。ただしI_3にも属さない。原稿に証明あり、全文の独立監査・組版・新規性確認は未了。
 - **次数3・量子Fermat**（元`nc-cubic-non-as`）：中心正規三次商の反標準圏について、離散torsion付き`(μ_3)^2`商への導来Morita同値と `HH_{-1,0,1}=(2,5,2)`。OUのAS surfaceではないが、AS四次元ambientの超曲面にはなっている。計算：`computations/verify_quantum_fermat*.py`。
 - **次数3・非CY符号型二次元族**（元`nc-cubic-non-as`）：非中心正規三次商、退化twisted group algebra `M_2 ⊕ M_2` のMorita還元、`HH=(2,4,2)` とOU非AS性。fixed ambientでのpointed同型類は一般に二次元。H3認識は既存分類稿の結果に依存。計算：`computations/verify_sign_family_sectors.py`。
 - **次数3・Clifford order**（元`nonas-ncdp`）：`Z=F_1, L=C+2f, V=O^2⊕O(f)`。反標準環は次数一生成の左右noetherian domainで `(1-t^3)/(1-t)^4`、二次包絡の三次成分は **19** 次元。connected gradedな標準quadratic AS4 ambientの三次正規商とは、構造対象を忘れたアーベル圏としても同値でない。任意の非周期的Z-algebraへの拡張は未証明。証明書：`certificates/degree3_quadratic.json`。
@@ -23,7 +24,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 - **商スタックのrank下界**：X=[P²/μ3]、s=⊗ω_X^{-1}では、AZ-ampleなtorsion-free Fのrankは必ず3以上。反射的双対F**に延長されるHomと、固定点での慣性群の三つの指標で証明。rank3の正則表現が下界を達成。構造層のみの非amplenessより強い。
 
 ## 主要な未解決問題と優先課題
-0. **最優先：OU三次型の逆包含。** 滑らかな楕円曲線上の6点のうちp1,p2,p4だけを共線とする弱del Pezzo Xを用い、AOUの3ブロックhelixを構成する。反標準収縮f:X→Y、Tをfoundationの和、B=f_*End(T)とし、OUのheartをcoh(Y,B)で同定する。収縮(-2)曲線上のO_CとO_C(-1)[1]がheartに入り、任意の反標準AZ-ample対象の導来rankが2以上となることを証明する。反標準Hilbert多項式の先頭係数は3r²/2なので、標準三次型（r=1）は排除される。主論文に証明を統合し、OU/AOUの既知定理の適用とheart同定を独立監査する。**さらにI_3に属するOU型での反例、または逆包含定理**を次の核心とし、rank障害だけでI_3内の反例を主張しない。AOU Thm. 9.4の導来同値のt-exact性も検討し、肯定範囲を確定する。
+0. **最優先：OU三次型の逆包含。** 滑らかな楕円曲線上の6点のうちp1,p2,p4だけを共線とする弱del Pezzo Xを用い、AOUの3ブロックhelixを構成する。反標準収縮f:X→Y、Tをfoundationの和、B=f_*End(T)とし、OUのheartをcoh(Y,B)で同定する。収縮(-2)曲線上のO_CとO_C(-1)[1]がheartに入り、任意の反標準AZ-ample対象の導来rankが2以上となることを証明する。反標準Hilbert多項式の先頭係数は3r²/2なので、標準三次型（r=1）は排除される。主論文に証明を統合済み。型は逆Serre bimoduleのtensor代数表示・有限二次関係から直接確認し、AOU Thm. 9.4の一般位置の非可換爆発を適用しない。OUのvery strong helix定理、標準正規商の双対性、heart同定の独立監査と新規性調査を行う。**さらにI_3に属するOU型での反例、または逆包含定理**を次の核心とし、rank障害だけでI_3内の反例を主張しない。AOU Thm. 9.4の導来同値のt-exact性も検討し、肯定範囲を確定する。
 1. **公表前監査と先行研究**：OU (arXiv:2508.04986v1) Def. 1.1, §3 と Levasseur (1992) Thm. 6.2(ii) を一次資料で確認済み。他の引用と独立検証を続け、OU一般とAS4超曲面の関係、rank-three stack型境界の他の例を整理し、主論文の全引用について一次資料の指定定理・仮定・版を確認する。特に離散torsion付きMorita同値とorbifold HKRの指標、Artin--Zhangの原著、Clifford orderの非表示の初出、新規性は独立検証未完了。
 2. **次数3の境界拡張**：一般の非周期的AS正則Z-algebraにおいて、自由対象のSerre helixと三次合成空間が20次元となるための条件を調べる。Mori--Nymanの訂正版の仮定を保持し、非存在を一般に断定しない。
 3. **符号型の精密化**：H3認識と固定ambientの二次元分類の既存分類稿との仮定を再照合し、versal変形・全intrinsicモジュライ成分性・OU locusの開閉性を検討する。
@@ -31,7 +32,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
 ## 主張と検証の状態
-既存両リポジトリの論文には主張の証明がある。今回の統合作業は、内容・入力順・引用・コンパイル構成の整合を検査する作業であって、全圏論的証明を形式化したものではない。有限行列、Groebner基底、Hochschild sector のコードは計算部分の検証に限る。前稿記載の数値と文献記述を無断で新規性確定に読み替えない。文献の未確認箇所や証明の追加仮定は現行ノートに明記する。
+既存結果に加え、OU三次型の弱del Pezzo境界例の証明を主論文に収録した。OU arXiv:2508.04986v1 Definition 1.1, §§3,5 とAOU arXiv:2404.00175v1 §§4,7,9 の該当箇所を今回確認した。新しい証明は独立監査・形式化・組版未実施。有限行列、Groebner基底、Hochschild sector のコードは計算部分の検証に限る。前稿記載の数値と文献記述を無断で新規性確定に読み替えない。文献の未確認箇所や証明の追加仮定は現行ノートに明記する。
 
 ## 恒常的研究原則と保存許可
 1. 研究の価値を最大化するため、重要性・新規性・理解・応用・正確性・実現可能性に従い方針を柔軟に更新する。変更理由と元目標の解決・残存部分を現在形で記す。時系列履歴を残さない。
