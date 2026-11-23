@@ -28,7 +28,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月24日／non-as-v7}
+\date{2026年11月24日／non-as-v8}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -37,7 +37,7 @@
 また、Hirzebruch曲面$\mathbb F_1$上の偶Clifford orderは次数三の反標準Hilbert関数を持ち、反標準環は次数一生成でありながら、その二次包絡の三次成分が十九次元となる。
 これは標準四次元AS正則代数の三次超曲面表示を、構造対象を忘れたアーベル圏としても排除する。
 次数一・二の二つのClifford orderについても、標準的な最小生成次数を持つ重み付きAS正則ambientによる超曲面表示は存在しない。一方、別の生成次数を持つAS正則ambientでは明示的な超曲面表示が存在する。
-逆向きについては、弱del Pezzo曲面の反標準収縮からOUの三次型AS surfaceを構成し、全反標準ample対象の導来rankが少なくとも二となることを示す。従ってこの曲面は標準三次超曲面型にも内在的三次候補にも属さない。内在的候補に制限したOU型の逆包含については、可換弱del Pezzo導来型を認識し、既知の非可換六点爆発の導来同値をアーベル圏の同値に強め、楕円データから二次関係の消失条件を計算する。一般の場合は未解決である。
+逆向きについては、弱del Pezzo曲面の反標準収縮からOUの三次型AS surfaceを構成し、全反標準ample対象の導来rankが少なくとも二となることを示す。従ってこの曲面は標準三次超曲面型にも内在的三次候補にも属さない。内在的候補に制限した逆包含については、可換弱del Pezzo導来型の認識に加え、滑らかな楕円decupleの標準OU helix比較を持つ型で、反標準ample条件から楕円曲線への制限が線束となることを証明し、正則中心一次元と標準AS四次元三次商の表示を得る。これは非可換爆発の一般位置を必要としない。既知の爆発比較のheart同値への強化、楕円データの二次関係係数と六標識の一般位置境界の計算も与える。一般のOU型の逆包含は未解決である。
 さらにトーリック商スタック$[\mathbb P^2/\mu_3]$では、反標準AZ-ampleなtorsion-free構造対象のrankが少なくとも三となることを証明し、構造層の非amplenessと特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
 \end{abstract}
 \tableofcontents
@@ -225,6 +225,8 @@ $\mathfrak{AS}^{\mathrm{OU}}_3$の\emph{共通部分}である。
 \end{equation}
 である。OUの箙型だけの逆包含とは異なる。まず可換導来型を排除し、
 次に非可換爆発による既知の構成において導来同値をアーベル圏の同値に強める。
+さらに滑らかな楕円型ではspherical functorから反標準環を直接認識し、
+爆発表示に依存しない肯定的結果を得る。
 
 \begin{theorem}[可換弱del Pezzo導来型の認識]\label{thm:recognition-weak-commutative}
 $(\mathcal C,\mathcal O)$が定義\ref{def:intrinsic-dp}の次数三の条件を満たし、
@@ -455,6 +457,9 @@ admissibilityと全係数の非消失を合わせると通常の六点一般位�
 してはならない。またこれらの条件だけからAOUの比較の全仮定や
 内在的条件が従うとは主張しない。
 \end{remark}
+
+\input{papers/sections/cubic_elliptic_recognition.tex}
+\input{papers/sections/cubic_elliptic_markings.tex}
 
 \subsection{弱del Pezzo曲面から得られるOU型の非超曲面例}
 \label{subsec:ou-weak-del-pezzo}
@@ -1539,7 +1544,7 @@ Hochschild homology の計算には，quadric fibration の半直交分解
 量子Fermat点と符号型族の奇数次Hochschild homologyはOU型AS surfaceへの障害であるが、AS四次元ambientの超曲面表示自体を否定しない。
 次数三Clifford例では$\dim Q(R)_3=19$と標準AS四次元代数の$20$の差が、構造対象を忘れた非表示の核心である。
 次数一・二Clifford例は最小生成次数を固定した非表示であり、別のambientによる肯定的な表示も同時に得る。
-最優先課題は式\eqref{eq:intrinsic-ou-question}の決着である。定理\ref{thm:recognition-weak-commutative}と系\ref{cor:aou-abelian-upgrade}の範囲を除き、非可換六点爆発の比較が未確立の楕円境界および非楕円型において、内在的条件が超曲面表示を強制するかを調べる。定理\ref{thm:ou-weak-cubic}の外部入力・非表示の独立監査も残る。その他の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
+最優先課題は式\eqref{eq:intrinsic-ou-question}の決着である。定理\ref{thm:ou-smooth-elliptic-recognition}は、標準OU helix比較を持つ滑らかな楕円decuple型の内在的候補を、与えられた標識のまま認識する。従って中心課題は、滑らかな楕円表示を持たない型の分類と、退化曲線あるいは別のspherical categoryによる同様の認識へ移る。定理\ref{thm:recognition-weak-commutative}と系\ref{cor:aou-abelian-upgrade}の肯定的範囲も保持する。定理\ref{thm:ou-weak-cubic}の外部入力・非表示の独立監査も残る。その他の課題は、次数三Clifford例について非周期的$\mathbb Z$-algebraまで障害を拡張できる条件の確定、符号型の相対変形とOU型部分の位相、及びこれらの明示的結果の初出の徹底調査である。
 本稿の新しい反標準rank障害は上記の証明範囲に限る。独立検証と新規性調査は継続する。
 
 \appendix
