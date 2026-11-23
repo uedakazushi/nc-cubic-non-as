@@ -1,0 +1,252 @@
+% !TeX root = ../nc-cubic-non-as.tex
+\subsection{可約被約三次曲線における多重次数による認識}
+\label{subsec:ou-reducible-multidegree}
+
+$E$を可約被約平面三次曲線とし、その成分数を$c=2,3$とする。
+三ブロックの線束を$(U_i),(V_i),(W_i)$（各$i=1,2,3$）、
+全次数をそれぞれ$0,1,2$とする。同一ブロック内は完全直交し、
+前向きの異なるブロック間の高次Extは消滅すると仮定する。
+多重次数を成分の順に並べた整数ベクトルとして扱い、
+\[
+ A=\sum_i\operatorname{mdeg}U_i,\quad
+ B=\sum_i\operatorname{mdeg}V_i,\quad
+ C=\sum_i\operatorname{mdeg}W_i,\qquad
+ \delta_{\rm md}=A+C-2B,\quad w=5B-3A-2C
+\]
+とおく。ここで$\delta_{\rm md}$は多重次数ベクトルであって、
+楕円標識の比較に現れる$\Pic^0$の元$\delta$とは異なる。
+$\mathcal D=T_{U_1}T_{U_2}T_{U_3}T_{V_1}T_{V_2}T_{V_3}
+T_{W_1}T_{W_2}T_{W_3}$、$h=\mathcal D^{-1}[2]$とする。
+
+\begin{lemma}[多重次数の有限範囲]\label{lem:ou-reduced-md-bounds}
+前向きの二線束$L,M$の多重次数を$x,y$、全次数の差を$d\geq0$とすると
+\[
+ -1\leq y_i-x_i\leq d+1\qquad(1\leq i\leq c).
+\]
+同一ブロックの二線束にも$d=0$としてこの条件が成立する。
+\end{lemma}
+\begin{proof}
+真の空でない部分曲線$Y$（成分の和）は次数一または二の連結な
+算術種数零の曲線であり、補曲線との交叉は$Y$上の長さ二の
+Cartier因子である。従って$Y$上で次数二以上の線束は
+境界に沿って消える非零切断を持ち、これを$E$上に零で延長できる。
+Serre双対性と直交性または前向きExt消滅から
+$H^0(E,L\otimes M^{-1})=0$となる。$Y$を成分一つまたはその補曲線として、
+$\deg_Y(M\otimes L^{-1})\geq-1$を得る。これが表示の両側の不等式である。
+\end{proof}
+
+\begin{proposition}[多重次数の作用]\label{prop:ou-reduced-md-action}
+一様な仮想階数$r$、全次数$d$、多重次数$x$の完全複体について
+\[
+ \mathcal D[-2]:(r,d,x)\longmapsto(r,d-3r,x-rw-d\delta_{\rm md}),
+\quad
+ h:(r,d,x)\longmapsto(r,d+3r,x+rw+(d+3r)\delta_{\rm md}).
+\]
+特に$h=\alpha^*(-)\otimes N$が幾何的ならば
+$\delta_{\rm md}=0$であり、$\alpha$は全成分を保ち、
+$\operatorname{mdeg}N=w$となる。
+\end{proposition}
+\begin{proof}
+$K_0(\Perf E)$の行列式を用いる。全次数$e$の線束$L$に沿うtwistは
+$[Z]\mapsto[Z]-(d-er)[L]$である。同じブロックの三twistでは
+この係数が変化しない。$W,V,U$の順に適用する係数は
+$d-2r,5r-2d,d-3r$であり、
+\[
+ x\longmapsto x-(d-2r)C-(5r-2d)B-(d-3r)A
+ =x-rw-d\delta_{\rm md}.
+\]
+偶数shiftは作用しない。逆を取れば$h$の式を得る。
+幾何的な$h$は、全次数零の線束と構造層との差の行列式を固定する。
+成分上の滑らかな点の差により全和零の多重次数を実現できるから
+$\alpha$は成分を個別に保つ。構造層への作用から
+$\operatorname{mdeg}N=w+3\delta_{\rm md}$、
+全次数一の線束への作用との比較から$\delta_{\rm md}=0$を得る。
+\end{proof}
+
+次の比較は節点のあるKodaira cycleに対する導来自己同値群の記述
+（\cite[Proposition~8.40, Corollary~8.41]{Opper2026}参照）
+に頼らず、接触する直線と円錐曲線や共点三直線にも適用する。
+
+\begin{lemma}[同じ多重次数のtwistの比較]\label{lem:ou-reduced-md-twist}
+$K$を成分を個別に保つ自己同型による引戻しと、
+多重次数零の線束による捩りからなる自己同値の群とする。
+任意の線束$L$について$T_LKT_L^{-1}\subseteq K$である。
+特に$\operatorname{mdeg}L=\operatorname{mdeg}L'$ならば
+$T_{L'}T_L^{-1}\in K$となる。
+\end{lemma}
+\begin{proof}
+まず$T=T_{\mathcal O_E}$とする。引戻しは$T$と可換であり、
+線束による捩りは$K$を正規化する。よって多重次数零の線束$Q$に対して
+$\Psi=T(-\otimes Q)T^{-1}$を調べればよい。
+
+滑らかな点$p$について$T^{-1}k(p)=\mathcal O_E(p)$である。
+$Q(p)$は全次数一かつ非負の多重次数を持つ。
+その逆線束に非零切断はない。実際、全成分で非零ならば
+全次数の負性に矛盾し、真の部分曲線に支持されれば
+境界の長さ二に矛盾する。ゆえに$h^0(Q(p))=1$である。
+その非零切断も真の部分曲線に支持され得ないので、
+長さ一の有効Cartier因子を定める。その因子は$p$と同じ成分の
+滑らかな点$q$である。従って$\Psi k(p)=k(q)$である。
+
+特異点$p$では$T^{-1}k(p)=I_p^\vee$である。
+Gorenstein双対性による完全列
+$0\to\mathcal O_E\to I_p^\vee\to k(p)\to0$は非分裂であり、
+$\Ext^1(k(p),\mathcal O_E)=k$の生成元を表す。
+実際、$I_p^\vee$は全商環に含まれ、有限長部分層を持たない。
+局所環$(D,\mathfrak m)$において
+$(D:\mathfrak m)=\End_D(\mathfrak m)$である。
+もし$q\mathfrak m\subset D$だが$q\mathfrak m\not\subset\mathfrak m$なら
+ある$a\in\mathfrak m$について$qa$が単元となり、
+$\mathfrak m=aD$（$a$は非零因子）を得て非正則性に反する。
+従って$I_p^\vee$は有限な部分正規化$\pi:E_p\to E$の構造層の押出しである。
+上の非分裂拡大の境界写像はSerre双対性で
+$H^0(k(p))\to H^1(\mathcal O_E)$の同型を与えるから
+$H^0(\mathcal O_{E_p})=k,\ H^1(\mathcal O_{E_p})=0$となる。
+$E_p$は連結被約で、各正規化成分は有理曲線である。
+$\pi^*Q$は各成分上の次数零線束で、Riemann--Rochから非零切断を持つ。
+正規化成分上では定数切断であり、連結性からすべて非零、
+従って至る所生成する。よって$\pi^*Q=\mathcal O_{E_p}$。
+射影公式により$Q\otimes I_p^\vee\simeq I_p^\vee$となり、
+$\Psi k(p)=k(p)$である。
+
+以上は$\Psi^{-1}$にも適用できる。幾何的表示を関手として得るため、
+twistと逆twistのFourier--Mukai核（対角層と外部積線束のcone）を用いる。
+合成核は有界連接で第一射影に関して相対完全であり、
+その各導来ファイバーは次数零の長さ一の点層である。
+ここから核は第一射影に関して平坦な連接層となる。
+具体的には局所的なファイバーのスペクトル系列とNakayamaの補題により
+まず最高の正次数のコホモロジーを消し、次いで$H^0$の$\operatorname{Tor}_1$
+の消滅から局所平坦性判定を適用し、残る負次数のコホモロジーを消す。
+支持は第一射影に関して固有かつ準有限なので有限である。
+消去イデアルで定めた支持の構造環は、押出した階数一局所自由層の
+自己準同型環に忠実に作用する。従って構造環は基底の構造環と一致する。
+ゆえに支持は射のグラフであり、核はその上の線束である。
+逆関手にも同じ議論を行えばこの射は自己同型となる。
+滑らかな点の像から成分を個別に保つことが分かる。
+また$\Psi\mathcal O_E=Q$である。実際、非自明な多重次数零線束は
+境界の長さ二と全次数零から非零切断を持たず、双対性から非自明な$Q$は
+acyclicである。自明な場合も$T\mathcal O_E=\mathcal O_E$を用いればよい。
+従って$\Psi\in K$である。
+
+一般の$L$について$T_L=(-\otimes L)T(-\otimes L^{-1})$を用いる。
+さらに$L'=Q\otimes L$なら
+$T_{L'}T_L^{-1}=(-\otimes Q)T_L(-\otimes Q^{-1})T_L^{-1}\in K$である。
+\end{proof}
+
+\begin{theorem}[幾何的かつampleな反標準移動の判定]
+\label{thm:ou-reduced-md-criterion}
+上記の直交性・Ext消滅を持つ九線束に対し、
+$h=\alpha^*(-)\otimes N$（$N$はample）と書けることと
+\[
+ \delta_{\rm md}=0,\qquad w_i>0\quad(1\leq i\leq c)
+\]
+は同値である。これは二成分の横断・接触の場合と、
+三直線の三角形・共点の場合をすべて含む。
+\end{theorem}
+\begin{proof}
+必要性は命題\ref{prop:ou-reduced-md-action}による。
+十分性を有限計算と幾何的比較に分ける。
+補題\ref{lem:ou-reduced-md-bounds}により、共通の全次数零線束で捩って
+第一ブロックの辞書式最小の多重次数を零としたとき、
+各成分の座標は三ブロックでそれぞれ$[-1,1],[-1,2],[-1,3]$に入る。
+成分には順序を付け、ブロック内の三つのベクトルはソートする。
+この規約で全次数$0,1,2$と補題のすべての二項条件を満たす候補を
+整数演算だけで列挙する。
+
+第一ブロックの順序$(a,b,v)$について、$B$を第二ブロックの和とし、
+\[
+ H=B-2a-v,\qquad
+ p_i=\operatorname{mdeg}V_i-a,\qquad
+ p_{j+3}=B-a-v-\operatorname{mdeg}W_j
+\]
+を定める。$H$の全成分が正で全次数三、各$p_i$が単位ベクトルであれば
+これを古典参照型と呼ぶ。この場合$\delta_{\rm md}=0$のもとで
+$b-a=\sum p_i-2H,\ v-a=\sum_{i\leq3}p_i-H,\ w=3H-\sum p_i$となる。
+巡回変更は三ブロックを$(V,W,U+w)$とし、共通捩りで再正規化する。
+$\delta_{\rm md}=0$ならこの操作は$w$を保ち、三回で元に戻る。
+計算結果は次の通りである（これは実際の圏や線束配置の同型類の個数ではない）。
+\[
+\begin{array}{c|r|r|r|r|r}
+ c&\text{二項条件}&w>0&\delta_{\rm md}=0,\ w>0&
+ \text{直接古典参照型}&\text{巡回変更後}\\ \hline
+ 2&180&14&6&6&6\\
+ 3&15012&27&9&7&9
+\end{array}
+\]
+完全な列挙と各恒等式、巡回変更後に参照型が存在することの確認は
+\texttt{computations/verify\_ou\_reduced\_multidegrees.py}に収録した。
+すなわち必要な有限個の多重次数候補のすべてが古典参照型に帰着する。
+
+次に古典参照型を同じ曲線$E$上に実現する。
+多重次数$H$の線束は各成分上正で全次数三なのでvery ampleである
+（命題\ref{prop:ou-reduced-cubic-geometric}の部分曲線による証明）。
+これで$E$を平面三次曲線に埋め込み、指定された成分に六つの相異なる
+滑らかな点を選ぶ。$w>0$により直線成分上には高々二点、
+円錐曲線成分上には高々五点である。従って一般の選択で三点共線を避ける。
+六点共円錐曲線の条件は$2H-\sum p_i=w-H$の多重次数を持つ線束の
+非零切断の存在である。全次数は零で、各真部分曲線の次数は高々一なので、
+非零切断があれば全成分上非零であり線束は自明となる。
+滑らかな点$p$の$\mathcal O_E(p)$は同じ成分内で$p$を識別する
+（全次数一の切断の一意性）ので、一点を動かして自明性を避けられる。
+従って六点は通常の一般位置に選べる。
+
+六点の爆発$X$は滑らかな三次曲面である。例外曲線を$E_i$とすれば
+\cite[(4.1)]{AOU2024}のfull exceptional collection
+\[
+ (\mathcal O,\mathcal O(-2H+\sum E_i),\mathcal O(-H+E_1+E_2+E_3)),
+ \quad(\mathcal O(E_i))_{i=1}^3,\quad
+ (\mathcal O(H-E_j))_{j=4}^6
+\]
+を用いる。$E$の固有変換は同じ曲線で反標準因子であり、
+九線束の制限は参照型の多重次数を持つ（共通捩りを戻す）。
+OUのspherical collectionの積の公式
+\cite[(4),(5)]{OUSpherical2020}により、制限された九線束のtwistの積は
+$\operatorname{Cone}(Li^*i_*\to\mathrm{id})$（$i:E\hookrightarrow X$）である。
+反標準Cartier因子の公式
+$\operatorname{Cone}(Li^*i_*\to\mathrm{id})=(-\otimes\mathcal O_E(-E))[2]$
+から$h_{\mathrm{ref}}$は多重次数$w$のample線束による捩りである。
+この計算は$\Perf E$上で成立し、同じ評価の公式を$D^b(\coh E)$上にも
+適用できる（$i_*M$は滑らかな$X$上で完全）。
+ブロックの巡回変更を逆に戻すには、参照型に対して
+$(U',V',W')\mapsto(h_{\mathrm{ref}}^{-1}W',U',V')$とする。
+twistの共役公式から積$\mathcal D_{\mathrm{ref}}$は不変である。
+従って列挙で巡回変更を要した場合も元の多重次数の参照型が得られる。
+
+最後に補題\ref{lem:ou-reduced-md-twist}により、対応する各線束のtwistは
+参照型のtwistと左からの$K$の元を除いて同じである。
+$K$の元を積の左へ順に移せるので
+$\mathcal D=\kappa\mathcal D_{\mathrm{ref}}$（$\kappa\in K$）。
+ゆえに$h=h_{\mathrm{ref}}\kappa^{-1}$は幾何的であり、その捩りは
+多重次数$w$を持ちampleである。
+\end{proof}
+
+\begin{corollary}[可約被約曲線型の標識付き認識の範囲]
+\label{cor:ou-reduced-md-recognition}
+上の九線束が標準noetherian qgr/導来helix比較を持つOU三次型を
+与え、$\delta_{\rm md}=0,\ w>0$とする。この圏が内在的三次標識を持てば、
+その反標準環は標準AS四次元正則環の正則正規三次商である。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:ou-reduced-md-criterion}から$h$は幾何的かつampleである。
+九線束の厚い生成部分圏はこれらに沿うtwistと逆twistで閉じており、
+従って$h$の正負の軌道を含む。負の十分な軌道からの全射を二段取れば、
+ベクトル束を二項複体の直和因子として得る（第一変数がベクトル束の
+$\Ext^2$は零）。従って$\Perf E$を生成する。
+標準のhelix比較のもとでOUの反標準三角と$Fs\simeq hF$を構成する。
+特異曲線上の$J$の$D^b(\coh E)$への延長は
+定理\ref{thm:ou-integral-elliptic-recognition}と同じである。
+正の多重次数と部分曲線の双対性による消滅・大域生成性を使えば、
+補題\ref{lem:ou-elliptic-heart}の証明が成立して$J$は完全conservative、
+像はGK次元一以下である。
+命題\ref{prop:ou-reduced-cubic-geometric}を適用する。
+\end{proof}
+
+\begin{remark}
+ここで幾何的かつampleな$h$を認識する条件と、
+OU型が内在的三次条件を満たすための必要条件とは区別する。
+$\delta_{\rm md}\ne0$または$w_i\leq0$の場合には、
+本表示の$h$が幾何的かつampleでないことは示されたが、
+内在的標識の非存在や別の曲線表示の非存在は示されていない。
+特にこれらを逆包含の反例とは呼ばない。
+非被約曲線および曲線表示を持たないOU型についても未解決である。
+\end{remark}
