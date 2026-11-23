@@ -1,0 +1,94 @@
+% !TeX root = ../nc-cubic-non-as.tex
+\subsection{楕円decupleの標識変更と一般位置の境界}
+\label{subsec:ou-elliptic-markings}
+
+定理\ref{thm:ou-smooth-elliptic-recognition}とは独立に、
+既知の爆発表示を利用できる範囲を調べるため、第一ブロックの
+順序を変えるだけで回復する一般位置を計算する。
+以下は\emph{VdBの移動後六点の一般位置条件}の比較であり、
+AOU Theorem~9.4の「sufficiently general」の全条件と同一視しない。
+
+加法的Picard群記法を用い、三ブロックを
+$(a_1,a_2,a_3),(m_1,m_2,m_3),(n_1,n_2,n_3)$とする。
+$M=\sum_i m_i,\ N=\sum_j n_j$、
+\[
+ \delta=\sum_i a_i+N-2M,\qquad K_{ij}=M-m_i-n_j
+\]
+と置く（両者は次数零）。
+第一ブロックの六つの順序$(a,b,c)$について、全線束を$-a$で捩り、
+命題\ref{prop:decuple-inverse}を適用すると
+\[
+ D=M-2a-c,\quad L_0=b-a+N-M,\quad L_1-L_0=\delta,
+ \quad P_i=m_i-a,\quad P_{j+3}=M-a-c-n_j .
+\]
+同一ブロック内の順序変更と共通線束による捩りはdirected categoryを
+同値に保つので、OUのhelixとそのheartを変えない。
+
+\begin{proposition}\label{prop:ou-marking-walls}
+固定した滑らかな$E$上のadmissible decupleの空間を
+共通の次数零捩りで割る。各順序$(a,b,c)$における移動後六点の
+一般位置の失敗条件は、次の三十個の等式の和集合である：
+\begin{align}
+ K_{ij}&=c,\quad K_{ij}=a+2\delta,\quad K_{ij}=b-3\delta
+       &&(1\le i,j\le3),\label{eq:ou-marking-mixed}\\
+ c-a&=2\delta,\quad b-c=3\delta,\quad b-a=5\delta .
+       \label{eq:ou-marking-pure}
+\end{align}
+六つの順序全体で、整数係数が符号を除き同じ等式を同一視すると
+異なる等式は九十九個である。各等式は高々二つの順序を妨げる。
+さらに$\delta$が非torsionなら、六つの順序すべてが失敗する集合は
+余次元三以上の閉集合の有限和に含まれる。
+\end{proposition}
+\begin{proof}
+同一半分内の点の一致はadmissibilityにより起こらない。
+二つの半分の間での一致、第一から二点と第二から一点の三点積、
+第一から一点と第二から二点の三点積をそれぞれ
+$P_i=P_{j+3}$、$\sum_{\nu\in I}P_\nu=L_1$と書く。
+上の逆変換への代入から順に(\ref{eq:ou-marking-mixed})を得る。
+第一または第二の三点全体および六点全体については
+$\sum_{\nu\in I}P_\nu=L_1$、$\sum_{\nu=1}^6 P_\nu=2L_1$
+を代入して(\ref{eq:ou-marking-pure})を得る。
+これは\cite[Definition~11.1.2]{VdBBlowup2001}の移動後一般位置である。
+
+整数係数行を変数$(a_1,a_2,a_3,m_1,m_2,m_3,n_1,n_2,n_3)$で表し、
+符号を第一非零成分が正となるようにそろえる。
+全ての行はprimitiveであり、共通捩りの方向を消す。
+(\ref{eq:ou-marking-mixed})では各$K_{ij}$に対し
+三つの$a_l$と三つの係数$0,2,-3$で八十一個、
+各々ちょうど二順序に現れる。
+(\ref{eq:ou-marking-pure})は十八個で各々一順序に現れる。
+係数比較でこれらは相異なる。
+
+全順序を妨げる等式の集合の有理行rankが二以下だと仮定する。
+rank一は上の個数から不可能である。rank二の場合は次の有限整数計算を
+用いる。九十九行を二本ずつ選んで外積を取り、非零外積を
+成分の最大公約数で割り符号を正規化する。同じ外積は
+同じ有理二次元行空間を表す。各行に付随する六順序のbit集合の
+和集合を各行空間について取る。
+$\binom{99}{2}=4851$組から得られる異なる行空間は3975個で、
+全六順序を覆うのはちょうど30個である。これらは
+\[
+ \langle K_{ij}-a_l,\delta\rangle_{\mathbb Q}
+       \quad(27\text{個}),\qquad
+ \langle a_i-a_j,\delta\rangle_{\mathbb Q}\quad(i<j,\ 3\text{個})
+\]
+で尽きる。
+全手順は整数ベクトルの加減算、外積およびgcdのみであり、
+\path{computations/verify_ou_decuple_markings.py}が
+逆変換から得た30条件との一致、行数、bit集合および30行空間の
+上記のリストとの完全一致を検証する。
+従ってrank二の失敗では$\delta$の非零整数倍が零となる。
+$\delta$非torsionなら三本以上の独立な等式を必要とする。
+固定$E$上のPicard積を共通捩りで割ったトーラスにおいて、
+rank三の整数行の定める準同型の核は余次元三である
+（連結成分も同じ余次元）。有限個の行から選ぶため主張を得る。
+\end{proof}
+
+\begin{remark}
+特に前に挙げた一つの混合三点等式の一般点は、別の順序で
+VdBの移動後一般位置を回復する。
+全順序で失敗する場合にも定理\ref{thm:ou-smooth-elliptic-recognition}は
+その内在的条件を満たす限り適用できる。
+従ってこの計算は反例探索の必要条件ではなく、
+既知の爆発構成による別表示を探すための結果である。
+\end{remark}
