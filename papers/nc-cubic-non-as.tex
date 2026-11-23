@@ -310,23 +310,65 @@ $\deg_E(T_i^\vee T_j L^n)\geq3n-2>0$である。
 上の反標準完全列と$n=0$でのstrongnessによる帰納法から
 $H^{>0}(X,T_i^\vee T_j L^n)=0$。
 従って$T_{i+9}=T_i\otimes L$で延長したhelixはvery strongである。
-型については、制限$(E,(T_i|_E)_i)$がAOU Definition~7.1の
-admissible elliptic decupleであることに注意する。
-AOU Lemma~7.4とその直後の構成はこれに三次型のAS正則
-$\{0,1,2\}\times\mathbb Z$-algebra $A$を対応させる。
-そのfoundationの全射影対象のendomorphism algebraは、
-制限による上の同型により$\operatorname{End}_X(T)$と一致する
-（$T=\bigoplus_iT_i$）。
-従ってAOU Theorem~9.4の証明で用いられた
-full strong foundationとそのendomorphism algebraによる議論を適用し、
-$D^b\coh X\simeq D^b\qgr A$を得る。この同値はfoundationを対応させ、
-Serre関手を保つためhelix全体を対応させる。
-特にOU\cite[Section~3, (3.10)]{OU}により、
-$A$は$X$上のhelixの前向きHomから得られる代数に同型である。
-$\mathcal C=\qgr A$と置けば、OUの定義における三次型である。
-この議論は非可換爆発についてのAOU Theorem~9.4の一般位置の仮定を
-弱めて適用しているのではなく、admissible decupleとそのfoundationの
-比較のみを用いる。
+$\Lambda=\operatorname{End}_X(T)$（$T=\bigoplus_iT_i$）と置く。
+型を確認する際、AOUのadmissible decupleから得られる代数の
+noetherian性や導来同値を先に仮定する必要はない。
+次の直接の計算でhelixの型を確定する。
+
+$\Lambda$は三ブロックの隣接ブロック間にそれぞれ九本の矢を持つ。
+実際、前向きHomは$E$上で計算でき、隣接ブロック間は一次元、
+第一から第三へは二次元である。後者への三つの二段積は空間を張る：
+積はいずれも非零であり、それらが全て比例すれば、
+次数二の一つの切断の零因子が三つの異なる中間線束に由来する
+三つの異なる点を含むことになり矛盾する。
+従って第一から第三の各組について一つの二次関係を持ち、
+それ以外に最小関係はない。これはAOU\cite[(4.1), (4.2)]{AOU2024}と
+同じ型である。三段以上の経路は存在しないので
+$\operatorname{gldim}\Lambda\leq2$である。
+
+$D\Lambda=\operatorname{Hom}_k(\Lambda,k)$、
+$\Theta=\operatorname{RHom}_{\Lambda^e}(\Lambda,\Lambda^e)$とする。
+tilting同値の下で$s_X=-\otimes L$は
+$-\otimes_\Lambda^{\mathbf L}\Theta[2]$と対応する。
+ここで$\Theta\simeq\operatorname{RHom}_\Lambda(D\Lambda,\Lambda)$は
+逆Serre bimoduleである。この同定は$\Lambda$の有限射影bimodule分解に
+$D\Lambda\otimes_\Lambda-$を施し右$\Lambda$-dualを取ることからも従う。
+very strongnessより$\Theta[2]$とその全正の導来tensor冪は
+次数零に集中する。従って$M=H^0(\Theta[2])$とすれば、合成を含めて
+\[
+ \bigoplus_{n\geq0}\operatorname{Hom}_X(T,T\otimes L^n)
+       \simeq T_\Lambda M
+\]
+となる。実際、各導来tensor冪の$H^0$は通常のtensor冪であり、
+orbit積はこれらのtensor積から誘導される。
+
+$\Lambda$の最小bimodule分解は頂点・矢・二次関係に対応する三項である。
+これを確認するには頂点の半単純環上のnormalized bar分解を用いればよい：
+根基の三重tensorは零で、二重tensorの積から二段経路の像への
+同型部分を消去すると、次数一の項には隣接ブロック間の矢、
+次数二の項には二次関係のみが残る。
+従ってそのbimodule dualの最終余核$M$の最小bimodule生成元は
+各二次関係に対する逆向きの元一つずつである。
+dualの微分の成分は左右の根基に含まれるので、
+$M/(\operatorname{rad}\Lambda\,M+M\operatorname{rad}\Lambda)$では
+この九元に関係はない。
+tensor代数の記述により、他の周期次数に新しい矢はない。
+従ってrolled-up quiverはAOU Figure~4.2と同じ三つの循環ブロック
+（九頂点、二十七本の矢）である。
+
+このhelixの前向きHomからなる$\mathbb Z$-algebraを$A$とする。
+OU\cite[Section~3]{OU}のvery strong helixからのAS正則性を適用する。
+ここで多項式増大は上のコホモロジー消滅と
+Riemann--Roch（各周期で有限個の線束、$h^0=O(n^2)$）からも直接確認できる。
+parameterは9、次元は3である。
+最小右単純分解を双対化するとAS-Gorenstein条件により
+9だけ前の頂点の左単純の最小分解となる。
+従って最終射影項は$P_{i-9}$、中間二項は今求めた入射矢と
+9だけ移動した出射矢から決まる。
+これはOU\cite[Definition~5.2, (5.4)]{OU}の三次型である。
+このように、AOUのadmissible decupleの型とも一致するが、
+その一般位置の非可換爆発に関するTheorem~9.4の適用は不要である。
+$\mathcal C=\qgr A$は求めるOU三次型AS surfaceである。
 
 \medskip
 \noindent\textbf{反標準収縮上のheart.}
@@ -354,7 +396,13 @@ $\mathcal C=\qgr A$と置けば、OUの定義における三次型である。
 \]
 は$\Phi(T_i)=e_i\mathscr B$とし、その間の全導来Homを同型にする。
 右加群作用は$f^*\mathscr B\to\mathcal End_X(T)$による前合成である。
-両側のfull foundationにより$\Phi$は同値である。
+$T_i$のfullnessにより$\Phi$は充満忠実である。
+$A$のAS正則性と$B$のnoetherian性を用いると、次数付き有限生成
+$B$加群は有限生成次数付き射影による有限分解を持つ
+（周期展開により$A$の加群と射影分解を同一視する）。
+従って$\qgr B$の導来圏は$e_i\mathscr B(n)$で厚く生成される。
+これらは$\Phi(T_i\otimes L^n)$であり、
+$D^b\coh X$は冪等完備なので$\Phi$の本質像は全体である。
 射影公式で$\Phi(-\otimes L)\simeq\Phi(-)\otimes\mathcal O_Y(1)$。
 従ってSerre関手の一意性から$s=(-)\otimes\mathcal O_Y(1)$となり、完全である。
 
