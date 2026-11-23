@@ -1224,17 +1224,18 @@ $F',J',h'$に対して、幾何的ampleな$h'$を用いる
 定理\ref{thm:ou-nodal-multitwist-refinement}は、分離軸が九線束と
 交わらないことを無条件に導くが、九線束による$\Perf E$の厚い生成性を
 一般に導いたものではない。
-分離軸が残る場合は、その内側のarcの$J$による消滅と、
-より少ない成分数の曲線表示への帰着を検討する必要がある。
+分離軸が残る場合についても、後の定理\ref{thm:ou-nodal-complete-recognition}は
+九線束の同時変換を直接用いて認識する。
 非分離軸だけの場合、負の指数は命題\ref{prop:ou-nodal-conjugate-nef}で排除され、
 残るのは軸が$c$本未満の型（系\ref{cor:ou-nodal-positive-exponents}）である。
-定理\ref{thm:ou-nodal-ample-conjugacy}だけではこの欠落軸を排除できない。
+定理\ref{thm:ou-nodal-ample-conjugacy}だけではこの欠落軸を排除できないが、
+後の定理\ref{thm:ou-nodal-complete-recognition}の証明にはその排除を必要としない。
 正の全軸の場合に共役認識が成立することと、
 全ての多重次数候補がその条件を満たすことを区別する。
 接触・共点型はこの節の曲線模型の対象外である。
 \end{remark}
 
-\subsection{節点cycleの基本群計算と二成分型の認識}
+\subsection{節点cycleの基本群計算と完全認識}
 \label{subsec:ou-nodal-free-group}
 定理\ref{thm:ou-nodal-cycle-growth}により節点cycleでは
 $\delta_{\rm md}=0$が必要である。ここではその有限個の候補を
@@ -1394,149 +1395,203 @@ $m\leq c=3$から$m=3$。
 三つの非零正整数の和が三だから全指数は一である。
 \end{proof}
 
-\begin{theorem}[二成分節点cycle型の内在的三次超曲面認識]
-\label{thm:ou-two-component-nodal-recognition}
-横断する直線と円錐曲線からなる$C_2$上の三ブロック九線束表示が
-標準noetherian OU helix比較を持つとする。
-この圏が内在的三次標識を持つなら、与えられた標識の反標準環は
-標準AS四次元正則環の正則正規三次商である。
-\end{theorem}
+\begin{lemma}[九線束の同時変換の判定]
+\label{lem:ou-nodal-simultaneous-line-change}
+命題\ref{prop:ou-nodal-free-group}の自由群の表示を用い、
+多重次数$x$の線束を表す向き付き閉曲線の共役類を
+\[
+ \gamma(x)=[V^x(a)]
+\]
+と書く。九線束の多重次数を順に$x_i$とする。
+ある向きを保つ写像類$G$と整数ベクトル$y_i$が
+\begin{equation}\label{eq:ou-nodal-simultaneous-line-change}
+ G(\gamma(x_i))=\gamma(y_i),\qquad \sum_a(y_i)_a=\sum_a(x_i)_a
+ \quad(1\leq i\leq9)
+\end{equation}
+を満たすとする。このとき対応する三ブロックのdirected algebraは
+多重次数$y_i$の九線束表示も持つ。標準OU helix比較が成立する場合は、
+同じ曲面圏と同じ反標準移動を用いることができる。
+\end{lemma}
 \begin{proof}
-定理\ref{thm:ou-nodal-cycle-growth}から$\delta_{\rm md}=0$。
-前述の二項必要条件を満たす正規化された16候補について、
-命題\ref{prop:ou-nodal-free-group}の自由群自己同型を整数wordで計算する。
-\path{computations/verify_ou_nodal_mapping_classes.py} は、
-共通の多重次数列挙コードを用い、生成元の逆・braid関係・
-周辺loopの共役類の保存も検算した上で、
-自由群自己同型が内自己同型であるかを完全に判定する。
-具体的には$F(a)=uau^{-1}$でなければ内自己同型でない。
-この形に巡回被約化できれば、$F$を$u^{-1}$による共役で補正する。
-$a$を固定する内自己同型の共役元は$a$の冪なので、
-補正後の$b_1$の像が$a^k b_1 a^{-k}$であるか調べれば$k$は一意に決まる。
-その同じ$k$で全生成元の像が一致することが必要十分である。
-この手続は自由群の正規形による有限の等式判定である。
+$\gamma(x)$の式は、水平曲線が$\Pic^0(C_c)$の線束に対応し、
+滑らかな点の因子によるtensor積が垂直twistに対応することから従う。
+多重次数零のtensor積は写像類を変えない
+（\cite[Example~4.7, Proposition~6.11, Proposition~8.40,
+Theorem~9.20]{Opper2026}）。
+向き付き共役類を用いるのは計算上の規約であり、
+この等式は特に向きを忘れた曲線の等式を与える。
 
-計算結果は次の表である（二成分の場合は四つの非空の行で尽くされる）。
+\cite[Corollary~8.41]{Opper2026}によって$G$を
+導来自己同値$\Theta$に持ち上げる。
+\eqref{eq:ou-nodal-simultaneous-line-change}と
+同論文のTheorem~9.20により、$\Theta L_i$は多重次数$y_i$の
+線束$L_i'$のshiftである。実際、$\gamma(y_i)$はlatitudinal方向に
+単調で一周する曲線であり、spherical objectのlocal systemはrank一
+なので、対応する単純ベクトル束のrankは一である。
+local systemの値やshiftそのものを自由群から認識する必要はない。
+
+$\Theta L_i=L_i'[k_i]$と書く。隣接ブロックの任意の$i,j$について
+$\operatorname{Hom}^{\bullet}(L_i,L_j)$は次数零の一次元空間である。
+自己同値はこの全次数付き空間を保つ。
+他方、$\chi(L_i',L_j')=\deg L_j'-\deg L_i'=1$。
+曲線上の二線束間のExtは次数零、一にしか現れず、全次元は一なので、
+非零射の次数は零となる。従って$k_i=k_j$である。
+隣接ブロック間の全ての組について成り立つので全$k_i$は共通。
+この共通shiftを取り除き、必要なら全次数零の線束による共通tensor積で
+第一ブロックの辞書式最小多重次数を零に正規化し、
+各ブロック内の順序を並べ替える。
+自己同値は全ての前向き射と合成を保つので、
+九線束からなるdirected algebraは同型である。
+従って$\Perf\Lambda$上の逆Serre移動も、対応するhelixも不変である。
+\end{proof}
+
+\begin{proposition}[全節点型候補の有限等式証明書]
+\label{prop:ou-nodal-complete-word-certificate}
+$c=2,3$について、補題\ref{lem:ou-reduced-md-bounds}の二項必要条件と
+$\delta_{\rm md}=0$を満たす正規化多重次数型を考える。
+各型はそのまま、または補題\ref{lem:ou-nodal-simultaneous-line-change}の
+変換によって次のいずれかへ帰着する：
+\begin{enumerate}[label=(\roman*)]
+\item $w_i>0$が全成分で成立し、$DV^w$が内自己同型である。
+\item $\min_i w_i=0$で$DV^w$が内自己同型である。
+\item 九線束の共通零次数成分が一つ以上ある。
+\end{enumerate}
+以下の有限集合の写像類だけで十分である。
+$e_i$を標準単位ベクトルとして
+\[
+ G_{v,i,j,k}=V^v H^k V^{e_i-e_j}H^{-k}V^{-v},
+ \quad v\in\{-1,0,1\}^c,\quad i\ne j,\quad k\in\{-1,1\}.
+\]
+$c=3$ではさらに次の写像類$\sigma$、$\sigma^{-1}$を使い、
+それぞれ単独または$G_{v,i,j,k}$の左右に一回だけ合成する：
+\[
+ \sigma(a)=a,\quad \sigma(b_1)=b_1,\quad
+ \sigma(b_2)=b_1 b_2^{-1} b_3,\quad \sigma(b_3)=b_3 .
+\]
+\end{proposition}
+\begin{proof}
+$H,V_i$は命題\ref{prop:ou-nodal-free-group}のDehn twistなので
+各$G_{v,i,j,k}$は実際の写像類である。
+$\sigma$の逆は$a,b_1,b_3$を固定し$b_2$を$b_3b_2^{-1}b_1$に移す。
+周辺loop
+\[
+ p_1=b_1^{-1}b_2,\quad p_2=b_2^{-1}b_3,\quad
+ p_3=b_3^{-1}ab_1a^{-1}
+\]
+について$\sigma(p_1)=p_2,\ \sigma(p_2)=p_2^{-1}p_1p_2$、
+$\sigma(p_3)=p_3$である。
+従って向き付き周辺共役類を置換する自己同型であり、
+Dehn--Nielsen--Baer定理のsurjectivityの部分
+（\cite[Chapter~8]{FarbMargalit2012}）により向きを保つ
+穿孔トーラスの写像類を与える。これは二穿孔を交換するhalf-twistの
+外部自己同型としても理解できる。
+全ての試行写像類は穴を埋めたトーラスのhomologyに恒等として作用する。
+
+以下の検証は$\pi_1$の自由群の有限語の演算だけで行う。
+\path{computations/verify_ou_reduced_multidegrees.py}の
+正規化した候補列挙から$\delta_{\rm md}=0$のものを取る。
+各候補について、まず命題\ref{prop:ou-nodal-free-group}の
+$D$を計算し$DV^w$が内自己同型であるかを判定する。
+具体的に$F(a)=uau^{-1}$でなければ内自己同型ではない。
+この形に巡回被約化できれば$u^{-1}$による共役で補正し、
+$a$を固定する内自己同型の共役元が$a$の冪であることから、
+補正後の$b_1$の像が$a^k b_1a^{-k}$となるかを調べる。
+その同じ$k$で全生成元の像が一致することが必要十分である。
+これと共通零次数成分の有無から(i)--(iii)の直接判定を行う。
+複数条件を満たす場合は(i), (ii), (iii)の順に採用する。
+
+直接判定できなかったものについて上記の有限集合を探索し、
+各線束の語$G(V^{x_i}(a))$を巡回被約化する。
+abelianizationが$(1,y_i)$で、全次数が保たれることを確認する。
+さらに$V^{y_i}(a)$の巡回被約語と巡回置換を除き一致することを
+九本すべてについて確認する。
+正規化した$y_i$の三ブロック型が直接判定済みの候補集合に
+属するものだけを採用する。
+ここではabelianizationの一致だけで線束性を判定していない。
+自由群の共役類の等式を実際に検証している。
+
+完全な再現手順は
+\path{computations/verify_ou_nodal_mapping_classes.py}にある。
+このコードは生成元の逆・braid関係・周辺loopの共役類の保存、
+$\sigma$の逆と周辺共役類の置換も検算する。
+結果は次の通りである（変換の試行順はコードの順とする）。
 \begin{center}
 \begin{tabular}{lrr}
 \toprule
-多重次数条件と判定 & $c=2$ & $c=3$\\
+判定条件 & $c=2$ & $c=3$\\
 \midrule
-$w>0$（元の表示で幾何的） &6&9\\
-元の表示で幾何的、$\min w_i=0$ &4&42\\
-全九線束の共通零成分が一つ（上の二行を除く） &2&42\\
-全九線束の共通零成分が二つ（上の二行を除く） &0&3\\
-$c=2$の残り：$w=(-1,4)$または$(4,-1)$ &4&0\\
-$c=3$の残り：$w_i\bmod3$が同じ非零値 &0&18\\
-未判定 &0&54\\
+直接(i)：正の多重次数・幾何的 &6&9\\
+直接(ii)：幾何的零次数境界 &4&42\\
+直接(iii)：共通零成分一つ &2&42\\
+直接(iii)：共通零成分二つ &0&3\\
+変換後(i) &4&18\\
+変換後(ii) &0&36\\
+変換後(iii)：共通零成分一つ &0&18\\
+未判定 &0&0\\
 \midrule
 計 &16&168\\
 \bottomrule
 \end{tabular}
 \end{center}
-これは二項条件の候補数であり、実際に実現される線束配置や
-OU圏の同型類の個数を意味しない。
-
-第一行は自由群計算による幾何性と$w>0$から、
-定理\ref{thm:ou-nodal-ample-conjugacy}（共役を恒等と取る）で認識する。
-第二行は命題\ref{prop:ou-nodal-free-group}により$h$が幾何的なので、
-定理\ref{thm:ou-residual-geometric-ample}により内在的三次条件と矛盾する。
-第三行の二成分の場合は、全九線束がある成分上次数零なので
-補題\ref{lem:ou-nodal-contract-common-zero}で既約節点曲線へ縮約し、
-定理\ref{thm:ou-integral-elliptic-recognition}を適用する。
-
-残る四候補については、列挙で各候補が
-少なくとも一つのブロック内に異なる多重次数を持つことも検算した。
-仮に分離軸があれば、定理\ref{thm:ou-nodal-multitwist-refinement}により
-九線束の閉曲線全てと互いに素である。
-$c=2$では本質的非周辺分離軸は二穿孔を含む円板を囲み、
-全九曲線はその外側の一境界トーラスに入る
-（非分離曲線は円板側に入らない）。
-一境界トーラスの非分離単純閉曲線の同位類は原始傾きで決まる
-（\cite[Chapter~1]{FarbMargalit2012}参照）。
-各ブロックの線束は穴を埋めた後の傾きが同じなので、
-そのブロックの曲線は全て同位になる。
-しかし線束の曲線のhomology類は$(1,\operatorname{mdeg}L)$
-（標準自由群のabelianization、向きを統一）であり、
-異なる多重次数の二本の曲線は同位になれない。
-従って分離軸はない。
-さらに$w=(-1,4),(4,-1)$は三で割り切れない成分を持つから、
-補題\ref{lem:ou-nodal-axis-congruences}(i)により非分離軸は二本。
-系\ref{cor:ou-nodal-positive-exponents}により指数は$1,2$。
-定理\ref{thm:ou-nodal-ample-conjugacy}が適用できる。
-以上で二成分の全候補を扱った。
+従って全候補で主張する有限等式証明書が存在する。
+これは写像類群の元を探索してその存在を推測しただけではなく、
+実際の写像類を構成する有限個の語について
+\eqref{eq:ou-nodal-simultaneous-line-change}を検証した結果である。
+全ての候補が線束の配置として実現されるとは主張しない。
 \end{proof}
 
-\begin{corollary}[三成分節点cycleの追加認識範囲]
-\label{cor:ou-three-component-nodal-reduction}
-三角形をなす三直線の節点cycle $C_3$上の同じ九線束表示と
-標準noetherian OU helix比較を仮定する。
-$\delta_{\rm md}=0$を満たす168候補のうち、
-上表の正の9候補、共通零成分を持つ45候補、および
-同じ非零合同値を持つ18候補の計72候補に対し、
-内在的三次標識が存在すれば標準AS四次元正則環の正則正規三次商を得る。
-さらに元の表示で幾何的な零次数境界の42候補は
-内在的三次条件に反する。残る必要条件候補は54である。
-\end{corollary}
+\begin{theorem}[被約節点cycle型の内在的三次超曲面認識]
+\label{thm:ou-nodal-complete-recognition}
+横断する直線と円錐曲線からなる$C_2$、または三角形をなす
+三直線からなる$C_3$上の三ブロック九線束表示が
+標準noetherian OU helix比較を持つとする。
+この圏が内在的三次標識を持つならば、
+与えられた標識の反標準環は標準AS四次元正則環の
+正則正規三次商である。
+\end{theorem}
 \begin{proof}
-正の候補と幾何的零次数境界は既存の判定定理による。
-共通零成分の45候補は補題\ref{lem:ou-nodal-contract-common-zero}により
-$C_2$または$C_1$に縮約し、それぞれ
-定理\ref{thm:ou-two-component-nodal-recognition}または
+定理\ref{thm:ou-nodal-cycle-growth}から$\delta_{\rm md}=0$。
+命題\ref{prop:ou-nodal-complete-word-certificate}を適用し、
+必要なら補題\ref{lem:ou-nodal-simultaneous-line-change}によって
+同じdirected algebraを持つ九線束表示に移る。
+(i)では命題\ref{prop:ou-nodal-free-group}により$h$が幾何的であり、
+$w>0$なのでampleである。注意\ref{rem:ou-reduced-curve-gap}の
+曲線heartの認識と命題\ref{prop:ou-reduced-cubic-geometric}により
+与えられた内在的標識に対する超曲面表示を得る。
+(ii)では幾何的な$h$がampleでないので
+定理\ref{thm:ou-residual-geometric-ample}により
+内在的三次条件と矛盾する。
+(iii)では補題\ref{lem:ou-nodal-contract-common-zero}により
+成分数を減らし、directed algebraと標準helix比較を保つ。
+$c=2$では既約節点曲線$C_1$へ帰着し、
 定理\ref{thm:ou-integral-elliptic-recognition}を適用する。
-合同値の18候補は補題\ref{lem:ou-nodal-axis-congruences}(ii)により
-分離軸なし・正の三軸を持ち、定理\ref{thm:ou-nodal-ample-conjugacy}
-で認識する。残りの数は上表の通りである。
+$c=3$では$c'=1$または$2$となるので、既約の場合または今証明した
+二成分の場合を適用する。
+これで全ての候補を処理した。
 \end{proof}
 
-\begin{remark}
-二成分節点cycleの場合の結果は、指定された九線束表示と
-標準helix比較を持つ型に関する認識である。
-OU三次型一般がこの表示を持つとは主張しない。
-接触・共点の場合は定理\ref{thm:ou-reduced-delta-deformation}の
-多重次数の必要条件を得たが、ここでの写像類による認識は適用しない。
-三成分cycleの54候補における内在的標識の存在・非存在も未決定である。
-\end{remark}
+\begin{remark}[判定の範囲と依存関係]\label{rem:ou-nodal-complete-scope}
+上の表によれば二成分16候補のうち12候補で内在的条件の下での
+認識（縮約による帰着を含む）、4候補で排除を得る。
+三成分168候補のうち90候補で条件付き認識、78候補で排除を得る。
+ただしこれらは二項必要条件を満たす多重次数候補の処理件数であり、
+実現可能な配置や圏の同型類の個数ではない。
+縮約先でも内在的条件による排除が起こり得るので、
+「条件付き認識」は実現可能性を意味しない。
+全体の逆包含問題において、任意のOU三次型がこの九線束表示を
+持つこと、および標準helix比較を持つことは別の問題である。
 
-\begin{remark}[残余候補の数値的範囲]\label{rem:ou-residual-counts}
-前節の同じ正規化と二項条件に対する整数列挙を
-$\delta_{\rm md}=0$の全候補に広げると次の表を得る。
-\[
-\begin{array}{c|r|r|r|r}
- c & \delta_{\rm md}=0 &
- \min w_i>0 & \min w_i=0 & \min w_i<0\\ \hline
- 2 & 16 & 6 & 6 & 4\\
- 3 &168 & 9 &81 &78
-\end{array}
-\]
-右の三列は$\delta_{\rm md}=0$の候補を分けたものである。
-\texttt{computations/verify\_ou\_reduced\_multidegrees.py}で
-従来の列挙と合わせて検証する。
-定理\ref{thm:ou-reduced-delta-deformation}により、導来helix条件の下では
-この16型または168型の範囲に入る必要がある。
-正の6型・9型は既に超曲面として認識できる。
-さらに節点型の完全な二成分判定と三成分の部分判定は
-定理\ref{thm:ou-two-component-nodal-recognition}、
-系\ref{cor:ou-three-component-nodal-reduction}の表を参照する。
-これは線束配置やOU型の同型類の個数ではない。
-\end{remark}
+また、定理\ref{thm:ou-nodal-complete-recognition}の証明は、
+節点型の線形成長と$\delta_{\rm md}=0$の必要性は用いるが、
+分離軸に沿うtwistのgrading幅の議論、非分離軸の合同式判定、
+任意のampleな幾何的共役から線束を認識する定理には依存しない。
+それらは写像類の構造についての独立の結果として残す。
 
-\begin{remark}
-定理\ref{thm:ou-residual-geometric-ample}により、内在的三次標識を持つ
-被約可約曲線表示では、幾何的$h$ならば自動的に多重次数判定の肯定範囲に入る。
-また$\delta_{\rm md}\ne0$の残余型には、命題\ref{prop:ou-residual-delta-obstruction}により
-反標準自然変換$\epsilon$のheart上の零性が必要となる。
-節点cycleについては定理\ref{thm:ou-nodal-cycle-growth}により、
-導来helix条件の下で$\delta_{\rm md}=0$と$\epsilon$の非零性が自動となる。
-節点型の写像類は定理\ref{thm:ou-nodal-multitwist-refinement}でさらに制約され、
-全軸正の最大非分離multitwistについては定理\ref{thm:ou-nodal-ample-conjugacy}で認識する。
-負の指数は命題\ref{prop:ou-nodal-conjugate-nef}で排除した。
-さらに定理\ref{thm:ou-reduced-delta-deformation}で接触・共点型にも
-$\delta_{\rm md}=0$を得た。
-節点型の二成分の場合は定理\ref{thm:ou-two-component-nodal-recognition}で
-内在的三次標識を完全に認識し、三成分の残りは54候補となる。
-三成分での見えない分離軸・欠落指数、および接触・共点型での
-自然変換の非零性は残る。
-これらの未解決条件外を内在的候補の反例や非表示例とは呼ばない。
-非被約曲線および曲線表示を持たないOU型も残る。
+接触・共点型については定理\ref{thm:ou-reduced-delta-deformation}の
+必要条件$\delta_{\rm md}=0$を得ているが、
+この節点cycleの模型を直接適用できない。
+同時変換を相対spherical twistとして特異ファイバーにも
+延長できる場合であっても、変換後の対象が線束であることは
+別途確認する必要がある。
+非被約曲線と曲線表示を持たないOU型も未解決である。
 \end{remark}
