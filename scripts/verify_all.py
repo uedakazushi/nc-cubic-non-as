@@ -10,6 +10,7 @@ PROGRAMS=(
     "computations/verify_ou_decuple_markings.py",
     "computations/verify_ou_reduced_multidegrees.py",
     "computations/verify_ou_nodal_mapping_classes.py",
+    "computations/verify_ou_reduced_algebraic_moves.py",
     "computations/verify_boundary_fermat.py",
     "scripts/del_pezzo_degree2_verification.py",
     "scripts/nc_dp1_quintic_checks.py",
