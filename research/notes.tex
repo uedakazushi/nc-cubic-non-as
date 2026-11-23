@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v16}
+\date{2026年11月24日／non-as-v17}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -376,40 +376,113 @@ $w=(-1,2,2)$の18候補（4代表）は、gluing parameterを保ったまま
 $w=(1,1,1)$の別表示に対応し、矢印の符号変更で関係空間が一致する。
 従って同じdirected algebraを持ち、標準OU比較と$I_3$の下で認識できる。
 曲線側の反標準移動の幾何性を元の表示について示したのではない。
-型IVの累計は168候補中90条件付き認識・72排除・6未判定である。
+この段階で残った6候補は次節で全て排除する。
 
-\subsection*{残るOU型への具体的入口}
-被約型で残る6候補は$w=(0,0,3)$（成分順序を除く）で、
-命題\texttt{prop:ou-iv-residual-relation-family}の単一の関係代数族
-$\Lambda_x$に帰着した。矢印$A_{ij}:U_i\to V_j$、
-$B_{jk}:V_j\to W_k$、$p_{ijk}=B_{jk}A_{ij}$と書くと、
+\subsection*{周期単純対象と任意長の有限長商による残存IV族の排除}
+主稿の補題\texttt{lem:ou-iv-periodic-three}、
+\texttt{lem:ou-iv-periodic-simple}、
+\texttt{lem:ou-iv-periodic-thickenings}、
+定理\texttt{thm:ou-iv-periodic-exclusion}を参照。
+最後の6候補は命題\texttt{prop:ou-iv-residual-relation-family}の
+単一の関係代数族$\Lambda_x$に帰着した。
+矢印$A_{ij}:U_i\to V_j$、$B_{jk}:V_j\to W_k$、
+$p_{ijk}=B_{jk}A_{ij}$に対して
 \[
  \begin{cases}
  p_{i,i+1,i}-p_{i,i+2,i}=0,&i=k,\\
  p_{iik}-p_{ikk}+x_{ik}p_{ilk}=0,
-   &i\ne k,\quad\{i,k,l\}=\{0,1,2\},
+ &i\ne k,\quad\{i,k,l\}=\{0,1,2\},
  \end{cases}
  \qquad
  x_{01}+x_{12}+x_{20}=x_{02}+x_{21}+x_{10}.
 \]
-添字の加算は法三。六係数は$x_{ik}=-a_i-b_k$、
-任意の$a_i,b_k$で実現され、係数空間は五次元アフィン空間。
-これは同型類moduliの次元ではなく、very strong性や内在的標識の
-存在も未確認である。
+この線形関係は$x_{ik}=-a_i-b_k$というパラメータ化と同値。
+係数空間は五次元であり、同型類moduliの次元を表さない。
 
-次の入口はこの$\Lambda_x$の九関係に対する逆Serre軌道、
-反標準自然変換、別の曲線表示・古典的導来型への帰着、
-あるいは内在的標識からの直接的な環認識である。
-零係数のstrataと矢印rescalingによる同値を区別して検討する。
-単純ベクトル束の分類
-\cite[Theorem~1.2]{BodnarchukDrozdGreuel2012}は関連するが、
-現在の合成関係の比較はその定理を仮定せずに証明している。
+右加群$Q_i$は$U_i,V_i,W_i$だけで一次元、対角矢印は恒等、
+その他は零とする。$P_Z=\operatorname{Hom}(-,Z)$とすると
+\[
+ 0\to P_{U_i}\to\bigoplus_{j\ne i}P_{V_j}
+   \to P_{W_i}\to Q_i\to0.
+\]
+経路空間の関係の省略係数がoff-diagonalでは$\pm1$、
+diagonalでは零であることから完全性を得る。
+入射双対の計算で$SQ_i\simeq Q_i[2]$、$sQ_i\simeq Q_i$。
+自己Extは次数0,2で各一次元、相互Extは次数1で一次元。
+ここまでは係数間の線形関係が不要。
+標準helix比較の下で高い負helixからのHomは次数零に集中し、
+各$Q_i$が曲面heartに属する。任意の部分対象の切断数は
+有界な多項式ゆえ一定で、Serreで固定される$K_0$類を持つ。
+Euler次元ベクトルの三ブロックの和が等しいため、
+部分対象は零か全体。従って三つの$Q_i$は互いに異なる単純対象。
 
+係数の線形関係を用い、各頂点を$k[[t]]/(t^m)$とし、
+対角矢印$A_{ii}=1-a_i t$、$B_{ii}=1+b_i t$、
+非対角矢印$A_{ij}=B_{ij}=\eta_{ij}t$とする。
+$\eta_{12}=\eta_{21}=-1$、その他の非対角成分は1。
+九関係を全て満たし、$t$進逐次商は$Q=\bigoplus_i Q_i$。
+$\operatorname{Hom}(T_m,Q_i)=k$なので全ての単純商は
+$T_m\twoheadrightarrow Q$を経由する。
+固定対象$F=\bigoplus_i P_{W_i}$は$Q$への全射と
+$\operatorname{Ext}^1(F,Q_i)=0$を持つため、
+有限長filtrationによって$F\to T_m$を持ち上げることができ、
+単純商の判定から持ち上げは全射。任意の$m$で同じ$F$を使える点が重要。
+
+Euler行列$D$、Serre行列$S_0=D^{-1}D^{\mathsf t}$、
+$N=S_0-I$に対して
+$(N^2)^{\mathsf t}D=3J_9$、
+$N^{\mathsf t}D+D^{\mathsf t}N=6J_9$、$N^3=0$。
+射影基底の座標和$r$は$s$で不変、
+$\chi(s^{-n}X,X)=\chi(X,X)+3n(n+1)r(X)^2/2$。
+高いhelix切断の非負性とAZ1から$r(\mathcal O)>0$。
+rank-one torsion-free性と内在的Hilbert関数は
+$\operatorname{Hom}(\mathcal O,s^{-m}\mathcal O)=0$ ($m>0$)を与え、
+Serre双対性から自己Ext$^2$が消えるので$r(\mathcal O)=1$。
+同時に$\dim\operatorname{Ext}^1(s^{-n}\mathcal O,\mathcal O)
+=1-\chi(\mathcal O,\mathcal O)$が$n\geq0$で一定になる。
+固定した任意の対象$X$へのExt$^2$はAZ1とSerre双対性から
+$n\gg0$で零であり、AZ1の全射と長完全列によって
+固定した$F$へのExt$^1$には$n$に依らない上界$C_F$が得られる。
+
+AZ2と上のExt$^2$消滅によって固定した完全列に対し、
+$\operatorname{Ext}^1(s^{-n}\mathcal O,-)$は$n\gg0$で完全になる。
+従って$T_m$のfiltrationと$F\twoheadrightarrow T_m$から
+\[
+ m\sum_i\dim\operatorname{Ext}^1(\mathcal O,Q_i)\leq C_F
+\]
+を得て各Ext$^1$は消滅する。$n$の下限は$m$に依ってよい。
+ここで$\mathcal O$のexceptionalityもAZ2単独による高次消滅も不要。
+AZ1と周期性により$\chi(\mathcal O,Q_i)=
+\dim\operatorname{Hom}(\mathcal O,Q_i)\geq1$。
+全ての射影$P_Z$で$\chi(P_Z,Q)=1$なので
+$r(\mathcal O)=\chi(\mathcal O,Q)\geq3$となり矛盾する。
+この方法は、数値rankが小さいample構造対象を
+周期単純対象と任意長の有限長商から排除する一般的な入口を与える。
+
+\path{computations/verify_ou_iv_periodic_objects.py}で
+経路空間、形式parameterの九関係、Euler恒等式、affine $A_2$形式を
+記号検証した。圏論的排除は主稿の証明であり、
+$\Lambda_x$のvery strong性自体の成立・不成立を証明したものではない。
+IV型の168必要多重次数候補は90条件付き認識・78排除となり、
+未判定は零である。定理\texttt{thm:ou-reduced-complete-recognition}により
+指定の九線束表示と標準OU比較を持つ全被約平面三次曲線型の
+内在的標識を認識できる。これは全OU型の被覆ではない。
+
+\subsection*{残るOU型への具体的入口}
+残るのは非被約平面三次曲線型（重複直線と直線の和、三重直線）と、
+九線束の曲線表示を持たないOU型の分類・認識である。
+まず非被約曲線上の線束のPicard data、同一ブロックの直交性、
+前向き高次Ext消滅、合成写像を具体的に記述する。
+必要に応じ今回の周期単純対象と任意長の有限長商の構成を一般化する。
 非被約曲線では特異点有限性を使ったAZ2補題を流用しない。
 AOUの曲線表示が全OU型を覆うかは別問題であり、
-標準noetherian qgr/導来比較も標識付き認識定理の仮定として残る。
-今回のIV関係の記号計算と既存の加法型列挙はPythonで再実行した。
-新証明の独立監査・網羅的新規性確認・組版は未完了である。
+標準noetherian qgr/導来helix比較も標識付き認識定理の仮定として残る。
+全被約型の認識定理は個々の比較・代数的変換・中心拡大判定に依存するので、
+それらと今回の証明の独立監査も継続する。
+
+今回の周期対象の整数行列と形式円板の計算は実行済み。
+OU 2025の原PDFの再取得は失敗した。
+全証明の独立監査・網羅的新規性確認・組版は未完了である。
 
 \section{候補定義の階層と商スタックの検査}
 主論文の内在的候補の定義
