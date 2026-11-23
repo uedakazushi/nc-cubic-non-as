@@ -1,0 +1,284 @@
+% !TeX root = ../nc-cubic-non-as.tex
+\subsection{滑らかな楕円型の内在的認識}
+\label{subsec:ou-elliptic-recognition}
+
+六点爆発の一般位置を仮定せず、反標準spherical functorから
+超曲面表示を回復する。以下は特にadmissible elliptic decuple
+\cite[Definition~7.1, Lemma~7.4]{AOU2024}によるOU型を対象とする。
+任意のOU三次型がこのような表示を持つとは仮定しない。
+
+\begin{theorem}[滑らかな楕円helixを持つ内在的三次候補]
+\label{thm:ou-smooth-elliptic-recognition}
+$E$を滑らかな楕円曲線とし、$(L_1,\ldots,L_9)$を
+次数$0,1,2$の各三本の線束からなり各ブロック内で相異なる
+admissible elliptic decupleとする。$\Lambda$をそのdirected
+endomorphism algebra、$\mathcal C$を対応するOU helix algebraの
+noetherian $\qgr$とする。標準のhelix比較
+$D^b(\mathcal C)\simeq\Perf\Lambda$の下で標準対象が
+対応するfull very strong helix $(P_i)_{i\in\mathbb Z}$に移り、
+$P_{i+9}\simeq sP_i$とする（\cite[Section~3]{OU}、
+\cite[Proposition~2, Theorem~5]{OUSpherical2020}の通常の設定）。
+$(\mathcal C,\mathcal O)$が定義\ref{def:intrinsic-dp}を満たすなら、
+その与えられた標識の反標準環$R$について
+\[
+ R=Q(R)/(g),\qquad H_{Q(R)}(t)=(1-t)^{-4},
+\]
+ここで$Q(R)$は標準二次Koszul AS四次元正則環、
+$g$は正則正規三次元である。さらに$R$には正則中心一次元$z$があり、
+$R/zR$は$E$上の次数三線束と平行移動によるtwisted homogeneous
+coordinate ringである。
+\end{theorem}
+
+証明のために曲線側の自己同値を先に決定する。
+$\langle L_i\rangle$は$D^b(\coh E)$を厚く生成する。
+実際、次数差一の二本の間の非零射の余核はある点の構造層であり、
+その点と一方の線束から、点による正負の捩りの完全列によって
+任意の整数冪の捩りを得る。これらは導来圏を生成する。
+従ってspherical collectionのdirected categoryの構成において、
+曲線側の圏を$D^b(\coh E)$と取れる。
+制限functorを$J:D^b(\coh E)\to D^b(\mathcal C)$、
+その左adjointを$F$、右adjointを$G$と書く。
+ここで$J$は曲線上のsheafをdirected categoryに沿って制限する
+dg functorであり、この段階ではheartについての完全性を主張しない。
+\cite[(3)--(5), Proposition~2]{OUSpherical2020}から
+\[
+ F(P_i)=L_i\ (1\leq i\leq9),\qquad
+ s^{-1}\xrightarrow{\epsilon}\mathrm{id}\longrightarrow JF,\qquad
+ D:=\operatorname{Cone}(FJ\longrightarrow\mathrm{id})
+   =T_{L_1}\cdots T_{L_9}.
+\]
+$T_L$はspherical twistである。右adjointについて
+$G\simeq Fs[-1]$（Serre双対性）であり、また
+$G\simeq D^{-1}F[1]$（\cite[Definition~5.2, (5.12)]{AnnoLogvinenko2017}）
+なので、$h=D^{-1}[2]$とおけば
+\begin{equation}\label{eq:ou-restriction-commute}
+ Fs\simeq hF.
+\end{equation}
+以下ではこの同型を反復して用い、orbit積と両立する同定を選ぶ。
+
+\begin{lemma}\label{lem:ou-elliptic-shift}
+$h$は$\coh E$の完全自己同値であり、
+$h(X)\simeq \alpha^*X\otimes N$と書ける。
+$\alpha$は$E$の平行移動、$N$は次数三の線束である。
+\end{lemma}
+\begin{proof}
+$(r,d)$に対する次数$e$の線束のtwistの作用は
+\[
+ T_e=\begin{pmatrix}1+e&-1\\e^2&1-e\end{pmatrix}.
+\]
+従って$h^{-1}=D[-2]$は
+$T_0^3T_1^3T_2^3=\left(\begin{smallmatrix}1&0\\-3&1\end{smallmatrix}\right)$
+を誘導する。シフトの偶奇だけでなく実際のheartを確認する。
+最後のブロックの線束$L=L_9$について、同じブロックのtwistは
+$L$を保つ。次のブロックの三本（次数一）を$M_i$とすれば
+評価$\bigoplus_i M_i\to L$は全射である：各成分の零点は相異なる。
+核$K$はrank二、次数一の安定ベクトル束である。
+実際、次数一以上の部分線束から$\bigoplus_i M_i$への写像は
+存在しないか、ただ一つの同型成分を通るので、評価の核には入らない。
+従って$T_{M_1}T_{M_2}T_{M_3}L=K[1]$。
+最初のブロックの三本$U_i$について$\dim\operatorname{Hom}(U_i,K)=1$、
+$\operatorname{Ext}^1(U_i,K)=0$である。評価の任意の二成分は
+一般点で独立である：同一の飽和部分線束に入れば、その次数は
+安定性から零以下であり、非零射を持つ二本の$U_i$と同型となって矛盾する。
+二成分の行列式は次数一の線束の非零切断であり、一成分を共通とする
+二つの行列式の零点は相異なる。従って$\bigoplus_iU_i\to K$も全射で、
+その核は次数$-1$の線束である。同じブロックの線束は完全直交するため、
+twistの合成を上の同時評価で計算してよい。これより$h^{-1}L$は
+シフトのない線束となる。
+
+曲線の導来圏はhereditaryなので、直既約対象は直既約sheafの
+シフトである。数値類$(0,1)$が保たれることから、
+$h^{-1}$は点の構造層を点の構造層のシフトへ送る。
+$L$から各点へのHomが次数零にのみ存在することと
+$h^{-1}L$が線束であることを比較すれば、このシフトは零である。
+同様に任意の直既約ベクトル束の像は、正のrankを持つsheafの
+シフトである（torsionは直和因子として分離する）。
+点へのHomを用いるとシフトは零となる。
+torsion sheafは点の構造層の拡大である。よって$h^{-1}$は
+標準heartを保ち、点を尽くし、逆向きにも同じHom判定が使えるので
+$h$も完全である。
+連接層圏の完全自己同値の標準的な再構成
+（\cite{Gabriel1962}、\cite[Section~3]{VdBBlowup2001}参照）から
+$h=\alpha^*(-)\otimes N$と書け、数値作用から$\deg N=3$。
+各線束twistは$K_0(E)$のrank、次数ともに零の部分には恒等として
+作用する（Euler形式がその部分上で零）。
+この部分はdeterminantで$\Pic^0(E)$と同一視されるから
+$\alpha^*|_{\Pic^0(E)}=\mathrm{id}$。従って$\alpha$は平行移動である。
+\end{proof}
+
+\begin{lemma}[曲線のheartと次元]\label{lem:ou-elliptic-heart}
+$J$は標準heartに関して完全で、$\coh E$上でconservativeである。
+任意の$M\in\coh E$の像$JM$は$\mathcal C$の
+Gabriel--Krull次元一以下の対象である。
+\end{lemma}
+\begin{proof}
+$P=\bigoplus_{i=1}^9P_i$、$L_\bullet=FP$と置き、
+周期をまとめたorbit環を
+$B=\bigoplus_{n\geq0}\operatorname{Hom}(P,s^nP)$とする。
+これは九つの添字をまとめた通常のgraded helix algebraで、
+graded module圏とtorsion商は周期を展開したものと同一視する。
+まず曲線側の
+\[
+ B_E=\bigoplus_{n\geq0}\operatorname{Hom}_E(L_\bullet,h^nL_\bullet)
+\]
+と比較する。三角と(\ref{eq:ou-restriction-commute})により、
+$n\geq1$では
+\[
+ 0\to B_{n-1}\xrightarrow{\epsilon} B_n\to (B_E)_n\to0.
+\]
+左端の単射は$\operatorname{Hom}_E(L_\bullet,h^nL_\bullet[-1])=0$、
+右端の全射は$\operatorname{Ext}^1(P,s^{n-1}P)=0$による。
+$n=0$では$B_0\simeq (B_E)_0$（directed categoryの定義および
+次数とブロック内の直交性）。
+自然変換$\epsilon$はhelixの対象上で$s$と可換である。
+実際、$\epsilon_X$の自然性から
+$\epsilon_X\circ s^{-1}\epsilon_X
+ =\epsilon_X\circ\epsilon_{s^{-1}X}$となるが、
+$X=s^aP$のとき後合成$\epsilon_X$は上と同じ負Ext消滅により
+$\operatorname{Hom}(s^{-2}X,s^{-1}X)$上単射である。
+よって$z_P=\epsilon_{sP}:P\to sP$は中心一次元となり、
+左右の正則性と上の完全列から$B/(z_P)=B_E$である。
+
+$(L_\bullet,h)$は$\coh E$のample pairである。
+$h^{-n}L_i$の次数が$-3n+\deg L_i$であり、固定したsheafへの
+Homによる生成性とExt消滅は次数の下界によるSerre消滅・大域生成性
+（例えばHarder--Narasimhanの最小傾斜を用いる）から従う。
+このためArtin--Zhang再構成\cite[Theorem~4.5]{AZ1994}で
+$B_E$は右noetherian、$\qgr B_E\simeq\coh E$である。
+この応用では$B_E$の次数零部分は有限次元代数でよい。
+$B$も正則中心一次元による持上げで右noetherianとなる：
+$z_P$-進随伴次数環は$B_E[Z]$であり、斉次右イデアルの初期項を
+有限個持ち上げると、$z_P$-位数を増やす除法が固定全次数内で停止する。
+斉次右イデアルの有限生成から通常の右イデアルの有限生成も従う。
+
+$\qgr B$の任意の固定対象$X$は、AS正則性による有限生成射影加群の
+有限分解から、helix対象の有限直和による有限分解を持つ。
+従ってvery strongnessから
+$\operatorname{Ext}^{>0}(s^{-n}P,X)=0$ ($n\gg0$)。
+また十分負のhelix対象がheartを生成するので
+$(P,s)$はample pairである。
+ここでは標準の導来比較を用いており、dg商を無条件に通常の
+アーベル圏の導来圏と同一視しているのではない。
+
+任意の$M\in\coh E$について
+\[
+ \operatorname{Hom}(s^{-n}P,JM[k])
+ =\operatorname{Hom}_E(h^{-n}L_\bullet,M[k])
+\]
+は$n\gg0$で$k\ne0$なら零である。
+一方固定有界複体に対し上記のExt消滅を有限個のcohomology sheafに
+適用すれば、左辺は
+$\operatorname{Hom}(s^{-n}P,H^k(JM))$となる。
+生成性により$JM$はheartに属し、$J$は完全である。
+同じ等式と曲線上の生成性から$JM=0$なら$M=0$。
+$JM$の切断加群は高次数で
+$\bigoplus_n\operatorname{Hom}_E(L_\bullet,h^nM)$に一致し、
+$B_E$を通じて作用する。実際$F\epsilon=0$は
+$F\to FJF$がadjunctionにより分裂単射であることから従う。
+従って$JM$は$\qgr(B/(z_P))\simeq\coh E$の像である。
+この像の対象の部分対象・商対象も中心元で消される：
+$\qgr$での中心元の作用が零なら切断加群の十分高次は
+その中心元で消され、逆も成り立つ。
+よってGabriel--Krull filtrationにおいてもこの閉部分圏は
+次元一以下である。以上から主張を得る。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:ou-smooth-elliptic-recognition}の証明]
+$\epsilon_{\mathcal O}$はheart内の射$s^{-1}\mathcal O\to\mathcal O$。
+そのconeが$JF\mathcal O$であるため、補題\ref{lem:ou-elliptic-heart}
+の完全性とconservativityから$F\mathcal O$のcohomologyは次数$-1,0$に限られる。
+さらに$JH^{-1}(F\mathcal O)=\ker\epsilon_{\mathcal O}$は
+次元一以下である。$\mathcal O$のtorsion-free性からこの核は零。
+よって$M=F\mathcal O\in\coh E$であり
+\begin{equation}\label{eq:ou-O-divisor}
+ 0\to s^{-1}\mathcal O\to\mathcal O\to JM\to0
+\end{equation}
+が成立する。任意の線束$V$に対し$JV\ne0$であるから、
+AZ1による生成性とadjunctionから、ある$n$について
+$\operatorname{Hom}_E(h^{-n}M,V)\ne0$となる。
+従って$r=\operatorname{rk}M$は正である。
+
+AZ2を(\ref{eq:ou-O-divisor})の全射に適用すると、
+$n\gg0$で
+\begin{align*}
+ \dim\operatorname{Hom}_E(M,h^n M)
+ &=\dim\operatorname{Hom}_{\mathcal C}(s^{-n}\mathcal O,JM)\\
+ &=\dim R_n-\dim R_{n-1}=3n .
+\end{align*}
+$M$をベクトル束$V$とtorsion sheaf $T$の直和に分け、
+$\ell=\operatorname{length}T$とする
+（$\operatorname{Ext}^1(V,T)=0$なので分離できる）。
+Riemann--Rochおよび$\dim\operatorname{Hom}(V,h^nT)=r\ell$から
+\[
+ 3n\ \geq\ \chi_E(V,h^n V)+r\ell=3nr^2+r\ell .
+\]
+従って$r=1,\ell=0$、つまり$M$は線束である。
+ここでAZ2が本質的であり、Euler形式の数値比較だけから
+torsionの消滅を結論してはいない。
+すると任意の$n\geq1$で$\dim\operatorname{Hom}_E(M,h^nM)=3n$。
+(\ref{eq:ou-O-divisor})にHomを施した左完全列と次元比較から、
+制限写像は全ての正次数で全射となる。次数零も恒等元により全射。
+$\epsilon$は全ての$s^a\mathcal O$上単射なので、自然性から
+上述の$P$の場合と同様に$s$と可換である。
+従って$z=\epsilon_{s\mathcal O}$は正則中心一次元で
+\begin{equation}\label{eq:ou-R-mod-z}
+ R/zR\simeq \bigoplus_{n\geq0}\operatorname{Hom}_E(M,h^nM)
+ \simeq B(E,M^\vee\otimes hM,\alpha)
+\end{equation}
+となる。右辺はorbit積の規約による平行移動（反対の規約では逆向き）
+のtwisted homogeneous coordinate ringである。
+
+最後に環論的認識を記す。これは\cite[Section~12]{VdBBlowup2001}の
+中心拡大の議論を用いるが、同論文の爆発表示を仮定しない。
+$\bar R=R/zR$は滑らかな楕円曲線、次数三線束、平行移動から
+得られたので、三生成元の二次AS三次元正則環$\bar G=Q(\bar R)$の
+正則正規三次商である（\cite{ATV1990}、上記Section~12）。
+平行移動が偏極を保つ場合は平面三次曲線の可換表示のZhang twist
+としても得られる。正則な$z$と$\bar R$の一次生成性により
+$R$は一次生成。$G=Q(R)$とし、$W=R_1$、
+$S_2=\ker(W^{\otimes2}\to R_2)$とすれば$\dim W=4,\dim S_2=6$。
+$z$は$G$でも中心元で$G/zG=\bar G$である。
+$\dim G_3\leq\dim G_2+\dim\bar G_3=20$。
+$\bar G$の三次関係の持上げは$R$への核に入り、
+$\bar G$上で非零なので$G$でも非零である。
+（具体的に$\bar R$で消える三次式を持ち上げ、その$R$上の像を
+$zR_2$で補正する。）$\dim R_3=19$より$\dim G_3=20$、
+よって$z:G_2\to G_3$も単射である。
+
+中心拡大判定\cite[Corollary~2.7]{LBSVdB1996}の条件を確認する。
+$z:G_1\to G_2$の単射は$R$での単射から従う。
+$\bar W=W/kz$、$\bar S_2$を$\bar G$の二次関係空間とする。
+$\bar W\otimes\bar S_2\cap\bar S_2\otimes\bar W$の任意の元を
+$u\in W\otimes S_2$、$v\in S_2\otimes W$にそれぞれ持ち上げる。
+差$u-v$は$z$を含むテンソルの和であり、隣接交換関係
+$C=\langle z\otimes w-w\otimes z:w\in W\rangle\subset S_2$
+を法として$z\otimes q$ ($q\in W^{\otimes2}$)と書ける。
+$G_3$で$zq=0$かつ$z:G_2\to G_3$が単射なので$q\in S_2$。
+従って$u-v$は$z\otimes S_2+W\otimes C+C\otimes W$に属し、
+各項は射影で消える。これらを両持上げから補正すれば
+同一の元$W\otimes S_2\cap S_2\otimes W$を得る。
+従って線形syzygyの持上げも成立する。
+中心拡大判定から$G$はAS四次元正則、Hilbert級数$(1-t)^{-4}$。
+$G/zG$のHilbert級数比較から$z$は$G$上でも正則であり、
+$\bar G$の左右noetherian性を持ち上げられる。
+また$\bar G$はKoszulで、正則中心一次元で割った環への
+change-of-rings Tor spectral sequenceは対角次数に集中する
+（$\operatorname{Tor}^G_q(\bar G,k)$は$q=0,1$のみ、
+内次数$q$）。従って$G$もKoszulである。
+命題\ref{prop:quadratic-envelope-recognition}から$R=G/(g)$。
+AZ再構成によりこれは与えられた標識と反標準自己同値に適合する。
+\end{proof}
+
+\begin{remark}\label{rem:ou-smooth-elliptic-scope}
+この定理は指定したOU helix比較をもつ滑らかな楕円型の
+内在的候補に対する肯定的認識であって、admissibilityだけから
+内在的条件を導いたものではない。爆発中心の一般位置、
+関係係数の全非消失、平行移動の非torsion性はいずれも
+認識定理の追加条件ではない。
+特に既知の非可換爆発比較の適用外でも、上の仮定を満たす限り
+標準超曲面表示を得る。一般のOU型が滑らかな楕円decupleを持つか、
+退化した曲線・非楕円型で同じ認識を実現できるかは残る問題である。
+spherical functorと中心拡大判定自体は既知であり、
+ここでの新しい主張は内在的ample条件による制限線束の認識と
+それらの接続である。新規性の網羅的確認は未了。
+\end{remark}
