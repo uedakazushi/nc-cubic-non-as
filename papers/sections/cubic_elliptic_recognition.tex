@@ -211,39 +211,94 @@ $\qgr$での中心元の作用が零なら切断加群の十分高次は
 次元一以下である。以上から主張を得る。
 \end{proof}
 
-\begin{proof}[定理\ref{thm:ou-smooth-elliptic-recognition}の証明]
-$\epsilon_{\mathcal O}$はheart内の射$s^{-1}\mathcal O\to\mathcal O$。
-そのconeが$JF\mathcal O$であるため、補題\ref{lem:ou-elliptic-heart}
-の完全性とconservativityから$F\mathcal O$のcohomologyは次数$-1,0$に限られる。
-さらに$JH^{-1}(F\mathcal O)=\ker\epsilon_{\mathcal O}$は
-次元一以下である。$\mathcal O$のtorsion-free性からこの核は零。
-よって$M=F\mathcal O\in\coh E$であり
-\begin{equation}\label{eq:ou-O-divisor}
- 0\to s^{-1}\mathcal O\to\mathcal O\to JM\to0
-\end{equation}
-が成立する。任意の線束$V$に対し$JV\ne0$であるから、
-AZ1による生成性とadjunctionから、ある$n$について
-$\operatorname{Hom}_E(h^{-n}M,V)\ne0$となる。
-従って$r=\operatorname{rk}M$は正である。
-
-AZ2を(\ref{eq:ou-O-divisor})の全射に適用すると、
-$n\gg0$で
-\begin{align*}
- \dim\operatorname{Hom}_E(M,h^n M)
- &=\dim\operatorname{Hom}_{\mathcal C}(s^{-n}\mathcal O,JM)\\
- &=\dim R_n-\dim R_{n-1}=3n .
-\end{align*}
-$M$をベクトル束$V$とtorsion sheaf $T$の直和に分け、
-$\ell=\operatorname{length}T$とする
-（$\operatorname{Ext}^1(V,T)=0$なので分離できる）。
-Riemann--Rochおよび$\dim\operatorname{Hom}(V,h^nT)=r\ell$から
+\begin{lemma}[AZ2による特異点での局所自由性]
+\label{lem:ou-az2-singular-free}
+$E$を連結被約射影曲線、$h=\alpha^*(-)\otimes N$を幾何的自己同値とする。
+$\coh E$の対象$M$がAZ2を満たす、すなわち任意の全射$V\to W$に対し
+$n\gg0$で$\operatorname{Hom}(h^{-n}M,V)\to
+\operatorname{Hom}(h^{-n}M,W)$が全射であるとする。
+このとき$M$は全ての特異点で局所自由であり、
+$M=V_0\oplus T$（$V_0$はベクトル束、$T$は滑らかな点に台を持つ
+有限長層）と分解する。
+\end{lemma}
+\begin{proof}
+特異点の集合は有限なので、任意の特異閉点$p$は$\alpha$の周期点である。
+全射$\mathcal O_E\to k(p)$にAZ2を適用し、$n$を周期の十分大きい倍数に取る。
+$H=(h^{-n}M)_p$、$A=\mathcal O_{E,p}$、$\mathfrak m$をその極大イデアルとする。
+$\operatorname{Hom}_E(h^{-n}M,k(p))$は
+$\operatorname{Hom}_A(H,A/\mathfrak m)$に等しいので、
+大域的全射性から局所的にも
 \[
- 3n\ \geq\ \chi_E(V,h^n V)+r\ell=3nr^2+r\ell .
+ \operatorname{Hom}_A(H,A)\longrightarrow
+ \operatorname{Hom}_A(H,A/\mathfrak m)
 \]
-従って$r=1,\ell=0$、つまり$M$は線束である。
-ここでAZ2が本質的であり、Euler形式の数値比較だけから
-torsionの消滅を結論してはいない。
-すると任意の$n\geq1$で$\dim\operatorname{Hom}_E(M,h^nM)=3n$。
+が全射である。
+$\mu=\dim_k H/\mathfrak m H$と置き、双対基底を$\mu$本の$A$値写像に
+持ち上げると$H\to A^\mu$を得る。剰余体上では同型なので
+Nakayamaの補題により全射であり、終域の自由性により分裂する。
+核は剰余体上零となるので再びNakayamaの補題により零である。
+従って$H$は自由である。$\alpha^n(p)=p$なので$M_p$も自由である。
+
+$T$を$M$の最大零次元部分層とする。
+被約曲線の局所自由層には零次元部分層がないので、
+$T$の台は滑らかな点に限られる。
+$V_0=M/T$は特異点で$M$と同じ、滑らかな点では
+DVR上のtorsion-free加群なので局所自由である。
+$\operatorname{Ext}^1_E(V_0,T)=H^1(E,V_0^\vee\otimes T)=0$
+から分裂する。連結性により$V_0$のrankは一定である。
+\end{proof}
+
+\begin{proposition}[曲線上の反標準制限のrank認識]
+\label{prop:ou-reduced-curve-rank}
+$E$を連結被約射影算術種数一曲線、$h=\alpha^*(-)\otimes N$、
+$\deg N=3$とする。$\mathcal C$の反標準移動$s$と内在的三次標識
+$\mathcal O$に対し、導来随伴$F\dashv J$、
+自然な三角$s^{-1}\xrightarrow{\epsilon}\mathrm{id}\to JF$、
+$Fs\simeq hF$があり、$J$はheart上完全かつconservativeで、
+その連接層の像がGK次元一以下であるとする。
+このとき$M=F\mathcal O$は線束である。
+\end{proposition}
+\begin{proof}
+$\epsilon_{\mathcal O}$はheart内の射であり、そのconeが$JF\mathcal O$。
+$J$の完全性とconservativityから$F\mathcal O$のcohomologyは
+次数$-1,0$に限られ、$JH^{-1}(F\mathcal O)$は
+$\mathcal O$の次元一以下の部分対象となる。
+torsion-free性でこれは零となる。従って$M=F\mathcal O\in\coh E$で
+\begin{equation}\label{eq:ou-O-divisor}
+ 0\to s^{-1}\mathcal O\to\mathcal O\to JM\to0.
+\end{equation}
+任意の全射$V\to W$ in $\coh E$は$JV\to JW$という全射を与え、
+AZ2と随伴により$\operatorname{Hom}_E(h^{-n}M,V)\to
+\operatorname{Hom}_E(h^{-n}M,W)$が$n\gg0$で全射となる。
+補題\ref{lem:ou-az2-singular-free}により$M=V_0\oplus T$、
+$V_0$はrank $r$のベクトル束、$T$の長さを$\ell$とする。
+$r>0$である：任意の非零線束$V$について$JV\ne0$であり、
+AZ1による生成性と随伴から、ある正の$n$について
+$\operatorname{Hom}_E(h^{-n}M,V)\ne0$となるが、
+零次元層から線束への射は零である。
+
+AZ2を(\ref{eq:ou-O-divisor})の全射に適用すると$n\gg0$で
+\[
+ \dim\operatorname{Hom}_E(M,h^nM)
+ =\dim\operatorname{Hom}_{\mathcal C}(s^{-n}\mathcal O,JM)
+ =\dim R_n-\dim R_{n-1}=3n .
+\]
+$E$の全次数で$\deg(h^nV_0)=\deg V_0+3nr$だから、
+曲線のRiemann--Rochにより
+$\chi_E(V_0,h^nV_0)=3nr^2+r^2\chi(\mathcal O_E)$。
+特に算術種数一なら
+\[
+ 3n\geq 3nr^2+r\ell.
+\]
+従って$r=1,\ell=0$である。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:ou-integral-elliptic-recognition}の証明]
+補題\ref{lem:ou-elliptic-shift}、\ref{lem:ou-elliptic-heart}により
+命題\ref{prop:ou-reduced-curve-rank}の全仮定を満たす。
+従って$M=F\mathcal O$は線束で、完全列(\ref{eq:ou-O-divisor})が成り立つ。
+既約種数一曲線では正次数の線束の$H^1$は零だから、
+任意の$n\geq1$で$\dim\operatorname{Hom}_E(M,h^nM)=3n$。
 (\ref{eq:ou-O-divisor})にHomを施した左完全列と次元比較から、
 制限写像は全ての正次数で全射となる。次数零も恒等元により全射。
 $\epsilon$は全ての$s^a\mathcal O$上単射なので、自然性から
@@ -253,16 +308,28 @@ $\epsilon$は全ての$s^a\mathcal O$上単射なので、自然性から
  R/zR\simeq \bigoplus_{n\geq0}\operatorname{Hom}_E(M,h^nM)
  \simeq B(E,M^\vee\otimes hM,\alpha)
 \end{equation}
-となる。右辺はorbit積の規約による平行移動（反対の規約では逆向き）
+となる。右辺はorbit積の規約による自己同型（反対の規約では逆向き）
 のtwisted homogeneous coordinate ringである。
 
 最後に環論的認識を記す。これは\cite[Section~12]{VdBBlowup2001}の
 中心拡大の議論を用いるが、同論文の爆発表示を仮定しない。
-$\bar R=R/zR$は滑らかな楕円曲線、次数三線束、平行移動から
-得られたので、三生成元の二次AS三次元正則環$\bar G=Q(\bar R)$の
-正則正規三次商である（\cite{ATV1990}、上記Section~12）。
-平行移動が偏極を保つ場合は平面三次曲線の可換表示のZhang twist
-としても得られる。正則な$z$と$\bar R$の一次生成性により
+$\bar R=R/zR$の偏極$\mathcal L=M^\vee\otimes hM$は次数三であり、
+既約Gorenstein種数一曲線上でvery ampleである。
+実際、長さ二の任意の閉部分スキーム$Z$に対して
+$H^1(\mathcal L\otimes I_Z)=0$：Serre双対性により双対空間は
+$\operatorname{Hom}(\mathcal L\otimes I_Z,\mathcal O_E)$だが、
+正次数のrank一torsion-free層から$\mathcal O_E$への非零射は
+次数比較で不可能である。従って$|\mathcal L|$は$E$を平面三次曲線に埋め込む。
+さらに$\alpha^*$は$\Pic^0(E)$上恒等なので
+\[
+ \mathcal L\otimes(\alpha^{2})^*\mathcal L
+      \simeq(\alpha^*\mathcal L)^{\otimes2}.
+\]
+これはATV\cite[(4.8), Theorems~6.6, 6.8]{ATV1990}のregular triple条件。
+ATVのelliptic tripleの定義は$E$の滑らかさを要求しない。
+従って$\bar G=Q(\bar R)$は三生成元の二次AS三次元正則環であり、
+$\bar R$はその正則正規三次商である。
+偏極を保つ場合も同じ定理に含まれる。正則な$z$と$\bar R$の一次生成性により
 $R$は一次生成。$G=Q(R)$とし、$W=R_1$、
 $S_2=\ker(W^{\otimes2}\to R_2)$とすれば$\dim W=4,\dim S_2=6$。
 $z$は$G$でも中心元で$G/zG=\bar G$である。
@@ -298,14 +365,14 @@ AZ再構成によりこれは与えられた標識と反標準自己同値に適
 \end{proof}
 
 \begin{remark}\label{rem:ou-smooth-elliptic-scope}
-この定理は指定したOU helix比較をもつ滑らかな楕円型の
-内在的候補に対する肯定的認識であって、admissibilityだけから
+この定理は指定したOU helix比較をもつ既約種数一曲線型の
+内在的候補に対する肯定的認識であって、曲線データだけから
 内在的条件を導いたものではない。爆発中心の一般位置、
 関係係数の全非消失、平行移動の非torsion性はいずれも
 認識定理の追加条件ではない。
 特に既知の非可換爆発比較の適用外でも、上の仮定を満たす限り
-標準超曲面表示を得る。一般のOU型が滑らかな楕円decupleを持つか、
-退化した曲線・非楕円型で同じ認識を実現できるかは残る問題である。
+標準超曲面表示を得る。一般のOU型が既約種数一曲線表示を持つか、
+可約・非被約曲線や非曲線型で同じ認識を実現できるかは残る問題である。
 spherical functorと中心拡大判定自体は既知であり、
 ここでの新しい主張は内在的ample条件による制限線束の認識と
 それらの接続である。新規性の網羅的確認は未了。
