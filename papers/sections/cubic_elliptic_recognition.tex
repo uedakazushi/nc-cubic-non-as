@@ -10,7 +10,6 @@
 
 \begin{theorem}[既約種数一曲線のhelixを持つ内在的三次候補]
 \label{thm:ou-integral-elliptic-recognition}
-\label{thm:ou-smooth-elliptic-recognition}
 $E$を標数零の代数閉体上の既約被約射影算術種数一曲線
 （滑らかな楕円曲線、節点三次曲線または尖点三次曲線）とし、
 $(L_1,\ldots,L_9)$を次数$0,1,2$の各三本の線束からなり、
@@ -363,6 +362,96 @@ change-of-rings Tor spectral sequenceは対角次数に集中する
 命題\ref{prop:quadratic-envelope-recognition}から$R=G/(g)$。
 AZ再構成によりこれは与えられた標識と反標準自己同値に適合する。
 \end{proof}
+
+\begin{proposition}[被約可約三次曲線への条件付き拡張]
+\label{prop:ou-reduced-cubic-geometric}
+$E$を連結被約平面三次曲線とし、$F,J,h$が
+命題\ref{prop:ou-reduced-curve-rank}の仮定を満たすとする。
+さらに$h$が$\Perf E$上で次数$0,1,2$の各三本の線束$L_i$に沿う
+spherical twistの積の逆を$[2]$したものとする。
+このとき与えられた内在的標識の反標準環$R$は
+標準AS四次元正則環の正則正規三次商である。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:ou-reduced-curve-rank}から$M=F\mathcal O$は線束である。
+まず自己同型$\alpha$は全ての既約成分を個別に保つ。
+実際、任意の全次数零の線束$Q$に対し、
+$[Q]-[\mathcal O_E]\in K_0(\Perf E)$は各twistで不変である。
+曲線Riemann--Rochから
+$\chi(L_i,Q)-\chi(L_i,\mathcal O_E)=\deg Q=0$だからである。
+幾何的な$h$のもとで行列式を取れば$\alpha^*Q\simeq Q$。
+各成分の滑らかな点の差で任意の全和零の多重次数を実現できるので、
+成分の置換はこの多重次数格子に恒等として作用する。
+従って置換自体が恒等である。
+この議論は$\Pic^0(E)$のみの作用より強い。
+
+さらに$(M,h)$はAZ1も満たす。任意の$V\in\coh E$に対し
+AZ1で全射$\bigoplus_j s^{-n_j}\mathcal O\to JV$を取る。
+随伴で対応する$\bigoplus_j h^{-n_j}M\to V$が全射でなければ、
+$J$の完全性により元の全射は$J(\operatorname{im})$を経由し、
+$J(\operatorname{coker})\ne0$と矛盾する。
+成分$E_i$への制限で$\deg N|_{E_i}\leq0$なら、
+$h^{-n}M|_{E_i}$の次数は$n>0$で下がらない。
+従って十分負次数の線束を$E_i$から押し出した対象への射は全て零であり、
+AZ1に反する。よって全成分で$\deg N|_{E_i}>0$である。
+$\mathcal L=M^\vee\otimes hM$も同じ正の多重次数を持ち、全次数三である。
+
+このような$\mathcal L$はvery ampleである。証明のため
+任意の長さ二の零次元閉部分スキーム$Z\subset E$を取る。
+Serre双対性で$H^1(\mathcal L I_Z)^*$は
+$\operatorname{Hom}(\mathcal L I_Z,\mathcal O_E)$に等しい。
+非零射の像が一般点で非零となる成分の和を$E'\subset E$とする。
+$E'=E$なら射は単射であり、源の次数$3-2=1$は終域の次数零より
+大きいので矛盾する。
+$E'$が真の部分曲線なら、終域のうち$E'$に台を持つ最大の部分層は
+$\mathcal O_{E'}(-E'\cap\overline{E\setminus E'})$である。
+これは平面内で補曲線の方程式を掛けることで得る。
+交叉長はBezoutの定理により二である（次数$1$と$2$）。
+射は源を$E'$に制限しその零次元torsionを除いた
+$I_Z\mathcal O_{E'}\otimes\mathcal L|_{E'}$を経由し、
+この層から上の終域への単射を与える。
+源の次数は$\deg(\mathcal L|_{E'})-2\geq-1$、
+終域の次数は$-2$であり、再び矛盾する。
+従って$H^1(\mathcal L I_Z)=0$で、長さ二の部分スキームを分離する。
+同じ支持部分曲線の議論で、全成分上正次数の任意の線束の$H^1$は零となる。
+よって$h^n$のorbitに対しても
+$\dim\operatorname{Hom}(M,h^nM)=3n$ ($n\ge1$) を得る。
+
+完全列(\ref{eq:ou-O-divisor})と次元比較から、
+定理\ref{thm:ou-integral-elliptic-recognition}の証明と同じく
+正則中心一次元$z$と$R/zR=B(E,\mathcal L,\alpha)$を得る。
+$\alpha^*$は全次数零線束を固定するので
+$\mathcal L\otimes(\alpha^2)^*\mathcal L\simeq
+(\alpha^*\mathcal L)^{\otimes2}$。
+ATVのregular triple条件と同定したvery ample性から
+$Q(R/zR)$は三次元二次AS正則環である。
+以後は定理\ref{thm:ou-integral-elliptic-recognition}の環論的部分と
+全く同じ中心拡大判定により結論を得る。
+この判定で$R/zR$の整域性は用いず、$R$上の$z$の正則性と
+三次関係の持上げを用いるため、可約曲線でも適用できる。
+\end{proof}
+
+\begin{remark}[可約曲線での実際の残存課題]\label{rem:ou-reduced-curve-gap}
+命題\ref{prop:ou-reduced-cubic-geometric}は幾何的$h$と
+曲線heartの認識を仮定している。既約の場合の
+\cite[Corollary~5.8]{BurbanKreu2006}は可約曲線にそのまま使えない。
+ただし、被約平面三次曲線上の九線束が同一ブロック内完全直交、
+異なるブロック間前向きhigher Ext消滅のfoundationを与え、
+標準noetherian OU helix/導来比較が成立する場合に、
+$h=\alpha^*(-)\otimes N$で$N$がampleであることを別途証明できれば、
+補題\ref{lem:ou-elliptic-heart}の証明はそのまま拡張できる。
+実際、$N$の全成分で正の次数から負のhelix像による
+大域生成と高次消滅を得る。十分高い多重次数の線束については
+上の部分曲線への制限とSerre双対性による議論で
+$H^1$消滅と長さ一の部分スキーム上の全射性が従う。
+任意の連接層については固定した負のample線束による全射から従う。
+degree zeroでの$B_0\simeq(B_E)_0$はfoundationの仮定による。
+従って$J$の完全性・conservativity・像の次元一以下を確認できる。
+現状では可約曲線上でtwistの積から幾何的$h$と
+ampleな$N$を得ること、および全OU型に対する曲線表示の存在が未解決である。
+非被約曲線では特異点集合の有限性を使った
+補題\ref{lem:ou-az2-singular-free}は適用しない。
+\end{remark}
 
 \begin{remark}\label{rem:ou-smooth-elliptic-scope}
 この定理は指定したOU helix比較をもつ既約種数一曲線型の
