@@ -241,12 +241,307 @@ $\operatorname{Ext}^2$は零）。従って$\Perf E$を生成する。
 命題\ref{prop:ou-reduced-cubic-geometric}を適用する。
 \end{proof}
 
+\subsection{内在的条件による可約曲線の残余型の排除}
+\label{subsec:ou-reducible-intrinsic-obstructions}
+
+ここでは前節の九線束の条件に加え、標準noetherian $\qgr$/導来helix比較
+と内在的三次標識$(\mathcal C,\mathcal O)$を仮定する。
+特に$\mathcal O$のGK rank一とは、次元一以下のSerre部分圏で割った
+一般点の商圏において長さ一の対象となることを意味する。
+曲線側の$h$が幾何的であることは、明示する箇所を除いて仮定しない。
+
+OU\cite[pp.~1--2, (3)--(5)]{OUSpherical2020}のspherical functorは
+$\Perf E$全体が九線束で生成されると仮定せず、その厚い生成部分圏に
+対して構成できる。その部分圏はSerre関手$[1]$で保たれるからである。
+$F:D^b(\mathcal C)\simeq\Perf\Lambda\to\Perf E$は九線束を像とし、
+右随伴$J:D^b(\coh E)\to D^b(\mathcal C)$はdirected algebraへの
+導来Homによる制限で全連接複体上に定義する。
+$\Lambda$の有限大域次元から$J$の値は$\Perf\Lambda$に属する。
+この随伴は$F(P_i)=L_i$上のHomの比較で確認できる。
+前節と同じく
+\[
+ s^{-1}\xrightarrow{\epsilon}\mathrm{id}\longrightarrow JF,
+ \qquad Fs\simeq hF
+\]
+を得る。第二の同型はspherical functorの随伴公式により、
+曲線の厚い生成部分圏上でのtwist積を用いて得る。
+また、全ての$M\in D^b(\coh E)$について
+\begin{equation}\label{eq:ou-residual-FJ}
+ FJM\longrightarrow M\longrightarrow\mathcal D M
+\end{equation}
+が三角をなす。これはOU (4) のdirected categoryのbar分解による
+評価の反復coneであり、$M$が完全か否かに関係なく、
+九線束との導来Homを用いる同じ計算である。
+以下では特異曲線の$D^b(\coh E)$にSerre関手を仮定しない。
+
+\begin{lemma}[helix切断と有限長判定]\label{lem:ou-residual-helix-growth}
+$P=\bigoplus_{i=1}^9P_i$と置く。固定した$X\in\mathcal C$について、
+$n\gg0$で$\operatorname{Ext}^{>0}(s^{-n}P,X)=0$であり、
+$\dim\operatorname{Hom}(s^{-n}P,X)$は$n$の次数二以下の多項式に一致する。
+$X\ne0$ならこの多項式は十分大きい$n$で正である。
+特にこの切断数が有界なら$X$は有限長である。
+また固定した有界複体$Y$に対し、$n\gg0$で
+\[
+ \operatorname{Hom}(s^{-n}P_i,Y[k])
+ \simeq\operatorname{Hom}(s^{-n}P_i,H^k(Y))
+\]
+となる。
+\end{lemma}
+\begin{proof}
+標準noetherian AS正則$\mathbb Z$-algebraの有限生成加群の
+有限射影分解を$\qgr$に移せば、任意の$X$にhelix対象の有限直和による
+有限分解がある。十分負のhelix対象からの高次Ext消滅は
+very strong性とこの分解から従う。これらは任意に深い負の添字に
+限ってもheartを生成する（有限生成加群の高次切断を取る）。
+
+三ブロックfoundationのEuler行列は
+\[
+ E_\Lambda=
+ \begin{pmatrix}I_3&J_3&2J_3\\0&I_3&J_3\\0&0&I_3\end{pmatrix}
+\]
+である。ここで$J_3$は全成分一の行列であり、
+前向きHom次元は曲線Riemann--Rochと高次Ext消滅による。
+$K_0(\mathcal C)_\mathbb Q$上のSerre行列は$E_\Lambda^{-1}E_\Lambda^t$。
+各ブロックの和零部分には恒等、ブロック内定数ベクトルからなる
+三次元部分には
+\[
+ S_0=\begin{pmatrix}10&6&3\\-15&-8&-3\\6&3&1\end{pmatrix},
+ \qquad (S_0-I)^3=0
+\]
+として作用する。よって$(s-1)^3=0$であり、固定した二対象の
+$\chi(s^{-n}X_1,X_2)$は$n$の次数二以下の多項式となる。
+切断数は$n\gg0$でこのEuler数に一致する。生成性から非零$X$の
+切断数は任意に大きい添字で非零となるので、多項式は恒等的に零でなく、
+十分大きい$n$で正となる。
+
+任意の有限部分対象列の非零の逐次商にこの正性を適用する。
+有限個の逐次商について十分大きい共通の$n$を取れば、
+高次Ext消滅またはEuler加法性から切断数の和を比較できる。
+従って切断数が$D$で有界なら非零逐次商の個数は高々$D$。
+これは有限長性を意味する。最後の式は$Y$の有限個のコホモロジー層に
+対する高次Ext消滅とhyperExt spectral sequenceから従う。
+\end{proof}
+
+\begin{proposition}[非零反標準写像と二次成長の障害]
+\label{prop:ou-residual-delta-obstruction}
+自然変換$\epsilon:s^{-1}\to\mathrm{id}$がheart上のある対象で非零ならば、
+$\delta_{\rm md}=0$である。特に$\delta_{\rm md}\ne0$で
+内在的三次標識を持つ型が存在するならば、
+この曲線表示から得る$\epsilon$はheart上の全ての対象で零である。
+これは$h$の幾何性を仮定しない。
+\end{proposition}
+\begin{proof}
+任意の非零射$s^a\mathcal O\to s^b\mathcal O$は単射である。
+実際、像が非零なので終域のtorsion-free性から一般点で非零であり、
+両辺がrank一なので核は次元一以下、始域のtorsion-free性で零となる。
+$\epsilon$が全ての$s^a\mathcal O$上で零なら、
+AZ1によるこれらの有限直和からの全射と自然性により
+$\epsilon$はheart上で零となる。
+従って仮定の下ではある$s^a\mathcal O$で$\epsilon$が非零、従って単射。
+Hilbert関数から$a\leq b$なら
+$\operatorname{Hom}(s^a\mathcal O,s^b\mathcal O)\ne0$であり、
+この中の非零射の単射性と$\epsilon$の自然性を用いると、
+全ての$s^b\mathcal O$で$\epsilon$が非零かつ単射となる。
+実際、自然性の正方形の上下の水平射が単射なので、
+垂直射の一方の非零性は他方の非零性を強制する。
+また$\epsilon_X:s^{-1}X\to X$について自然性を用い、
+$X=s^a\mathcal O$のとき$\epsilon_X$で後合成して単射性で消去すれば
+$\epsilon_{s^{-1}X}=s^{-1}\epsilon_X$となる。
+従って$z=\epsilon_{s\mathcal O}$は$R$の正則中心一次元を与える。
+
+$F\epsilon=0$は随伴の単位を$F$で移した射が
+余単位によって分裂単射となることから従う。
+随伴により$\epsilon_{JM}=0$が全ての$M\in D^b(\coh E)$について成立する。
+$s^{-1}$と恒等関手は$t$-exactなので
+$X=H^k(JM)$についても$\epsilon_X=0$である
+（標準切断の自然性により、$H^k(\epsilon_{JM})=\epsilon_X$）。
+この段階では$J$の$t$-exact性を仮定しない。
+
+$\epsilon_X=0$なる任意の固定した$X\in\mathcal C$に対し、
+AZ1で全射$\bigoplus_\nu s^{-a_\nu}\mathcal O\twoheadrightarrow X$を取る。
+AZ2により十分大きい$n$で
+$\bigoplus_\nu\operatorname{Hom}(s^{-n}\mathcal O,s^{-a_\nu}\mathcal O)
+\twoheadrightarrow\operatorname{Hom}(s^{-n}\mathcal O,X)$となる。
+各成分の核は少なくとも$\epsilon_{s^{-a_\nu}\mathcal O}$による
+後合成の像を含む（自然性と$\epsilon_X=0$）。
+この後合成は単射なので、
+\begin{equation}\label{eq:ou-residual-linear-bound}
+ \dim\operatorname{Hom}(s^{-n}\mathcal O,X)
+ \leq\sum_\nu(\dim R_{n-a_\nu}-\dim R_{n-a_\nu-1})
+ =\sum_\nu3(n-a_\nu)=O(n).
+\end{equation}
+これは環の再構成やtorsion加群の一般のHilbert多項式を仮定しない。
+
+各$P_i$にもAZ1による全射$\bigoplus_\mu s^{-b_\mu}\mathcal O\to P_i$がある。
+$s^{-n}$を施してHomを取ると
+$\operatorname{Hom}(s^{-n}P_i,X)$は
+$\bigoplus_\mu\operatorname{Hom}(s^{-n-b_\mu}\mathcal O,X)$に単射であり、
+同じく$O(n)$である。これを$X=H^k(JM)$に適用し、
+補題\ref{lem:ou-residual-helix-growth}とEuler加法性により
+\[
+ |\chi_\mathcal C(s^{-n}P_i,JM)|=O(n)
+\]
+となる。随伴により左辺は$|\chi_E(h^{-n}L_i,M)|$である。
+$M$として成分$E_a$の構造層の押出しを取る。
+$h^{-n}L_i$は仮想階数一の完全複体であり、
+成分への導来制限と$\mathbb P^1$上のRiemann--Rochから
+\[
+ \chi_E(h^{-n}L_i,\mathcal O_{E_a})
+ =1-\bigl(\operatorname{mdeg}(h^{-n}L_i)\bigr)_a .
+\]
+命題\ref{prop:ou-reduced-md-action}を反復すると
+\[
+ \operatorname{mdeg}(h^{-n}L_i)
+ =\operatorname{mdeg} L_i-nw+
+       \left(-n\deg L_i+\frac{3n(n-1)}2\right)\delta_{\rm md}.
+\]
+従って左辺の$n^2$の係数は$-3(\delta_{\rm md})_a/2$。
+線形成長上界と比較するとこの係数は零となり、
+全成分について$\delta_{\rm md}=0$を得る。
+\end{proof}
+
+\begin{theorem}[幾何的反標準移動の豊富性の自動性]
+\label{thm:ou-residual-geometric-ample}
+この節の仮定の下で、$h=\alpha^*(-)\otimes N$が幾何的なら
+$N$はampleである。従って被約可約平面三次曲線の九線束表示で
+幾何的$h$を持つ内在的三次候補は、
+系\ref{cor:ou-reduced-md-recognition}により標準AS4三次超曲面である。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:ou-reduced-md-action}から$\alpha$は成分を個別に保ち、
+$\operatorname{mdeg}N=w$、$\sum w_a=3$である。
+まず$w_a\geq0$。任意の$n\ge1$について反標準三角を$s^nP_i$に
+適用し、$P_i$からHomを取るとvery strong性により
+$\operatorname{Ext}^1_E(L_i,h^n L_i)=0$。
+$\omega_E=\mathcal O_E$だからSerre双対性から
+$H^0(L_i\otimes(h^n L_i)^{-1})=0$。
+もし$w_a<0$なら$n\gg0$でこの線束の$E_a$上の次数は二以上となり、
+補題\ref{lem:ou-reduced-md-bounds}と同じ部分曲線支持の切断で矛盾する。
+また$h L_i$が層なので反標準三角の負次数Homが零となり、
+$\operatorname{Hom}(P_i,P_i)\to\operatorname{Hom}(P_i,sP_i)$は単射である。
+従って$\epsilon_{sP_i}\ne0$。命題\ref{prop:ou-residual-delta-obstruction}の
+証明の単射性の議論から、$\epsilon_{\mathcal O}$は単射で、
+\[
+ JF\mathcal O\in\mathcal C,\qquad
+ 0\to s^{-1}\mathcal O\to\mathcal O\to JF\mathcal O\to0.
+\]
+
+次に全ての閉点$p\in E$について$Jk(p)\in\mathcal C$であり有限長である。
+実際、任意の$i,n$に対して$h^{-n}L_i$は線束なので
+$\operatorname{Hom}_E(h^{-n}L_i,k(p)[k])$は$k=0$のとき一次元、
+それ以外で零である。随伴と補題\ref{lem:ou-residual-helix-growth}の
+hyperExtおよび生成性によるheart判定から主張が従う。
+特に$Jk(p)$の$P$切断数は$9$なので有限長となる。
+
+$M=F\mathcal O$は完全複体であり、全ての$p$で
+\[
+ \operatorname{Hom}_E(M,k(p)[k])
+ \cong \operatorname{Hom}_{D^b(\mathcal C)}(\mathcal O,Jk(p)[k]).
+\]
+右辺は$k<0$で零、$k>2$でも零である
+（$s=S^{-1}[2]$が$t$-exactなのでSerre双対性を使う）。
+$k=2$でもSerre双対性により
+$\operatorname{Hom}(Jk(p),s^{-1}\mathcal O)^*=0$である。
+これは有限長対象からtorsion-free対象への射が零だからである。
+従って局所環上の完全複体の最小自由モデルで剰余体へのHomを調べれば、
+$M$はTor振幅$[-1,0]$を持つ。特に
+$M_-=H^{-1}(M),\ M_+=H^0(M)$以外のコホモロジーは零である。
+
+$M_+$は全ての特異点で局所自由である。ここで$J$の全heart上の
+完全性は仮定しない。各特異点$p$について、十分正の多重次数の
+線束$A_p$を選ぶと、$J(A_p)$と$J(A_p I_p)$はheartに属する。
+実際、全成分で$w_a\geq0$なので、全ての$n\ge0$と有限個の$i$に対し
+$A_p\otimes(h^{-n}L_i)^\vee$の多重次数に共通の十分大きい下界を課せる。
+前節の部分曲線による双対性の証明から$H^1=0$かつ$p$で大域生成、
+従って$I_p$を掛けても$H^1=0$。
+随伴と補題\ref{lem:ou-residual-helix-growth}で上のheart所属を得る。
+従って$J(A_p)\to Jk(p)$はheartの全射である。
+AZ2をこの全射に適用すると$n\gg0$で
+\[
+ \operatorname{Hom}_E(h^{-n}M,A_p)
+ \twoheadrightarrow \operatorname{Hom}_E(h^{-n}M,k(p)).
+\]
+ここで導来Homの次数零を取っているが、$M$のコホモロジーが
+$[-1,0]$にあることから、いずれも$h^{-n}M_+$からの通常のHomに等しい。
+特異点は$\alpha$の周期点なので$n$をその周期の倍数に選び、
+補題\ref{lem:ou-az2-singular-free}と同じ局所の双対基底の持上げにより
+$(M_+)_p$が自由となる（$A_p$の茎を自由階数一として自明化する）。
+
+$E$が連結で$M_+$が全特異点で自由なので、その一般点のrankは
+全成分で同じである。$M$の仮想階数も全成分で同じなので、
+$M_-$の一般点rankも全成分で同じである。
+一方$JM=JF\mathcal O$がheartにあることから、任意の$n$について
+\[
+ 0=\operatorname{Hom}_\mathcal C(s^{-n}P_i,JM[-1])
+  =H^0(E,(h^{-n}L_i)^\vee\otimes M_-).
+\]
+左辺のHomは導来Homの意味である。
+最後の等号は$M$のコホモロジー振幅と始域が線束であることによる。
+$w_a>0$の成分は少なくとも一つある。
+その成分上$M_-$が正rankなら、成分のイデアルで消される
+$M_-$の部分層もその成分上で正rankである。
+これを十分正の次数に捩ると$\mathbb P^1$上のRiemann--Rochから
+非零切断が生じ、上の消滅に反する。
+従って$M_-$のrankはこの成分で零、ゆえに全成分で零。
+もし$M_-\ne0$なら零次元層なので任意の線束からのHomが非零となり、
+再び矛盾する。以上から$M=M_+$は層である。
+
+$M$が特異点で自由なので$M=V\oplus T$と分解できる
+（補題\ref{lem:ou-az2-singular-free}の後半）。
+$V$は一定rank $r$のベクトル束、$T$は長さ$\ell$の零次元層である。
+$\mathcal O\to JM$の全射にAZ2を適用すると$n\gg0$で
+\[
+ 3n=\dim R_n-\dim R_{n-1}
+ =\dim\operatorname{Hom}_E(M,h^nM)
+ \geq 3nr^2+r\ell .
+\]
+最後は全次数のRiemann--Rochと$\operatorname{Hom}(V,h^nT)$の次元による。
+$r=0$なら$M$は有限長で右辺のHom次元が有界となるので矛盾。
+従って$r=1,\ell=0$、$M$は線束である。
+
+ここから全ての$Jk(p)$が単純であることを示す。
+任意の$n$について
+$\dim\operatorname{Hom}(s^{-n}\mathcal O,Jk(p))=1$、
+$\operatorname{Ext}^{>0}(s^{-n}\mathcal O,Jk(p))=0$となる。
+$0\to X\to Jk(p)\to Y\to0$をheartの完全列とすると、
+$X,Y$は有限長であり、Serre双対性により
+$\operatorname{Ext}^2(s^{-n}\mathcal O,X)$と
+$\operatorname{Ext}^2(s^{-n}\mathcal O,Y)$は零である。
+AZ2と長完全列から十分大きい$n$について両者への$\operatorname{Ext}^1$
+も零となる。従ってそれぞれへのHom次元は$n\gg0$でEuler多項式に一致し、
+その和は一である。非零対象ならAZ1により任意に大きい$n$で
+Homが非零となるので、多項式は十分大きい$n$で正となる
+（Euler多項式性は補題\ref{lem:ou-residual-helix-growth}の行列計算による）。
+$X,Y$の両方が非零であることは不可能であり、$Jk(p)$は単純である。
+
+さらに滑らかな点$p$では$k(p)$は完全であり、
+(\ref{eq:ou-residual-FJ})と$\mathcal D=h^{-1}[2]$から
+$H^0(FJk(p))\simeq k(p)$を得る。
+従って相異なる滑らかな点の$Jk(p)$は相異なる単純対象である。
+
+最後に$w_a=0$の成分$E_a$が存在すると仮定する。
+$E_a\simeq\mathbb P^1$上の十分大きい固定次数$m$について
+$X_m=i_{a*}\mathcal O_{E_a}(m)$、$X_{m-1}=i_{a*}\mathcal O_{E_a}(m-1)$と置く。
+全成分を$\alpha$が個別に保ち、$N$の$E_a$上の次数が零なので、
+$h^{-n}L_i|_{E_a}$の次数は$n$に依存しない。
+$m$を十分大きく取れば双方への高次Extは消滅し、切断数は有界である。
+従って随伴と補題\ref{lem:ou-residual-helix-growth}により
+$JX_m,JX_{m-1}$はheartの有限長対象である。
+$E_a$の任意の滑らかな点$p$に対して
+$0\to X_{m-1}\to X_m\to k(p)\to0$があるため、
+$JX_m$は$Jk(p)$へ全射を持つ。
+固定した有限長対象の単純商の同型類は有限個だが、上の相異なる
+$Jk(p)$は無限個存在する。これは矛盾。
+従って$w_a=0$の成分はなく、$N$はampleである。
+\end{proof}
+
 \begin{remark}
-ここで幾何的かつampleな$h$を認識する条件と、
-OU型が内在的三次条件を満たすための必要条件とは区別する。
-$\delta_{\rm md}\ne0$または$w_i\leq0$の場合には、
-本表示の$h$が幾何的かつampleでないことは示されたが、
-内在的標識の非存在や別の曲線表示の非存在は示されていない。
-特にこれらを逆包含の反例とは呼ばない。
-非被約曲線および曲線表示を持たないOU型についても未解決である。
+定理\ref{thm:ou-residual-geometric-ample}により、内在的三次標識を持つ
+被約可約曲線表示では、幾何的$h$ならば自動的に多重次数判定の肯定範囲に入る。
+また$\delta_{\rm md}\ne0$の残余型には、命題\ref{prop:ou-residual-delta-obstruction}により
+反標準自然変換$\epsilon$のheart上の零性が必要となる。
+しかし$\epsilon$が全ての九線束表示で非零となること、
+$\delta_{\rm md}=0$のとき$h$が常に幾何的となることはまだ証明していない。
+これらの未解決条件外を内在的候補の反例や非表示例とは呼ばない。
+非被約曲線および曲線表示を持たないOU型も残る。
 \end{remark}
