@@ -708,13 +708,335 @@ $\epsilon$は非零である。
 導く部分、後半は定理\ref{thm:ou-nodal-cycle-growth}(iii)による。
 \end{proof}
 
+\subsection{節点cycleのmultitwistの精密化と共役認識}
+\label{subsec:ou-nodal-graded-multitwist}
+以下では定理\ref{thm:ou-nodal-cycle-growth}の仮定を維持する。
+曲線の次数付き模型では、全Hom次元の増大だけでなく、
+非零Homが現れる次数の集合を利用できる。
+
+\begin{lemma}[helix軌道のgradingの有界性]
+\label{lem:ou-nodal-grading-bound}
+Opperのlaminateによる曲線模型において、
+$h^{-n}L_i$に対応する閉曲線上のgrading値の全体は、
+$n\geq0$について一様な有限区間に含まれる。
+ここでは一つの全体shiftを曲線ごとに任意に変更するのでなく、
+実際の完全複体に対応するgradingを用いる。
+\end{lemma}
+\begin{proof}
+Opperのgentle algebraを$\Gamma_c$と書き、三ブロックの
+directed algebra $\Lambda$と区別する。
+$\Perf E\hookrightarrow D^b(\operatorname{mod}\Gamma_c)$と、
+境界arc部分圏によるVerdier商を
+$\iota$および$\pi$と書く。
+\cite[Proposition~8.2, Lemma~8.4, Proposition~8.6,
+Remark~8.7]{Opper2026}により$\pi\iota=\mathrm{id}$であり、
+$\iota$の像は境界arc部分圏に左直交する。
+$\Gamma_c$の有限個の単純加群$S_v$に対して、
+\[
+ \operatorname{Hom}_{D^b(\Gamma_c)}(\iota h^{-n}L_i,S_v[k])
+ \cong\operatorname{Hom}_{D^b(E)}(h^{-n}L_i,\pi S_v[k])
+ \cong\operatorname{Hom}_{D^b(\mathcal C)}(s^{-n}P_i,J\pi S_v[k]).
+\]
+右辺で$J\pi S_v$は固定した有界複体である。
+補題\ref{lem:ou-residual-helix-growth}の最後の式により、
+$n\gg0$で右辺が非零となり得る$k$の範囲は一定である。
+有限個の$i,v$および残りの有限個の$n$を考えれば共通の区間を取れる。
+一方、Opperの閉曲線からの複体の構成
+\cite[Section~4.3, Proposition~4.6]{Opper2026}では、
+laminateとの各交点$q$のgrading $g(q)$は
+対応する射影加群が置かれる次数である。
+曲線をlaminateと最小位置に取ると、band complexの微分は
+正長の箙の経路で与えられるので根基に入る。
+従って単純加群へのHom複体の微分は零であり、
+$g(q)$はある頂点$v$に対する上記Homの非零次数
+（共通の符号規約による）として検出される。
+以上でgradingの有界性を得る。
+\end{proof}
+
+\begin{lemma}[multitwistによるgrading幅の増大]
+\label{lem:ou-nodal-winding-drift}
+$\Sigma$をこの$c$穿孔トーラスとし、
+$\psi=\prod_{a=1}^m D_{\eta_a}^{e_a}$をmultitwistとする。
+$\eta_a$は互いに素で非平行な本質的非周辺単純閉曲線、
+$e_a\ne0$である。非分離単純閉曲線$\gamma$に対して
+$\psi^n\gamma$のgrading幅が$n\geq0$について有界ならば、
+\[
+ i(\gamma,\eta_a)\ne0\quad\Longrightarrow\quad
+ \omega(\eta_a)=0.
+\]
+$\omega$はOpperのwinding数である。特に分離曲線$\eta_a$とは交わらない。
+\end{lemma}
+\begin{proof}
+laminateで切った多角形の双対graphをspineとして用いる。
+各多角形が円板で、gluingが互いに素な辺に沿うことから、
+このgraphは穿孔トーラスの変形収縮である。
+laminateと最小位置にある閉曲線の交差列は、
+双対graph上の巡回被約edge pathを与える。
+その隣接辺間のturnでgradingの差が定まり、
+閉じた被約edge path一周の差は$\omega$である
+（\cite[Sections~4.2.2--4.3]{Opper2026}）。
+
+$\gamma$をtwist軸の和と最小位置に取る。
+環状近傍内でtwistを実行すると、各横断部分に
+対応する$\eta_a$の$ne_a$回の周回（符号は横断方向による）が挿入される。
+spine上では、固定された接続pathと各軸の巡回被約語の
+$\pm ne_a$乗の交互の積を自由被約化することに相当する。
+ここで各乗冪から消去される辺数は$n$と独立に有界である。
+詳細は次の通りである。
+spineの普遍被覆はtreeであり、巡回被約軸語の持上げは
+deck変換のtranslation axisとなる。
+隣接する二つの長い乗冪の軸を、その間の固定接続pathに沿って
+同じtree内に置く。軸は相異なる。
+異なるtwist軸なら同一axisを持つことはできず、
+同じ軸への二つの連続横断で同一axisとなるならば、
+間のpathはその軸のcyclic subgroupoid内のpathに相対ホモトピックである。
+これは軸で切った曲面における$\gamma$の非本質的な折返しであり、
+最小位置（bigon criterion）に反する。
+相異なる二つのtranslation axisの共通部分は有限長である。
+もし無限rayを共有すれば、translation lengthの公倍数に対応する
+適切な符号の冪がrayの十分遠方の頂点で一致し、
+deck作用の自由性から両者は同じaxisを持つことになる。
+乗冪によって隣接axisの相対配置が変わっても、
+最初のaxis上の平行移動を戻せば固定の二axisに帰着し、
+共通部分の長さは変わらない。
+
+従って一つの接続pathを含むjunctionでの消去は、
+固定接続pathの長さと相異なるaxisの共通部分の長さで一様に抑えられる。
+有限個のjunctionについて共通の上界を取り、
+$n$を各乗冪の長さがその二倍を超えるように取る。
+各junctionの被約化後も全ての長い乗冪に内部部分が残るので、
+非隣接の乗冪の間の新たな消去は起こらない。
+最後と最初のjunctionにも同様に適用し、巡回被約化を得る。
+ゆえに$\gamma$が$\eta_a$と交われば、
+$\psi^n\gamma$のlaminateとの最小交差列に、
+$\eta_a$の巡回被約語が$|ne_a|-O(1)$回連続する部分がある。
+
+その部分のgradingの差は、一周ごとに$\pm\omega(\eta_a)$である。
+従ってgradingの最大値と最小値の差は
+$|\omega(\eta_a)|(|ne_a|-O(1))$以上となる。
+これが有界ならば$\omega(\eta_a)=0$である。
+分離曲線については\cite[Lemma~5.3]{Opper2026}が
+$|\omega(\eta_a)|=2$を与えるので、最後の主張を得る。
+\end{proof}
+
+\begin{theorem}[節点cycleの写像類の精密化]
+\label{thm:ou-nodal-multitwist-refinement}
+$h$の穿孔トーラスの写像類$\varphi$は、それ自身がmultitwistである。
+非分離軸は少なくとも一本、高々$c$本あり、穴を埋めたトーラスでは
+全て滑らかな点層の曲線と同じ傾きを持つ。
+これらのtwist指数の和は三である
+（$T_{k(p)}$が$\mathcal O_E(p)$によるtensor積になる符号規約）。
+分離軸は九線束の全ての曲線$\gamma_i$と幾何的交点数零である。
+さらに九線束が$\Perf E$を厚く生成するならば、分離軸は存在しない。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:ou-nodal-cycle-growth}により$\varphi^q$はmultitwist。
+$\varphi$は九つのDehn twistの積なので各穿孔を個別に保つ。
+まず穴を埋めたトーラス上の作用を計算する。
+Opper\cite[Example~4.7, Proposition~6.11]{Opper2026}の
+水平・垂直曲線を基底にとる。
+任意の線束は多重次数零の線束を滑らかな点因子で捩ったものであり、
+点層に沿うspherical twistは$\mathcal O_E(p)$による捩りである。
+従って全次数$e$の線束の閉曲線は、穴を埋めた後は
+原始homology類$(1,e)$に対応する（向きの符号は任意）。
+対応するDehn twistの行列は
+$T_e=\left(\begin{smallmatrix}1+e&-1\\e^2&1-e\end{smallmatrix}\right)$。
+従って$\varphi$は穴を埋めた後
+$(T_0^3T_1^3T_2^3)^{-1}=\left(\begin{smallmatrix}1&0\\3&1\end{smallmatrix}\right)$
+として作用する。特に有限位数でないので$\varphi^q$のmultitwistには
+非分離軸がある。その全ては穴を埋めた後に同じ原始傾きを持つ。
+作用の唯一の不変直線は垂直方向であるから、その傾きは垂直である。
+
+非零指数の軸はmultitwistの標準還元曲線である。
+$\varphi$はその冪と可換なのでこの軸の集合を保つ。
+分離軸が囲むgenus zero側の穿孔の部分集合は各軸を区別し、
+全穿孔が個別に固定されることから各分離軸が固定される。
+非分離軸は巡回順に並び、隣接する軸間のannulusには
+少なくとも一つの穿孔がある（無ければ同位類が一致する）。
+従って巡回順を保つ非自明な置換は穿孔を移動させる。
+巡回順を反転する置換も、穴を埋めた作用が垂直方向を
+向き付きで固定することと両立しない。
+よって全軸が個別に、その両側とともに保たれる。
+
+軸で切ると全成分はgenus zeroであり、
+境界円を個別の標点に潰して得る球面上の誘導写像類は
+$\varphi^q$がmultitwistであることから有限位数である。
+しかし全標点を個別に固定する球面の写像類群には
+非自明な有限位数元はない（周期写像の分類、
+\cite[Chapter~7]{FarbMargalit2012}参照）。
+標点が二個以下の場合も純粋写像類群は自明である。
+切断・cappingの核は境界Dehn twistからなるので、
+gluingを戻せば$\varphi$自身は同じ軸に沿うmultitwistとなる。
+非分離軸の個数は上のannulusの個数により$c$以下、
+穴を埋めた行列からその指数の和は三である。
+
+補題\ref{lem:ou-nodal-grading-bound}と
+\ref{lem:ou-nodal-winding-drift}を$\varphi^{-n}\gamma_i$に適用すれば、
+全分離軸は全$\gamma_i$と交わらない。
+最後に九線束が$\Perf E$を生成するとする。
+任意の本質的非周辺分離軸に交わる非分離単純閉曲線$\beta$が存在する。
+例えば分離軸のgenus zero側には二個以上の穿孔があるので、
+その間を分ける本質的arcと外側のhandleを通るarcをつなげばよい。
+Opper\cite[Theorem~7.1]{Opper2026}から対応するspherical object
+$V\in\Perf E$を取れる。
+厚い生成性から$V$は九線束の有限個のshift、cone、直和・直和因子に
+より得られる。任意の固定$M$について
+$\operatorname{Hom}(h^{-n}V,M[k])$が非零となる$k$の範囲は、
+補題\ref{lem:ou-nodal-grading-bound}の随伴による有界性と
+有限回のこれらの操作から$n$に一様に有界となる。
+この有界性を$\pi S_v$に適用すると$V$のgradingにも同補題が成立する。
+従って補題\ref{lem:ou-nodal-winding-drift}は$\beta$にも適用されるが、
+$\beta$が分離軸と交わることに矛盾する。よって分離軸は存在しない。
+\end{proof}
+
+\begin{proposition}[分離軸がない場合の幾何的共役]
+\label{prop:ou-nodal-conjugate-geometric}
+定理\ref{thm:ou-nodal-multitwist-refinement}の写像類に
+分離軸がないとする。非分離軸の数を$m$、指数を$e_1,\dots,e_m$とする。
+ある導来自己同値$\Theta$によって
+\[
+ \Theta h\Theta^{-1}=\alpha^*(-)\otimes N
+\]
+となる。$\alpha$は各成分上のrescaling、$N$の多重次数は
+$(e_1,\dots,e_m)$に$c-m$個の零を適切に挿入したもの、
+全次数は三である。特に$m=c$かつ全指数正ならば$N$はampleである。
+\end{proposition}
+\begin{proof}
+非分離軸を同時に標準の滑らかな点層の垂直曲線の部分集合へ
+送る写像類が存在する。実際、軸で切ると穿孔付きannulusの
+巡回列となり、各annulusに含まれる穿孔数を保存するように
+標準垂直曲線の部分集合を選び、各annulusの同相をglueすればよい。
+穿孔の置換は許す。この写像類を
+\cite[Corollary~8.41]{Opper2026}の全射により
+導来自己同値$\Theta$へ持ち上げる。
+$h'=\Theta h\Theta^{-1}$の写像類は標準垂直曲線のmultitwistであり、
+対応する点因子のtensor積と同じ写像類を持つ。
+\cite[Proposition~8.40]{Opper2026}の核の記述により
+$h'=\alpha^*(-)\otimes N[\ell]$と書ける。
+ここで$\alpha$はrescaling、多重次数零のtensor因子は$N$に吸収され、
+$N$の多重次数は主張通りである。
+
+$Y_i=\Theta L_i$とおく。Euler形式は同値で保存され、
+異なる隣接ブロック間で$\chi(Y_i,Y_j)=1$である。
+種数一曲線上の完全複体のEuler形式は仮想階数と全次数の交代積
+なので、少なくとも一つの$Y_i$は非零の仮想階数を持つ。
+任意の滑らかな点$p$に対し、
+$h'^{-n}Y_i$から$k(p)$への全Homは、
+$h'^{-n}$のtensor因子とrescalingを除けば$Y_i$の移動点での
+導来ファイバーの双対であり、非零仮想階数により非零である。
+$Y_i$のTor振幅は一様に有界で、rescalingや線束の捩りでは変わらない。
+従って$\ell\ne0$ならばこのHomの非零次数は$n\ell$の項により
+無限に移動する。しかし随伴と補題\ref{lem:ou-residual-helix-growth}を
+固定対象$M=\Theta^{-1}k(p)$に適用すれば、
+その非零次数は$n\gg0$で一様に有限区間に含まれる。
+従って$\ell=0$である。
+\end{proof}
+
+\begin{theorem}[ampleな幾何的共役からの標識付き認識]
+\label{thm:ou-nodal-ample-conjugacy}
+定理\ref{thm:ou-nodal-cycle-growth}の節点cycle型で、
+$h$がある導来自己同値$\Theta$により
+$h'=\Theta h\Theta^{-1}=\alpha^*(-)\otimes N$に共役されるとする。
+ここで$\alpha$は成分を個別に保つrescaling、$N$はampleとする。
+このとき、内在的三次標識が存在すれば、その反標準環は標準AS4三次商である。
+特に写像類に分離軸がなく、非分離軸が$c$本で全指数が正ならば
+この認識が適用できる。
+元の$h$が幾何的であることは仮定しない。
+\end{theorem}
+\begin{proof}
+$Y_i=\Theta L_i$とする。$F'=\Theta F$、$J'=J\Theta^{-1}$は
+反標準三角と随伴を保ち、$F's=h'F'$。
+$Y_i$は完全複体であって、現段階では線束とは限らない。
+しかしvery strong helixと反標準三角により、全$i,j$と$n\ge1$について
+\begin{equation}\label{eq:ou-nodal-conjugate-Ext}
+ \operatorname{Hom}(Y_i,h'^nY_j[k])=0\qquad(k>0\text{ または }k<-1)
+\end{equation}
+となる。実際、隣接する二つの周期のhelix Hom複体は次数零に集中し、
+そのconeが曲線側のHom複体となる。
+またEuler数の差から$\chi(Y_i,h'^nY_i)=3n$。
+種数一のRiemann--Rochによりこれは$n\,\deg N\,r_i^2$である
+（$r_i$は$Y_i$の仮想階数）。
+従って$\deg N=3$かつ$r_i=\pm1$である。
+
+ここで$\mathcal H^k(Y_i^\vee\otimes^{\mathbf L}
+\alpha^{n*}Y_j)$が$n$に関して有界な族に属することを使う。
+具体的にはrescalingの代数的torus $(k^\times)^c$の作用を
+$a:E\times(k^\times)^c\to E$とすると、
+$Y_i^\vee\boxtimes\mathcal O\otimes^{\mathbf L}a^*Y_j$は
+有限型基底上の完全複体である。
+基底を有限個の局所閉部分に分け、各部分でそのcohomology sheafが
+平坦となるようにできる。実際、generic flatnessを各既約成分と
+有限個のcohomology sheafに用い、補集合上で複体を導来制限して
+Noetherian inductionを行う。平坦性と導来基底変換のspectral sequenceから、
+その部分でcohomologyはファイバーへの制限と可換である。
+従ってファイバーcohomologyのHilbert多項式は有限個しか現れない。
+$N_n=N\otimes\alpha^*N\otimes\cdots\otimes(\alpha^{n-1})^*N$と置くと、
+$N_n\otimes N^{-n}$は多重次数零、すなわち$\Pic^0(E)$に属する。
+この捩りは連接層のEuler数を変えない（代数同値あるいは曲線の
+Riemann--Roch）。よって$n\gg0$で、上記の族の非零層に$N_n$を
+捩ったもののEuler数は正になる。一次元台を持つ層のHilbert多項式は
+ampleな$N$に対し正の最高次係数を持ち、零次元層も長さが正であり、
+多項式の候補が有限個であるためである。
+
+曲線上のhypercohomology spectral sequenceは列が二つしかないので、
+$\mathbb H^k=0$なら$\mathcal H^k$の$H^0$も零である。
+上のEuler数の正性と(\ref{eq:ou-nodal-conjugate-Ext})を合わせると、
+$n\gg0$について全$i,j$で
+\begin{equation}\label{eq:ou-nodal-no-positive-local}
+ \mathcal H^{>0}\bigl(Y_i^\vee\otimes^{\mathbf L}\alpha^{n*}Y_j\bigr)=0
+\end{equation}
+となる。
+
+局所環上の最小自由複体でこの条件を読む。
+点$p$での$Y_i$の最小自由複体の非零項の最小・最大次数を
+$a_i(p),b_i(p)$とする（局所化した完全複体は有界自由複体で、
+単元を持つ微分成分を消去して最小にできる）。
+$r_i\ne0$なので各点で非零項がある。
+二つの最小自由複体の双対tensor積も最小であり、
+その最高非零項の次数は$b_j(\alpha^n p)-a_i(p)$である。
+この最高次数のcohomologyはNakayamaの補題により非零。
+従って(\ref{eq:ou-nodal-no-positive-local})から
+$b_j(\alpha^n p)\le a_i(p)$が全ての点で成立する。
+各成分の一般点では$\alpha$がその成分を固定するため、
+$i=j$から$Y_i$はただ一つの次数$d_{i,a}$に集中する。
+同成分の任意の点での局所自由複体の次数範囲はこの一般点の
+非零次数を含む（局所化により非零項が増えることはない）。
+従って$p$がその成分上にあれば
+\[
+ d_{i,a}\le b_i(\alpha^n p)\le a_i(p)\le d_{i,a}.
+\]
+$p$を動かせば$a_i,b_i$は全点で$d_{i,a}$となる。
+節点で隣接成分の値が一致し、$E$の連結性から
+全成分で同じ次数$d_i$である。
+従って$Y_i$は線束のshiftであり、$|r_i|=1$を用いた。
+$i,j$を交換して同じ一般点の不等式を用いれば全$d_i$は一致する。
+
+$\Theta$に共通shiftと必要な線束捩りを合成して、
+$Y_i$を全次数$0,1,2$の各三本の線束に正規化できる。
+全次数の差はEuler形式から元の線束の全次数の差と同じである。
+共通shiftと線束捩りによる共役は$h'$の幾何性と
+偏極の正の多重次数を変えない。
+同値によって各ブロックの直交性、前向きHom、directed algebra、
+full very strong helixの比較は全て保たれる。
+$F',J',h'$に対して、幾何的ampleな$h'$を用いる
+補題\ref{lem:ou-elliptic-heart}の証明（可約の場合の拡張は
+注意\ref{rem:ou-reduced-curve-gap}）を適用できる。
+従って命題\ref{prop:ou-reduced-cubic-geometric}から
+与えられた内在的標識の反標準環が標準AS4三次商となる。
+最後の十分条件は命題\ref{prop:ou-nodal-conjugate-geometric}による。
+\end{proof}
+
 \begin{remark}
-multitwistの冪を持つことは$h$が幾何的自己同値であることと同じではない。
-穿孔を囲む分離曲線のtwistやgradingの作用などが残り得る。
-従って節点型であっても$\delta_{\rm md}=0$の非幾何的な場合については、
-さらに排除・幾何的表示への帰着が必要である。
-接触する直線と円錐曲線や共点三直線はここで用いたKodaira cycle
-の曲線模型の範囲外であり、同定理を適用しない。
+定理\ref{thm:ou-nodal-multitwist-refinement}は、分離軸が九線束と
+交わらないことを無条件に導くが、九線束による$\Perf E$の厚い生成性を
+一般に導いたものではない。
+分離軸が残る場合は、その内側のarcの$J$による消滅と、
+より少ない成分数の曲線表示への帰着を検討する必要がある。
+非分離軸だけの場合にも、指数が非正である場合や軸が$c$本未満の場合を
+定理\ref{thm:ou-nodal-ample-conjugacy}だけで排除できない。
+正の全軸の場合に共役認識が成立することと、
+全ての多重次数候補がその条件を満たすことを区別する。
+接触・共点型はこの節の曲線模型の対象外である。
 \end{remark}
 
 \begin{remark}[残余候補の数値的範囲]\label{rem:ou-residual-counts}
@@ -746,8 +1068,9 @@ $\delta_{\rm md}=0$の全候補に広げると次の表を得る。
 反標準自然変換$\epsilon$のheart上の零性が必要となる。
 節点cycleについては定理\ref{thm:ou-nodal-cycle-growth}により、
 標準helix比較の下で$\delta_{\rm md}=0$と$\epsilon$の非零性が自動となる。
-接触・共点型での非零性、および$\delta_{\rm md}=0$のときの非幾何的$h$の
-排除はまだ証明していない。
+節点型の写像類は定理\ref{thm:ou-nodal-multitwist-refinement}でさらに制約され、
+全軸正の最大非分離multitwistについては定理\ref{thm:ou-nodal-ample-conjugacy}で認識する。
+分離軸が九線束に見えない場合、非正・欠落指数、接触・共点型での非零性は残る。
 これらの未解決条件外を内在的候補の反例や非表示例とは呼ばない。
 非被約曲線および曲線表示を持たないOU型も残る。
 \end{remark}
