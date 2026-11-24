@@ -32,6 +32,7 @@ PROGRAMS=(
     "computations/verify_ou_five_zero_triangle.py",
     "computations/verify_ou_five_zero_expanded.py",
     "computations/verify_ou_four_zero_supports.py",
+    "computations/verify_ou_four_zero_grid.py",
     "computations/verify_boundary_fermat.py",
     "scripts/del_pezzo_degree2_verification.py",
     "scripts/nc_dp1_quintic_checks.py",

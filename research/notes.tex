@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v35}
+\date{2026年11月24日／non-as-v36}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -983,10 +983,29 @@ $(p/g)r-(x/g)r_{\rm pivot}$で消去し、共通因子で割る。
 $(2,3,5,7)$で元の巡回の零平面がrank3、三次切断が滑らか
 （21勾配idealの有理数体上の厳密計算）。
 命題\ref{prop:ou-four-zero-smooth-open}の非空開集合の認識を得る。
-133136111ではこの試験点の三巡回が全て特異。
-一般係数の認識・排除の証明ではない。
-次は五零の三残余と四零八族の境界、133136111、
-一個から三個の零係数型、標準比較を調べる。
+定理\ref{thm:ou-four-zero-grid-recognition}により
+133660399,134183663は全域、133889775は$v=q=1,u+w=1$以外、
+134147823は$(v-1)(q-1)\ne0,(u+w,v-q)\ne(0,0)$、
+134151407は$v\ne1$、134151918は$(u-1)(q-1)\ne0$で認識。
+三次minorが非零単項式となる10条件で90勾配idealを検算。
+命題\ref{prop:ou-four-zero-rank-two-recognition}：
+133136111では三巡回の$L$に零列$3,2,5$がありrank3なら座標点が
+特異点となる。rank2は$v=1,q=-1,w=1-u$に限られ、
+零空間の三次曲面は$ABD-(C-uA)(A+B-C)C=0$、
+特異点が有限なので一般平面が滑らか、認識できる。
+134135535のrank2は全係数1だけで、巡回1の
+$(2x+y+z,y+z,x,y,z,x+y+z)$により滑らかな切断を得る。
+補題\ref{lem:ou-two-zero-slice-grid}は空の部分matchingも
+torus rank1点（六置換積の逆数）が零平面外なら許すよう強化した。
+命題\ref{prop:ou-four-zero-mixed-grid}では134135535の
+全係数が1でない範囲について三巡回の格子障害が各matchingの
+二差零、torus核rank障害が各matchingの二和1を含意。
+27勾配minor idealと逆数点のidealを検算。
+全巡回失敗は全係数同値または相補的二値$a,1-a$各二個に限られる。
+これらは残余の上界であり不認識を示さない。
+全計算は\path{computations/verify_ou_four_zero_grid.py}。
+次は五零の三残余、四零の表の境界（133889775は一係数族）と
+133136111のrank3、一個から三個の零係数型、標準比較を調べる。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
 
