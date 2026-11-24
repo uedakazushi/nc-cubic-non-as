@@ -32,6 +32,7 @@ PROGRAMS=(
     "computations/verify_ou_five_zero_triangle.py",
     "computations/verify_ou_five_zero_expanded.py",
     "computations/verify_ou_five_zero_boundary.py",
+    "computations/verify_ou_five_zero_complement.py",
     "computations/verify_ou_four_zero_supports.py",
     "computations/verify_ou_four_zero_grid.py",
     "computations/verify_ou_four_zero_triangle.py",

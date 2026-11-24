@@ -2347,25 +2347,219 @@ very strong性から要求される長さ七のEuler次元は12であり矛盾�
 有限体の標本や一般点のrankの下界を特殊化排除に用いてはいない。
 \end{proof}
 
-\begin{corollary}[五零係数型の二つの一係数残余]
-\label{cor:ou-five-zero-three-curves}
-標準noetherian OU比較と内在的三次条件を持つvery strongな
-OU三次型について、五零の場合の逆包含の未判定範囲は
-次の二つの一係数族に限られる：
+\subsection{孤立零とその補集合の周期単純対象}
+
+\begin{lemma}[二頂点ずつに支持を持つ周期単純対象]
+\label{lem:ou-complement-periodic-simple}
+三ブロック関係テンソル$c$について$c_{ijk}=1$ ($i,j,k\in\{1,2\}$)とし、
+次の三つの$2\times2$行列が可逆であると仮定する：
 \[
-\begin{array}{r|l}
-132054766&v=-1,\ w=1,\ u\ne0\\
-134135534&u=w=1,\ v\ne0
+ (c_{0jk})_{j,k=1,2},\quad
+ (c_{i0k})_{i,k=1,2},\quad
+ (c_{ij0})_{i,j=1,2}.
+\]
+頂点$U_i,V_i,W_i$ ($i=1,2$)で一次元、他で零である反変表現$R$を、
+支持上の矢印$A_{ij}$は全て1、$B_{jk}$は
+$\epsilon_j$ ($\epsilon_1=1,\epsilon_2=-1$)として定める。
+すると$S_\Lambda R\simeq R[2]$である。
+標準noetherian OU helix比較の下では$R$はheartの単純対象となる。
+\end{lemma}
+\begin{proof}
+支持上では二つの経路の積が互いに逆符号なので関係式が成立する。
+射影分解を
+\[
+ 0\longrightarrow P_{U_1}\oplus P_{U_2}
+ \xrightarrow{d_2} P_{V_0}^{\oplus2}\oplus P_{V_1}\oplus P_{V_2}
+ \xrightarrow{d_1} P_{W_1}\oplus P_{W_2}
+ \longrightarrow R\longrightarrow0
+\]
+とする。$d_1$は$V_0$の二コピーからそれぞれ$B_{01},B_{02}$
+で対応する$W$のコピーへ、$V_j$ ($j=1,2$)からは
+$(B_{j1},-B_{j2})$で写す。$d_2$の$U_i$ ($i=1,2$)からの成分は
+$(c_{i01}A_{i0},-c_{i02}A_{i0},A_{i1},A_{i2})$である。
+$d_1d_2=0$は二つの二次関係による。
+
+$W,V$頂点での完全性は定義から従う。
+$U_l$で$d_1$の核を調べると、$W_k$ ($k=1,2$)への三経路の係数が
+関係ベクトル$(c_{ljk})_j$の定数倍$\alpha_k$となる必要がある。
+$d_1$の符号条件は
+$c_{lj1}\alpha_1+c_{lj2}\alpha_2=0$ ($j=1,2$)である。
+$l=0$では第一の可逆行列により核は零、
+$l=1,2$では$\alpha_1+\alpha_2=0$で一次元、上の$d_2$の像である。
+$d_2$はこの頂点で単射である。
+$U_l$では$d_1$の始域・終域の次元はいずれも4であるから、
+終域から$R$への全射と合わせて完全性が従う。
+
+$S_\Lambda[-2]$を施すと次数0,1,2の入射複体
+\[
+ I_{U_1}\oplus I_{U_2}\longrightarrow
+ I_{V_0}^{\oplus2}\oplus I_{V_1}\oplus I_{V_2}\longrightarrow
+ I_{W_1}\oplus I_{W_2}
+\]
+を得る。$U$頂点での$H^0$は$R$と同じ次元、
+$V_0$では第二の可逆行列から$H^0=0$、
+$V_1,V_2$では核は$(1,-1)$の張る一次元空間である。
+$W_k$における$H^0$は二つの汎関数
+$\phi_i\in\operatorname{Hom}(U_i,W_k)^*$ ($i=1,2$)の組である。
+$\phi_{ij}$を経由頂点$j$の経路での値と書く。
+$V_0$の二コピーへの写像の零条件と第二の可逆行列から
+$\phi_{10}=\phi_{20}=0$、
+$V_j$ ($j=1,2$)への零条件から$\phi_{1j}+\phi_{2j}=0$を得る。
+各$i$の二次関係からさらに$\sum_j c_{ijk}\phi_{ij}=0$。
+$k=0$なら第三の可逆行列から全て零、$k=1,2$なら
+$(\phi_{11},\phi_{12},\phi_{21},\phi_{22})=(1,-1,-1,1)$
+の張る一次元空間である。
+$V,W$で選んだこの基底で矢印の作用を比較すると、
+$U_2$の基底を$-1$倍することで$H^0\simeq R$となる。
+$H^2=0$は$W_1,W_2$で$V_0$の対応コピーからの写像が
+全射であることから従う（他の頂点では終項が零）。
+各頂点のEuler次元は$H^0$の次元と一致するので$H^1=0$。
+従って$S_\Lambda[-2]R\simeq R$である。
+
+標準比較の下でheartへの所属と有限長性は
+補題\ref{lem:ou-iv-periodic-simple}と同じ有界切断数の議論による。
+単純性には次を補う。$0\to X\to R\to Y\to0$をheartの完全列とする。
+十分大きい$n$で$s^nX,s^nY$は九射影に関する
+高次Homが消滅するので、導来同値により加群の完全列
+$0\to s^nX\to R\to s^nY\to0$を得る。
+ここで$s^nR\simeq R$を用いた。
+各頂点で$X$の高い切断次元は非負で$R$の切断次元以下であり、
+同補題のEuler行列の議論により$[X]$は$s$で固定され、
+三ブロックでの切断次元の和は等しい。この共通和は0,1,2のいずれかである。
+1なら$W$側の一つの非零頂点から$B$の二本の非零矢印によって
+$V_1,V_2$の双方が非零でなければならず矛盾する。
+0なら$X=0$、2なら$Y=0$である
+（十分高い切断による生成性）。これで単純性を得た。
+\end{proof}
+
+\begin{proposition}[補集合との形式厚化による内在的排除]
+\label{prop:ou-complement-arc-obstruction}
+前補題の仮定に加え$(0,0,0)$が孤立零であるとする。
+全九頂点に$k[[t]]$を置く反変形式表現$A(t),B(t)$が存在し、
+\[
+ A(0)=\begin{pmatrix}1&0&0\\0&1&1\\0&1&1\end{pmatrix},\qquad
+ B(0)=\begin{pmatrix}1&0&0\\0&1&1\\0&-1&-1\end{pmatrix}
+\]
+であるとする。さらに$A_{0j}(t)\ne0$となる$j\in\{1,2\}$および
+$A_{i0}(t)\ne0$となる$i\in\{1,2\}$が存在するとする。
+このとき標準noetherian OU helix比較の下で$I_3$に属さない。
+\end{proposition}
+\begin{proof}
+孤立零に対応する周期単純対象を$Q$とする。
+定理\ref{thm:ou-isolated-matching-obstruction}の構成で用いた
+孤立零一個の射影分解と双対化により$sQ\simeq Q$であり、
+補題\ref{lem:ou-iv-periodic-simple}により単純である。
+前補題の$R$も周期単純で、$Q$とは支持が異なるので非同型。
+$T_m$を形式表現の$k[[t]]/(t^m)$への切断とする。
+$t$進filtrationの各逐次商は$Q\oplus R$なので、heartの有限長対象である。
+
+$T_m\to Q$の射は$U_0$での線型写像によって決まり、
+$A_{0j}$の像を消さねばならない。その位数を$e_Q$とすれば
+$\dim\operatorname{Hom}(T_m,Q)\leq e_Q$。
+同様に$T_m\to R$の射は支持内の矢印が単元であるため
+$U_i$での一つの線型写像によって決まり、
+$A_{i0}$の像を消さねばならない。従って
+$\dim\operatorname{Hom}(T_m,R)\leq e_R=\operatorname{ord}_t(A_{i0})$。
+この二つのhead多重度は$m$に依らず有界である。
+$F=P_{W_0}\oplus P_{W_1}\oplus P_{W_2}$を用いると
+$\operatorname{Ext}^1(F,Q)=\operatorname{Ext}^1(F,R)=0$なので、
+補題\ref{lem:ou-periodic-formal-arc-obstruction}と同じhead持ち上げの
+議論により、$e=\max(e_Q,e_R)$として固定始域
+$F^{\oplus e}\twoheadrightarrow T_m$を全$m$に対して得る。
+
+定理\ref{thm:ou-iv-periodic-exclusion}の証明における
+Euler rankの等式、有界性、AZ2による完全列はこの場合にも
+そのまま適用できる。内在的標識$\mathcal O$があれば
+$r([\mathcal O])=1$であり、
+$m(\dim\operatorname{Ext}^1(\mathcal O,Q)+
+\dim\operatorname{Ext}^1(\mathcal O,R))\leq C_{F^{\oplus e}}$。
+従って両Ext$^1$は零、周期性からExt$^2$も零、
+AZ1から両Homは非零である。
+一方$Q\oplus R$は全九射影に対するEuler次元が1であるから
+\[
+ 1=r([\mathcal O])=\chi(\mathcal O,Q)+\chi(\mathcal O,R)\geq2,
+\]
+矛盾する。
+\end{proof}
+
+\begin{theorem}[五零の最後の二族の補集合による排除]
+\label{thm:ou-five-zero-complement-exclusion}
+台132054766の$v=-1,w=1$、台134135534の$u=w=1$
+の全非零自由係数について、標準noetherian OU helix比較を持つ
+対応する曲面圏は内在的三次条件を満たさない。
+\end{theorem}
+\begin{proof}
+両方とも$(0,1,1)$を指定の孤立零とし、$j,k$の0,1を
+それぞれ交換して$(0,0,0)$に移す。
+第一族の自由係数$u$、第二族の自由係数$v$を$a\in k^\times$と書く。
+置換後の係数slice $C_k=(c_{ijk})_{ij}$は順に
+\[
+\begin{array}{c|ccc}
+ &C_0&C_1&C_2\\ \hline
+132054766&
+\begin{pmatrix}0&1&1\\1&1&0\\1&1&-1\end{pmatrix}&
+\begin{pmatrix}1&0&1\\1&1&1\\0&1&1\end{pmatrix}&
+\begin{pmatrix}1&1&0\\1&1&1\\a&1&1\end{pmatrix}\\[3pt]
+134135534&
+\begin{pmatrix}0&1&1\\1&1&0\\1&1&a\end{pmatrix}&
+\begin{pmatrix}1&0&1\\1&1&1\\1&1&1\end{pmatrix}&
+\begin{pmatrix}1&1&0\\0&1&1\\1&1&1\end{pmatrix}
 \end{array}
 \]
+である。両族とも補集合の八係数は1であり、
+補題\ref{lem:ou-complement-periodic-simple}の三行列の行列式は
+第一族で$(-1,a,-1)$、第二族で$(-1,1,a)$となる。
+形式表現の第一矢印行列をそれぞれ
+\[
+ A(t)=
+ \begin{pmatrix}
+ 1&t&at\\
+ t&1&1\\
+ (a+1)t/a-t^3&1&1-at^2
+ \end{pmatrix},\qquad
+ A(t)=
+ \begin{pmatrix}
+ 1&0&t\\t&1&1\\t&1&1
+ \end{pmatrix}
+\]
+と取る。各$k$について$\det(C_k\odot A(t))=0$は直接の恒等式である。
+$k=0$では行1,2の外積の第0成分の定数項が第三の行列式、
+$k=1,2$では行0,1の外積の第1成分の定数項が$-1$である。
+この成分で割って外積を正規化し、$B$の第$k$列とする。
+従って$B(t)$は$k[[t]]$上で定義され、関係式
+$\sum_j c_{ijk}A_{ij}(t)B_{jk}(t)=0$を満たし、
+$A(0),B(0)$は命題\ref{prop:ou-complement-arc-obstruction}の形になる。
+$A_{02}$は$at$または$t$、$A_{10}=t$なので同命題の条件を満たす。
+全ての分母は$a$または$t=0$で単元である。$a=1,-1$も含め
+全非零$a$について有効である。
+
+以上の係数、三行列式、核、形式表現、位数の恒等式は
+\path{computations/verify_ou_five_zero_complement.py}で厳密に再現できる。
+巡回置換はhelixの連続する三ブロックの選び直しによる。
+経路反転では$A,B$を$B^{\mathsf t},A^{\mathsf t}$に取り直す。
+逆向きの表現における周期性は入射・射影の双対化でも従い、
+補題\ref{lem:ou-complement-periodic-simple}の支持と可逆性の条件は
+反転で保存される。反転後も支持内の非零成分は単元であり、
+$B_{10}$と$B_{01}$は位数1（上のコードで確認）なので
+双方のhead多重度が有界である。反対圏と元のheartの同一視は要しない。
+\end{proof}
+
+\begin{corollary}[五個以上の零係数型の認識・排除の完了]
+\label{cor:ou-five-zero-complete-recognition}
+標準noetherian OU比較と内在的三次条件を持つvery strongな
+OU三次型で、少なくとも五つの関係係数が零であるものは
+標準AS四次元正規三次商として認識される。
+ここで残る係数族の実現可能性を主張するものではない。
 \end{corollary}
 \begin{proof}
-定理\ref{thm:ou-five-zero-path-exclusion}と
-定理\ref{thm:ou-five-zero-periodic-exclusion}で七族に絞り、
+六個以上の場合は系\ref{cor:ou-six-zero-complete-recognition}による。
+五零の80台は定理\ref{thm:ou-five-zero-path-exclusion}と
+定理\ref{thm:ou-five-zero-periodic-exclusion}で七族に絞られる。
 定理\ref{thm:ou-five-zero-grid-recognition}、
 定理\ref{thm:ou-five-zero-triangle}、
-定理\ref{thm:ou-five-zero-expanded-curves}と
-定理\ref{thm:ou-five-zero-117374702-boundary}を適用する。
+定理\ref{thm:ou-five-zero-expanded-curves}により三つの一係数族以外を認識し、
+定理\ref{thm:ou-five-zero-117374702-boundary}と
+定理\ref{thm:ou-five-zero-complement-exclusion}により残る三族を排除する。
 \end{proof}
 
 \begin{remark}
@@ -2938,5 +3132,5 @@ rank二・三を問わず内在的三次条件から排除される。
 九線束表示の存在とは両立する。
 従って四零の未判定は上記四台の境界に限られる。
 三零の133947135も同系で排除済み。
-五零の二残余、他の1--3零の型と標準比較の適用範囲も未解決。
+五個以上の零係数型は系\ref{cor:ou-five-zero-complete-recognition}で決着した。他の1--3零の型と標準比較の適用範囲は未解決。
 \end{remark}
