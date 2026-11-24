@@ -10,9 +10,11 @@
 
 ## 標準比較と少数零型の進展（2026-11-25）
 
-AOU三ブロック箙型のOU代数で、指定された九線束による平面三次曲線表示を持つ全場合と、全27係数が非零の全場合について、標準OU比較を仮定せずに認識する。有限次元加群を消した完全導来圏で窓を構成し、零次数成分の縮約とcornerの切断加群、対角三零の色交換関係を用いて標準射影の右noetherian性を証明する。二添字を共有する二零があると八次経路商が17以上（必要値15）となるため、追加の零を許して排除される。1–3零の13軌道中、五台がこの全域排除、完全matching一台も色交換と周期障害により全域でI₃外、七台は有理数上の21勾配idealにより各非空稠密開集合で比較仮定なしの認識に至る。補集合二項式の特異外側面も六次経路商の下界12（必要値10）により排除し、標準比較付きの二項式障害を超曲面全体に延長した。七台の特殊係数、曲線表示外の比較、AOU三ブロック以外を含む被覆は未解決。
+AOU三ブロック箙型のOU代数で、指定された九線束による平面三次曲線表示を持つ全場合と、全27係数が非零の全場合について、標準OU比較を仮定せずに認識する。有限次元加群を消した完全導来圏で窓を構成し、零次数成分の縮約とcornerの切断加群、対角三零の色交換関係を用いて標準射影の右noetherian性を証明する。二添字を共有する二零があると八次経路商が17以上（必要値15）となるため、追加の零を許して排除される。1–3零の13軌道中、五台がこの全域排除、完全matching一台も色交換と周期障害により全域でI₃外、七台は有理数上の21勾配idealにより各非空稠密開集合で比較仮定なしの認識に至る。補集合二項式の特異外側面も六次経路商の下界12（必要値10）により排除し、標準比較付きの二項式障害を超曲面全体に延長した。AOU三ブロック箙で関係係数の零がちょうど三個なら、標準OU比較の下で全九台・全特殊化について I₃ から標準AS四次元三次商の表示が従う。追加の比較仮定が残るのは三台の補集合二項式上だけである。一・二零では、補集合二項式の外に残る格子障害は正規化係数空間で余次元三以上となる。 一・二零の残余、曲線表示外の比較、AOU三ブロック以外を含む被覆は未解決。
 
 証明は主稿の `prop:ou-perfect-tail-comparison`、`cor:ou-integral-automatic-comparison`、`thm:ou-plane-automatic-comparison`、`cor:ou-dense-automatic-comparison`、`thm:ou-two-collinear-zeros`、`prop:ou-few-zero-smooth-open` にある。再計算は `computations/verify_ou_collinear_zeros.py`（python-flint 0.9.0で高速化可能）と `computations/verify_ou_few_zero_cuts.py` による。
+
+三零型の証明は主稿の `thm:ou-three-zero-complete-comparison`、七台の次元表は `prop:ou-few-zero-cyclic-codimension` にある。三巡回の同時失敗の素イデアル分解は `python3 computations/verify_ou_few_zero_rotations.py`、五つの経路商と二つの三直線族は `python3 computations/verify_ou_three_zero_boundaries.py` で再計算できる。前者には Singular 4.4 の `Singular` コマンドと標準の `primdec.lib` を用いる。実行ファイルを指定するには環境変数 `SINGULAR` を設定する。
 
 ## 内在的定義の三段階と境界例
 
@@ -77,7 +79,7 @@ AOU三ブロック箙型のOU代数で、指定された九線束による平面
 
 ## 再生成
 
-TeX Live/MacTeX（LuaLaTeX、LuaTeX-ja、BibTeX、latexmk）、Python 3、SymPy 1.14.0を利用します。
+TeX Live/MacTeX（LuaLaTeX、LuaTeX-ja、BibTeX、latexmk）、Python 3、SymPy 1.14.0、Singular 4.4を利用します。
 
 ```sh
 python3 -m pip install -r requirements.txt

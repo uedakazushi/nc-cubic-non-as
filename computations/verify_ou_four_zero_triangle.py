@@ -6,6 +6,12 @@ from verify_ou_zero_supports import normalize, TRIPLES, I, PAIRS
 from verify_ou_seven_zero_curves import determinant_matrix
 
 
+def triangle_components(w, x, y, z):
+    return [Matrix([[0,1,1],[1,(1-w)*x-z,x],[1,-x,z]]),
+            Matrix([[w*(x+y),1,1],[w*y,1,1],[x,1/w,1]]),
+            Matrix([[z+y,z,y],[1,w,1],[1,1,1]])]
+
+
 def main():
     u,v,w,q=symbols('u0 u1 u2 u3')
     x,y,z,h=symbols('x y z h')
@@ -21,9 +27,7 @@ def main():
     assert expand(p[0]*p[3]*p[4]-p[1]*p[2]*p[5]-T*(x-z)*(w*y-z))==0
     subs=[{y:-x},{z:w*y},{x:z}]
     coords=[(x,z),(x,y),(y,z)]
-    X=[Matrix([[0,1,1],[1,u*x-z,x],[1,-x,z]]),
-       Matrix([[w*(x+y),1,1],[w*y,1,1],[x,1/w,1]]),
-       Matrix([[z+y,z,y],[1,w,1],[1,1,1]])]
+    X=triangle_components(w,x,y,z)
     Y=[[Matrix([x,1,-1]),Matrix([z,1,-1]),Matrix([w*x+z,1,-1])],
        [Matrix([-1/w,x,y]),Matrix([-1,w*y-u*x,x]),Matrix([0,-1,1])],
        [Matrix([-1,1,1]),Matrix([-1,1,1]),Matrix([w*y-z,-y,z])]]
