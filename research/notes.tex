@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v31}
+\date{2026年11月24日／non-as-v32}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -903,7 +903,29 @@ $\delta_{\rm md}=0,w=(3,0)$なので正性を要求する判定ではなく
 \path{computations/verify_ou_six_zero_residual.py}で
 貼り合わせ・核・九端点の合成rank・多重次数を検算した。
 系\ref{cor:ou-six-zero-complete-recognition}により六零以上の
-認識・排除が完了。次は五零の80台から1--5零の型と標準比較を調べる。
+認識・排除が完了。
+定理\ref{thm:ou-five-zero-path-exclusion}で五零80台の全指数行列rankは19、
+長さ4,5,6,7,8の厳密証明書により6,20,12,19,14台を排除した。
+九台の残余と自由係数位置は主稿参照。
+再帰的な経路商は前段の終点別商基底と右矢印の作用を保持し、
+最後の二次関係だけを加えて行簡約する。71台の証明書は
+\path{computations/verify_ou_five_zero_supports.py}に収録。
+残余の有限体特殊化で長さ12まで必要値と一致したことは十分条件でない。
+補題\ref{lem:ou-diagonal-zero-arc-lifting}は対角三零の置換積の
+列1,2,5のminorが非零なら、正巡回矢印を$t$、逆巡回を$t^2r_i$として
+形式持ち上げする一般障害。
+定理\ref{thm:ou-five-zero-periodic-exclusion}では125763310のminor
+$-uw-v$、132086511の$-w-1$が零のときも
+一次関係と二項式を一変数形式方程式に帰着して全係数で排除
+（標準比較付き）。一般化した補題\ref{lem:ou-two-zero-slice-grid}は
+各sliceの零が空でない部分matchingなら、各核成分が全成分上で
+非零でなくても大域非零性と次数計算で被約格子復元できる。
+定理\ref{thm:ou-five-zero-grid-recognition}の90勾配idealの判定により
+132054255,133099247を全域認識、133873391は$(1,1,1)$以外、
+117374702は$u\ne1$、132054766,134147822は$w\ne1$、
+134135534は$u,w\ne1$で認識した。
+\path{computations/verify_ou_five_zero_curves.py}は格子と形式方程式を検算。
+残る五零の例外部分集合を別表示・周期障害で調べ、1--4零に進む。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
 
