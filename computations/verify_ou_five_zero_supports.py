@@ -44,7 +44,8 @@ def recursive_dims(c,K,r,i,nmax):
             for b in range(D):
                 if b in where:
                     allimages.append([-RR.get((where[b],k),K.zero) for k in free])
-                else:allimages.append([K.one if k==b else K.zero for k in free])
+                else:
+                    allimages.append([K.one if k==b else K.zero for k in free])
             for h in I:newmaps[h][j]=allimages[offset[h]:offset[h]+dim[h]]
         yield n,dims
         old,dim,M=dim,dims,newmaps
