@@ -49,6 +49,8 @@ PROGRAMS=(
     "computations/verify_ou_complement_line_conic.py",
     "computations/verify_ou_complement_cycles.py",
     "computations/verify_ou_small_zero_corners.py",
+    "computations/verify_ou_three_zero_double_pencils.py",
+    "computations/verify_ou_three_zero_surface_orbits.py",
     "computations/verify_ou_one_two_zero_components.py",
     "computations/verify_ou_one_two_zero_triangles.py",
     "computations/verify_ou_collinear_zeros.py",

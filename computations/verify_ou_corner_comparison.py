@@ -48,7 +48,7 @@ class CornerCertificate:
         if self.field.is_FractionField:
             for polynomial in (value.numer, value.denom):
                 self.exceptional.update(p.as_expr() for p,_ in
-                                        Poly(polynomial.as_expr(), t, domain=QQ).factor_list()[1])
+                                        Poly(polynomial.as_expr(), *self.field.symbols, domain=QQ).factor_list()[1])
 
     def regular(self, value):
         if self.field.is_FractionField and value:
@@ -180,6 +180,12 @@ class CornerCertificate:
                     if self.normal_form(table,normal):
                         return
             raise AssertionError((rotation,vertex,'no normal linear form'))
+        if any(self.normal_form(table,normal) for normal in self.relation_normals(table)):
+            return
+        raise AssertionError((rotation,vertex,'no normal linear form'))
+
+    def relation_normals(self, table):
+        field = self.field
         relations = table.transpose().nullspace().to_list()
         assert len(relations) == 3
         coordinates = symbols('X:3')
@@ -192,10 +198,7 @@ class CornerCertificate:
             for polynomial,_ in factor_list(determinant,*coordinates)[1]:
                 form = Poly(polynomial,*coordinates)
                 if form.total_degree() == 1:
-                    normal = [field.from_sympy(form.coeff_monomial(x)) for x in coordinates]
-                    if self.normal_form(table,normal):
-                        return
-        raise AssertionError((rotation,vertex,'no normal linear form'))
+                    yield [field.from_sympy(form.coeff_monomial(x)) for x in coordinates]
 
     def validate_paths(self):
         for n in range(2,7):

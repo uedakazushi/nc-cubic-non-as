@@ -55,7 +55,7 @@ def factors(value):
     return {f for part in cancel(value).as_numer_denom() for f,_ in factor_list(part)[1]}
 
 
-def residual_divisors(coefficients, variables, divisor):
+def residual_divisors(coefficients, variables, divisor, require_single_chart=False):
     pivot, value = graph(divisor,variables,require_unit=True)
     params = [p for p in variables if p != pivot]
     c = {t: cancel(S(z).subs(pivot,value)) for t,z in coefficients.items()}
@@ -69,7 +69,10 @@ def residual_divisors(coefficients, variables, divisor):
             if all(cancel(z) != 0 for z in entries):
                 failures.append(set().union(*(factors(z) for z in entries))-units)
     assert failures
-    return c,params,units,sorted(set.intersection(*failures),key=str)
+    common = set.intersection(*failures)
+    if require_single_chart:
+        assert common in failures
+    return c,params,units,sorted(common,key=str)
 
 
 def witness(c, params, units, divisor):
