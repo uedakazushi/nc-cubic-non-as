@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v36}
+\date{2026年11月24日／non-as-v37}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -1004,8 +1004,19 @@ torus rank1点（六置換積の逆数）が零平面外なら許すよう強化
 全巡回失敗は全係数同値または相補的二値$a,1-a$各二個に限られる。
 これらは残余の上界であり不認識を示さない。
 全計算は\path{computations/verify_ou_four_zero_grid.py}。
-次は五零の三残余、四零の表の境界（133889775は一係数族）と
-133136111のrank3、一個から三個の零係数型、標準比較を調べる。
+定理\ref{thm:ou-four-zero-triangle}で133889775の残余
+$v=q=1,w=1-u$を三直線$T(x-z)(wy-z)=0$上で復元。
+$w=-1$の共点型を含む。従って全域認識。
+定理\ref{thm:ou-four-zero-mixed-triangle}で134135535の等値族は
+共通値$1/2$以外を認識。相補的二値$a,1-a$の各二個の三配置は
+三角形上の九線束表示を持つが$\delta_{\rm md}=(0,1,-1)$で
+very strong性から排除。全係数$1/2$も長さ5、巡回0、端点$(2,0)$
+の経路商8>7で排除。従って係数1の境界以外は決着した。
+両定理の貼り合わせ・核rank・合成・多重次数は
+\path{computations/verify_ou_four_zero_triangle.py}と
+\path{computations/verify_ou_four_zero_mixed_triangle.py}を参照。
+133136111のrank3および五零三残余は未解決。
+次はこれらと四零の係数1等の境界、1--3零、標準比較を調べる。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
 
