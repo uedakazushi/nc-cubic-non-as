@@ -131,7 +131,6 @@ def main():
               f'generic rank {r}, quotient dimension {cols-r}', flush=True)
 
 
-
 def check_mixed_obstructions():
     # Double torus failure with connected support: d_ijk=m_ij*z_k.
     # The analytic lower bound in the paper applies to all such tensors.
