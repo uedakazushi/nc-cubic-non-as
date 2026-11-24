@@ -673,12 +673,208 @@ $W_0,W_1$が同型なら$B_{j0},B_{j1}$は同型を通じて比例し、
 明示した九線束表示と既存の多重次数必要条件による。
 \end{remark}
 
-\subsection{七零係数の現行の残余}
-標準比較と内在的三次条件の下で未判定の七零の範囲は、
-台116309742の$u=c_{211}=1$と、
-台117368558,125531767の二つの一係数族である。
-前節の三族の排除は標準比較を仮定しない。
-既約曲線の認識を得た二族についても実現可能性は主張しない。
-次はこの残余に対し既約特異切断の格子条件、可約曲線の
-別表示、または高次syzygy・内在的障害を調べる。
-一個から六個の零係数型と標準noetherian OU比較の適用範囲も残る。
+\subsection{形式曲線による周期対象の障害と八次経路商}
+\label{subsec:ou-seven-zero-formal-arc}
+
+\begin{lemma}[周期単純対象の有界なheadを持つ厚化による障害]
+\label{lem:ou-periodic-formal-arc-obstruction}
+三ブロック関係代数が$c_{iii}=0$、
+$c_{ijk}\ne0$（ちょうど二添字が等しい場合）を満たすとする。
+全九頂点で$k[[t]]$を値とする反変表現があり、
+二つの矢印行列$A(t),B(t)$は$t=0$で単位行列になるとする。
+さらに各$i$に対して$i\ne j$で$A_{ij}(t)\ne0$となる$j$が
+存在すると仮定する。
+標準noetherian OU helix比較を持つ対応する曲面圏は
+内在的三次標識を持たない。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:ou-latin-square-periodic-exclusion}の
+射影分解とそのSerre双対化の議論は、
+$c_{iii}=0$とちょうど二添字が等しい係数の非零性だけで成立する。
+従って標準比較の下で三つの互いに非同型な反標準周期単純対象
+$Q_i$が存在し、$sQ_i\simeq Q_i$である。
+ここでは一方向巡回三零の条件を仮定しない。
+
+$D_m=k[[t]]/(t^m)$上に形式表現を特殊化して$T_m$を作る。
+$t$進filtrationの各逐次商は$Q=\bigoplus_iQ_i$である。
+heartは拡大で閉じているから$T_m$はheartの有限長対象であり、
+各$Q_i$を組成因子として$m$個持つ。
+
+各$i$について非零の$A_{ij_i}(t)$ ($j_i\ne i$)を選び、
+その$t$進位数を$e_i\geq1$とする。
+反変表現の射$T_m\to Q_i$は、$U_i$上の線型写像によって
+一意に決まる（$A_{ii},B_{ii}$は単元である）。
+非対角矢印との両立から、この線型写像は$t^{e_i}D_m$を消す。
+従って
+\[
+ \dim\operatorname{Hom}(T_m,Q_i)\leq e_i .
+\]
+$e=\max_i e_i$、$F=\bigoplus_i P_{W_i}$とおく。
+$T_m$の最大半単純商（head）に含まれる各$Q_i$の多重度は
+$\dim\operatorname{Hom}(T_m,Q_i)$に等しい
+（$\operatorname{End}(Q_i)=k$）。
+従って固定対象$F^{\oplus e}$からheadへの全射がある。
+$\operatorname{Ext}^1(F,Q_i)=0$なので、有限長filtrationにより
+その全射を$F^{\oplus e}\to T_m$へ持ち上げられる。
+もし余核が非零なら余核はある$Q_i$を単純商に持ち、
+その商への射はheadを経由する。これはheadへの全射性に反する。
+従って任意の$m$について$F^{\oplus e}\twoheadrightarrow T_m$となる。
+重要なのは始域の$e$が$m$に依らないことである。
+
+定理\ref{thm:ou-iv-periodic-exclusion}の
+AZ1/AZ2とEuler形式によるrank障害を、同じ三単純対象と
+上の固定始域$F^{\oplus e}$に適用する。
+仮定された内在的標識$\mathcal O$に対し$r([\mathcal O])=1$であり、
+有限長filtrationと
+\eqref{eq:ou-iv-periodic-ext1-exact}から
+\[
+ m\sum_i\dim\operatorname{Ext}^1(\mathcal O,Q_i)
+ \leq C_{F^{\oplus e}}
+\]
+を得る。右辺は$m$に依らないので全$\operatorname{Ext}^1$は零。
+周期性と負次数Hom消滅による$\operatorname{Ext}^2=0$、
+AZ1による$\operatorname{Hom}(\mathcal O,Q_i)\ne0$も
+同定理の通りである。
+従って$1=r([\mathcal O])=\sum_i\chi(\mathcal O,Q_i)\geq3$となって
+矛盾する。
+\end{proof}
+
+\begin{theorem}[七零の117368558の形式曲線による排除]
+\label{thm:ou-seven-zero-formal-arc-exclusion}
+台117368558を持つ三ブロック型の全非零係数について、
+標準noetherian OU helix比較を持つ対応する曲面圏は
+内在的三次条件を満たさない。
+\end{theorem}
+\begin{proof}
+指数行列の行簡約により非零係数20個中19個を1にでき、
+残る自由係数を$u=c_{222}\in k^\times$とする。
+新添字を旧添字の像
+\[
+ (i,j,k)\longmapsto(i,\sigma(j),\rho(k)),\qquad
+ \sigma=(1,0,2),\quad \rho=(2,0,1)
+\]
+（括弧内は$0,1,2$の像の順）によって指定する。
+以後、この添字の変更後のテンソルを$c$と書く。
+三対角係数が零で、ちょうど二添字が等しい18係数は全て非零。
+六置換積に対応する符号付き行列式係数行列は
+\[
+ L=\begin{pmatrix}
+ 0&0&-1&0&1&-1\\
+ 0&-1&0&1&0&-u\\
+ 0&-1&-1&0&0&0
+ \end{pmatrix}.
+\]
+元のLatin square型の周期障害とは異なり、一方向の巡回三係数が
+全て零とは限らない。そこで形式曲線を構成する。
+
+$R=1+t^3$、$v=(R-1)(R+u)/R^2$とおき、
+\[
+ (z_0,\ldots,z_5)=(1,Rv,-Rv,(R+u)v,(1-R)v,v)
+\]
+とする。$Lz=0$であり、
+$z_0z_3z_4=z_1z_2z_5$は$v$の定義から従う。
+ここで六座標は順に
+$A_{00}A_{11}A_{22},A_{00}A_{12}A_{21},A_{02}A_{11}A_{20},
+A_{01}A_{12}A_{20},A_{02}A_{10}A_{21},A_{01}A_{10}A_{22}$
+という置換積である。符号は$L$の係数に含めている。
+$u\ne-1$なら$e=1$、$u=-1$なら$e=3$とする。
+$A_{ii}=1$とし、
+\[
+ \begin{split}
+ A_{01}=A_{12}=t^e,\quad&A_{20}=z_3/t^{2e},\\
+ A_{10}=z_5/t^e,\quad A_{21}=z_1/t^e,\quad&
+ A_{02}=z_2/A_{20}
+ \end{split}
+\]
+と定めれば、六置換積は指定した$z$に一致する。
+$u\ne-1$では$v$と$z_3$の位数が3、
+$u=-1$ではそれぞれ6,9である。
+従って全非対角成分は$k[[t]]$に属し位数は$e$以上、
+特に$A_{i,i+1}$の位数は全て$e$（添字modulo 3）である。
+従って$A(0)=I_3$。
+
+$C_k=(c_{ijk})_{i,j}$とおけば
+$M_k=C_k\odot A(t)$の行列式は$\ell_k(z)=0$。
+$M_k(0)$は対角の第$k$成分だけが零である。
+従って第$k$行・列を除く二次minorは$k[[t]]$の単元。
+残り二つの方程式から$B_{kk}=1$となる核ベクトル
+$(B_{jk})_j$を$k[[t]]$上で解く。
+行列式零と単元minorから残る方程式も成立する。
+$B(0)=I_3$で、全$B_{jk}$（$j\ne k$）は$t^e$で割り切れる。
+さらに$j=k-1$の式の最低次項を比較すると
+\[
+ B_{j,k}\equiv
+ -\frac{c_{jkk}}{c_{jjk}} A_{jk}\pmod{t^{e+1}},
+ \qquad \operatorname{ord}_t B_{j,j+1}=e .
+\]
+実際、第三の経由頂点の積は$t^{2e}$で割り切れる。
+この形式表現に補題\ref{lem:ou-periodic-formal-arc-obstruction}
+を適用して結論を得る。
+
+巡回置換で台を代表に移した場合には、very strongな巡回
+foundationの標準比較を使う。添字方向の奇置換が必要なら、
+経路を反転した係数テンソルに対して形式表現を
+$(A',B')=(B^{\mathsf t},A^{\mathsf t})$とすれば関係式を満たす。
+上の$B_{j,j+1}$の位数の確認により、このときも各行に
+有限位数の非対角成分を持つので同じ補題が適用できる。
+これは反対圏に内在的標識を移すことを仮定しない。
+\end{proof}
+
+\begin{theorem}[七零の125531767の八次経路商による排除]
+\label{thm:ou-seven-zero-eighth-path-exclusion}
+台125531767を持つ三ブロック型は、全ての非零係数について
+導来helixがvery strongでない。標準比較や内在的標識は仮定しない。
+\end{theorem}
+\begin{proof}
+指数行列の行簡約で自由係数を$u=c_{222}\in k^\times$とし、
+他の非零係数19個を1とする。
+順序$(j,k,i)$の巡回で、始点と終点の添字を0に固定した長さ八の
+経路関係行列を作る。内部添字は七つ、列数は$3^7=2187$である。
+\path{computations/verify_ou_seven_zero_last.py}の
+有理関数体$\mathbb Q(u)$上の厳密階数計算では、
+rankは2170、商次元は17となる。
+この行列の係数は多項式なので全ての特殊化でrankは2170以下、
+従って経路商は17次元以上である。
+一方、補題\ref{lem:ou-cyclic-cubic-syzygy}のEuler行列より
+$(S_0^2)^{\mathsf t}D$の右上ブロックは$15J_3$である。
+very strong性から必要な八次経路商次元は15となり矛盾する。
+経路反転は固定端点を交換して関係行列を転置された経路順序に移すので
+同じ次元障害が成立する。
+\end{proof}
+
+\begin{corollary}[七零係数型の一特殊値を除く認識・排除]
+\label{cor:ou-seven-zero-one-special-value}
+標準noetherian OU比較と内在的三次条件を持つvery strongな
+OU三次型で七個の零係数があるならば、
+台116834030、または台116309742の一係数族に限られる
+（台の同値を除く）。
+前者の全域と後者の$u=c_{211}\ne1$は標準AS四次元正規三次商として
+認識される。唯一の未判定は後者の$u=1$である。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:ou-seven-eight-zero-path-exclusion}の八台のうち、
+125234926は定理\ref{thm:ou-latin-square-periodic-exclusion}、
+三台は定理\ref{thm:ou-seven-zero-line-conic-exclusion}、
+117368558と125531767は直前の二定理で排除する。
+残る二台については命題\ref{prop:ou-seven-zero-curve-recognition}
+を適用する。
+\end{proof}
+
+\begin{remark}
+116309742の$u=1$について八次・九次の三巡回の全九端点で
+経路商を有理数体上で計算したところ、それぞれ必要値15、
+$18+\delta_{ij}$と一致した。
+これはvery strong性の十分条件ではない。
+また七零の当該台には七つの孤立零係数があり、
+孤立零係数とはその三座標方向の各直線上に他の零係数がないものをいう。
+そのうち六つの頂点三つ組
+$(000),(112),(220),(011),(202),(121)$は
+各九頂点を二回覆い、互いに全添字が相異なる組を辺とすると
+六cycleとなる。この台の組合せ論的性質は今後の周期対象の構成の
+入口であるが、六対象の任意長厚化は未構成である。
+\path{computations/verify_ou_seven_zero_last.py}は
+上の形式曲線の恒等式・位数・核ベクトル、八次の排除、
+特殊値での八次九次の必要次元を検算する。
+なおこの特殊値の内在的認識/排除、一個から六個の零係数型、
+標準noetherian OU比較の適用範囲が残る。
+\end{remark}
