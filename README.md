@@ -10,6 +10,8 @@
 
 ## AOU三ブロック箙型の全係数に対する条件付き判定
 
+**現在の到達点。** AOU三ブロック箙型では、全27係数が非零の場合と、三個以上が零の場合の全特殊化で包含を証明した。三零で最後に残った十二の二変数族を62曲線に分け、50曲線には頂点代数の判定、12曲線には三次中心上の有限性を用いた。残る199件の閉点因子も全て検算した（`thm:ou-three-zero-automatic`）。一・二零型の残余は四変数の二族と三変数の八族に含まれ、その各々の稠密開集合も判定済みである（`cor:ou-one-two-ten-families`）。全体の包含およびAOU以外を含む全OU三次型の被覆は未解決。三零の検算は `python3 computations/verify_ou_three_zero_remaining.py`、十族の列挙は `python3 computations/verify_ou_small_zero_surface_orbits.py`。
+
 主稿の `cor:ou-aou-all-coefficients` で、標準noetherian OU比較が成立するAOU三ブロック箙型では、関係係数を問わず I₃ から標準AS四次元三次商の表示が従う。一・二・三零の補集合二項式外では追加の比較仮定を要しない。一・二零の五グラフ閉包の全特殊化の証明は `thm:ou-one-two-zero-all-boundaries`、検算は `python3 computations/verify_ou_one_two_zero_components.py` による。比較仮定の一般的除去と、AOU三ブロック箙以外を含むOU三次型の被覆は未解決である。
 
 補集合二項式内の五台・十通りの指定零に現れる全43因子について、29件は三直線、14件は四成分の節点cycle上に、各因子の稠密開集合で九線束を構成した。四成分の場合は平面三角形の一節点とその例外曲線上の無限近点を含む六点爆発を参照し、標準射影の右noetherian性を導いた。1–3零型で比較仮定なしに残る係数は余次元三以上である。主稿 `thm:ou-complement-expanded-cycles`、検算 `python3 computations/verify_ou_complement_cycles.py`。
@@ -26,7 +28,7 @@
 
 一〜三零の未判定集合を、各正規化係数torusの余次元四以上に絞った。補集合上の三・四成分の曲線表示を係数条件の全域に拡張し、共点三直線も含めた。43因子内に残る余次元一成分162件には、三次中心商の九頂点それぞれで三生成元二次正則環を使う開条件を検証した。主稿 `prop:ou-complement-uniform-cycles`、`lem:ou-atv-open-corners`、`thm:ou-small-zero-codim-four`。再検算は `python3 computations/verify_ou_small_zero_corners.py`。
 
-三零の台134184687は全特殊化で包含を証明した。この台の補集合二項式に残る三つの二変数族に対し、頂点代数の判定を曲線・閉点まで反復する。十五曲線の全例外根を検証した。残る三零台134151919と134217454に対しては、各42件を矢印スカラーと添字対称性で八族と四族にまとめ、全残余を覆う十二の二変数族を明示した（`prop:ou-three-zero-twelve-surfaces`）。主稿 `thm:ou-three-zero-double-pencils`、検算 `python3 computations/verify_ou_three_zero_double_pencils.py`。
+三零の台134184687は全特殊化で包含を証明した。この台の補集合二項式に残る三つの二変数族に対し、頂点代数の判定を曲線・閉点まで反復する。十五曲線の全例外根を検証した。当時残った三零台134151919と134217454に対しては、各42件を矢印スカラーと添字対称性で八族と四族にまとめ、全残余を覆う十二の二変数族を明示した（`prop:ou-three-zero-twelve-surfaces`）。主稿 `thm:ou-three-zero-double-pencils`、検算 `python3 computations/verify_ou_three_zero_double_pencils.py`。
 
 ## 標準比較と少数零型の進展（2026-11-25）
 

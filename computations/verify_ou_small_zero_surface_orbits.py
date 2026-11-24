@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Cover both remaining three-zero supports by twelve explicit rational surfaces."""
+"""Cover the remaining one- to three-zero supports by explicit rational families."""
 from functools import lru_cache
 from itertools import product
 
-from sympy import S, cancel, prod
+from sympy import Poly, S, cancel, prod
 
 from verify_ou_complement_line_conic import boundary_factors, normalize_binomial
-from verify_ou_small_zero_corners import graph, residual_divisors
+from verify_ou_small_zero_corners import factors, graph, residual_divisors
 from verify_ou_zero_supports import I, TRIPLES, incidence, support
 
 
@@ -62,7 +62,7 @@ def representatives(mask):
     for zero in sorted(set(TRIPLES)-set(support(mask))):
         _,c,variables,_ = chart(mask,zero)
         for f in sorted(boundary_factors(c,variables),key=str):
-            cc,params,_,cuts = residual_divisors(c,variables,f,require_single_chart=True)
+            cc,params,units,cuts = residual_divisors(c,variables,f,require_single_chart=True)
             for g in cuts:
                 count += 1
                 # A rational graph at the generic point suffices for containment
@@ -71,15 +71,19 @@ def representatives(mask):
                 generic = {w:cancel(S(a).subs(p,val)) for w,a in cc.items()}
                 if any(covered(mask,zero,generic,target,rf,rg) for target,rf,rg in result):
                     continue
-                graph(g,params,require_unit=True)
+                if mask in (134151919,134217454):
+                    graph(g,params,require_unit=True)
+                else:
+                    polynomials = [Poly(g,v) for v in params]
+                    assert any(h.degree()==1 and factors(h.LC())<=units for h in polynomials)
                 result.append((zero,f,g))
                 print('REP',mask,zero,f,g,flush=True)
-    assert count == 42
+    assert count == (30 if mask==134217471 else 42)
     return result
 
 
 def main():
-    for mask,n in ((134151919,8),(134217454,4)):
+    for mask,n in ((134151919,8),(134217454,4),(134217471,2),(134217455,8)):
         rows = representatives(mask)
         assert len(rows)==n
         print('PASS entire residual cover',mask,len(rows),flush=True)
