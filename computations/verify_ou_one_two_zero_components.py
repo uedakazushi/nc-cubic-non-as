@@ -10,6 +10,7 @@ from verify_ou_few_zero_rotations import program, singular_form
 from verify_ou_five_zero_supports import expected
 from verify_ou_four_zero_supports import laurent_rank, rows_for
 from verify_ou_zero_supports import I, incidence, normalize, path_dim, support
+from verify_ou_one_two_zero_boundary import BOUNDARIES, boundary_program
 
 
 a, b, c, d = PARAMETERS = symbols("a b c d")
@@ -120,6 +121,7 @@ def main():
         header = ['ring r=0,('+','.join(map(str,xs))+'),dp;', 'list G; ideal J; poly h;']
         for i, (_,gs) in enumerate(primes):
             header.append(f'G[{i+1}]=std(ideal({gs}));')
+        negative = []
         seen = set()
         for values, witness, size in families:
             if witness:
@@ -138,9 +140,20 @@ def main():
             matches = {int(line[4:]) for line in run_singular('\n'.join(code+['quit;']))
                        if line.startswith('HIT ')}
             assert len(matches) == size, (mask,values,matches,size)
+            if witness:
+                negative.extend(primes[i][1] for i in sorted(matches))
             seen.update(matches)
             print('PASS',mask,'path '+str(witness) if witness else 'remaining graph',size,flush=True)
         assert len(seen) == len(primes)
+        positive = [values for values,witness,_ in families if witness is None]
+        assert len(positive) == len(BOUNDARIES[mask])
+        for values,(origin,count,dimension) in zip(positive,BOUNDARIES[mask]):
+            eqs,den,_ = graph(values,xs)
+            source = boundary_program(coeff,xs,eqs,den,origin,negative)
+            dims = [int(line.split()[1]) for line in run_singular(source)
+                    if line.startswith('BOUNDARY ')]
+            assert dims == [dimension]*count, (mask,origin,dims)
+            print('PASS full graph closure',mask,origin,'excluded boundary primes',count,flush=True)
 
 
 if __name__ == '__main__':

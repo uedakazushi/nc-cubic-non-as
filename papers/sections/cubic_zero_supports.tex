@@ -3971,3 +3971,101 @@ $U_1,U_2$と$V_1,V_2$は定理\ref{thm:ou-dense-residual-three-lines}と
 五族の次元は順に$4,4,3,3,3$で、一零・二零のtorusの次元はそれぞれ
 $7,6$である。各族で残る真閉集合の次元から余次元四以上が従う。
 \end{proof}
+
+\subsection{五族の全特殊化とAOU箙型の条件付き認識}
+\label{subsec:ou-all-foundations-conditional}
+
+\begin{theorem}[補集合二項式外の全特殊化]
+\label{thm:ou-one-two-zero-all-boundaries}
+定理\ref{thm:ou-one-two-zero-graphs}の五族の閉包は、補集合二項式の和集合$D$の外で
+全ての係数について判定できる。経路商が必要次元を超えなければ、
+ある巡回foundationが三直線上の九線束表示を持つ。従って一個から三個の
+零を持つAOU三ブロック箙型のOU代数は、$D$の外では追加の標準比較仮定なしで、
+内在的三次条件から標準AS四次元三次商の表示が従う。
+\end{theorem}
+\begin{proof}
+前定理の五グラフの順に $(2,0,1),(0,2,2),(0,2,2),(2,0,0),(1,0,0)$ を選ぶ。
+三添字をそれぞれこの順に原点に移す（他のラベルは元の順序を保つ）。
+$k=0$のsliceは$(0,0)$以外の全成分が非零である。
+矢印スカラーによりこの八成分を1とし、$c_{000}=s$は維持する。
+これは分母に台の非零係数だけを用いる。さらに全$k$について
+$(0,1),(0,2),(1,0),(2,0)$の係数が非零である。
+$k=1,2$の各sliceの九成分を行順に$a,b,c,d,e,f,g,h,j$と書き、
+\[
+ K=a(ej-fh),\quad L=bfg-ceg+cdh-bdj,\quad
+ M=b(fg-dj),\quad N=d(ch-bj)
+\]
+を定める。六置換積を$(T,T,x,x+p,x+q,x+p+q)$としたとき、
+三つの行列式線形式は$k=0$で恒等的に零、他の二つは
+$KT+Lx+Mp+Nq$となる。両行$(K,L,M,N)$の全二次minorは
+各グラフの閉包上で零である。これは以下の有理数上のideal計算で確認する。
+各行で
+\[
+ K M N(M-L)(N-L)(K+sL)\ne0
+ \tag{$*$}\label{eq:ou-cyclic-triangle-chart}
+\]
+と仮定する。$T=H_0x+H_1p+H_2q$, $(H_0,H_1,H_2)=-(L,M,N)/K$と置くと、
+両方の線形条件が成立する。平面内の切断は$Tpq=0$であり三直線は
+相異なる。$H_0=0$なら共点である。$H_1H_2(H_1-H_0)(H_2-H_0)\ne0$
+により全ての交点で$x(x+p+q)\ne0$なので、
+\eqref{eq:ou-dense-residual-component-matrices}と
+\eqref{eq:ou-dense-residual-common-chart}で六線束と九射が貼り合わさる。
+
+$C_k\odot X$の核を調べる。$T=0$の成分で第0行は$(0,b,c)$、
+第0列は$(0,d,g)^t$である。$k=0$については$b,c,d,g=1$と読む。
+全点で階数二で、核は$((bf(x+p)-cex)/d,c,-b)^t$により生成される。
+$p=0$上の第1,2列は定数列で、$q=0$上の第1,2行は定数行である。
+$k=1,2$では前者は$N-L=g(ce-bf)\ne0$、後者は$M-L=c(eg-dh)\ne0$
+によりそれぞれ独立である。従って全点で階数二。核の双対$W_k$の多重次数は
+$(1,1,0)$となる。$p=0$で核の第0成分への射影が至る所同型となり、
+$q=0$で二つの定数行の核が定数だからである。
+$k=0$では$p=0$上の定数二列が一致し、$q=0$上の定数二行が一致する。
+いずれでも階数一となるには$p=q=0$かつ$sH_0=1$が必要である。
+これは$K+sL\ne0$に反する。よって核の双対$W_0$は$(1,0,1)$である
+（最後の成分では一次の第0行と定数の第1行の外積が共通零点を持たない）。
+可逆な二次minorによる消去により核は交点を含めて線束である。
+
+これらの多重次数に対するコホモロジーは
+定理\ref{thm:ou-dense-residual-three-lines}と同じである。
+$i=1,2$では$T=0$上の$j=1,2$の二合成は独立である。実際、$x,x+p$の
+独立性は$H_2\ne0$、$x+q,x+p+q$の独立性は$H_0-H_2\ne0$による。
+同成分上の$j=0$の合成も非零である。零位置が部分matchingなので
+$e,f$は同時には零とならない。$i=0$では$j=1,2$の合成が$T=0$で非零、
+$j=0$はそこで零だが、$k=1,2$では$p=0$上で非零、$k=0$では$q=0$
+上で非零である。最後の主張は上の外積の第0成分が$p$の非零定数倍となる
+ことと、$T$がそこで恒等的に零でないことによる。従って全端点で
+指定の関係が唯一である。第一・第二ブロックの非同型性は同定理の
+$x,x+p+q$の零点比較による。$W_1\simeq W_2$なら二sliceは行・列の
+非零スカラー倍となり、補題\ref{lem:ou-cyclic-cubic-syzygy}の異なるslice間の
+方程式に非零解を与え、very strong性に反する。これで各ブロックの完全直交性も従う。
+
+最後に\eqref{eq:ou-cyclic-triangle-chart}を三巡回で検査する。
+\path{computations/verify_ou_one_two_zero_components.py}から呼び出す
+\path{computations/verify_ou_one_two_zero_boundary.py}が全操作を実行する。
+各グラフの定義方程式をグラフの分母、座標単元、$D$の定義因子で
+飽和したidealを$G$とする。したがってグラフを記した分母が零となる
+閉包点も検査に含む。二行の全二次minorの分子を$G$のGröbner基底で
+割ると、三巡回の全てで剰余は零である。各巡回の失敗条件は
+\eqref{eq:ou-cyclic-triangle-chart}の非単元因子の零集合の和である。
+各巡回から一因子ずつ加え、各段で座標単元と$D$だけで飽和し、
+極小素分解を取る。三巡回同時失敗の極小素成分は五族の順に
+$4,6,3,1,2$個、次元はそれぞれ$3,3,2,2,2$である。
+各素idealで、前定理の経路商超過を持つ61成分のいずれかの
+定義idealの生成元が全て剰余零となる。従ってこれらの閉包点も
+全て排除される。既に処理した少数零の他の台と合わせて結論を得る。
+\end{proof}
+
+\begin{corollary}[AOU三ブロック箙型の全関係係数]
+\label{cor:ou-aou-all-coefficients}
+AOU三ブロック箙型で標準noetherian OU比較を持つOU代数に対し、
+関係係数の台・特殊化を問わず、内在的三次条件から標準AS四次元三次商の
+表示が従う。
+\end{corollary}
+\begin{proof}
+全係数非零は系\ref{cor:ou-dense-automatic-comparison}、
+四個以上の零は系\ref{cor:ou-four-zero-complete-recognition}による。
+一個から三個では$D$の外に直前の定理、$D$上に命題
+\ref{prop:ou-small-zero-entire-binomial}を適用し、
+二添字を共有する二零と完全matchingの台については
+定理\ref{thm:ou-two-collinear-zeros}と系\ref{cor:ou-isolated-matching-supports}を用いる。
+\end{proof}
