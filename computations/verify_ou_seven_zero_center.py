@@ -16,9 +16,10 @@ def row_matrix(rows, width, field):
 
 
 class CyclicPaths:
-    def __init__(self, mask, field=QQ):
+    def __init__(self, mask, field=QQ, coefficients=None):
         self.field = field
-        self.support = set(support(mask))
+        self.coefficients = (dict.fromkeys(support(mask), field.one) if coefficients is None
+                             else coefficients)
 
     @lru_cache(None)
     def space(self, length, rotation, start, end):
@@ -38,11 +39,12 @@ class CyclicPaths:
                 row = {}
                 for middle in I:
                     triple = (first, middle, end)
-                    if triple[-turn:] + triple[:-turn] not in self.support:
+                    value_at_triple = self.coefficients.get(triple[-turn:] + triple[:-turn])
+                    if not value_at_triple:
                         continue
                     basis, reductions = self.space(length - 1, rotation, start, middle)
                     for k, value in reductions[prefix].items():
-                        row[columns[basis[k] + (end,)]] = value
+                        row[columns[basis[k] + (end,)]] = value_at_triple * value
                 rows.append(row)
 
         reduced, pivots = row_matrix(rows, len(words), self.field).rref()

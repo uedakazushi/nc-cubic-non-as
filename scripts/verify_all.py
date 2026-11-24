@@ -41,6 +41,7 @@ PROGRAMS=(
     "computations/verify_ou_four_zero_mixed_triangle.py",
     "computations/verify_ou_four_zero_boundary.py",
     "computations/verify_ou_four_zero_cycle_pencils.py",
+    "computations/verify_ou_corner_comparison.py",
     "computations/verify_ou_isolated_matching.py",
     "computations/verify_ou_few_zero_cuts.py",
     "computations/verify_ou_few_zero_rotations.py",

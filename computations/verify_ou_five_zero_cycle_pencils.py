@@ -41,28 +41,35 @@ def families():
         yield c,matrices,units
 
 def unit(f, allowed):
-    p = Poly(f,a,domain=QQ)
+    variables = sorted(allowed.free_symbols, key=str)
+    p = Poly(f,*variables,domain=QQ)
     if p.is_zero:
         return False
-    return Poly(allowed, a, domain=QQ).rem(p.sqf_part()).is_zero
+    return Poly(allowed, *variables, domain=QQ).rem(p.sqf_part()).is_zero
 
 def numerator(v, allowed):
     n,d = fraction(cancel(v))
     assert unit(d,allowed), d
     return n
 
+def empty_locus(entries, allowed, chart_variables=()):
+    parameters = sorted(allowed.free_symbols, key=str)
+    entries = [numerator(v, allowed) for v in entries if v != 0]
+    if any(f.free_symbols.issubset(parameters) and unit(f, allowed) for f in entries):
+        return
+    inverse = symbols('inverse')
+    ideal = groebner(entries + [inverse*allowed-1], inverse, *chart_variables,
+                     *parameters, order="grevlex", domain=QQ)
+    assert list(ideal) == [1]
+
+
 def nowhere_common(entries, allowed):
-    """Projective rank test over the punctured parameter line on both affine charts."""
-    entries = [numerator(f, allowed) for f in entries if f != 0]
     for at, variable in ((x, y), (y, x)):
-        equations = [f.subs(at, 1) for f in entries]
-        basis = groebner(equations, variable, a, order="lex", domain=QQ)
-        assert any(variable not in f.free_symbols and unit(f, allowed) for f in basis)
+        empty_locus([f.subs(at, 1) for f in entries], allowed, (variable,))
 
 
 def no_parameter_zero(entries, allowed):
-    numerators = [numerator(v, allowed) for v in entries]
-    assert unit(reduce(gcd, numerators, 0), allowed)
+    empty_locus(entries, allowed)
 
 
 def kernel_vector(matrix, allowed):
