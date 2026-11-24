@@ -186,7 +186,7 @@ z&\text{台数}&m=4&m=5&m=6&m=7&\text{残余}\\ \hline
 となる。長さ3では新しい排除はない。
 \path{computations/verify_ou_zero_supports.py}が
 この表と残余のビット整数を再現する。
-計算の高速化のため自由係数を2,3,\ldotsとする有理数特殊化も用いる。
+計算の高速化のため自由係数を$2,3,\ldots$とする有理数特殊化も用いる。
 経路関係行列は多項式行列だから、特殊化のrankはgeneric rank以下である。
 従ってある固定端点について特殊化で商次元が必要値以下なら
 generic商次元の超過はあり得ない。
@@ -3475,4 +3475,106 @@ $\alpha_{1j}^{-1}\gamma_{k1}^{-1}$に等しい。
 二項式の指数差は原始的なのでその零集合は既約torusであり、
 明示正規化の分母は非零係数の積だけである。
 従って三面可逆条件はこのtorusの非空開条件である。
+\end{proof}
+
+\begin{proposition}[少数零七軌道の比較仮定を要しない開集合]
+\label{prop:ou-few-zero-smooth-open}
+次の各台の係数torusには非空稠密開集合があり、その上の関係テンソルを
+窓に持つAOU箙型のOU代数$A$に対して、$\qgr A\in\mathfrak I_3$なら
+$\qgr A\in\mathfrak H^{\mathrm{hyp}}_3$である。
+\[
+\begin{array}{c|l}
+z(c)&\text{台（ビット規約は命題\ref{prop:ou-zero-support-enumeration}）}\\\hline
+1&134217471\\
+2&134209279,\ 134217455\\
+3&134151919,\ 134184687,\ 134216943,\ 134217454
+\end{array}
+\]
+\end{proposition}
+\begin{proof}
+各台で指数行列の転置の辞書式pivotに対応する係数を1にし、残る
+$8-z(c)$係数に列$(2,3,5,7,11,13,17)$の先頭から順に代入する。
+三つの行列式線形式の係数行列$L$は全例でrank三。
+$\ker L$の基底列の行列を$N$とし、$p=N(x,y,z)^t$、
+$f=p_0p_3p_4-p_1p_2p_5$と置く。$x,y,z$の各一つを1とした
+三つの偏微分の生成idealは、全七例・全三chartで$\mathbb Q$上の
+Gröbner基底が$\{1\}$となる。計算は
+\path{computations/verify_ou_few_zero_cuts.py}による。
+従って各例は幾何的に滑らかな平面三次曲線切断を与える。
+rank三locusでは核平面は代数的に変化する。特異点のincidenceは
+その射影平面束内で閉であり、射影が固有なので滑らかさは開条件となる。
+これを正規化前の係数torusにも直接適用すれば、上の有理点を含む
+非空稠密開集合が得られる。
+定理\ref{thm:ou-smooth-determinant-reconstruction}によって九線束が復元され、
+系\ref{cor:ou-integral-automatic-comparison}が比較と標識付き認識を与える。
+開集合の各テンソルがOU代数を与えることも、内在的標識の存在も不要である。
+\end{proof}
+
+\begin{theorem}[二添字が一致する二零の全特殊化排除]
+\label{thm:ou-two-collinear-zeros}
+異なる二つの零係数が二つの添字を共有するなら、三ブロックの
+導来helixはvery strongではない。この障害は他の係数の零・非零に依存しない。
+\end{theorem}
+\begin{proof}
+巡回とラベル置換で$c_{021}=c_{022}=0$としてよい。
+残る25係数の全てが非零な稠密torusをまず考える。
+命題\ref{prop:ou-zero-support-enumeration}に続く指数行列の
+正規化で19係数を1にでき、自由成分は
+$c_{111},c_{112},c_{211},c_{212},c_{221},c_{222}$となる。
+始点$V_2$、終点は周期を展開した$U_0$とし、長さ八の経路を取る
+（検証コードでは巡回1、両端の添字は2,0）。
+内部七頂点で列を指定し、各内部位置と残る六頂点を固定して
+補題\ref{lem:ou-cyclic-cubic-syzygy}の巡回二次関係を一行に置く。
+こうして得る$5103\times2187$行列の六変数有理関数体上のrankは2170である。
+\path{computations/verify_ou_collinear_zeros.py}はLaurent単項式を
+pivotとして2113回消去する。残った非零部分は714行66列で、
+行の分母を払い比例・重複行を除いてから有理関数体上でさらに57回の
+pivotを得る。各消去は行を非零多項式倍して他の行の倍を引く操作で、
+行の共通因子は除いてよい。従って稠密torusの一般点で経路商次元は17。
+正規化を戻してもrankは矢印の基底によらない。
+\emph{正規化前}の行列の成分は25係数の多項式であるから、
+2171次小行列式はアフィン空間全体で消える。追加の零があっても
+経路商次元は17以上である。very strongの場合のEuler形式による必要値は
+$m=3q+2$, $q=2$で$(3q^2+7q+4)/2=15$であり矛盾する。
+\end{proof}
+
+\begin{corollary}
+一個から三個の零を持つ13台のうち、134217343, 134217311, 134217335,
+134200959, 134213247は上の定理で全係数が排除される。
+133947135は補題\ref{lem:ou-matching-noetherian}により標準比較を持ち、
+系\ref{cor:ou-isolated-matching-supports}で全域が$\mathfrak I_3$外となる。残る七台が命題\ref{prop:ou-few-zero-smooth-open}の表である。
+\end{corollary}
+\begin{proof}
+ビット$9i+3j+k$の零位置を復号する。最初の五台はいずれも
+$(0,2,1),(0,2,2)$を含む。133947135では三零が完全matchingとなる。
+命題\ref{prop:ou-zero-support-enumeration}の軌道数は$1+3+9=13$である。
+\end{proof}
+
+\begin{proposition}[補集合二項式の特異外側面]
+\label{prop:ou-small-zero-entire-binomial}
+系\ref{cor:ou-complement-invariant}で外側三面の可逆性の仮定を外せる。
+すなわち孤立零に対する補集合八係数が非零で補集合二項式を満たせば、
+標準比較の下で$\mathfrak I_3$外である。特に
+命題\ref{prop:ou-small-zero-complement-loci}の各指定零では二項式超曲面全体が対象になる。
+\end{proposition}
+\begin{proof}
+二添字を共有する二零があれば定理\ref{thm:ou-two-collinear-zeros}で終わる。
+補集合を1に正規化する。外側の各二次正方行列で零位置は部分matching
+となるので、零成分を一つでも含めば行列式は非零である。
+従って残るのは、いずれかの面が全成分非零のrank一である場合である。
+巡回してこの面を$i=0$, $j,k\in\{1,2\}$とする。$i=0$のみに
+作用する$\alpha_{0j},\gamma_{k0}$で行と列を割れば、この面も全て1となる。
+よって$c_{000}=0$、$j,k\in\{1,2\}$の12成分が全て1の族に入る。
+
+この12成分を先頭にして指数行列の独立行を選び、次に外側の係数を
+辞書式順序で加える。稠密torusでは追加の独立行の値を1とすることができる。
+既に1の12行は、独立な先頭行を保つtorusの恒等成分が全て固定する。
+追加行の指標はこの恒等成分上で有理独立なので、代数閉体上その値は
+同時に正規化できる。自由成分は$c_{102},c_{120},c_{202},c_{210},c_{220}$。
+巡回0で$U_0$から二周期先の$U_0$への六次関係行列は
+$405\times243$、この五変数有理関数体上でrank 231となる
+（\path{computations/verify_ou_few_zero_cuts.py}）。
+正規化前の外側14係数の空間に小行列式の消滅を戻すと、
+全特殊化で商次元は12以上である。必要値は10なのでvery strong性に反する。
+三面が全て可逆の場合は系\ref{cor:ou-complement-invariant}による。
 \end{proof}

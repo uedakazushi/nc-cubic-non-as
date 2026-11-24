@@ -483,3 +483,127 @@ spherical functorと中心拡大判定自体は既知であり、
 ここでの新しい主張は内在的ample条件による制限線束の認識と
 それらの接続である。新規性の網羅的確認は未了。
 \end{remark}
+
+\subsection{射影加群の切断によるOU比較と既約三次曲線型}
+\label{subsec:ou-perfect-tail-comparison}
+
+OU\cite[\S2]{OU}の $\operatorname{mod} A$ はnoetherianな右加群の圏である。
+定義1.1(2)は$qgr$表示を要求し、定義1.1(3)は導来圏内の標識を指定する。
+ここでは前者から出発する。OUの(3.9)--(3.10)に対応する計算をまず
+射影加群の三角圏で行うことで、右noetherian性を曲線から証明できる。
+
+\begin{proposition}[OU型の有限次元加群による商]
+\label{prop:ou-perfect-tail-comparison}
+$A$をOUの意味でAS正則、次元三、parameter $\ell$とし、
+単純右加群がOU定義5.2の有限分解(5.4)を持つとする。
+$P_i=e_i A$, $S_i$をその単純商とし、
+\[
+ \mathcal D=\big(\Perf A/\operatorname{thick}(S_i\mid i\in\mathbb Z)\big)^{\natural}
+\]
+と置く（$\natural$は冪等完備化）。$P_i$の像を$E_i$とする。
+任意の長さ$\ell$の窓は$\mathcal D$のfull strong exceptional collectionであり、
+$\operatorname{Hom}(E_i,E_j)=A_{ji}$、$E_{i+\ell}\simeq S_{\mathcal D}^{-1}E_i[2]$
+である。全列はvery strongである。窓の自己準同型代数を$\Lambda$とすると
+$\mathcal D\simeq\Perf\Lambda$である。
+各$P_i$が右noetherianならさらに標準の同値
+$\mathcal D\simeq D^b(\qgr A)$が成立し、$E_i$は$\pi P_i$に移る。
+\end{proposition}
+\begin{proof}
+右加群の添字が作用で減少する規約を取る。
+$P_{i,\le m}$を添字$m$以下への切断、$T_m=P_i/P_{i,\le m}$とする。
+$T_m$は有限長で、各$S_a$は(5.4)によって完全なので切断も完全である。
+局所化の射は
+\[
+ \operatorname{Hom}_{\mathcal D}(E_i,E_j[d])
+ =\varinjlim_{m\to-\infty}\operatorname{Ext}^d_A(P_{i,\le m},P_j)
+\]
+で計算できる。実際、有限個の$S_a$から作った任意の有界対象$K$と
+全てのシフトに対し、十分小さい$m$で
+$\operatorname{Hom}(P_{i,\le m},K[d])=0$となる。
+切断は添字$m$以下の射影のみで分解できるからである
+（各段で台の中に斉次生成元を取る）。従って錐がこの部分圏に入る
+任意の分母$X\to P_i$を十分深い切断が経由する。同じ消滅を錐の
+シフトに使えば二つの持上げの差もさらに切断して消える。
+これはVerdier商のroofの余終性を与える。
+
+OU (2.1)と$T_m$の組成列から、
+$\operatorname{Ext}^d_A(T_m,P_j)$は$d=3$以外で零、次数三の次元は
+$(T_m)_{j+\ell}$の次元に等しい。この次数三の群は$m<j+\ell$
+で安定する（隣接する切断の差の組成因子に再び(2.1)を用いる）。
+切断の短完全列から次数零のHomは射影間の射そのものであり、
+合成も保たれる。残りは次数二のみで、その次元は$\dim A_{i,j+\ell}$。
+従って各窓の例外性・強性と全列のvery strong性が従う。
+(5.4)の両端は$P_{i-\ell},P_i$、中間項の添字はその間にある。
+商で$S_i=0$なので、窓の生成部分圏は左右に一項ずつ延長できる。
+よって窓はfullであり、dg商のtilting対象が$\mathcal D\simeq\Perf\Lambda$
+を与える。$\Lambda$は有限次元有向代数なので有限大域次元を持つ。
+
+窓$E_{i+1},\ldots,E_{i+\ell}$の直和を$T$とする。
+上のHom計算による$\operatorname{RHom}(T,E_i[2])$と
+Serre双対性による$\operatorname{RHom}(T,S_{\mathcal D}E_{i+\ell})$
+はともに末頂点の一次元単純加群を次数零に置いたものなので周期公式を得る。
+
+最後に右noetherian性を仮定すると、有限生成加群は有限生成射影による
+有限分解を持ち、$\Perf A=D^b(\operatorname{mod} A)$である。
+この有界導来圏で有限次元cohomologyを持つ部分圏は上記の
+$\operatorname{thick}(S_i)$である。これによる商を$D^b(\qgr A)$
+と比較するには、アーベル商の射を十分深い切断間の射で表す。
+実際、有限生成torsion加群は有限次元であり、Serre商で用いる
+始域の有限余次元部分加群・終域の有限次元核は深い切断で消去できる。
+有界複体、chain map、homotopyの各有限図式は共通の切断を取れば
+持ち上がる。積が零、または二射が等しいという有限個の条件も同様である。
+$qgr$で擬同型となる写像の錐は有限次元cohomologyを持つ。
+従って有界複体のroofとその等価関係も持ち上がり、所望の同値を得る。
+有界導来圏は冪等完備である。
+\end{proof}
+
+\begin{corollary}[既約曲線表示からの標準比較]
+\label{cor:ou-integral-automatic-comparison}
+$A$をAOU三ブロック箙型のOU代数とする。九頂点の窓の有向代数が、
+定理\ref{thm:ou-integral-elliptic-recognition}の既約曲線上の九線束の
+有向代数と頂点付きで同型なら、各$P_i$は右noetherianであり、
+標準OU比較が成立する。従って$\qgr A$に内在的三次標識があれば、
+その反標準環は標準AS四次元正則環の正則正規三次商である。
+\end{corollary}
+\begin{proof}
+まず命題\ref{prop:ou-perfect-tail-comparison}の$\mathcal D$の中で
+$P=\bigoplus_{i=1}^9 E_i$, $s=S_{\mathcal D}^{-1}[2]$と置く。
+$F,J,h$の構成と補題\ref{lem:ou-elliptic-shift}は
+$\Perf\Lambda$と曲線だけを用いる。補題\ref{lem:ou-elliptic-heart}
+の証明のうち、軌道環$B$の右noetherian性までの議論をここで適用できる。
+実際、$n\ge1$の短完全列
+$0\to B_{n-1}\to B_n\to\operatorname{Hom}_E(FP,h^nFP)\to0$
+の左端は曲線上の負Ext消滅、右端は$\mathcal D$の窓の強性と
+very strong性による。$n=0$は有向代数の同定による。
+同補題の自然性と単射性の計算から核は正則中心一次元で生成される。
+曲線上の$h$は次数三の幾何的移動であるから商環はAZの定理により
+右noetherianであり、中心元による持上げで$B$も右noetherianとなる。
+この段階で$\mathcal D$上のheartは必要ない。
+
+九つの合同類ごとに周期同型を反復して選ぶと、$B$を九頂点と周期で
+展開した代数の各成分と合成は、同命題の次数零Homの同定により
+$A$そのものである。逆向きの周期には正次数付き性により射はない。
+各$P_i$の部分加群はこの展開を戻すと、$B$の頂点射影の次数シフトの
+斉次部分加群に対応する。従って全$P_i$が右noetherianになる。
+同命題の最後の主張をここで初めて用い、既約曲線認識定理を適用する。
+\end{proof}
+
+\begin{corollary}[正の多重次数を持つ曲線表示での比較]
+\label{cor:ou-positive-automatic-comparison}
+同じOU三ブロック窓が注意\ref{rem:ou-reduced-curve-gap}の被約平面
+三次曲線上の九線束で表示され、曲線上の移動が
+$h=\alpha^*(-)\otimes N$、全成分で$\deg N>0$であれば、
+標準OU比較は成立する。特に定理\ref{thm:ou-reduced-md-criterion}の
+$\delta_{\rm md}=0$かつ全$w_i>0$の範囲では、内在的標識の反標準環が
+標準三次商になる。
+\end{corollary}
+\begin{proof}
+前系の証明で既約性を用いたのは$h$の幾何性・豊富性を導く部分である。
+ここではこれらが与えられる。次数零での窓のHomの同定には、前向き
+高次Extの消滅とGorenstein曲線のSerre双対性から得る逆向きHomの消滅を使う。
+正の多重次数に対する注意\ref{rem:ou-reduced-curve-gap}の生成性・消滅により
+$(FP,h)$はampleであり、曲線の軌道環は右noetherianである。
+従って$\mathcal D$での中心拡大、展開、右noetherian性を経て
+命題\ref{prop:ou-perfect-tail-comparison}が適用される。
+比較を得た後は命題\ref{prop:ou-reduced-cubic-geometric}を用いる。
+\end{proof}

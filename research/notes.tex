@@ -1,5 +1,10 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage{xr-hyper}
 \input{tex/preamble.tex}
+\externaldocument[][nocite]{build/nc-cubic-non-as}[nc-cubic-non-as.pdf]
+\newcommand{\coh}{\operatorname{coh}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
 \date{2026年11月24日／non-as-v42}
@@ -15,6 +20,27 @@
 OUの箙型による三次del Pezzo型の逆包含を否定する証明がある。
 内在的候補$\mathfrak I_3$との共通部分での逆包含はなお未解決。
 このより狭い問いの決着を最優先とし、既存定理の独立監査も継続する。
+
+\paragraph{標準比較の適用範囲と少数零型（2026年11月25日）}
+命題\ref{prop:ou-perfect-tail-comparison}はOUの定義2節と(5.4)から、
+まず有限次元完全加群を零にした三角圏でfull very strong helixを構成する。
+既約三次曲線の九線束表示、または幾何的移動の多重次数が全成分で正の
+被約曲線表示があれば、曲線の軌道環の中心拡大から全標準射影の
+右noetherian性が従う。この順でheartとの比較が可能になる。
+定理\ref{thm:ou-two-collinear-zeros}で二添字を共有する二零を
+追加の零を許して排除した。少数零13軌道のうち五台がこの定理に該当する。
+別の一台は色の交換関係と完全matchingの周期障害により全域排除、七台は
+命題\ref{prop:ou-few-zero-smooth-open}で非空稠密開集合を認識した。
+次は七台の全巡回で滑らかな切断を失う係数を調べる。
+特異でも既約九線束の復元ができれば比較仮定を除去できる。
+幾何的移動の零次数成分を縮約した曲線上で各cornerと切断加群を計算すると、
+幾何的移動の全範囲に右noetherian性が従う。
+対角三零の色交換による補題\ref{lem:ou-matching-noetherian}はIV型の残余六候補にも
+適用される。従って定理\ref{thm:ou-plane-automatic-comparison}と
+系\ref{cor:ou-dense-automatic-comparison}により、指定された全平面三次曲線表示と
+全係数非零型では標準比較を別に仮定しなくてよい。
+一般のOU型における標準射影の右noetherian性と、AOU箙以外を
+含むOU三次型の被覆は未解決である。
 
 \subsection*{弱del Pezzo境界の機構}
 平面楕円曲線上の六点のうち$p_1,p_2,p_4$のみが共線。
@@ -1464,5 +1490,7 @@ twisted HKRの非零奇数次部分は二つの楕円sectorに由来する。
 $k=2$面のrank一分解を用いる。元の三面行列式の非零性を
 正規化後の非零性と混同しない。
 命題\ref{prop:ou-small-zero-complement-loci}の五台の非空部分族を排除。
-次はこの条件の補集合と他の台の格子復元を調べる。
+命題\ref{prop:ou-small-zero-entire-binomial}は特異外側面を五変数の六次経路商
+（rank 231、商次元12、必要値10）で処理するので、二項式超曲面全体が
+標準比較の下で排除される。次は二項式の補集合での格子復元を調べる。
 \end{document}

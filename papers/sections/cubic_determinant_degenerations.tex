@@ -1806,3 +1806,21 @@ rank三の零平面については上の有限判定で扱う範囲が拡大し�
 関連する整数計算は
 \path{computations/verify_ou_determinant_cyclic.py}を参照。
 \end{remark}
+
+\begin{corollary}[全係数非零型での比較仮定の除去]
+\label{cor:ou-dense-automatic-comparison}
+AOU三ブロック箙型のOU代数に対し、窓の全27係数が非零なら標準比較は成立する。
+従ってこの範囲で$\mathfrak{AS}^{\mathrm{OU}}_3\cap\mathfrak I_3
+\subseteq\mathfrak H^{\mathrm{hyp}}_3$である。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:ou-perfect-tail-comparison}で得た導来helixに
+定理\ref{thm:ou-dense-complete-recognition}の表示の二分法を適用する。
+曲線の場合は定理\ref{thm:ou-plane-automatic-comparison}による。
+可換曲面$X$の場合は窓を標準九線束の和$T$に同定する。
+$-K_X$はampleなので$(T,-\otimes\omega_X^{-1})$はample pairである。
+実際、$T$の各直和因子は線束で、十分大きな反標準捩りに対する
+生成性と高次消滅はSerreの定理で従う。従ってその軌道環は右noetherianであり、
+窓と逆Serre関手から展開される$A$の射影も右noetherianとなる。
+比較を得た後に定理\ref{thm:recognition-weak-commutative}を適用する。
+\end{proof}

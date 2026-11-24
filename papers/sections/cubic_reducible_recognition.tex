@@ -2797,6 +2797,134 @@ AZ2局所自由性を仮定しない。
 標準noetherian比較が自動であるとは主張しない。
 \end{remark}
 
+\begin{lemma}[幾何的移動の零次数成分を許す比較]
+\label{lem:ou-nef-corner-comparison}
+AOU箙型のOU代数の窓が本文の被約平面三次曲線の九線束表示を持つとする。
+$h=\alpha^*(-)\otimes N$が幾何的であれば、全標準射影は右noetherianである。
+\end{lemma}
+\begin{proof}
+命題\ref{prop:ou-perfect-tail-comparison}の完全圏において仕事をする。
+定理\ref{thm:ou-residual-geometric-ample}の証明冒頭の
+$\operatorname{Ext}^1_E(L_i,h^nL_i)=0$は反標準三角とvery strong性だけによる。
+同じ成分支持切断の議論により$w_a=\deg_a N\ge0$である。
+$\sum w_a=3$で、$\alpha$は各成分を保つ
+（命題\ref{prop:ou-reduced-md-action}）。零次数成分が空なら
+系\ref{cor:ou-positive-automatic-comparison}による。
+
+零次数成分を縮約する$f:E\to Y$を補題\ref{lem:ou-nodal-contract-common-zero}
+または\ref{lem:ou-additive-contract-common-zero}の証明の通りに取る。
+これらの証明の構造層と線束に関する部分から
+$f_*\mathcal O_E=\mathcal O_Y$であり、零次数成分上の各次数が零の
+線束は$Y$に降下する。この条件は九線束$L_i$自体には課さない。
+$\alpha$は$\rho:Y\to Y$に降下する。実際$f$は固有全射であり、
+$\alpha$は縮約する連結部分曲線を保つので位相商上に自己同相を誘導する。
+構造層の同定$f_*\mathcal O_E=\mathcal O_Y$を用いれば
+$\alpha$とその逆の構造層の射も降下する。
+
+各$i$で$N\otimes\alpha^*L_i\otimes L_i^{-1}=f^*M_i$と書ける。
+$M_i$は残る全成分で正次数なのでampleである。
+$g_i=\rho^*(-)\otimes M_i$とすれば、
+$h(L_i\otimes f^*V)\simeq L_i\otimes f^*g_iV$である。
+$B_E$を曲線の九線束の軌道環とする。始点$i$、終点$j$の全次数
+成分を、始点側のcorner $e_iB_Ee_i$上の右加群として考える。
+次数$n$において自然に
+\[
+ \operatorname{Hom}_E(h^{-n}L_i,L_j)
+ \simeq\operatorname{Hom}_Y(g_i^{-n}\mathcal O_Y,
+                      f_*(L_i^\vee\otimes L_j)).
+\]
+この同型は始点側の軌道射の前合成と両立する。
+特に$i=j$では$Y$上のample pair $(\mathcal O_Y,g_i)$の軌道環である。
+生成性・高次消滅は注意\ref{rem:ou-reduced-curve-gap}の
+正の多重次数の議論（既約なら補題\ref{lem:ou-elliptic-heart}）による。
+AZ再構成により各cornerは右noetherianで、上の連接層の非負次数の
+切断加群は有限生成である。従って$B_E$は有限個のcornerの直積上で
+noetherian右加群であり、それ自身も右noetherianとなる。
+曲線上で$h^nL_i$が線束であるから、系\ref{cor:ou-integral-automatic-comparison}
+で用いた中心拡大の完全列と正則性もそのまま成立する。
+よって曲線の軌道環からの持上げと展開により主張を得る。
+\end{proof}
+
+\begin{lemma}[対角三零に対する色の交換]
+\label{lem:ou-matching-noetherian}
+三ブロック巡回関係において$c_{iii}=0$であり、ちょうど二添字が等しい
+18係数が全て非零なら、周期をまとめた経路代数は左右noetherianである。
+従ってこの窓を持つOU代数には標準OU比較が成立する。
+\end{lemma}
+\begin{proof}
+ラベルを$\mathbb Z/3$で読み、各矢印$i\to j$の色を$j-i$とする。
+同じラベルを結ぶ矢印には重み1、他には重み0を与え、経路の全重み
+による増大filtrationを取る。各二次関係の両端を固定すると、
+色の和は固定され、同色対が一つと、順序を交換した異色対が一組ある。
+両端が等しいとき同色対は$(0,0)$で、その係数は仮定により零、
+異色対$(1,2),(2,1)$の係数は非零である。
+両端が異なるとき異色対は$(0,t),(t,0)$で重み1、残る同色対は
+重み0である。これは三つ全ての巡回に適用できる。
+従って随伴次数環は、全頂点で全ての異色隣接対を非零スカラー倍で
+交換する二項関係代数$D$の商である。随伴次数環との同型は必要ない。
+
+$D$が右noetherianであることを示す。経路の始点と三色の個数
+$u\in\mathbb N^3$を固定すると、終点は決まり、隣接交換により経路空間の
+次元は高々一である。交換順の違いで零になる成分も許す。
+固定始点の零成分の指数は上方閉である。実際、個数$u+v$の任意の
+経路は色を並べ替えて個数$u$の初期部分を持つようにできる。
+非零の$u+v$成分には、個数$u$の非零経路を延長して到達できる。
+ここで経路を右に延長する積の規約を使う。逆の規約では終点を固定する。
+
+固定始点の射影の右部分加群$K$について、終点の冪等元で各元を分解し、
+全次数つき辞書式順序の最大指数を先頭とする。零成分の指数と、
+$K$の終点斉次な元の先頭指数の和集合は上方閉である。
+実際、先頭指数$u$を$u+v$に延長した成分が非零なら、その終点から
+色数$v$の経路を右に掛けると、先頭項は消えず、下位項は順序の
+加法性により下位に留まる。Dicksonの補題によりこの和集合の極小元は
+有限個である。非零成分の極小元に対応する$K$の元を一つずつ取り、
+先頭項を順に消去すれば$K$を生成する。零成分の上方には非零成分が
+ないので零成分の極小元は生成元を要しない。左側も経路を逆から読めば同様。
+ゆえに$D$も随伴次数環も左右noetherianである。
+非負整数の重みfiltrationで先頭部分を持ち上げ、各回重みを下げれば
+元の環も左右noetherianとなる。重み零の経路があってもこの降下は有限である。
+OU代数では命題\ref{prop:ou-perfect-tail-comparison}と
+補題\ref{lem:ou-cyclic-cubic-syzygy}によりこの巡回代数を展開すれば
+元の射影加群が得られるので、標準比較が従う。
+\end{proof}
+
+\begin{theorem}[平面三次曲線の九線束表示での比較仮定の除去]
+\label{thm:ou-plane-automatic-comparison}
+AOU三ブロック箙型のOU代数$A$の窓が
+定理\ref{thm:ou-all-plane-cubic-recognition}の平面三次曲線上の九線束で
+表示されるとする（頂点、合成、ブロック内直交性と前向きExt消滅を含む）。
+このとき$A$の全標準射影は右noetherianであり、標準比較が成立する。
+特に$\qgr A$が内在的三次標識を持つとき、その反標準環は標準AS四次元
+正則環の正則正規三次商である。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:ou-perfect-tail-comparison}から始めれば、有限次元有向代数の
+射影列と逆Serre反復を使う帰着は冒頭から$\Perf\Lambda$で適用できる。
+窓の頂点付き代数の同型は射影とSerre関手を同一視し、従って全helixの
+射の代数を同一視する。巡回窓では同じ全列の一部分を取り直すだけである。
+
+既約型には系\ref{cor:ou-integral-automatic-comparison}を用いる。
+節点cycle型では定理\ref{thm:ou-nodal-cycle-growth}の必要条件と
+命題\ref{prop:ou-nodal-complete-word-certificate}による三つの終点を使う。
+幾何的な両終点は補題\ref{lem:ou-nef-corner-comparison}で処理でき、
+共通零成分の終点は補題\ref{lem:ou-nodal-contract-common-zero}で
+有向代数を保って成分数を減らす。
+加法型では定理\ref{thm:ou-reduced-delta-deformation}の必要条件を使い、
+定理\ref{thm:ou-additive-partial-recognition}の証明のうち幾何的終点
+または共通零成分への\emph{窓の変換}だけを用いる。幾何的終点には同じ補題、
+縮約には補題\ref{lem:ou-additive-contract-common-zero}を使う。
+IV型の残余18候補は命題\ref{prop:ou-iv-negative-relation-matches}で正の
+幾何的表示に移る。最後の6候補の関係式
+（命題\ref{prop:ou-iv-residual-relation-family}、系\ref{cor:ou-iv-six-residual}）
+は対角三零、ちょうど二添字が等しい係数が全て非零なので、
+補題\ref{lem:ou-matching-noetherian}が直接適用される。
+非被約型は定理\ref{thm:ou-nonreduced-plane-recognition}の証明の
+次数・合成の議論により、三重直線は存在せず、二重直線と直線の和は
+同じ窓の有向代数を持つ既約尖点曲線型に移る。
+以上の各分岐で比較を先に得たので、定理\ref{thm:ou-all-plane-cubic-recognition}
+のheartを用いる認識・排除を適用できる。
+\end{proof}
+
 \subsection{一般の三ブロック関係からの行列式平面の構成}
 \label{subsec:ou-determinantal-plane}
 上の認識定理の適用には平面三次曲線による九線束表示が必要である。

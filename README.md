@@ -8,6 +8,12 @@
 
 2026-11-25の実行方針：標準OU比較の仮定除去 → 1–3零型の完全認識・排除 → 共通依存証明の独立監査 → 独立公表可能な成果の確定。上位課題の障害で停止せず、次順位へ進み適宜戻る。詳細と保存手順は [研究方針](00_research_plan.md) および [AGENTS.md](AGENTS.md) を参照。15–30分を目安にmainへ通常コミット・pushし、research-hubを更新する。
 
+## 標準比較と少数零型の進展（2026-11-25）
+
+AOU三ブロック箙型のOU代数で、指定された九線束による平面三次曲線表示を持つ全場合と、全27係数が非零の全場合について、標準OU比較を仮定せずに認識する。有限次元加群を消した完全導来圏で窓を構成し、零次数成分の縮約とcornerの切断加群、対角三零の色交換関係を用いて標準射影の右noetherian性を証明する。二添字を共有する二零があると八次経路商が17以上（必要値15）となるため、追加の零を許して排除される。1–3零の13軌道中、五台がこの全域排除、完全matching一台も色交換と周期障害により全域でI₃外、七台は有理数上の21勾配idealにより各非空稠密開集合で比較仮定なしの認識に至る。補集合二項式の特異外側面も六次経路商の下界12（必要値10）により排除し、標準比較付きの二項式障害を超曲面全体に延長した。七台の特殊係数、曲線表示外の比較、AOU三ブロック以外を含む被覆は未解決。
+
+証明は主稿の `prop:ou-perfect-tail-comparison`、`cor:ou-integral-automatic-comparison`、`thm:ou-plane-automatic-comparison`、`cor:ou-dense-automatic-comparison`、`thm:ou-two-collinear-zeros`、`prop:ou-few-zero-smooth-open` にある。再計算は `computations/verify_ou_collinear_zeros.py`（python-flint 0.9.0で高速化可能）と `computations/verify_ou_few_zero_cuts.py` による。
+
 ## 内在的定義の三段階と境界例
 
 次数3の内在的候補 `I_3`、標準AS四次元三次超曲面型 `H_hyp`、OUのAS surfaceでもある超曲面型 `H_hyp∩AS_OU` を区別し、真の包含 `H_hyp∩AS_OU ⊊ H_hyp ⊊ I_3` をIntroductionで証明しています（rank一の符号型族と次数三Clifford例を証人とします）。**OUの箙型による定義そのままでは逆包含は偽です。** 弱del Pezzoの反標準収縮からOU三次型のheartを構成し、全反標準ample対象の導来rankが2以上となるため標準三次超曲面と同値でないことを主論文 `thm:ou-weak-cubic` と `cor:ou-weak-unpointed` で証明します。ただしこの例は内在的候補I_3にも属さず、I_3に属するOU型での逆包含は未解決です。これを最優先課題とします。rank一・Hilbert級数を緩めた場合の境界例として `[P²/μ₃]` を計算し、rank三のAZ-ample対象と、構造層のnon-ampleness、特異な反標準三次模型 `UVW=T³` を区別しました。

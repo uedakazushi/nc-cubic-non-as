@@ -30,7 +30,7 @@ def rows_for(c,n,r,i,j,K):
  return len(words),rows
 
 
-def laurent_rank(rows,K):
+def laurent_rank(rows,K,finish=None):
  from fractions import Fraction
  d=len(K.symbols)
  def from_field(p):
@@ -86,6 +86,8 @@ def laurent_rank(rows,K):
   if row in seen:continue
   seen.add(row);rr.append({j:R.from_dict({f:QQ.convert(b) for f,b in p}) for j,p in row})
  print('dedup',len(rr),flush=True)
+ if finish is not None:
+  return rank+finish(rr,K)
  # Repeated row-wise primitive normalization and exact forward elimination.
  def primitive(row):
   if not row:return row
