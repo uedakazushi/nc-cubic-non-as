@@ -4321,3 +4321,133 @@ $T_2$上では次数一で両端で零である。従っていずれも恒等的
 二項式上ではその稠密開集合と、この全ての余次元一因子の稠密開集合を処理した。
 従って係数torus全体における残余の余次元は三以上である。
 \end{proof}
+
+\begin{proposition}[五零の補集合二族と共点への退化]
+\label{prop:ou-five-zero-cycle-pencils}
+定理\ref{thm:ou-five-zero-complement-exclusion}の正規化で
+132054766の$v=-1,w=1$は全$u\ne0$、
+134135534の$u=w=1$は$v\ne0,1$で標準比較を持つ。
+従ってAOU三ブロック型のちょうど五零で、内在的三次条件からの
+標準三次商表示に比較を追加仮定する必要が残るのは、
+台の同値を除き134135534の$(u,v,w)=(1,1,1)$の高々一点である。
+\end{proposition}
+\begin{proof}
+同定理の二つのslice表を用い、自由係数を$a$とする。
+第一族では$(L,P,Q,R,S)=(-y,x,x/a,y,x-y)$である。
+$\lambda=1/a,\ \tau=-1,\ b=\tau-\lambda$と置く。
+定理\ref{thm:ou-complement-expanded-cycles}の三成分表示で、第三成分の
+斉次座標を$[z:d]=[bu:u+v]$に変更すると、その行列は
+\[
+ X_T=\begin{pmatrix}-1&z&z\\1&d&-d-z\\0&1&-1\end{pmatrix}
+\]
+となる。この式を$b=0$にも用いる。曲線族を具体的に構成する。
+射影平面のアフィン座標を$(t,h)$として、$N$を$h=0$、
+$B$を$h=t+b$、$T$を$t=0$の射影閉包とする。$N,B$の
+$x/y=t$、$T$の$z/d=b-h$と取る。$N\cap B$は$t=-b$、
+$N\cap T,B\cap T$ではそれぞれ$z/d=b,0$である。
+$b\ne0$では先の三角形の貼り合わせそのものである。
+$b=0$、すなわち$a=-1$では三直線が共点になる。
+
+各直線族上に同定理の$U,V$の成分次数の線束を取り、三つの
+交点切断に沿って同じ行・列の単元で同定する。
+$N\to T$は恒等、$T\to B$は左から$\operatorname{diag}(-1,1,1)$、
+右から$\operatorname{diag}(1,1,1/\tau)$、
+$N\to B$は同じ左行列と右行列$\operatorname{diag}(1,1,1/\lambda)$
+である（$y=d=1$）。$b=0$では$\lambda=\tau$なので、
+行にも列にも三者のコサイクル条件が成り立つ。
+全空間の三つの被約成分は三重点で単純正規交差である。
+実際$t,h,h-t-b$は正則局所座標をなす。一成分上の二本の交線で
+共通点の値が一致する二つの単元は、その成分上の局所単元に延長できる
+（座標軸の和の環は原点でのファイバー積）。
+従って自明化を順に変えて全貼り合わせを局所的に恒等にでき、線束が得られる。
+行列成分も交線ごとに一致し、三座標平面の和の環は各平面の関数で
+二平面ずつの交線上で一致するものの環なので、全空間上の射に降下する。
+これを特殊ファイバーに制限することで共点における一次ジェット条件も満たす。
+
+第二族では$(i,j,k)$で元の$c_{kij}$を読む巡回を選ぶ。
+$a\ne1$で$\lambda=a/(a-1)$とすると
+$(L,P,Q,R,S)=(y,x,\lambda x,-\lambda x,y)$である。
+前定理の四成分行列に$\mu=-\lambda$を代入する。$m=1$、
+$[x:y]=[1:-\lambda^2]$で$L\ne0$なので四節点での貼り合わせは全域で定義される。
+
+\path{computations/verify_ou_five_zero_cycle_pencils.py}は両族で
+pencil方程式、全成分の行列式零、階数二、核の双対線束$W_k$の
+成分次数、三つの合成の非零性・階数二を有理数上で検証する。
+全パラメータでの判定には、各成分の二つのアフィン座標で
+二次minorのidealを計算し、基底変数$a$のみの多項式で根が
+除外点に限られるものがidealに属することを使う。
+核を与える原始外積の無基点性も同様である。合成の係数行列には
+$\mathbb Q[a]$上の最大公約式を使う。第一族で除外するのは0、
+第二族では0と1だけである。
+
+節点の場合のExt消滅とブロック内の直交は前定理による。
+共点の場合も、真部分に支持を持つ切断は一枝支持なら共点で二位以上消える
+（他の二直線の方程式の積がその枝の上に位数二を持つ）。
+二枝支持なら両枝で一位以上消える。従って支持の成分次数の和は
+少なくとも二を要し、同じ多重次数上界で排除できる。
+全枝に非零の切断についての有効Cartier因子の議論も同じである。
+第一族の$V_1,V_2$は$U_2$からの射の$N$上の零
+$y=0,x-y=0$で区別される。両族で$W_1,W_2$のsliceの零位置は異なり、
+比例する関係式への行・列スカラー変換では互いに移らない。
+残りの同一ブロック内の対は成分次数で区別される。
+これで九線束表示が成立し、三直線には共点を含む
+定理\ref{thm:ou-plane-automatic-comparison}、四成分には
+補題\ref{lem:ou-four-cycle-proximity-comparison}を適用する。
+五零型の他の軌道・係数は系\ref{cor:ou-five-zero-complete-recognition}
+の証明の経路次元障害、完全matching、または平面三次曲線表示であり、
+補題\ref{lem:ou-matching-noetherian}と
+定理\ref{thm:ou-plane-automatic-comparison}で比較が回収される。
+\end{proof}
+
+\begin{corollary}[四零の比較仮定を余次元二まで除去]
+\label{cor:ou-four-zero-cycle-pencils}
+ちょうど四零の各正規化係数トーラスにおいて、余次元三以上の閉集合の外で
+式\eqref{eq:intrinsic-ou-question}の包含が標準比較を追加仮定せずに成立する。
+\end{corollary}
+\begin{proof}
+系\ref{cor:ou-four-zero-complete-recognition}の証明で比較を必要とする箇所のうち、
+完全matchingと平面三次曲線表示はそれぞれ補題\ref{lem:ou-matching-noetherian}、
+定理\ref{thm:ou-plane-automatic-comparison}で処理できる。
+残るのは定理\ref{thm:ou-four-zero-complement-boundaries}の表の九行である。
+外側面が可逆な各行について、系\ref{cor:ou-complement-pencil-factors}の
+七つの式の既約因子を正規化トーラスで計算すると次表を得る。
+各欄には零になると円錐曲線・直線表示の判定が失敗する因子を列記した。
+\[
+\begin{array}{c|c|l}
+\text{台}&\text{境界条件}&\text{既約因子}\\\hline
+134135535 & z=1\ (z=u,v,w,q)& z'-1\quad(z'\in\{u,v,w,q\}\setminus\{z\})\\
+134147823 & v=1 & u+w-1,\ q-1\\
+          & q=1 & v-1,\ u+vw-v\\
+134151407 & v=1 & u+w-1,\ w+q-1\\
+134151918 & u=1,\ v\ne1 & q-1,\ w+1\\
+          & q=1,\ v\ne1 & u-1,\ w+1
+\end{array}
+\]
+表の指定零は同定理と同じである。因子の外では
+定理\ref{thm:ou-complement-line-conic}の円錐曲線・直線の構成がそのまま適用できる。
+因子の上では定理\ref{thm:ou-complement-expanded-cycles}の二つの構成を使う。
+\path{computations/verify_ou_four_zero_cycle_pencils.py}は表を
+巡回pencilのminorから再生成し、境界と因子の各組について
+一般点で必要な一次形式の比例をminorの整除で確認する。
+同時に各因子の一有理点で、成分上の全点階数二、核の次数、
+各合成の非零性・階数二と単元条件を確認する。
+これらの因子は全て幾何的既約であり、前定理と同じ固有性・開性の議論で
+一般点に適用できる。指定零込みの22件のうち三成分が6件、四成分が16件である。
+全境界の稠密開およびその全残余因子の稠密開が処理されたので主張を得る。
+\end{proof}
+
+\begin{corollary}[全AOU係数台における無条件の余次元境界]
+\label{cor:ou-aou-codim-three}
+AOU三ブロック箙の任意の係数台について、正規化係数空間の
+余次元三以上の閉集合を除いて、$\mathfrak I_3$から
+$\mathfrak H^{\mathrm{hyp}}_3$への包含が成立する。
+零係数なし、または六個以上の零の場合は全域で成立する。
+ちょうど五零の場合に残るのは一つの三次元トーラスの高々一点である。
+\end{corollary}
+\begin{proof}
+全非零は系\ref{cor:ou-dense-automatic-comparison}、一から三零は
+定理\ref{thm:ou-complement-expanded-cycles}、四零は直前の系、
+五零は命題\ref{prop:ou-five-zero-cycle-pencils}、六零以上は
+系\ref{cor:ou-six-zero-automatic}を用いる。支持の必要条件で排除される
+台では最初からOU代数が存在しない。この系はAOU箙を持つOU代数に関する。
+\end{proof}
