@@ -18,6 +18,8 @@ AOU三ブロック箙型のOU代数で、指定された九線束による平面
 
 補集合二項式を持つ五台・十通りの指定零のそれぞれで、その二項式の稠密開集合にも円錐曲線と直線上の九線束表示を構成した（主稿 `thm:ou-complement-line-conic`）。ここでは標準比較が自動となり、I₃から外れる。従って1–3零の各支持軌道で、比較仮定なしの包含が未判定なのは係数torusの余次元二以上の閉集合の中に限られる。開条件の非空性は `python3 computations/verify_ou_complement_line_conic.py` により検算できる。
 
+一・二零の補集合二項式外では、三巡回の同時障害の75素成分を対称性で16軌道に分けた。61成分で経路商次元が必要値を超え、残り14成分の五つの代表族でも各稠密開集合に三直線上の九線束を構成した。二項式の外で未判定の余次元は四以上である。主稿 `thm:ou-one-two-zero-graphs` と `computations/verify_ou_one_two_zero_components.py`、`computations/verify_ou_one_two_zero_triangles.py` にグラフ、証明、再現手順を収録した。
+
 ## 内在的定義の三段階と境界例
 
 次数3の内在的候補 `I_3`、標準AS四次元三次超曲面型 `H_hyp`、OUのAS surfaceでもある超曲面型 `H_hyp∩AS_OU` を区別し、真の包含 `H_hyp∩AS_OU ⊊ H_hyp ⊊ I_3` をIntroductionで証明しています（rank一の符号型族と次数三Clifford例を証人とします）。**OUの箙型による定義そのままでは逆包含は偽です。** 弱del Pezzoの反標準収縮からOU三次型のheartを構成し、全反標準ample対象の導来rankが2以上となるため標準三次超曲面と同値でないことを主論文 `thm:ou-weak-cubic` と `cor:ou-weak-unpointed` で証明します。ただしこの例は内在的候補I_3にも属さず、I_3に属するOU型での逆包含は未解決です。これを最優先課題とします。rank一・Hilbert級数を緩めた場合の境界例として `[P²/μ₃]` を計算し、rank三のAZ-ample対象と、構造層のnon-ampleness、特異な反標準三次模型 `UVW=T³` を区別しました。
