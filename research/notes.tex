@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v20}
+\date{2026年11月24日／non-as-v21}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -687,8 +687,24 @@ $Fs=hF$から全巡回に同じ既約曲線表示を持つ。
 それぞれ長さ五、四の経路次元が必要値$7,5$を超える。
 証明は主稿参照。三次syzygyを満たす反例を
 \path{computations/verify_ou_dense_higher_syzygies.py}で有理数上検算した。
-残る全係数非零rank三の型では、少なくとも一つの巡回で(iii)が成立する。
-そのような全ての巡回で(i)または(ii)が失敗する混合障害を優先する。
+主稿の命題\ref{prop:ou-dense-fourth-path}により、
+端点を含む障害長方形の数$b$から四次経路商の次元$\max(5,4+b)$を得る。
+どの二長方形も一辺を共有するため、各巡回の障害長方形は高々一つ。
+三巡回同時の(ii)失敗では、各軸で二つの二元部分集合を選ぶ。
+共通添字を0とするrescalingで立方体の三辺の係数が1。
+食い違う軸が二つ以上なら同方向の障害長方形が複数発生し排除。
+残る二つの四係数族を有理関数体上の厳密な消去で調べると、
+六次405×243行列のrank231、七次1458×729行列のrank716。
+特殊化でrankは増加しないので、商次元12以上、13以上は
+very strong性の必要値10、12に反する。
+詳細は定理\ref{thm:ou-dense-no-triple-grid-failure}および
+\path{computations/verify_ou_grid_higher_syzygies.py}。
+
+残る全係数非零rank三の型では、(ii)を満たす巡回と
+(iii)を満たす巡回がそれぞれ存在するが、一致は未証明。
+全ての巡回で三条件の少なくとも一つが失敗する混合障害を、
+特に条件(i)の従属、または(ii)/(iii)の失敗集合が互いに補う場合に
+分けて優先する。
 三条件は係数の有限なrank・行列式の等式/不等式なので、
 失敗理由を分けたstratificationと残存族の構造を調べる。
 (ii)の失敗は二つの置換積の比が全sliceで一定という局所的な
