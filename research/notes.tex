@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v24}
+\date{2026年11月24日／non-as-v25}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -771,8 +771,29 @@ $\delta_{\rm md}=0,\ w=(1,1,1)$となる。
 (ii)の失敗は二つの置換積の比が全sliceで一定という局所的な
 交叉比条件、(iii)の失敗は特定sliceの逆数で全行列式が零となる条件。
 全係数非零の場合はこの手順と三直線表示で認識済み。
-次は係数零の型についてsupport graphの連結・強制零・cycle比から
-必要条件を絞り、rank二以下や零平面包含・非被約・座標成分も扱う。
+係数零の型については主稿の命題\ref{prop:ou-zero-support-enumeration}で
+全9 sliceの連結性、異なるsliceの両順序について強制零を含まない
+木成分の排除を用い、台を有限列挙した。
+連結な3×3台は205、全条件を満たすラベル付き台は合計1381180。
+独立三添字と添字方向の置換による同値類数は
+零係数数0から12の順に
+$1,1,3,9,30,80,201,344,387,217,53,4,1$。
+これは必要条件の台の数であり実在する圏の数ではない。
+定理\ref{thm:ou-large-zero-path-exclusion}では矢印の指数行列の
+有理数rankにより非零係数を正規化し、
+10--12個の零係数を持つ58台を全て排除、
+9個を持つ217台中216台を排除した。
+排除は長さ4または5の経路商の有理数体・一変数有理関数体上の
+厳密rankによる。残余は$i+j+k=0$に零を持つLatin square型、
+非零18係数中17個を1にできる。
+\path{computations/ou_zero_supports.cpp}と
+\path{computations/verify_ou_zero_supports.py}を実行して検算した。
+定理\ref{thm:ou-latin-square-periodic-exclusion}では任意の係数に対し、
+三周期単純対象と、一方向の巡回矢印に$t$を作用させる
+$t$進有限長商を構成し、既存IV族のEuler rank障害を適用して排除する。
+標準比較と$I_3$の下では零係数は高々8個。
+次は8個の387台から同じ正規化・厳密rankを進め、残余の
+曲線表示、行列式rank二以下・零平面包含・非被約・座標成分を調べる。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
 

@@ -1,0 +1,274 @@
+% !TeX root = ../nc-cubic-non-as.tex
+\subsection{零係数の台の有限分類と多零係数型の排除}
+\label{subsec:ou-zero-supports}
+
+$c=(c_{ijk})$を三ブロック箙の関係テンソルとし、
+$z(c)=\#\{(i,j,k):c_{ijk}=0\}$とする。
+以下では標数零の代数閉体を考える。
+独立な三添字の置換と添字方向の置換による台の同値を用いる。
+偶置換の方向変更は巡回foundationの変更に対応し、
+奇置換はこれに経路の反転（反対代数）を加えたものである。
+従って下記の三次syzygyの必要条件と固定端点の経路商の
+次元超過を判定する上では、いずれも許してよい。
+内在的条件のheartの同値を反対代数から直接導くわけではない。
+
+\begin{proposition}[台の必要条件の有限列挙]
+\label{prop:ou-zero-support-enumeration}
+very strong導来helixを持つなら$z(c)\leq12$である。
+さらに補題\ref{lem:ou-cyclic-cubic-syzygy}と
+系\ref{cor:ou-cyclic-support-obstruction}の
+台だけに依存する必要条件を満たす台の数とその同値類数は
+次の通りである。数は関係代数や曲面圏の同型類数ではない。
+\[
+\begin{array}{r|r|r}
+ z & \text{ラベル付き台} & \text{台の同値類}\\ \hline
+0&1&1\\
+1&27&1\\
+2&351&3\\
+3&2898&9\\
+4&16659&30\\
+5&68256&80\\
+6&196110&201\\
+7&374490&344\\
+8&428004&387\\
+9&242688&217\\
+10&49680&53\\
+11&1944&4\\
+12&72&1
+\end{array}
+\]
+\end{proposition}
+\begin{proof}
+各方向の固定添字に対応する$3\times3$のsliceについて、
+その六頂点二部graphは連結でなければならない。
+よって各sliceは少なくとも五辺を持ち、一方向の三sliceを
+合計すれば非零係数は15個以上、すなわち$z(c)\leq12$を得る。
+異なる二sliceの台を$a,b$と書くと、三次syzygyの式
+$\alpha_k c_{ijk}=\beta_j c_{i'jk}$において、
+共通辺は二変数を非零倍で結び、一方だけにある辺は
+対応する一変数を零に強制する。
+強制零は共通辺の連結成分全体に伝播する。
+強制零を含まない木成分（孤立頂点も含む）は、
+どの非零係数に対しても一自由度の解を与える。
+従ってこのような成分がある台は排除される。
+両方のsliceの順序を調べる必要がある。
+cycleを含む成分で係数の比が整合するか否かは
+この台だけの判定には含めない。
+
+再現コード\path{computations/ou_zero_supports.cpp}は
+$3\times3$の全512台から連結な205台を抽出し、
+その三つの順序付き組から一方向のsliceを構成する。
+残る二方向の全sliceの連結性と、全方向で異なるsliceの
+両順序に対する上の条件を調べる。
+その後$(\mathfrak S_3)^3\rtimes\mathfrak S_3$の全1296元で
+台を置換して同値類を数える。
+台は27ビットの整数として表現し、ビット$9i+3j+k$が
+1であることを$c_{ijk}\ne0$とする。
+この有限列挙によって表を得る。
+\end{proof}
+
+\begin{theorem}[九個以上の零係数を持つvery strong型の制約]
+\label{thm:ou-large-zero-path-exclusion}
+三ブロック箙の導来helixがvery strongなら$z(c)\leq9$である。
+$z(c)=9$なら独立な三添字の置換により
+\[
+ c_{ijk}=0\quad\Longleftrightarrow\quad i+j+k=0
+ \quad\text{in }\mathbb Z/3\mathbb Z
+\]
+となる。この台では非零18係数のうち17係数を
+矢印の非零スカラー倍で1に正規化できる。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:ou-zero-support-enumeration}の各台に対して
+矢印のスカラー倍の作用をまず用いる。
+非零係数の集合を$T$とし、指数行列$B_T$を
+$|T|\times27$の整数行列として定める。
+各行$(i,j,k)\in T$は三矢印$(i,j),(j,k),(k,i)$に
+対応する成分が1、他が0である。
+対応するtorusの作用はこの指数行列を持つmonomial mapである。
+$\operatorname{rank}_{\mathbb Q}B_T=r_T$なら
+独立な$r_T$行に対応する非零係数を同時に1にできる。
+実際、この部分行列のSmith標準形により、
+標数零の代数閉体上では非零整数冪写像が全射であることから
+対応するtorusへの射が全射となる。
+残る$|T|-r_T$個の非零係数を独立な変数とする族は、
+すべての係数の選択を正規化した後に含む。
+これが同型類の一意なパラメータ表示であるとは主張しない。
+
+正規化した各族の固定端点の長さ$m$の経路商を計算する。
+前節と同様、内部の$m-1$添字を辞書式順序に並べ、
+各内部位置とそれ以外の内部添字を固定して
+その位置の三通りの選択に対応する二次関係を一行とする。
+従って列数は$3^{m-1}$、行数は高々$(m-1)3^{m-2}$である。
+行列は係数変数の多項式行列であり、
+その有理関数体上のrankはすべての特殊化のrankの上界である。
+従って経路商の次元の下界を得るために
+generic rankを厳密に計算すれば十分である。
+$z=9,10,11,12$について$m=3,4,5$の全巡回、
+全九端点を検査し、最初の次元超過を用いる。
+very strong性なら$m=3$では$3+\delta_{ij}$、
+$m=4$では5、$m=5$では7である
+（補題\ref{lem:ou-cyclic-cubic-syzygy}のEuler行列）。
+有限計算の結果は次の通りである。
+\[
+\begin{array}{r|r|r|r|r}
+ z & |T|-r_T & m=4\text{で排除} & m=5\text{で排除}
+ & \text{残余}\\ \hline
+12&0&1&0&0\\
+11&0&4&0&0\\
+10&0&52&1&0\\
+9&0&201&10&0\\
+9&1&5&0&1
+\end{array}
+\]
+計算は\path{computations/verify_ou_zero_supports.py}で再現できる。
+整数指数行列は有理数体上で行簡約し、
+経路関係行列のrankは有理数体または一変数有理関数体上で
+正確な線形代数により求める。
+有限体への特殊化や数値近似はこの排除に用いない。
+$m=3$の計算ではここで列挙された各族に新たな排除はない。
+$m=4,5$の排除は全特殊化に対する次元下界による。
+
+唯一の残余の台はビット整数108455662であり、
+その非零成分は$i-j+k\ne0$に対応する。
+$j$を$-j$と取り直せば主張の対称な台となる。
+他の方向置換をした代表についても、この条件は対称なので、
+独立な添字変更だけで同じ台にできる。
+上のrank計算で$r_T=17$であるから、係数を17個正規化できる。
+\end{proof}
+
+\begin{remark}
+九個の零係数を持つ残余族がvery strongであることは、
+長さ5までの次元検査からは従わない。
+この族の内在的三次条件については次の定理で別に排除する。
+\end{remark}
+
+\begin{theorem}[Latin square型の台の内在的排除]
+\label{thm:ou-latin-square-periodic-exclusion}
+$c_{ijk}=0$と$i+j+k=0$が同値である三ブロック関係代数を考える
+（添字は$\mathbb Z/3\mathbb Z$）。
+すべての非零係数は任意とする。
+標準noetherian OU helix比較を持つ曲面圏$\mathcal C$が
+対応するなら、$\mathcal C$は$\mathfrak I_3$に属さない。
+特にこの主張は正規化後の一係数が特定の値を取る場合に限らない。
+\end{theorem}
+\begin{proof}
+$i=k$の関係は$j=i$の係数だけが零であり、
+$j\ne i$の二経路の非零係数による二項関係である。
+$i\ne k$では$j=i,k$の二経路だけが関係に現れる。
+従って九頂点の反変表現$Q_i$を、
+頂点$U_i,V_i,W_i$で一次元、他で零とし、
+対角二矢印の作用を恒等とすることで定義できる。
+
+補題\ref{lem:ou-iv-periodic-three}の証明をこの場合に適用する。
+具体的に射影分解は
+\[
+ 0\longrightarrow P_{U_i}
+ \longrightarrow \bigoplus_{j\ne i}P_{V_j}
+ \longrightarrow P_{W_i}\longrightarrow Q_i\longrightarrow0
+\]
+であり、左の射の二成分は$A_{ij}$の
+$c_{iji}$倍、中央の射は$B_{ji}$である。
+$U_l$で$l\ne i$なら、経由頂点$j=i$の係数が非零なので
+他の二経路は二次元商空間の基底になる。
+$l=i$では他の二経路の唯一の関係が左の射の像である。
+この頂点別の検証により完全性を得る。
+Serre関手を施した入射複体についても同様に、
+$W_l$で$l\ne i$なら経由頂点$j=i$の係数が非零で、
+$l=i$では唯一の対角関係で完全性を得る。
+従って$sQ_i\simeq Q_i$である。
+これは係数の符号や比によらない。
+補題\ref{lem:ou-iv-periodic-simple}の証明は
+この周期性、九射影に関する次元ベクトルとEuler行列だけを
+用いているので、標準比較の下で$Q_i$は
+heartの互いに非同型な単純対象となる。
+
+任意長の有限長商を次のように構成する。
+$D_m=k[t]/(t^m)$とし、全九頂点に$D_m$を置く。
+各矢印を次のスカラーの乗法として定める（右加群の規約）。
+\[
+ A_{ij}=
+ \begin{cases}
+ 1&i=j,\\ t&j=i+1,\\0&\text{otherwise},
+ \end{cases}
+ \qquad
+ B_{jk}=
+ \begin{cases}
+ 1&j=k,\\
+ -c_{jkk}/c_{jjk}\,t&k=j+1,\\
+ 0&\text{otherwise}.
+ \end{cases}
+\]
+添字はすべてmodulo 3である。
+$i=k$では非対角の二経路はともに零となる。
+実際、一方向の巡回矢印のみを非零にしたので、
+二つの非対角矢印を続けて元の添字に戻ることはない。
+$i\ne k$の関係は
+$c_{iik} A_{ii}B_{ik}+c_{ikk} A_{ik}B_{kk}=0$であり、
+定義により成り立つ。
+係数$c_{iik},c_{ikk}$はともに非零である。
+従ってこの表現$T_m$は任意の$m$で定義できる。
+二つの非対角矢印の積の係数を指定する必要がない点が、
+補題\ref{lem:ou-iv-periodic-thickenings}の変形とは異なる。
+
+$t$進filtrationの各逐次商は$Q=Q_0\oplus Q_1\oplus Q_2$である。
+従ってheartは拡大で閉じていることから$T_m$はheartに属し、
+組成因子は各$Q_i$が$m$個である。
+$\operatorname{Hom}(T_m,Q_i)$は一次元である。
+実際、$U_i$の値への線型写像は、非対角矢印
+$A_{i,i+1}$が$t$を作用させることから$tD_m$を消す。
+対角矢印によって$V_i,W_i$での写像も定まり、
+剰余写像$T_m\to Q\to Q_i$がHomを生成する。
+
+$F=\bigoplus_i P_{W_i}$とおけば$F\twoheadrightarrow Q$があり、
+$\operatorname{Ext}^1(F,Q_i)=0$。
+有限filtrationを用いて$F\to Q$を$F\to T_m$へ持ち上げられる。
+もしこれが全射でなければ、その余核の単純商$Q_i$への射は
+$T_m\to Q$を経由するので$F\to Q$の全射性に反する。
+従って固定した$F$から任意の$T_m$への全射を得る。
+
+ここで定理\ref{thm:ou-iv-periodic-exclusion}の
+Euler形式と内在的三次条件による障害を適用する。
+同定された数値的rank$r$は$\sum_i\chi(-,Q_i)$であり、
+仮定された内在的標識$\mathcal O$について$r([\mathcal O])=1$。
+同定理の
+\eqref{eq:ou-iv-periodic-ext-self-bound}と
+\eqref{eq:ou-iv-periodic-ext1-exact}により、
+各固定heart対象への$\operatorname{Ext}^1(s^{-n}\mathcal O,-)$の
+次元は$n\gg0$で有界であり、固定完全列に対し漸近的に完全。
+周期性と$F\twoheadrightarrow T_m$から
+\[
+ m\sum_i\dim\operatorname{Ext}^1(\mathcal O,Q_i)\leq C_F
+\]
+を得る。$C_F$は$m$によらず、従って全
+$\operatorname{Ext}^1(\mathcal O,Q_i)=0$。
+同定理の負次数Hom消滅・Serre双対性から
+$\operatorname{Ext}^2(\mathcal O,Q_i)=0$、
+AZ1と周期性から$\operatorname{Hom}(\mathcal O,Q_i)\ne0$。
+よって
+\[
+ 1=r([\mathcal O])=\sum_i\chi(\mathcal O,Q_i)\geq3
+\]
+となって矛盾する。
+この議論は内在的標識のexceptionalityを追加仮定しない。
+\end{proof}
+
+\begin{corollary}[内在的三次型の零係数上界]
+\label{cor:ou-intrinsic-at-most-eight-zeros}
+標準noetherian OU helix比較を持つ内在的三次型の
+very strongなAOU三ブロック箙型では、$z(c)\leq8$である。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:ou-large-zero-path-exclusion}で10個以上を排除し、
+残る9個の台を定理\ref{thm:ou-latin-square-periodic-exclusion}で排除する。
+\end{proof}
+
+残る問題は1個から8個までの零係数型の認識・排除である。
+命題\ref{prop:ou-zero-support-enumeration}の列挙は、
+この範囲についても今後の有限計算の入口になる。
+例えば8個の零係数を持つ387台について、
+同じtorus正規化と経路次元の厳密rankを調べる。
+さらに行列式切断が滑らかな範囲では
+定理\ref{thm:ou-smooth-determinant-reconstruction}が既に適用できる。
+この列挙は、零係数型の全認識や標準noetherian比較の成立、
+あるいは残る台の実現可能性を主張しない。
