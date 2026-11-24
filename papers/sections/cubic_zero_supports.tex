@@ -143,19 +143,86 @@ $j$を$-j$と取り直せば主張の対称な台となる。
 この族の内在的三次条件については次の定理で別に排除する。
 \end{remark}
 
-\begin{theorem}[Latin square型の台の内在的排除]
+\begin{theorem}[七・八零係数の台の経路次元による制約]
+\label{thm:ou-seven-eight-zero-path-exclusion}
+very strong導来helixを持つ三ブロック型について、
+$z(c)=8$なら前定理のLatin square型の九つの零係数のうち
+一つだけを非零にした台に限られる。この台の非零19係数中18個は
+矢印の非零スカラー倍で1にできる。
+$z(c)=7$なら、命題\ref{prop:ou-zero-support-enumeration}の
+台の同値を除いて、次の八つの台に限られる：
+\[
+\begin{array}{r|c}
+\text{台のビット整数}&\text{正規化後の自由係数数}\\ \hline
+116309742&1\\
+116834030&1\\
+117368558&1\\
+125234926&2\\
+125531767&1\\
+128957047&1\\
+129972855&1\\
+133118583&1
+\end{array}
+\]
+この列挙は実現可能性を主張しない。
+\end{theorem}
+\begin{proof}
+前定理と同じ指数行列を用いた正規化を、
+$z=7,8$の全台に対して行う。
+$\mathbb Q$または自由係数の有理関数体上で、
+長さ$3,4,5,6,7$の全巡回・全九端点の経路商を調べる。
+長さ6の必要次元は$9+\delta_{ij}$、長さ7では12である。
+これは補題\ref{lem:ou-cyclic-cubic-syzygy}の$D,S_0$から
+$(S_0^2)^{\mathsf t}D$の対応するブロックを計算して得る
+（定理\ref{thm:ou-dense-no-triple-grid-failure}の証明参照）。
+最初の次元超過によって排除する台の数は
+\[
+\begin{array}{r|r|r|r|r|r|r}
+z&\text{台数}&m=4&m=5&m=6&m=7&\text{残余}\\ \hline
+8&387&319&55&10&2&1\\
+7&344&192&103&26&15&8
+\end{array}
+\]
+となる。長さ3では新しい排除はない。
+\path{computations/verify_ou_zero_supports.py}が
+この表と残余のビット整数を再現する。
+計算の高速化のため自由係数を2,3,\ldotsとする有理数特殊化も用いる。
+経路関係行列は多項式行列だから、特殊化のrankはgeneric rank以下である。
+従ってある固定端点について特殊化で商次元が必要値以下なら
+generic商次元の超過はあり得ない。
+逆に特殊化で商次元が超過した場合は、
+元の有理関数体上のrankを厳密計算し、超過が残る場合だけ排除する。
+従って排除の全ては有理関数体（または有理数体）上のrank上界によるもので、
+一つの数値例から一般族を排除するものではない。
+残余とはこれらの長さの経路次元による全族排除ができない台である。
+
+$z=8$の唯一の残余は108979950であり、非零係数の集合は
+ビット整数108455662（$i-j+k\ne0$）の非零係数に
+$(2,0,1)$を加えたもの。指数行列のrankは18である。
+$j$の符号を反転するとLatin square型の零を一つ除いた台となる。
+$z=7$の残余とその自由係数数も同じ計算から得る。
+\end{proof}
+
+\begin{theorem}[対角零・一方向巡回零の台の内在的排除]
 \label{thm:ou-latin-square-periodic-exclusion}
-$c_{ijk}=0$と$i+j+k=0$が同値である三ブロック関係代数を考える
-（添字は$\mathbb Z/3\mathbb Z$）。
-すべての非零係数は任意とする。
+添字を$\mathbb Z/3\mathbb Z$とし、
+独立な三添字の置換の後に次を満たす三ブロック関係代数を考える：
+\[
+ c_{iii}=0,\qquad c_{ijk}\ne0\quad(\#\{i,j,k\}=2),
+ \qquad c_{i,i+\eta,i+2\eta}=0\quad(i\in\mathbb Z/3\mathbb Z)
+\]
+となる$\eta\in\{1,-1\}$が存在する。
+残る三つの相異なる添字の係数は任意（零でもよい）。
+すべての非零係数の値も任意とする。
 標準noetherian OU helix比較を持つ曲面圏$\mathcal C$が
 対応するなら、$\mathcal C$は$\mathfrak I_3$に属さない。
-特にこの主張は正規化後の一係数が特定の値を取る場合に限らない。
+特にLatin square型の九零および八零の唯一の残余を含む。
 \end{theorem}
 \begin{proof}
 $i=k$の関係は$j=i$の係数だけが零であり、
 $j\ne i$の二経路の非零係数による二項関係である。
-$i\ne k$では$j=i,k$の二経路だけが関係に現れる。
+$i\ne k$では$j=i,k$に対応する二係数は非零であり、
+第三の係数は任意でよい。
 従って九頂点の反変表現$Q_i$を、
 頂点$U_i,V_i,W_i$で一次元、他で零とし、
 対角二矢印の作用を恒等とすることで定義できる。
@@ -189,13 +256,13 @@ $D_m=k[t]/(t^m)$とし、全九頂点に$D_m$を置く。
 \[
  A_{ij}=
  \begin{cases}
- 1&i=j,\\ t&j=i+1,\\0&\text{otherwise},
+ 1&i=j,\\ t&j=i+\eta,\\0&\text{otherwise},
  \end{cases}
  \qquad
  B_{jk}=
  \begin{cases}
  1&j=k,\\
- -c_{jkk}/c_{jjk}\,t&k=j+1,\\
+ -c_{jkk}/c_{jjk}\,t&k=j+\eta,\\
  0&\text{otherwise}.
  \end{cases}
 \]
@@ -203,20 +270,20 @@ $D_m=k[t]/(t^m)$とし、全九頂点に$D_m$を置く。
 $i=k$では非対角の二経路はともに零となる。
 実際、一方向の巡回矢印のみを非零にしたので、
 二つの非対角矢印を続けて元の添字に戻ることはない。
-$i\ne k$の関係は
-$c_{iik} A_{ii}B_{ik}+c_{ikk} A_{ik}B_{kk}=0$であり、
-定義により成り立つ。
-係数$c_{iik},c_{ikk}$はともに非零である。
-従ってこの表現$T_m$は任意の$m$で定義できる。
-二つの非対角矢印の積の係数を指定する必要がない点が、
-補題\ref{lem:ou-iv-periodic-thickenings}の変形とは異なる。
+$i\ne k$の関係の$j=i,k$から来る二項は、
+$k=i+\eta$なら定義により打ち消し合い、それ以外はともに零。
+三添字が相異なる項で二矢印の積が非零となり得るのは
+$(i,j,k)=(i,i+\eta,i+2\eta)$の場合だけだが、
+その係数は仮定により零である。
+従って全ての関係式は満たされ、この表現$T_m$は
+任意の$m$で定義できる。
 
 $t$進filtrationの各逐次商は$Q=Q_0\oplus Q_1\oplus Q_2$である。
 従ってheartは拡大で閉じていることから$T_m$はheartに属し、
 組成因子は各$Q_i$が$m$個である。
 $\operatorname{Hom}(T_m,Q_i)$は一次元である。
 実際、$U_i$の値への線型写像は、非対角矢印
-$A_{i,i+1}$が$t$を作用させることから$tD_m$を消す。
+$A_{i,i+\eta}$が$t$を作用させることから$tD_m$を消す。
 対角矢印によって$V_i,W_i$での写像も定まり、
 剰余写像$T_m\to Q\to Q_i$がHomを生成する。
 
@@ -254,21 +321,139 @@ AZ1と周期性から$\operatorname{Hom}(\mathcal O,Q_i)\ne0$。
 \end{proof}
 
 \begin{corollary}[内在的三次型の零係数上界]
-\label{cor:ou-intrinsic-at-most-eight-zeros}
+\label{cor:ou-intrinsic-at-most-seven-zeros}
 標準noetherian OU helix比較を持つ内在的三次型の
-very strongなAOU三ブロック箙型では、$z(c)\leq8$である。
+very strongなAOU三ブロック箙型では、$z(c)\leq7$である。
+$z(c)=7$の場合、定理\ref{thm:ou-seven-eight-zero-path-exclusion}の
+八つの残余のうち125234926の台も内在的三次条件から排除される。
 \end{corollary}
 \begin{proof}
 定理\ref{thm:ou-large-zero-path-exclusion}で10個以上を排除し、
-残る9個の台を定理\ref{thm:ou-latin-square-periodic-exclusion}で排除する。
+9個の残余および定理\ref{thm:ou-seven-eight-zero-path-exclusion}の
+8個の残余を定理\ref{thm:ou-latin-square-periodic-exclusion}で排除する。
+後者はその台の三添字の符号・平行移動を取り直して、
+零の対角三成分と一方向の巡回三成分を持つ形にできるためである。
+7零の125234926についても同じ台の条件が成立する。
+このことは独立な添字置換の全$6^3$通りを列挙すれば検証できる。
+\path{computations/verify_ou_zero_supports.py}は残余台について
+この条件の判定を行う。条件は添字方向の置換でも保存される
+（巡回の向きは逆転してよい）ので、反対代数への内在的条件の
+移行を仮定する必要はない。
 \end{proof}
 
-残る問題は1個から8個までの零係数型の認識・排除である。
-命題\ref{prop:ou-zero-support-enumeration}の列挙は、
-この範囲についても今後の有限計算の入口になる。
-例えば8個の零係数を持つ387台について、
-同じtorus正規化と経路次元の厳密rankを調べる。
-さらに行列式切断が滑らかな範囲では
-定理\ref{thm:ou-smooth-determinant-reconstruction}が既に適用できる。
-この列挙は、零係数型の全認識や標準noetherian比較の成立、
-あるいは残る台の実現可能性を主張しない。
+\subsection{七零係数の二つの一係数族の認識}
+\label{subsec:ou-seven-zero-curves}
+
+\begin{proposition}[七零係数の滑らかな切断と節点切断]
+\label{prop:ou-seven-zero-curve-recognition}
+定理\ref{thm:ou-seven-eight-zero-path-exclusion}の台116309742,
+116834030を考える。非零係数は指数行列の独立行を選んで
+19個を1に正規化でき、残る一係数を$u\in k^\times$とする。
+具体的に、台116309742では$u=c_{211}$、台116834030では
+$u=c_{222}$として他の非零係数を1に取れる。
+前者の$u\ne1$、後者の全ての$u\ne0$において
+既約平面三次曲線による九線束表示を持つ。
+従ってvery strong導来helix・標準noetherian OU比較・内在的三次条件
+の下で標準AS四次元正規三次商として認識される。
+\end{proposition}
+\begin{proof}
+定理\ref{thm:ou-seven-eight-zero-path-exclusion}と同じ行順序での
+指数行列の行簡約により、自由係数の位置は上記の通りである。
+係数行列の六座標を命題\ref{prop:ou-full-support-determinant}の
+$(z_0,z_1,z_2,z_3,z_4,z_5)=(ad,bc,a,b,c,d)$の順に取る。
+台116309742では三線形式の係数行列は
+\[
+ L=\begin{pmatrix}
+ 0&0&-1&1&1&0\\
+ 1&0&-1&0&u&0\\
+ 0&-1&0&0&0&-1
+ \end{pmatrix}.
+\]
+最初の三列は独立であり、零平面を
+\[
+ (z_0,z_1,z_2,z_3,z_4,z_5)
+ =(x+(1-u)y,-z,x+y,x,y,z)
+\]
+で表示できる。三次切断の式は
+\[
+ f=x^2y+(1-u)xy^2+(x+y)z^2=0 .
+\]
+偏微分$f_z=2(x+y)z$を用いる。
+$z\ne0$の特異点なら$x+y=0$、
+$f=0$から$ux^3=0$、従って$x=y=0$となるが、
+その点で$f_x=z^2\ne0$である。
+$z=0$では二変数三次式$xy(x+(1-u)y)$の重根が
+特異点となるため、$u\ne1$なら滑らかである。
+$u=1$の点はここでは認識しない。
+
+台116834030では
+\[
+ L=\begin{pmatrix}
+ 0&0&-1&1&1&0\\
+ 1&0&0&0&1&0\\
+ 0&-1&0&1&0&-u
+ \end{pmatrix},
+ \qquad
+ (z_0,\ldots,z_5)=(-y,x-uz,x+y,x,y,z).
+\]
+やはり最初の三列が独立であり、三次切断は
+\[
+ f=u(x+y)z^2-x^2z-xy^2-xyz=0 .
+\]
+$x=0$上の点は$[0:1:0]$または$[0:0:1]$であり、
+いずれも滑らかである。
+$x=1$のchartにおいて$f_z=(1+y)(2uz-1)$。
+特異点が$y=-1$を満たすことは$f=-1$より不可能。
+従って$z=1/(2u)$、$f_y=0$から$y=-1/(8u)$となり、
+$f=(1-16u)/(64u^2)=0$を得る。
+従って$u\ne1/16$では滑らかであり、
+$u=1/16$では唯一の特異点$[1:-2:8]$を持つ。
+この点の二次項は非退化（$x=1$でのHessianの行列式は$1/4$）
+なので通常節点である。
+唯一の通常節点を持つ平面三次曲線は既約被約である：
+非被約なら重複成分上で特異となり、
+被約可約なら直線と円錐曲線の交叉長は二なので
+二つの特異点または普通節点でない一つの特異点を持ち、
+三直線の場合にも一つの普通節点だけにはならない。
+
+滑らかな場合はいずれも三線形式が一次独立なので
+定理\ref{thm:ou-smooth-determinant-reconstruction}を適用できる。
+$u=1/16$の特異点の六座標は
+\[
+ [2:1/2:-1:1:-2:8]
+\]
+で全て非零。従って偶奇座標の交点は全て滑らかである。
+また各$C_k$は零成分を持ち、零行も零列も持たない。
+特異点では$A_{ij}$が全て非零なので、
+$\mathscr M_k$にも零成分があり零行・零列はない。
+零行・零列を持たないrank一行列には零成分は存在しないので
+$\mathscr M_k$はrank一以下にならない。
+行列式は零だからrank二である。
+従って定理\ref{thm:ou-integral-determinant-criterion}を適用できる。
+全ての認識で標準noetherian OU比較は別途仮定する。
+
+台の同値で許した奇置換は巡回の反転を含み得るが、
+九線束表示を持つ三ブロックdirected algebraの反対代数も
+九線束表示を持つ。実際、列を反転して各線束を双対化し、
+全体を次数二線束で捩れば全次数は再び$0,1,2$となる。
+この操作はHomと合成を反転させ、直交性・前向きExt消滅も保つ。
+従って元の向きの関係代数について曲線表示を得るのであり、
+内在的標識を反対圏に移す必要はない。
+\end{proof}
+
+\begin{remark}
+二つの係数行列、零平面、三次式、特異パラメータと
+特異点のHessianおよび六座標は
+\path{computations/verify_ou_seven_zero_curves.py}で検算できる。
+一般の係数に対する認識は上記の証明による。
+$z=7$で未判定の範囲は台116309742の$u=1$と、
+台117368558, 125531767, 128957047, 129972855, 133118583の
+五つの一係数族である。これは必要条件による残余であり、
+全逆Serre反復のvery strong性、標準比較、内在的標識の実在は
+主張しない。
+\end{remark}
+
+次はこれらの七零係数の残余型に対し、既約特異切断の格子条件、
+可約曲線・別foundationによる表示、または高次syzygy・内在的障害を
+調べる。さらに一個から六個の零係数型と標準noetherian OU比較の
+適用範囲が残る。
