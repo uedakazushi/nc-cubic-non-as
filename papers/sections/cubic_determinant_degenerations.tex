@@ -1327,14 +1327,199 @@ $i,j$方向にともに核rank障害を持つ。
 定理\ref{thm:ou-dense-at-most-one-torus-failure}に反する。
 \end{proof}
 
+\begin{lemma}[定数面を持つ族の七次障害]
+\label{lem:ou-dense-constant-face-obstruction}
+命題\ref{prop:ou-dense-dependent-coordinate-normal-form}の正規形で
+very strong性を仮定すると
+\[
+ \mu\ne0,\qquad \tau:=1+\lambda-\mu\ne0.
+\]
+\end{lemma}
+\begin{proof}
+$\mu=0$とすると、全座標零面の係数が1である正規形において
+$k=1$の右下四成分が$1+a,1+b,1+c,1+d$、
+$k=2$の右下四成分が同じ値$1+q$（$q=\lambda$）となる。
+この五係数族の元の巡回で始点・終点の添字をともに1とした
+長さ七の関係行列を前節と同じ方法で作る。
+有理関数体$\mathbb Q(a,b,c,d,q)$上の
+$1458\times729$行列のrankは716である。
+\path{computations/verify_ou_coordinate_dependence.py}の
+\texttt{check\_zero\_slope\_rank}は疎なGauss消去を
+有理関数体上で行ってこの値を再現する。
+全717次minorが多項式として恒等的に零であるから、
+全ての複素数特殊化で商次元は13以上となる。
+これはvery strong性から要求される七次経路商次元12に反する。
+
+$\tau=0$の場合には$k=2$の右下成分は
+$\mu(1+M_{ij})$である。
+$k$の順序を$(1,0,2)$に変更して各係数を旧$k=1$面の
+対応する非零係数で割れば、全座標零面は再び1となる。
+新しい$k=2$面の右下四成分は定数$\mu$となり、
+上で排除した族に属する。この係数変更は矢印rescaling
+（各関係式の非零倍を許す）であるから経路商の次元を保つ。
+\end{proof}
+
+\begin{theorem}[全係数非零型の残余五係数族への帰着]
+\label{thm:ou-dense-five-coefficient-residual}
+全係数非零かつvery strongとし、行列式線形式のrankが三であるとする。
+条件(ii),(iii)を満たすが(i)に失敗する巡回を選び、
+命題\ref{prop:ou-dense-dependent-coordinate-normal-form}により
+\[
+ M=\begin{pmatrix}a&b\\c&d\end{pmatrix},\qquad
+ N=\lambda\mathbf1+\mu M,\qquad \lambda\ne0
+\]
+に正規化する。
+$\tau=1+\lambda-\mu$とし、
+\[
+ \begin{split}
+ D_0&=ad-bc,\qquad S_1=a+d-b-c,\\
+ T_1&=abc-abd-acd+bcd,\\
+ F_1&=(\mu-1)D_0+\lambda S_1,\qquad
+ F_3=\mu T_1-(1+\lambda)D_0,\qquad F_2=F_3-F_1.
+ \end{split}
+\]
+このとき他の二巡回はともに(ii),(iii)を満たし、
+それぞれの(i)は$F_1F_2F_3\ne0$と同値である。
+特に全係数非零型のうち三条件を同時に満たす巡回を持たないものは、
+添字の変更と矢印rescalingの後で
+\[
+ \mu=1-\frac{\lambda S_1}{D_0},\qquad
+ D_0\ne0,\qquad\lambda\mu\tau\ne0
+\]
+となる五係数族に属する。
+この主張は内在的三次条件も標準noetherian helix比較も必要としない。
+\end{theorem}
+\begin{proof}
+$A_x=1+x$, $B_x=1+\lambda+\mu x=\tau+\mu A_x$と書く。
+全係数非零なので$x=a,b,c,d$に対する$A_x,B_x$は全て非零。
+補題\ref{lem:ou-dense-constant-face-obstruction}により$\mu\tau\ne0$。
+元の巡回の符号を除いた行列式係数行列は
+\[
+ \begin{pmatrix}
+ 1&1&1&1&1&1\\
+ A_aA_d&A_b&A_c&A_bA_c&A_a&A_d\\
+ B_aB_d&B_b&B_c&B_bB_c&B_a&B_d
+ \end{pmatrix}
+\]
+である。前の三列が偶置換、後の三列が奇置換である（奇側の列順序は適宜交換した）。
+(ii)から
+\[
+ a\ne b,\quad a\ne c,\quad b\ne d,\quad c\ne d
+\]
+が従う。例えば$a=b$なら第2列と第5列が一致する。
+
+$(j,k,i)$の巡回を考える。
+置換を
+$(012),(120),(201),(021),(102),(210)$の順に取り、
+列を$0,1,2,3,4,5$と番号付けする
+（置換の符号は列の非零倍として除く）。
+その行列式係数行列は
+\[
+ L'=\begin{pmatrix}
+ 1&1&1&1&1&1\\
+ A_aB_b&B_a&A_b&B_aA_b&B_b&A_a\\
+ A_cB_d&B_c&A_d&B_cA_d&B_d&A_c
+ \end{pmatrix}.
+\]
+この行列のrankは三である
+（系\ref{cor:ou-dense-commutative-rank-criterion}）。
+偶列と奇列が比例するには、第0行が全て1なので両列が一致する必要がある。
+例えば列0と3の第1行の差は$\tau(a-b)\ne0$、
+列1と4の第1行の差は$\mu(a-b)\ne0$、
+列2と5の第1行の差は$b-a\ne0$。
+残る六組$(0,4),(0,5),(1,3),(1,5),(2,3),(2,4)$の一致は
+それぞれ
+\[
+ \begin{gathered}
+ a=c=0,\quad B_b=B_d=1,\quad b=d=0,\\
+ B_a=A_a,\ B_c=A_c,\quad B_a=B_c=1,\quad
+ B_b=A_b,\ B_d=A_d
+ \end{gathered}
+\]
+を強制し、いずれも隣接差の非零性と$\lambda\mu\ne0$に反する
+（$B_a=A_a,\ B_c=A_c$なら$\mu=1,\lambda=0$）。
+従って(ii)が成立する。
+
+この巡回の三sliceを$C'_0,C'_1,C'_2$と書くと、
+成分ごとの比の行列式は
+\[
+ \begin{split}
+ \det(C'_1/C'_0)&=\lambda(a-b),\\
+ \det(C'_2/C'_1)&=
+ -\frac{\mu(a-b)(a-c)(b-d)\tau}{A_aA_bB_aB_b},\\
+ \det(C'_1/C'_2)&=
+ -\frac{\mu(a-c)(b-d)(c-d)\tau}{A_cA_dB_cB_d}.
+ \end{split}
+\]
+三つとも非零だから(iii)も成立する。
+
+(i)は各偶奇二列を除いた四列のrankが三であることと同値である。
+各二列を除いた後の残る四列は元の順序に並べ、
+四個の三次minorをその列組$(012),(013),(023),(123)$の順に番号付けする。
+次の表は各偶奇列対に対して、指定minor一つを記載したものである。
+\[
+\begin{array}{c|c|c|c}
+\text{除く列}&\text{minor番号}&\text{値}\\ \hline
+(0,3)&1&F_1\\
+(0,4)&1&F_1\\
+(0,5)&1&-\mu F_1\\
+(1,3)&3&-F_1\\
+(1,4)&1&-F_2\\
+(1,5)&0&\tau F_2\\
+(2,3)&3&\mu F_1\\
+(2,4)&0&\tau F_3\\
+(2,5)&0&\tau F_3
+\end{array}
+\]
+番号は0始まりである。
+いずれも上の$L'$から直接展開すればよい。
+さらに$(0,3),(1,4),(2,5)$の四個のminorはそれぞれ
+$F_1,F_2,F_3$の多項式倍である。
+したがって積が非零なら九組の残り四列全てがrank三、
+いずれかが零なら対応する三組の一つのrankが二以下になる。
+これで(i)と$F_1F_2F_3\ne0$の同値性が得られた。
+表の九個の恒等式・三組の全minorの可除性・成分比の三つの行列式公式は
+\path{computations/verify_ou_coordinate_dependence.py}で
+$\mathbb Q[a,b,c,d,\lambda,\mu]$上の厳密な多項式演算により
+検証できる。
+残る巡回$(k,i,j)$の係数行列は、$b,c$を交換した後に
+行列式に用いる$3\times3$行列を転置したものと対応する。
+転置は置換の逆元への置換で偶奇を保ち、(i)--(iii)を保つ。
+$F_1,F_2,F_3$はいずれも$b,c$の交換で不変である。
+従って同じ結論が成り立つ。
+
+最後に$F_1F_2F_3=0$の場合を考える。
+元の巡回では共有辺$(i,j)=(0,0)$を持つ二置換の座標対が従属する。
+上の$(j,k,i)$巡回では$F_1,F_2,F_3$の消滅は
+それぞれ列対$(0,3),(1,4),(2,5)$の従属を含意し、
+これらの共有辺は$(j,k)=(0,0),(0,1),(0,2)$である。
+従って消滅した$F_s$に対応する$k$の値を新たに0に選べば、
+この巡回の従属対も共有辺$(0,0)$となる。
+元の巡回の従属対は$k$の並べ替えで保存されるので、
+再び全座標零面を1に正規化し命題
+\ref{prop:ou-dense-dependent-coordinate-normal-form}を適用できる。
+(ii),(iii)は添字変更とrescalingで保存される。
+新しい六係数で上表の$(0,3)$のminorを用いると$F_1=0$となる。
+このとき$D_0=0$なら$\lambda\ne0$より$S_1=0$。
+$ad=bc$かつ$a+d=b+c$から多重集合$\{a,d\}=\{b,c\}$となり、
+隣接差の非零性に反する。
+よって$D_0\ne0$であり、$F_1=0$を$\mu$について解けば
+主張の式を得る。
+\end{proof}
+
 \begin{remark}
-従って残る全係数非零rank三の探索では、上の六係数
-$(M_{11},M_{12},M_{21},M_{22},\lambda,\mu)$の族
-（$\lambda\ne0$）を入口とし、他の二巡回の(i)--(iii)を
-同時に調べればよい。これは係数空間の正規形であり
-moduliの次元を主張しない。
-現段階ではこの族が全てvery strongでないことも、
-全てが別巡回で三条件を満たすことも証明していない。
+\label{rem:ou-dense-residual-five}
+定理\ref{thm:ou-dense-five-coefficient-residual}は
+六係数族での二つの特殊なアフィン関係を排除し、
+残る二巡回の三条件を完全に判定する。
+その五係数残余族の全排除や幾何的認識は未証明である。
+例えば$(a,b,c,d,\lambda,\mu)=(2,3,5,8,-6,13)$は$F_1=0$であり、
+全係数非零、三巡回全てrank三・(ii),(iii)成功・(i)失敗という
+係数条件を満たす。この数値例ではvery strong性を主張しない。
+従って残余係数条件が空であるとみなしてはならない。
+次はこの族における曲線の別表示、より高次のsyzygy、
+あるいは周期対象による内在的排除を検討する。
+係数空間のパラメータ数は同型類moduliの次元を意味しない。
 \end{remark}
 
 \begin{remark}
@@ -1347,7 +1532,9 @@ rank三の零平面については上の有限判定で扱う範囲が拡大し�
 命題\ref{prop:ou-dense-fourth-path}と定理\ref{thm:ou-dense-no-triple-grid-failure}により各巡回の障害長方形は高々一つ、三巡回同時の(ii)失敗は排除される。
 定理\ref{thm:ou-dense-at-most-one-torus-failure}は二巡回同時の(iii)失敗も排除し、定理\ref{thm:ou-dense-common-grid-torus}により(ii)と(iii)を同時に満たす巡回が存在する。
 そのような全巡回で(i)が失敗する残余型については
-命題\ref{prop:ou-dense-dependent-coordinate-normal-form}の正規形を得た。
+命題\ref{prop:ou-dense-dependent-coordinate-normal-form}の正規形を経て、
+定理\ref{thm:ou-dense-five-coefficient-residual}で
+$\mu=1-\lambda S_1/D_0$、$D_0\lambda\mu\tau\ne0$の五係数族に帰着した。
 この残余型と係数零の型は引き続き調べる必要がある。
 関連する整数計算は
 \path{computations/verify_ou_determinant_cyclic.py}を参照。

@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v22}
+\date{2026年11月24日／non-as-v23}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -729,8 +729,30 @@ rank231から全特殊化で商次元12以上となり、必要値10に反する
 $k=1,2$の二面は$N=\lambda\mathbf1+\mu M$と書ける
 （$M$の四成分は非定数、$\lambda\ne0$）。
 実際、該当二列を除く四列のrankが二以下であることから従う。
-この六係数族について、残る巡回の復元判定を同時に行い、
-別表示・高次syzygy・内在的排除を調べる。
+補題\ref{lem:ou-dense-constant-face-obstruction}は
+$\mu=0$の族の長さ七（始点・終点の添字1）の
+$1458\times729$関係行列のrank716から商次元13以上を強制し、
+必要値12に反することを示す。
+$1+\lambda-\mu=0$なら$k=1$面を基準に再正規化して
+定数面を持つ同じ族に移る。
+\path{computations/verify_ou_coordinate_dependence.py}でこの厳密rankと
+次の小行列式恒等式を検証した。
+
+定理\ref{thm:ou-dense-five-coefficient-residual}により
+元の巡回で(ii),(iii)が成立すると、他の二巡回でも成立し、
+(i)は$F_1F_2F_3\ne0$に同値となる。
+ここで$M=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$、
+$D_0=ad-bc$、$S_1=a+d-b-c$、$T_1=abc-abd-acd+bcd$、
+$F_1=(\mu-1)D_0+\lambda S_1$、
+$F_3=\mu T_1-(1+\lambda)D_0$、$F_2=F_3-F_1$。
+零となる$F_s$に対応する$k$添字を0と選び直すと、
+最終的に$F_1=0$、$D_0\ne0$、
+$\mu=1-\lambda S_1/D_0$の五係数族に帰着する。
+必要条件だけで残余が空とはいえない。
+主稿の例$(2,3,5,8,-6,13)$は三巡回ともrank三、
+(ii),(iii)成立、(i)失敗である。
+この例のvery strong性・内在的標識の存在は未確認。
+今後はこの五係数族の別表示・高次syzygy・内在的排除を調べる。
 係数族の次元と同型類moduliの次元は区別する。
 三条件は係数の有限なrank・行列式の等式/不等式なので、
 失敗理由を分けたstratificationと残存族の構造を調べる。

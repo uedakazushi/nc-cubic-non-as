@@ -5,68 +5,9 @@ The fraction-field ranks give upper bounds at EVERY specialization because
 all larger minors of the original polynomial matrices vanish identically.
 No pivot is required to survive specialization.
 """
-from collections import Counter
 from itertools import product
 from sympy import QQ, symbols, eye, ones, zeros, BlockMatrix
-
-I = range(3)
-CUBE = set(product((1, 2), repeat=3))
-TRIPLES = list(product(I, repeat=3))
-
-
-def rotate(c, n):
-    return {t: c[t[-n:] + t[:-n]] for t in TRIPLES}
-
-
-def path_matrix(c, length, start, end, K):
-    words = list(product(I, repeat=length-1))
-    index = {w: i for i, w in enumerate(words)}
-    rows = []
-    for pos in range(length-1):
-        r = rotate(c, pos % 3)
-        for w in words:
-            if w[pos] != 0:
-                continue
-            row = {}
-            for a in I:
-                v = w[:pos] + (a,) + w[pos+1:]
-                full = (start,) + v + (end,)
-                coef = r[full[pos:pos+3]]
-                if coef:
-                    row[index[v]] = coef
-            rows.append(row)
-    return len(words), rows
-
-
-def exact_rank(rows, K):
-    # Sparse Gaussian elimination over an EXACT field. Prefer unit pivots
-    # and then a small fill-in score; all operations preserve rank.
-    rank = 0
-    while True:
-        rows = [r for r in rows if r]
-        if not rows:
-            return rank
-        count = Counter(j for r in rows for j in r)
-        _, _, i, j = min(
-            (0 if v in (K.one, -K.one) else 1,
-             (len(r)-1)*(count[j]-1), i, j)
-            for i, r in enumerate(rows) for j, v in r.items()
-        )
-        r = rows.pop(i)
-        v = r.pop(j)
-        if v != K.one:
-            r = {k: w/v for k, w in r.items()}
-        for m in rows:
-            x = m.pop(j, K.zero)
-            if not x:
-                continue
-            for k, w in r.items():
-                val = m.get(k, K.zero)-x*w
-                if val:
-                    m[k] = val
-                else:
-                    m.pop(k, None)
-        rank += 1
+from ou_path_rank import I, CUBE, TRIPLES, rotate, path_matrix, exact_rank
 
 
 def bad_rectangle(c, i, ii, j, jj):
