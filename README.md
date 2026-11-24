@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v45。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v46。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -14,9 +14,11 @@
 
 整な射影曲面上の連接代数の加群圏でも、一般点の代数が有限拡大体上の行列環なら同じ結論を得る。したがって、反標準環が有限生成の斉次中心部分代数上有限で、斉次商環の零次部が可換体なら、生成次数を問わず滑らかな三次曲面である（主稿 `thm:ou-split-order-recognition`、`cor:ou-finite-central-birational-recognition`）。一般点が非分裂な除法代数である場合はこの条件の外にある。
 
+任意のOU三次箙について、射影窓が既約種数一曲線（滑らか・節点・尖点）上の球面的対象の有向dg圏と一致すれば、標準比較を仮定せず、I₃から標準超曲面表示が従う。九対象の階数・次数・シフトは指定しない。古典窓とのEuler差分から同時に数値階数と曲線の反標準移動を決める。OUの有理対応による一般ポテンシャルを含む。主稿 [任意の箙の曲線窓](papers/sections/cubic_elliptic_recognition.tex) の `thm:ou-any-quiver-elliptic-window`。
+
 ## AOU三ブロック箙型の全係数に対する条件付き判定
 
-**現在の到達点。** AOU三ブロック箙型では、全27係数が非零の場合と三個以上が零の場合に加えて、二零台134217455で両方の零の補集合が二項式を満たす場合の全特殊化を処理した。指定零011の正規化では二番目の条件は `d=1` である。二つの零の交換により四族を三つの三変数表示にまとめ、23曲面、81曲線、340件の閉点因子を検証した。二零の残る四族でも60曲面のそれぞれで開判定を検証し、六次元係数空間内の残余を次元一以下に絞った（`cor:ou-two-zero-codim-five`）。一零の未判定部分は二族に含まれ、元の七次元正規化係数トーラスで余次元四以上である。三零については十二の二変数族・62曲線・199件の閉点因子を既に検証した。主稿 `thm:ou-two-zero-double-binomial` と [再現コード](computations/verify_ou_two_zero_double_families.py)。
+**現在の到達点。** AOU三ブロック箙型では、全27係数が非零の場合と三個以上が零の場合に加えて、二零台134217455で両方の零の補集合が二項式を満たす場合の全特殊化を処理した。指定零011の正規化では二番目の条件は `d=1` である。二つの零の交換により四族を三つの三変数表示にまとめ、23曲面、81曲線、340件の閉点因子を検証した。二零の残る四族でも60曲面のそれぞれで開判定を検証し、六次元係数空間内の残余を次元一以下に絞った（`cor:ou-two-zero-codim-five`）。さらに三つの経路基底から残る82個の交叉曲線成分と共通19曲面上の160曲線因子すべての一般点を検証し、二零で未判定の部分を**有限個の点**に絞った。四族の `d=-1` 切断も全点を処理した（`thm:ou-two-zero-finite-residual`、[再現コード](computations/verify_ou_two_zero_residual_curves.py)）。一零の未判定部分は二族に含まれ、元の七次元正規化係数トーラスで余次元四以上である。三零については十二の二変数族・62曲線・199件の閉点因子を既に検証した。主稿 `thm:ou-two-zero-double-binomial` と [再現コード](computations/verify_ou_two_zero_double_families.py)。
 
 主稿の `cor:ou-aou-all-coefficients` で、標準noetherian OU比較が成立するAOU三ブロック箙型では、関係係数を問わず I₃ から標準AS四次元三次商の表示が従う。一・二・三零の補集合二項式外では追加の比較仮定を要しない。一・二零の五グラフ閉包の全特殊化の証明は `thm:ou-one-two-zero-all-boundaries`、検算は `python3 computations/verify_ou_one_two_zero_components.py` による。比較仮定の一般的除去と、AOU三ブロック箙以外を含むOU三次型の被覆は未解決である。
 

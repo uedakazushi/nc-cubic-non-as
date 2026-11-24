@@ -607,3 +607,109 @@ $(FP,h)$はampleであり、曲線の軌道環は右noetherianである。
 命題\ref{prop:ou-perfect-tail-comparison}が適用される。
 比較を得た後は命題\ref{prop:ou-reduced-cubic-geometric}を用いる。
 \end{proof}
+
+\subsection{既約種数一曲線による任意のOU三次箙の認識}
+\begin{theorem}[箙を指定しない既約種数一曲線窓]
+\label{thm:ou-any-quiver-elliptic-window}
+$A$を任意のOU三次型のAS正則$\mathbb Z$代数とする。
+命題\ref{prop:ou-perfect-tail-comparison}の九頂点の射影窓の有向dg圏が、
+滑らかな楕円曲線、既約節点三次曲線または尖点三次曲線$E$上の九つの完全な球面的対象
+$V_1,\ldots,V_9\in D^b(\coh E)$の有向dg圏と、頂点を保って準同値とする。
+有向dg圏では前向きの全導来Homを取り、逆向きの射を零、自己準同型を
+恒等射のスカラー倍に制限する。このとき標準射影は右noetherianで、
+$\qgr A\in\mathfrak I_3$なら任意の内在的標識について
+標準四次元AS正則環の正規三次商の表示を得る。
+曲線上の九対象の階数・次数・シフト、箙の三ブロック性、
+標準OU比較を仮定しない。
+\end{theorem}
+\begin{proof}
+$P_i$を完全商$\mathcal D$の窓、$s=S_{\mathcal D}^{-1}[2]$とする。
+有向dg圏による球面的構成\cite[(3)--(5)]{OUSpherical2020}は
+$F(P_i)=V_i$となる関手$F$、右随伴$J$と三角
+$s^{-1}\to\mathrm{id}\to JF$を与える。
+$Fs=hF$、$h=(T_{V_1}\cdots T_{V_9})^{-1}[2]$は
+式\eqref{eq:ou-restriction-commute}と同じ随伴公式による。特異曲線でもこの構成は\(\Perf E\)のSerre関手$[1]$を使い、$J$は完全な$V_i$からの導来Homにより全ての有界連接複体上に延長する。
+
+OU定義1.1(2)の同じ箙を与える滑らかな三次del Pezzo曲面を$X$、
+その窓を$U_i$とする。共通のシフトを除き$U_i$は全て正階数の
+ベクトル束である。実際、任意の$i,j$について
+$R\mathcal H om_X(U_i,U_j)$を$-nK_X$で捻った超cohomologyは
+$n\gg0$で次数零に集中する（very strong性）。
+Serre消滅と大域生成からこの層複体自体のcohomologyが次数零に集中する。
+特に各点の局所環で$U_i$の最小有界自由複体を取り、
+両端の次数を$a<b$とすれば、その自己Hom複体の最上次数$b-a$への
+微分の像は極大イデアル倍に入るため、そのcohomologyは非零となり矛盾する。
+従って局所的に一つの次数だけで自由である。台は開かつ閉で、連結性から
+台は全体、シフトも一定である。異なる$i,j$にも同じ消滅を使えばシフトは共通である。
+$r_i=\mathrm{rk}(U_i)>0$、$d_i=-K_X\cdot c_1(U_i)$をこの共通シフトを除いて取る。
+
+完全商と古典窓は同じEuler行列を持つ。実際、OU (5.4)の固定した
+射影分解は各端点でのHilbert次元を対角の$1$とそれより外側の$0$から
+添字差の順に一意に定める。窓上では命題\ref{prop:ou-perfect-tail-comparison}
+によりこれが前向きHom次元となる。窓がfull exceptionalなので
+この基底同士の同型はEuler形式を保ち、Serre作用も保つ。
+$v_i=[V_i]_{\rm num}\in\mathbb Z^2$を階数・次数の順に取ると、
+上の三角のEuler特性を古典窓で計算して
+\[
+ \det(v_i,h^n v_j)
+  =\chi(P_i,s^nP_j)-\chi(P_i,s^{n-1}P_j)
+  =r_i d_j-d_i r_j+3n r_i r_j .
+\]
+最後の等式は$X$の滑らかな反標準切断へ制限する完全列と
+曲線Riemann--Rochによる。$(r_i,d_i)$は$\mathbb Z^2$を生成する。
+実際、full exceptional基底の整数結合として$[\mathcal O_X]$と
+一本の$(-1)$曲線$D$の$[\mathcal O_D]$を取り、
+階数と反標準次数を取れば標準基底になる。同じ整数結合を$v_i$に施すと、
+$n=0$の等式により行列式一の基底を得る。各$v_i$のこの基底での座標も
+二つの行列式により$(r_i,d_i)$に一致する。
+これらの既約曲線の導来自己同値は$\mathrm{SL}_2(\mathbb Z)$上に全射する
+\cite[Corollary~5.8]{BurbanKreu2006}。そこで$F$に一つの自己同値を後合成して
+$v_i=(r_i,d_i)$とする。$n=1$の等式から$h$の数値作用は
+$(r,d)\mapsto(r,d+3r)$である。
+
+同じ自己同値の記述により$h=\alpha^*(-)\otimes N[2k]$、
+$\deg N=3$である。$k\ne0$なら大きな$n$では
+$\operatorname{Hom}^p(V_i,h^nV_j)=0$ ($p=-1,0$)である。
+実際、線束・自己同型を作用させた固定有界複体の振幅は一様有界で、
+各$V_i$は完全であり、その双対とのテンソル積の超cohomologyも一様有界だからである。三角から
+$\operatorname{Hom}(P_i,s^{n-1}P_j)\simeq\operatorname{Hom}(P_i,s^nP_j)$
+となり、very strong性と上の正のEuler差分に反する。従って$k=0$。
+Burban--Kreu{\ss}ler\cite[Proposition~4.13]{BurbanKreu2006}の
+既約種数一曲線上の球面的対象の分類と正階数から、
+$V_i=W_i[k_i]$、$W_i$は安定ベクトル束、$k_i$は偶数である。
+三角とvery strong性から$n\gg0$で
+$\operatorname{Hom}^p(V_i,h^n V_j)=0$ ($p\notin\{-1,0\}$)。
+Riemann--Rochにより$\operatorname{Hom}(W_i,h^nW_j)\ne0$なので
+$k_i-k_j\in\{-1,0\}$、従って全シフトは等しい。共通シフトを除く。
+
+$W=\bigoplus_i W_i$とする。$(W,h)$は$\coh E$のample pairである。
+非常に豊富な線束$H$を固定する。$h^{-n}W_i$と
+$h^{-n}W_i\otimes H$は傾き$-3n+O(1)$の安定束である。
+固定層$M$を固定線束の有限直和の商に表せば、どちらの束への$M$からの射も
+十分大きな$n$で消える。Gorenstein曲線のSerre双対性により
+$(h^{-n}W_i)^\vee\otimes M$とその$H^{-1}$によるtwistはともに
+$H^1=0$である。従って前者はCastelnuovo--Mumford正則性により大域生成される。評価写像と
+正階数の局所自由性から$h^{-n}W_i$の有限直和が$M$に全射する。
+
+$P=\bigoplus_i P_i$の周期環を$B$とする。
+補題\ref{lem:ou-elliptic-heart}の短完全列は再び成立する。
+正次数での単射には曲線上の負Ext消滅、全射には窓のvery strong性を用いる。
+次数零では$\operatorname{Hom}^p(P,s^{-1}P)=0$ ($p=0,1$)が
+Serre双対と窓の強性から従う。ゆえに$B$は$(W,h)$の切断環の
+正則中心一次拡大である。切断環の右noetherian性と中心元による持上げ、
+九頂点への展開から、系\ref{cor:ou-integral-automatic-comparison}の
+証明により全標準射影は右noetherianとなり、ここで標準比較を得る。
+また同補題の高twistの随伴Hom判定により$J$はheart上で完全かつ
+conservativeであり、その像は中心元で消されて次元一以下となる。
+命題\ref{prop:ou-reduced-curve-rank}から内在的標識の$F$像は線束である。
+$h$に現れる各球面的twistはEuler形式の根基に恒等として作用する。
+$[Q]-[\mathcal O_E]$ ($Q\in\Pic^0 E$)に行列式を適用すれば
+$\alpha^*|_{\Pic^0 E}=\mathrm{id}$である。
+ここから式\eqref{eq:ou-R-mod-z}およびそれに続く中心拡大の証明を
+そのまま適用して所望の表示を得る。
+\end{proof}
+
+特にOU\cite[Definition~6.3, Theorem~6.4]{OU}の有理対応が
+滑らかな楕円曲線上の球面的列から窓を復元する一般ポテンシャルの範囲には、
+この定理が各三次箙で適用できる。有理対応の不定点や
+滑らかな楕円曲線による窓をまだ持たない特殊化には別の議論が必要である。

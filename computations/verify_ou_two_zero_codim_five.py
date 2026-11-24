@@ -42,7 +42,7 @@ WITNESSES = (
 )
 
 
-def verify(index):
+def family(index):
     _,template,(a,b,c,d,e),_ = chart(134217455,(0,1,1))
     forms = (
         ((c,d,e),{a:d-e,b:1-c}),
@@ -59,12 +59,17 @@ def verify(index):
         assert c-a in face_dets(template)
         _,den = cancel(sub[e]).as_numer_denom()
         assert factors(den)<=units
-    cuts = parametric_check(permute(co,LABELS['A']),params)-units-{d-1}
+    return co, params, units | {d-1}
+
+
+def verify(index):
+    co,params,units = family(index)
+    cuts = parametric_check(permute(co,LABELS['A']),params)-units
     assert len(cuts)==len(WITNESSES[index])
     for h,coordinates in zip(sorted(cuts,key=str),WITNESSES[index]):
         point = tuple(sympify(x) for x in coordinates.split())
         values = dict(zip(params,point))
-        assert h.subs(values).expand()==0 and all(v.subs(values).expand()!=0 for v in units|{d-1})
+        assert h.subs(values).expand()==0 and all(v.subs(values).expand()!=0 for v in units)
         field = QQ if all(x.is_Rational for x in point) else QQ.algebraic_field(sqrt(2))
         coeff = {w:field.from_sympy(v.subs(values)) for w,v in co.items()}
         verify_point(coeff,field)
