@@ -60,7 +60,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
 ## 主張と検証の状態
-今回の三直線表示二定理を主稿に収録。`computations/verify_ou_four_zero_triangle.py` と `computations/verify_ou_four_zero_mixed_triangle.py` をPython/SymPyで全実行し、係数・置換積・貼り合わせ・局所化idealによるrankと核の共通零点なし・合成・多重次数を確認。後者は全係数1/2の五次経路商8>7も有理数体上で確認（実行blob SHA 0defb474a425f86c0471af8c5cb3cafb5f14be35、55ddbe20e4aee851f59944acb698b0154cfe9f3f）。normalize/path_dim/determinant_matrixは既存関数と同内容のローカルコピーを使用。一般の認識・多重次数障害は既存の定理に依存し、今回の独立監査は未実施。133136111 rank3は座標特異点からの拡大曲線表示を検討したが未解決。git ls-remoteはDNS失敗、全原稿組版・全runner・新規性調査も未実施。以下は既存の検証記録。
+今回の三直線表示二定理を主稿に収録。`computations/verify_ou_four_zero_triangle.py` と `computations/verify_ou_four_zero_mixed_triangle.py` をPython/SymPyで全実行し、係数・置換積・貼り合わせ・局所化idealによるrankと核の共通零点なし・合成・多重次数を確認。後者は全係数1/2の五次経路商8>7も有理数体上で確認（実行blob SHA 0defb474a425f86c0471af8c5cb3cafb5f14be35、23340574c3c90c2ba57311a6b2c9bb1025275e51）。normalize/path_dim/determinant_matrixは既存関数と同内容のローカルコピーを使用。一般の認識・多重次数障害は既存の定理に依存し、今回の独立監査は未実施。133136111 rank3は座標特異点からの拡大曲線表示を検討したが未解決。git ls-remoteはDNS失敗、全原稿組版・全runner・新規性調査も未実施。以下は既存の検証記録。
 
 前回の四零の格子・rank2・混合sliceの認識範囲を主稿に証明付きで収録。`computations/verify_ou_four_zero_grid.py` をPython/SymPyで全実行し90局所化勾配ideal、rank2 locusのminor・特異点・滑らかな平面切断、27勾配minor idealとtorus逆数点の条件を厳密確認（実行blob 2a6c8d29ff90c437913dd3fb36bbb822fa0b2d99）。使用した既存normalize/determinant_matrixの関数は同内容のローカルコピー。一般の九線束復元とBertiniによるrank2の認識は主稿の証明による。git ls-remoteはDNS解決失敗、全repo取得・全runner・全原稿組版・包括的独立監査・新規性確認は未実施。以下は既存の検証記録。
 
