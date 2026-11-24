@@ -131,5 +131,34 @@ def main():
               f'generic rank {r}, quotient dimension {cols-r}', flush=True)
 
 
+
+def check_mixed_obstructions():
+    # Double torus failure with connected support: d_ijk=m_ij*z_k.
+    # The analytic lower bound in the paper applies to all such tensors.
+    variables = symbols('a b c d t')
+    K = QQ.frac_field(*variables)
+    a, b, c, d, t = map(K.from_sympy, variables)
+    coeff = dict.fromkeys(TRIPLES, K.one)
+    m = {(1,1):a, (1,2):b, (2,1):c, (2,2):d}
+    for i,j,k in sorted(CUBE):
+        coeff[i,j,k] += m[i,j]*(K.one if k == 1 else t)
+    cols, rows = path_matrix(rotate(coeff,1),5,0,0,K)
+    assert (len(rows), cols, exact_rank(rows,K)) == (108,81,73)
+    print('PASS: double torus failure, length 5 generic quotient dimension 8', flush=True)
+
+    # The only remaining mixed pattern after the fourth-path restrictions.
+    variables = symbols('q u v w')
+    K = QQ.frac_field(*variables)
+    q,u,v,w = map(K.from_sympy, variables)
+    coeff = dict.fromkeys(TRIPLES, K.one)
+    for t, delta in {(2,2,1):q, (1,1,2):u, (1,2,2):u*w,
+                     (2,1,2):u*v, (2,2,2):u*v*w}.items():
+        coeff[t] += delta
+    cols, rows = path_matrix(rotate(coeff,2),6,0,0,K)
+    assert (len(rows), cols, exact_rank(rows,K)) == (405,243,231)
+    print('PASS: mixed grid/torus failure, length 6 generic quotient dimension 12', flush=True)
+
+
 if __name__ == '__main__':
     main()
+    check_mixed_obstructions()

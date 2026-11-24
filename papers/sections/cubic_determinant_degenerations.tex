@@ -1075,15 +1075,266 @@ $S_0=D^{-1}D^{\mathsf t}$について
 これは両族の上の下界に反する。
 \end{proof}
 
+\subsection{核rank障害と格子障害の同時制御}
+\label{subsec:ou-dense-mixed-obstructions}
+
+以下、条件(ii)に失敗する巡回を格子障害、
+条件(iii)に失敗する巡回を核rank障害と呼ぶ。
+この節では全係数非零かつvery strong導来helixを仮定する。
+行列式線形式のrankや標準noetherian比較、内在的標識は仮定しない。
+
+\begin{theorem}[核rank障害の巡回は高々一つ]
+\label{thm:ou-dense-at-most-one-torus-failure}
+三つの巡回表示のうち少なくとも二つで条件(iii)が成立する。
+\end{theorem}
+\begin{proof}
+二方向で(iii)が失敗すると仮定し、巡回によりそれらを
+$i,j$方向のsliceとする。障害となるsliceをそれぞれ添字0に移し、
+前述のrescalingで添字の一つでも0なら$c_{ijk}=1$に正規化する。
+$k$方向の基準添字0は任意に選べる。
+$d_{ijk}=c_{ijk}-1$とすれば、残る立方体$\{1,2\}^3$の
+$i$固定面、$j$固定面は非零rank一である。
+実際、障害sliceとの成分比の行列式が零で、
+第零行・列を消去すればrankは一以下。
+零面は系\ref{cor:ou-cyclic-support-obstruction}に反する。
+
+二部graphの行頂点$i=1,2$、列頂点$j=1,2$を取り、
+$d_{ij,*}=(d_{ij1},d_{ij2})$が非零のとき辺$(i,j)$を置く。
+四面の非零性から孤立頂点はない。
+同一行又は同一列にある非零の二つの辺ベクトルは
+対応する面のrank一性により比例する。
+graphが非連結なら二本の対角的な辺からなり、
+残る二つの位置では$d_{ij1}=d_{ij2}=0$である。
+従って端点$(0,0)$を含む二つの長方形が
+$k$方向の障害長方形となり、
+命題\ref{prop:ou-dense-fourth-path}に反する。
+graphが連結なら全ての非零辺ベクトルは互いに比例し、
+\[
+ c_{ijk}=1+m_{ij}z_k,\qquad
+ m_{0j}=m_{i0}=z_0=0
+\]
+と書ける。$m$の右下の$2\times2$部分の各行・列は非零である。
+$z_1,z_2$はともに非零で相異なる。
+そうでなければ$k$方向の異なる二sliceの成分比がrank一となる
+（零成分なら第零sliceと同じ、等値なら互いに同じ）。
+
+この表示が長さ五の経路商の次元を八以上にすることを示す。
+順序$(j,k,i)$の巡回で、始点を$j=0$、終点を$i=0$に取り、
+四つの内部添字を$(h,i,j,l)$（$h,l$は$k$方向）とする。
+双対係数$H_{hijl}$は外側二関係から$h,l$の和が零である。
+$e=(1,1,1)^{\mathsf t}$とし、$e^{\mathsf t}a=z^{\mathsf t}a=0$
+となる非零ベクトル$a$を選び、$b=\operatorname{diag}(z)a$と置く。
+$z_0,z_1,z_2$が相異なるのでVandermonde行列から
+$a,b$は$\ker e^{\mathsf t}$の基底であり、
+$\operatorname{diag}(z)b$はこの空間に属さない。
+従って一意に
+\[
+ H_{hijl}=a_ha_lP_{ij}+b_ha_lQ_{ij}
+             +a_hb_lR_{ij}+b_hb_lN_{ij}
+\]
+と書ける。内部二関係は
+\[
+ \sum_i(1+m_{ij}z_h)H_{hijl}=0,\qquad
+ \sum_j(1+m_{ij}z_l)H_{hijl}=0 .
+\]
+任意の$3\times3$行列$Y$に対して、
+$\gamma(Y)_j=\sum_iY_{ij}$、$\rho(Y)_i=\sum_jY_{ij}$を列和・行和、
+$\gamma_m(Y)_j=\sum_i m_{ij}Y_{ij}$、
+$\rho_m(Y)_i=\sum_j m_{ij}Y_{ij}$を重み付き列和・行和と書く。
+$a,b,\operatorname{diag}(z)b$の独立性により内部二関係は
+次の線形方程式と同値である。
+\[
+\begin{array}{lll}
+ \gamma(P)=\gamma(R)=0,&
+ \gamma(Q)=-\gamma_m(P),&
+ \gamma(N)=-\gamma_m(R),\\
+ \gamma_m(Q)=\gamma_m(N)=0,\\
+ \rho(P)=\rho(Q)=0,&
+ \rho(R)=-\rho_m(P),&
+ \rho(N)=-\rho_m(Q),\\
+ \rho_m(R)=\rho_m(N)=0 .
+\end{array}
+\]
+
+まず$P$は行和・列和零で$\sum_{i,j}m_{ij}P_{ij}=0$を
+満たす任意の行列とできる。この空間の次元は三以上である。
+固定した$P$に対し、$Q$の第1,2列は列和
+$-\gamma_m(P)_j$と重み付き列和0を指定して選ぶ。
+$m_{0j}=0$、右下部分の各列が非零だから二つの線形汎関数は独立で、
+各列の自由度は一。
+第0列を第1,2列の和の負とすれば行和は零となり、
+第0列の和は$\sum m_{ij}P_{ij}=0$によって所定の値0になる。
+重み付き第0列和も零である。
+従って$Q$の自由度は二。転置した同じ議論により$R$の自由度も二。
+
+最後に$N$の右下$2\times2$部分を、
+重み付き行和・列和が零になるよう任意に選ぶ。
+四つの線形条件の間に、重み付き全成分和を二通りに数える関係が
+あるので、この選択の自由度は一以上。
+$m$の第零行・列が零なので、その外の成分は重み付き条件に影響しない。
+第零行・列の成分を使えば、指定された通常の行和・列和
+$-\rho_m(Q)$、$-\gamma_m(R)$を実現できる。
+両者の総和は$\gamma_m(Q)=0$、$\rho_m(R)=0$により
+それぞれ零で一致するので、第$(0,0)$成分も矛盾なく定まる。
+以上より全解空間の次元は少なくとも$3+2+2+1=8$である。
+しかしvery strongの場合、補題\ref{lem:ou-cyclic-cubic-syzygy}の
+巡回二次表示とEuler行列によりこの長さ五の経路商は七次元。
+矛盾である。
+\end{proof}
+
+\begin{theorem}[格子・核rank条件を同時に満たす巡回]
+\label{thm:ou-dense-common-grid-torus}
+少なくとも一つの巡回表示で条件(ii)と(iii)が同時に成立する。
+\end{theorem}
+\begin{proof}
+このような巡回がないと仮定する。
+定理\ref{thm:ou-dense-no-triple-grid-failure}より
+全巡回が格子障害を持つことはできず、
+定理\ref{thm:ou-dense-at-most-one-torus-failure}より
+核rank障害の巡回は高々一つである。
+従って巡回により$k$方向が核rank障害で、
+$i,j$方向が格子障害である場合だけを考えればよい。
+
+$k$方向の障害sliceを$0$とする。
+$i$方向の障害長方形は$j,k$の各二元部分集合を、
+$j$方向の障害長方形は$i,k$の各二元部分集合を定める。
+$i,j$方向の指定された二元部分集合をそれぞれ$\{0,1\}$に移して
+全座標零面を1に正規化する。
+$d=c-1$の$k=1,2$面をそれぞれ$2\times2$行列$M,N$と書く。
+核rank障害により$M,N$はともに非零rank一である。
+$i$方向の障害長方形の$k$側の二元部分集合が
+$\{0,1\},\{0,2\},\{1,2\}$であることは、
+それぞれ$M$の第1列が零、$N$の第1列が零、
+両者の第1列が等しいことと同値である。
+これは$i=0$で交叉比が1になることから従う。
+$j$方向についても全く同様に第1行の条件に置き換えられる。
+
+\begin{itemize}
+ \item 両方の二元部分集合が0を含み、互いに異なる場合：
+ 一方の面の第1行、他方の面の第1列が零。
+ 従って$M_{11}=N_{11}=0$から$k$方向にも格子障害が生じ、
+ 定理\ref{thm:ou-dense-no-triple-grid-failure}に反する。
+ \item 一方だけが0を含む場合：
+ 例えば$M$の第1列が零、$M,N$の第1行が等しいとする。
+ 共通の第1行が零なら二つの位置で$M,N$がともに零となる。
+ 共通の第1行が非零なら$N_{12}\ne0$かつ$N_{11}=0$で、
+ rank一性から$N_{21}=0$となる。従って共通の第1列が零。
+ いずれも$k$方向に二つの障害長方形が生じ、
+ 命題\ref{prop:ou-dense-fourth-path}に反する。
+ 行と列を交換した条件も同じ証明で排除できる。
+ \item 両方とも0を含まない場合：
+ $M,N$は第1行と第1列を共有する。
+ $M_{11}=N_{11}\ne0$ならrank一性から$M=N$となり、
+ 三次syzygyの異slice条件に反する。
+ $M_{11}=N_{11}=0$なら$M_{12}M_{21}=0$なので、
+ 共通の第1行又は第1列が零である。
+ これは前項と同じく二つの障害長方形を生む。
+\end{itemize}
+
+従って両方の二元部分集合は等しく、かつ0を含む。
+$k$方向の$1,2$を交換して$\{0,1\}$とできる。
+すると$M$の第1行・第1列が零で、
+\[
+ M=\begin{pmatrix}0&0\\0&q\end{pmatrix},\qquad q\ne0 .
+\]
+もし$N_{11}=0$ならrank一性により$N_{12}=0$又は$N_{21}=0$。
+従って$M,N$の共通零成分が二つ以上となり四次経路公式に反する。
+ゆえに$N_{11}=u\ne0$であり、
+\[
+ N=u\begin{pmatrix}1&w\\v&vw\end{pmatrix}
+\]
+と書ける。この四係数族の全特殊化を次の厳密計算で扱う。
+
+前小節と同じ方法で、順序$(k,i,j)$の巡回で
+始点・終点の添字を0とした長さ六の関係行列を作る。
+これは$405\times243$の多項式行列で、
+$k=0$又はいずれかの$i,j=0$で係数は1、
+それ以外は上の$M,N$の成分に1を加えたものである。
+有理関数体$\mathbb Q(q,u,v,w)$上のrankは231である。
+\path{computations/verify_ou_grid_higher_syzygies.py}の
+\texttt{check\_mixed\_obstructions}でこのrankを再現できる。
+前小節と同じく、これは元の多項式行列の全232次minorの
+恒等的消滅を意味するから、全ての複素数特殊化でrankは231以下。
+従って経路商の次元は12以上。
+very strong性の必要次元は10なので矛盾する。
+\end{proof}
+
 \begin{remark}
-定理\ref{thm:ou-dense-no-triple-grid-failure}と
-定理\ref{thm:ou-dense-no-triple-torus-failure}により、
-全係数非零のvery strong型では(ii)を満たす巡回と
-(iii)を満たす巡回がそれぞれ存在する。
-しかし同じ巡回で両者が成立することも、
-条件(i)が成立することも、これらの定理からは従わない。
-特に両者の失敗集合が相異なる巡回を覆う混合障害と、
-(i)の座標直線の従属を扱う必要がある。
+定理\ref{thm:ou-dense-at-most-one-torus-failure}の
+連結graphの場合についても独立に有理関数体上のrankを検算できる。
+$m_{11},m_{12},m_{21},m_{22},z_2/z_1$を五変数とし
+$z_1$を1に吸収した係数族では、
+長さ五の$108\times81$関係行列のrankは73で商次元は8。
+この計算は同じスクリプトに含まれる。
+上の定理の証明はこの補助検算を必要としない。
+\end{remark}
+
+\subsection{残る座標直線従属の正規形}
+\label{subsec:ou-dense-dependent-coordinate}
+
+定理\ref{thm:ou-dense-common-grid-torus}により、
+全係数非零かつvery strongの行列式rank三の場合、
+九線束復元の残る問題は(ii),(iii)を満たす全ての巡回で
+(i)が失敗する場合である。まず(i)の失敗自体を正規化する。
+
+\begin{proposition}[座標直線が従属する係数テンソルの正規形]
+\label{prop:ou-dense-dependent-coordinate-normal-form}
+行列式線形式のrankが三で、全係数非零とする。
+ある偶奇の座標対が零平面上で一次従属であるとき、
+添字の置換と矢印のrescalingでその二置換の共有辺を$(0,0)$とし、
+全座標零面の係数を1とできる。
+$d=c-1$の$k=1,2$面$M,N$に対して
+\[
+ \operatorname{rank}
+ \begin{pmatrix}
+  1&1&1&1\\
+  M_{11}&M_{12}&M_{21}&M_{22}\\
+  N_{11}&N_{12}&N_{21}&N_{22}
+ \end{pmatrix}\leq2
+\]
+が成り立つ。逆にこのrank条件から同じ座標対の従属が従う。
+さらにvery strongなら$k=1,2$を必要に応じ交換して
+$M$の四成分を非定数とし、
+\[
+ N=\lambda\mathbf1_{2\times2}+\mu M,\qquad\lambda\ne0
+\]
+と書ける。
+\end{proposition}
+\begin{proof}
+矢印rescalingで係数テンソルを正規化することは
+行列式係数行列の行・列それぞれを非零スカラー倍することに
+対応するので、零平面の座標対の従属性を保つ。
+共有辺を$(0,0)$に選ぶ。
+固定$k$の右下$2\times2$部分の$c$の成分を
+順に$(a_k,b_k,c_k,d_k)$とすると、符号を除いた六置換積は
+偶側が$a_kd_k,b_k,c_k$、奇側が$b_kc_k,d_k,a_k$である。
+共有辺$(0,0)$を持つ二置換は$a_kd_k,b_kc_k$に対応する。
+零平面上でこの二座標の制限が一次従属であることは、
+$\mathcal L$の行空間がその二座標の張る双対座標空間と
+非零の交わりを持つことに等しい。
+$\mathcal L$のrankが三なので、二列を除く四列のrankが
+二以下であることと同値である。
+$k=0$では全係数が1だから、四列の順序・符号を調整して
+第1,2行から第0行を引く行操作を行えば表示したrank条件を得る。
+
+very strongなら$M,N$の四成分が両方とも定数となることはない。
+その場合$i=1,2$のsliceが等しく、
+異slice比がrank一となるからである。
+$M$を非定数に選ぶとrank条件から
+$N=\lambda\mathbf1+\mu M$を得る。
+$\lambda=0$なら$d_{ijk}=m_{ij}z_k$型で、
+$i,j$方向にともに核rank障害を持つ。
+定理\ref{thm:ou-dense-at-most-one-torus-failure}に反する。
+\end{proof}
+
+\begin{remark}
+従って残る全係数非零rank三の探索では、上の六係数
+$(M_{11},M_{12},M_{21},M_{22},\lambda,\mu)$の族
+（$\lambda\ne0$）を入口とし、他の二巡回の(i)--(iii)を
+同時に調べればよい。これは係数空間の正規形であり
+moduliの次元を主張しない。
+現段階ではこの族が全てvery strongでないことも、
+全てが別巡回で三条件を満たすことも証明していない。
 \end{remark}
 
 \begin{remark}
@@ -1093,10 +1344,11 @@ $S_0=D^{-1}D^{\mathsf t}$について
 very strong性を保証しない。
 また一般のOU三次箙型が全係数非零と仮定することはできない。
 rank三の零平面については上の有限判定で扱う範囲が拡大した。
-定理\ref{thm:ou-dense-no-triple-torus-failure}により三巡回全てで(iii)が失敗する型は排除された。
-命題\ref{prop:ou-dense-fourth-path}と定理\ref{thm:ou-dense-no-triple-grid-failure}により各巡回の障害長方形は高々一つ、三巡回同時の(ii)失敗も排除された。
-(ii)と(iii)を同じ巡回で満たすことは未証明であり、(i)の従属も残る。
-これらの混合障害と係数零の型は引き続き調べる必要がある。
+命題\ref{prop:ou-dense-fourth-path}と定理\ref{thm:ou-dense-no-triple-grid-failure}により各巡回の障害長方形は高々一つ、三巡回同時の(ii)失敗は排除される。
+定理\ref{thm:ou-dense-at-most-one-torus-failure}は二巡回同時の(iii)失敗も排除し、定理\ref{thm:ou-dense-common-grid-torus}により(ii)と(iii)を同時に満たす巡回が存在する。
+そのような全巡回で(i)が失敗する残余型については
+命題\ref{prop:ou-dense-dependent-coordinate-normal-form}の正規形を得た。
+この残余型と係数零の型は引き続き調べる必要がある。
 関連する整数計算は
 \path{computations/verify_ou_determinant_cyclic.py}を参照。
 \end{remark}
