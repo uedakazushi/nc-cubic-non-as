@@ -54,8 +54,8 @@ def curve_parameters(f, ps):
     return sub
 
 
-def central_generation(c):
-    field = QQ.frac_field(t)
+def central_generation(c, params=(t,)):
+    field = QQ.frac_field(*params)
     paths = CyclicPaths(0,field,{w:field.from_sympy(v) for w,v in c.items()})
     centers = paths.center(3)
     assert len(centers)>=2

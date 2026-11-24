@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v43}
+\date{2026年11月25日／non-as-v44}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -20,6 +20,23 @@
 OUの箙型による三次del Pezzo型の逆包含を否定する証明がある。
 内在的候補$\mathfrak I_3$との共通部分での逆包含はなお未解決。
 このより狭い問いの決着を最優先とし、既存定理の独立監査も継続する。
+
+\paragraph{より弱い導来仮定と二零の残余次元}
+定理\ref{thm:ou-derived-stack-recognition}では、標準切断に対するghostの
+合成が零になることと反標準環の整域性を使い、反標準束の降下冪のbignessを
+Hilbert関数から導く。中心切断による局所化の後でのみ一般点の標識を
+同定する。AZ1の三段分解とExt次元二から標識の全twistが導来圏を厚く生成し、
+一般gerbeに非自明な安定化群を許しても標識は一般点で自明表現のシフトとなる。
+一方、系\ref{cor:ou-two-zero-codim-five}では各曲面における一つの厳密点から
+得る結論は、その曲面上の稠密開での認識に限られる。四族の曲線とその閉点は未処理である。
+
+\paragraph{二零台での二つの補集合（二零台134217455）}
+系\ref{cor:ou-one-two-ten-families}の指定零を交換すると、$d=1$において
+$(a,b,c,e)$は$(b,a,e,c)$に移る。定理\ref{thm:ou-two-zero-double-binomial}
+はこの切断の全点を扱う。一般点で中心の次元が増える曲面は各表示の$b+c=1$である。
+二つの曲線に通常のtorusグラフが使えない場合は、
+$x\ne0$により尖点$u^3=v^2$または有理二次曲線に移した。
+曲面・曲線・点因子の件数は表示間の重複を許す。残余は一零二族・二零四族である。
 
 \paragraph{箙によらない幾何的認識（2026年11月25日）}
 定理\ref{thm:ou-effective-orbifold-recognition}では、正則表現の局所Extから滑らかさが従う。構造層への非零射で標識を稠密開集合上の線束に同定し、閉点の正則表現へのAZ1で一般安定化群を排除する。接束の行列式の

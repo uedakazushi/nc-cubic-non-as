@@ -91,14 +91,14 @@ def witness(c, params, units, divisor):
 def verify_quadratic_cover(cert, rotation, vertex):
     loops = cert.loops(rotation,vertex)
     rows,free = cert.products(rotation,[a+b[1:] for a,b in product(loops,repeat=2)])
-    table = cert.matrix([[row.get(k,QQ.zero) for k in free] for row in rows])
+    table = cert.matrix([[row.get(k,cert.field.zero) for k in free] for row in rows])
     relations = table.transpose().nullspace().to_list()
     assert len(relations) == 3 and len(free) == 6
 
     # H tensor R and R tensor H in the 27-dimensional space of cubic words.
-    left = [[relations[j][3*v+w] if u == h else QQ.zero for u,v,w in TRIPLES]
+    left = [[relations[j][3*v+w] if u == h else cert.field.zero for u,v,w in TRIPLES]
             for h,j in product(I,repeat=2)]
-    right = [[relations[j][3*u+v] if w == h else QQ.zero for u,v,w in TRIPLES]
+    right = [[relations[j][3*u+v] if w == h else cert.field.zero for u,v,w in TRIPLES]
              for j,h in product(I,repeat=2)]
     syzygies = cert.matrix(left+right).transpose().nullspace().to_list()
     assert len(syzygies) == 1
@@ -106,18 +106,18 @@ def verify_quadratic_cover(cert, rotation, vertex):
         assert cert.matrix([entries[k:k+3] for k in (0,3,6)]).det()
 
     coords = symbols('x:3')
-    m = Matrix([[sum(coords[i]*QQ.to_sympy(row[3*i+j]) for i in I)
+    m = Matrix([[sum(coords[i]*cert.field.to_sympy(row[3*i+j]) for i in I)
                  for j in I] for row in relations])
     minors = [m.extract(a,b).det() for a in combinations(I,2) for b in combinations(I,2)]
     for j in I:
         basis = groebner([z.subs(coords[j],1) for z in minors],
-                         *(coords[:j]+coords[j+1:]),domain=QQ)
+                         *(coords[:j]+coords[j+1:]),domain=cert.field)
         assert tuple(basis) == (1,)
 
 
-def verify_point(coefficients):
+def verify_point(coefficients, field=QQ):
     # All 27 coefficients, including zero entries, are passed explicitly.
-    cert = CornerCertificate(0,coefficients,QQ)
+    cert = CornerCertificate(0,coefficients,field)
     cert.validate_paths()
     cert.check_generation()
     for rotation,vertex in product(I,repeat=2):

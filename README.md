@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v43。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v44。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -10,11 +10,11 @@
 
 ## 箙を限定しない認識
 
-内在的三次候補の圏が有限生成連結可換次数付き環の `qgr` に同値なら、任意の内在的標識は滑らかな三次曲面の標準標識に同値である。次数一生成性は不要である。より一般に、射影粗空間を持つ任意の複素固有Deligne–Mumfordスタックについて、内在的三次条件は滑らかさと全安定化群の自明性を強制する。次数一生成の左右noetherian整域でGK次元三、斉次商環の次数零部が曲面の可換関数体となる表示も、Rogalski–Staffordの分類から同じ結論に至る。主稿の `thm:ou-effective-orbifold-recognition` と続く二つの系に証明がある。一般のOU圏がこれらの表示を持つかは未解決である。
+内在的三次候補の圏が有限生成連結可換次数付き環の `qgr` に同値なら、任意の内在的標識は滑らかな三次曲面の標準標識に同値である。次数一生成性は不要である。より一般に、射影粗空間を持つ任意の複素固有Deligne–Mumfordスタックについて、内在的三次条件は滑らかさと全安定化群の自明性を強制する。次数一生成の左右noetherian整域でGK次元三、斉次商環の次数零部が曲面の可換関数体となる表示も、Rogalski–Staffordの分類から同じ結論に至る。主稿の `thm:ou-effective-orbifold-recognition` と続く二つの系に証明がある。さらに、有限型・固有で射影粗空間を持つDMスタックとの**導来同値**だけで、任意の内在的標識を認識できる。元の同値の t 完全性や反標準束の豊富性も仮定しない（主稿 `thm:ou-derived-stack-recognition`）。一般のOU圏にこれらの表示が得られるかは未解決である。
 
 ## AOU三ブロック箙型の全係数に対する条件付き判定
 
-**現在の到達点。** AOU三ブロック箙型では、全27係数が非零の場合と、三個以上が零の場合の全特殊化で包含を証明した。三零で最後に残った十二の二変数族を62曲線に分け、50曲線には頂点代数の判定、12曲線には三次中心上の有限性を用いた。残る199件の閉点因子も全て検算した（`thm:ou-three-zero-automatic`）。一・二零型の残余は四変数の二族と三変数の八族に含まれ、その各々の稠密開集合も判定済みである（`cor:ou-one-two-ten-families`）。全体の包含およびAOU以外を含む全OU三次型の被覆は未解決。三零の検算は `python3 computations/verify_ou_three_zero_remaining.py`、十族の列挙は `python3 computations/verify_ou_small_zero_surface_orbits.py`。
+**現在の到達点。** AOU三ブロック箙型では、全27係数が非零の場合と三個以上が零の場合に加えて、二零台134217455で両方の零の補集合が二項式を満たす場合の全特殊化を処理した。指定零011の正規化では二番目の条件は `d=1` である。二つの零の交換により四族を三つの三変数表示にまとめ、23曲面、81曲線、340件の閉点因子を検証した。二零の残る四族でも60曲面のそれぞれで開判定を検証し、六次元係数空間内の残余を次元一以下に絞った（`cor:ou-two-zero-codim-five`）。一零では二族の内部に余次元四以上の残余がある。三零については十二の二変数族・62曲線・199件の閉点因子を既に検証した。主稿 `thm:ou-two-zero-double-binomial` と [再現コード](computations/verify_ou_two_zero_double_families.py)。
 
 主稿の `cor:ou-aou-all-coefficients` で、標準noetherian OU比較が成立するAOU三ブロック箙型では、関係係数を問わず I₃ から標準AS四次元三次商の表示が従う。一・二・三零の補集合二項式外では追加の比較仮定を要しない。一・二零の五グラフ閉包の全特殊化の証明は `thm:ou-one-two-zero-all-boundaries`、検算は `python3 computations/verify_ou_one_two_zero_components.py` による。比較仮定の一般的除去と、AOU三ブロック箙以外を含むOU三次型の被覆は未解決である。
 
