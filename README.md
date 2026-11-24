@@ -4,6 +4,10 @@
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
+## Cloud Codexの作業順序
+
+2026-11-25の実行方針：標準OU比較の仮定除去 → 1–3零型の完全認識・排除 → 共通依存証明の独立監査 → 独立公表可能な成果の確定。上位課題の障害で停止せず、次順位へ進み適宜戻る。詳細と保存手順は [研究方針](00_research_plan.md) および [AGENTS.md](AGENTS.md) を参照。15–30分を目安にmainへ通常コミット・pushし、research-hubを更新する。
+
 ## 内在的定義の三段階と境界例
 
 次数3の内在的候補 `I_3`、標準AS四次元三次超曲面型 `H_hyp`、OUのAS surfaceでもある超曲面型 `H_hyp∩AS_OU` を区別し、真の包含 `H_hyp∩AS_OU ⊊ H_hyp ⊊ I_3` をIntroductionで証明しています（rank一の符号型族と次数三Clifford例を証人とします）。**OUの箙型による定義そのままでは逆包含は偽です。** 弱del Pezzoの反標準収縮からOU三次型のheartを構成し、全反標準ample対象の導来rankが2以上となるため標準三次超曲面と同値でないことを主論文 `thm:ou-weak-cubic` と `cor:ou-weak-unpointed` で証明します。ただしこの例は内在的候補I_3にも属さず、I_3に属するOU型での逆包含は未解決です。これを最優先課題とします。rank一・Hilbert級数を緩めた場合の境界例として `[P²/μ₃]` を計算し、rank三のAZ-ample対象と、構造層のnon-ampleness、特異な反標準三次模型 `UVW=T³` を区別しました。
