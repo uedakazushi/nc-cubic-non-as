@@ -24,6 +24,8 @@ PROGRAMS=(
     "computations/verify_ou_seven_zero_line_conics.py",
     "computations/verify_ou_seven_zero_last.py",
     "computations/verify_ou_seven_zero_six_cycle.py",
+    "computations/verify_ou_six_zero_supports.py",
+    "computations/verify_ou_six_zero_curves.py",
     "computations/verify_boundary_fermat.py",
     "scripts/del_pezzo_degree2_verification.py",
     "scripts/nc_dp1_quintic_checks.py",
