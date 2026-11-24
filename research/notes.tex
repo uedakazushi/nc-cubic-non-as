@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v42}
+\date{2026年11月25日／non-as-v43}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -20,6 +20,17 @@
 OUの箙型による三次del Pezzo型の逆包含を否定する証明がある。
 内在的候補$\mathfrak I_3$との共通部分での逆包含はなお未解決。
 このより狭い問いの決着を最優先とし、既存定理の独立監査も継続する。
+
+\paragraph{箙によらない幾何的認識（2026年11月25日）}
+定理\ref{thm:ou-effective-orbifold-recognition}では、正則表現の局所Extから滑らかさが従う。構造層への非零射で標識を稠密開集合上の線束に同定し、閉点の正則表現へのAZ1で一般安定化群を排除する。接束の行列式の
+非自明な固有値ごとに反標準Euler特性の周期係数が消える。
+曲線成分は一次係数の正値性で、一点成分は最大位数の原始根での位相の一致で
+排除される。系\ref{cor:ou-commutative-graded-recognition}は任意の正次数の
+可換斉次座標表示を含む。残留gerbe上で正則表現を使うことが、特異点の
+局所Extが不変部分を取る際に消えてしまう可能性を防ぐ。
+系\ref{cor:ou-birationally-commutative-degree-one}は指定の双有理可換曲面表示を
+既知の分類に帰着する。標識の移動と表示の次数移動は別々に扱う。
+一般の内在的環の左noetherian性、次数一生成性や双有理可換性は未証明である。
 
 \paragraph{標準比較の適用範囲と少数零型（2026年11月25日）}
 命題\ref{prop:ou-perfect-tail-comparison}はOUの定義2節と(5.4)から、

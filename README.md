@@ -1,12 +1,16 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-24 / non-as-v42。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v43。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
 ## Cloud Codexの作業順序
 
 2026-11-25の実行方針：標準OU比較の仮定除去 → 1–3零型の完全認識・排除 → 共通依存証明の独立監査 → 独立公表可能な成果の確定。上位課題の障害で停止せず、次順位へ進み適宜戻る。詳細と保存手順は [研究方針](00_research_plan.md) および [AGENTS.md](AGENTS.md) を参照。15–30分を目安にmainへ通常コミット・pushし、research-hubを更新する。
+
+## 箙を限定しない認識
+
+内在的三次候補の圏が有限生成連結可換次数付き環の `qgr` に同値なら、任意の内在的標識は滑らかな三次曲面の標準標識に同値である。次数一生成性は不要である。より一般に、射影粗空間を持つ任意の複素固有Deligne–Mumfordスタックについて、内在的三次条件は滑らかさと全安定化群の自明性を強制する。次数一生成の左右noetherian整域でGK次元三、斉次商環の次数零部が曲面の可換関数体となる表示も、Rogalski–Staffordの分類から同じ結論に至る。主稿の `thm:ou-effective-orbifold-recognition` と続く二つの系に証明がある。一般のOU圏がこれらの表示を持つかは未解決である。
 
 ## AOU三ブロック箙型の全係数に対する条件付き判定
 

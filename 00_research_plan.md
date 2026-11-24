@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-24 / non-as-v42。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v43。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -16,6 +16,8 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 上位課題で有効な進展が止まったら、障害と次の具体的着手点をノートに残して次順位へ移り、適宜上位へ戻る。単一の失敗や環境不足で全作業を終了しない。15–30分を目安に数学的にまとまった成果を保存し、最新mainを確認して通常コミット・fast-forward pushする。可能な限り対象計算と組版を検証し、全runner未実行と区別する。各区切りで研究方針・ノート・主稿・READMEを必要に応じて整合させ、research-hubも更新する。認証不足・時間制限・push拒否時は実際の状態を報告し、利用可能な保存手段を使う。Actions、force push、無意味な日付更新、定常ZIPは行わない。
 
 ## 証明を保持した主要結果
+
+- **箙を限定しない三次曲面認識**　主稿 `thm:ou-effective-orbifold-recognition` は、射影粗空間を持つ固有DMスタックについて、局所Extから滑らかさ、階数一条件とAZ1から一般安定化群の自明性を導く。さらにAZ1で接表現の行列式の忠実性を示し、orbifold Riemann–Rochの最高位数の寄与から安定化群を全て排除する。任意の可換斉次座標表示、および指定の次数一生成の双有理可換曲面表示が従う。次は一般のOUの内在的反標準環について、斉次商環の次数零部、次数一生成性・左noetherian性を個別に調べる。Veronese環の分類だけから元のheartとの同値を推論しない。
 - **三零以上は全台・全係数で完了**　十二の二変数族、62曲線、199件の例外因子で右noetherian性を証明した（`thm:ou-three-zero-automatic`）。AOUの残余は `cor:ou-one-two-ten-families` の一零二族・二零八族の内部だけである。次は局所化した単元を用いて各族を四変数または三変数で全域表示し、三次中心商と多次元での特殊化を調べる。一般のOU箙への移行も未解決である。
 - **三零の台134184687は全係数で完了**　三つの二変数族から十五曲線・74件の閉点因子まで検証した。残る三零台134151919と134217454の各42件を十二の二変数族で覆った。これらの曲線と閉点は直前の定理で処理した。
 - **一〜三零の例外は余次元四以上**　展開cycleと三生成元二次正則環による開判定を併用した。主稿 `thm:ou-small-zero-codim-four`、検算 `computations/verify_ou_small_zero_corners.py`。三零では各台で残る次元は高々一。次に、中心の次元・二次関係の階数が変わる閉集合の方程式を求める。
