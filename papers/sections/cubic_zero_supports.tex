@@ -2316,14 +2316,44 @@ $\delta_{\rm md}=0,\ 5B-3A-2C=(3,0)$。
 共通捩りにより元の向きの曲線表示を得られる。
 \end{proof}
 
-\begin{corollary}[五零係数型の現行の残余]
+\begin{theorem}[五零の117374702の残余の七次経路商による排除]
+\label{thm:ou-five-zero-117374702-boundary}
+台117374702の正規化係数が$u=v=1,\ w\in k^\times$であるとする。
+標数零ではこの族はvery strong導来helixを持たない。
+標準noetherian OU比較や内在的三次条件は仮定しない。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:ou-five-zero-path-exclusion}の正規化に従い、
+自由係数の位置は$(211),(212),(222)$である。
+ここで前二者を1、最後を$w$とする。
+元の巡回（巡回数0）の始点0・終点2の長さ七の経路を
+$(0,j_1,\ldots,j_6,2)$、$j_\nu\in\{0,1,2\}$で添字付けする。
+各位置$p=0,\ldots,5$について、中央添字$j_{p+1}$以外の
+五つの中間添字を固定した二次関係を一行とする。
+その三つの係数は連続三添字に対応する$c_{ijk}$を
+位置$p$に応じて巡回したものである。
+従って$1458\times729$の関係行列$M(w)$は
+$\mathbb Q[w]$に成分を持ち、この経路商はその行空間による商である。
+\path{computations/verify_ou_five_zero_boundary.py}の
+有理関数体$\mathbb Q(w)$上の厳密行列階数計算により
+\[
+ \operatorname{rank}_{\mathbb Q(w)}M(w)=716,\qquad
+ 729-716=13.
+\]
+全ての717次minorが多項式として零なので、
+任意の標数零の体上の特殊化でもrankは716以下である。
+従って全非零$w$についてこの経路商の次元は13以上となる。
+very strong性から要求される長さ七のEuler次元は12であり矛盾する。
+有限体の標本や一般点のrankの下界を特殊化排除に用いてはいない。
+\end{proof}
+
+\begin{corollary}[五零係数型の二つの一係数残余]
 \label{cor:ou-five-zero-three-curves}
 標準noetherian OU比較と内在的三次条件を持つvery strongな
 OU三次型について、五零の場合の逆包含の未判定範囲は
-次の三つの一係数族に限られる：
+次の二つの一係数族に限られる：
 \[
 \begin{array}{r|l}
-117374702&u=v=1,\ w\ne0\\
 132054766&v=-1,\ w=1,\ u\ne0\\
 134135534&u=w=1,\ v\ne0
 \end{array}
@@ -2334,7 +2364,8 @@ OU三次型について、五零の場合の逆包含の未判定範囲は
 定理\ref{thm:ou-five-zero-periodic-exclusion}で七族に絞り、
 定理\ref{thm:ou-five-zero-grid-recognition}、
 定理\ref{thm:ou-five-zero-triangle}、
-定理\ref{thm:ou-five-zero-expanded-curves}を適用する。
+定理\ref{thm:ou-five-zero-expanded-curves}と
+定理\ref{thm:ou-five-zero-117374702-boundary}を適用する。
 \end{proof}
 
 \begin{remark}
@@ -2907,5 +2938,5 @@ rank二・三を問わず内在的三次条件から排除される。
 九線束表示の存在とは両立する。
 従って四零の未判定は上記四台の境界に限られる。
 三零の133947135も同系で排除済み。
-五零の三残余、他の1--3零の型と標準比較の適用範囲も未解決。
+五零の二残余、他の1--3零の型と標準比較の適用範囲も未解決。
 \end{remark}
