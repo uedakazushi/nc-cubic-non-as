@@ -4399,6 +4399,117 @@ $y=0,x-y=0$で区別される。両族で$W_1,W_2$のsliceの零位置は異な�
 定理\ref{thm:ou-plane-automatic-comparison}で比較が回収される。
 \end{proof}
 
+\begin{proposition}[全AOU窓における三次中心の非消滅]
+\label{prop:ou-aou-central-specialization}
+複素数上で、AOU三ブロック型の任意のvery strong窓の巡回関係代数$D$は
+矢印長三の非零斉次中心元を持つ。係数テンソルの一般点ではこの中心は一次元である。
+\end{proposition}
+\begin{proof}
+三次までの経路に加えて、矢印との可換条件を書くのに必要な四次までを扱う。
+全テンソルの既約空間$\mathbb A^{27}$上で、各端点の長さ$d$の全経路を
+基底とする自明束を取る。巡回二次関係の前後に経路を掛けたベクトルの
+行列は係数テンソルの多項式であり、その余核の各ファイバーが
+$D_d(r,i,j)$である。AOU\cite[Theorem~1.1, Lemma~7.4, Corollary~7.8]{AOU2024}
+により、一般の九関係は滑らかな楕円曲線のadmissible decupleの窓で
+AS正則代数を与える。ここでは九つの関係の非零スカラー倍と
+矢印トーラスによる商から、全係数非零トーラスに稠密開を引き戻している。
+この一般点では系\ref{cor:ou-integral-automatic-comparison}の証明の
+軌道環の中心拡大により、周期一次すなわち矢印長三の非零中心元がある。
+実際、その中心元は各頂点から次周期の同じ頂点への射の和である。
+
+$d=3,4$の全端点で上の行列の階数が一般点と一致する開集合を$U$とすると、
+余核はそこでベクトル束である。very strong窓の点は全て$U$にある。
+実際、窓のEuler行列と周期公式による経路次元
+（補題\ref{lem:ou-cyclic-cubic-syzygy}および
+定理\ref{thm:ou-seven-eight-zero-path-exclusion}の経路次元計算）は
+三次で$3+\delta_{ij}$、四次で5であり、一般点と同一である。
+$U$で閉路に限った$\bigoplus_{r,i}D_3(r,i,i)$から、
+全矢印$b:v\to v'$に対応する四次空間の直和への束射を
+$(z_v)\mapsto(z_v b-bz_{v'})_b$で定める。核は$Z(D)_3$である。
+核が非零である条件は最大階数のminorの消滅で閉じており、
+稠密な一般点で成立するので$U$全体で成立する。
+
+台134135534の零・一係数の点では$\mathbb Q$上で三次・四次の
+全端点次元が上の値、三次中心の次元が1である
+（\path{computations/verify_ou_seven_zero_center.py}）。
+従ってこの点は$U$に属し、上半連続性から一般点の中心次元はちょうど1となる。
+この議論が特殊点でも保証するのは中心の非消滅であり、
+その元による乗法の単射性や商代数の右noetherian性は別の条件である。
+\end{proof}
+
+\begin{lemma}[付値環を用いた斉次右noetherian性の持上げ]
+\label{lem:ou-val-noetherian}
+$V$を付値環、$K$を分数体、$k$を剰余体とする。$V$上の有限箙の
+非負次数付き経路代数を斉次関係で割った代数$A_V$の各次数が有限生成
+$V$加群であるとする。$A_V\otimes k$が右noetherianなら
+$A_V\otimes K$も右noetherianである。
+\end{lemma}
+\begin{proof}
+$A_V$の$A_V\otimes K$における像を$T$とする。
+$T_n$は有限生成torsion-freeな$V$加群なので有限自由である。
+$\overline T=T/\mathfrak m T$は$A_V\otimes k$の商だから右noetherianである。
+$A_V\otimes K$の斉次右ideal $I$を取り、$J_n=I_n\cap T_n$と置く。
+$J_n$は$T_n$の有限自由直和因子である。実際、$T_n\simeq V^b$の座標で
+$K$部分空間$I_n$の基底を行に並べ、その最大階数の非零minorで
+付値最小のものを選ぶ。その列を単位行列にした行列の他の成分は
+Cramerの公式により$V$に属する。よって$J_n$は選んだ座標への射影で
+$V^{\dim I_n}$と同型で、その$K$包は$I_n$である。
+特に$J_n\cap\mathfrak m T_n=\mathfrak m J_n$であり、
+$J/\mathfrak m J$は$\overline T$の斉次右idealである。
+その有限斉次生成元を$J$に持ち上げ、持上げで生成する右$T$加群を$H$とする。
+各$n$で$J_n=H_n+\mathfrak m J_n$だから、有限生成$V$加群$J_n/H_n$への
+中山の補題から$J_n=H_n$である。係数を$K$に戻すと$I$は有限生成となる。
+任意の右idealも、その最高次斉次部分からなる先頭idealの有限斉次生成元を
+持ち上げ、次数に関して降下すれば有限生成である。
+\end{proof}
+
+\begin{theorem}[五零以上の全特殊化と標数二の中心証明書]
+\label{thm:ou-five-zero-automatic}
+AOU三ブロック箙型のOU代数で、関係係数の零が五個以上なら
+標準比較を別途仮定せずに
+$\mathfrak I_3$から$\mathfrak H^{\mathrm{hyp}}_3$への包含が成り立つ。
+さらに四零の台134135535,134147823,134151407では、非零係数を
+標数二の剰余体を持つ付値環の単元で剰余が全て1となるように
+正規化できれば標準比較が成立する。
+\end{theorem}
+\begin{proof}
+五零の残りの一点は台134135534の非零係数が全て1である。
+$\mathbb F_2$上の零・一係数の巡回関係代数を$D$とし、
+$Z_d$を次数$d$の中心と書く。次表の各行で示す次数の中心を用いると
+\[
+                D_N=\sum_{d}Z_dD_{N-d}
+\]
+である。最右欄は全始点・終点での次元の和である。
+\[
+\begin{array}{c|l|r|r}
+\text{台}&(d,\dim Z_d)&N&\dim D_N\\\hline
+134135534&(3,1),(6,4)&12&819\\
+134135535&(3,4)&5&189\\
+134147823&(3,1),(6,4)&12&819\\
+134151407&(3,1),(9,4)&15&1224
+\end{array}
+\]
+\path{computations/verify_ou_seven_zero_center.py}は
+命題\ref{prop:ou-seven-zero-finite-center}と同じ基底構成を
+今回の主張の基礎体$\mathbb F_2$上で実行する。頂点閉路と全矢印の
+可換条件を解き、積が全27個の端点空間を張ることを正確に確認する。
+$D$は矢印で生成されるため次数への帰納で、各行の中心元で生成する
+可換有限型部分代数上有限である。この有限生成表示は任意の剰余体拡大で保たれる。
+
+$\mathbb C$には$\mathbb Q$の2進付値を延長する。例えば超越基底を選び
+有理関数体にGauss付値を与え、その代数拡大への付値の延長を取れる。
+五零の一点の整数表示はその付値環上で定義される。還元が上表となるので
+補題\ref{lem:ou-val-noetherian}により複素数上の右noetherian性を得る。
+四零の三台も仮定の付値環に同補題を適用する。
+ここで持ち上げるのは右idealの有限生成性であり、表の中心元が
+同じ次数で標数零に持ち上がることは必要としない。
+周期を展開して命題\ref{prop:ou-perfect-tail-comparison}を適用すれば
+標準比較が成立する。五零の一点は定理\ref{thm:ou-five-zero-complement-exclusion}
+により$\mathfrak I_3$の外にある。他の五零係数は
+命題\ref{prop:ou-five-zero-cycle-pencils}、六零以上は
+系\ref{cor:ou-six-zero-automatic}で尽くした。
+\end{proof}
+
 \begin{corollary}[四零の比較仮定を余次元二まで除去]
 \label{cor:ou-four-zero-cycle-pencils}
 ちょうど四零の各正規化係数トーラスにおいて、余次元三以上の閉集合の外で
@@ -4441,13 +4552,11 @@ $y=0,x-y=0$で区別される。両族で$W_1,W_2$のsliceの零位置は異な�
 AOU三ブロック箙の任意の係数台について、正規化係数空間の
 余次元三以上の閉集合を除いて、$\mathfrak I_3$から
 $\mathfrak H^{\mathrm{hyp}}_3$への包含が成立する。
-零係数なし、または六個以上の零の場合は全域で成立する。
-ちょうど五零の場合に残るのは一つの三次元トーラスの高々一点である。
+零係数なし、または五個以上の零の場合は全域で成立する。
 \end{corollary}
 \begin{proof}
 全非零は系\ref{cor:ou-dense-automatic-comparison}、一から三零は
 定理\ref{thm:ou-complement-expanded-cycles}、四零は直前の系、
-五零は命題\ref{prop:ou-five-zero-cycle-pencils}、六零以上は
-系\ref{cor:ou-six-zero-automatic}を用いる。支持の必要条件で排除される
+五零以上は定理\ref{thm:ou-five-zero-automatic}を用いる。支持の必要条件で排除される
 台では最初からOU代数が存在しない。この系はAOU箙を持つOU代数に関する。
 \end{proof}

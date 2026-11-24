@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
-"""Exact finite-over-center certificate for support 116309742 at u=1."""
+"""Exact central generation over Q and F2 for sparse AOU path algebras."""
 from functools import lru_cache
 from itertools import product
 
-from sympy import QQ
+from sympy import GF, QQ
 from sympy.polys.matrices import DomainMatrix
 
 from verify_ou_zero_supports import I, TRIPLES, support
 
 
-def row_matrix(rows, width):
-    return DomainMatrix(dict(enumerate(rows)), (len(rows), width), QQ)
+def row_matrix(rows, width, field):
+    entries = {i: {j: value for j, value in row.items() if value}
+               for i, row in enumerate(rows) if any(row.values())}
+    return DomainMatrix(entries, (len(rows), width), field)
 
 
 class CyclicPaths:
-    def __init__(self, mask):
+    def __init__(self, mask, field=QQ):
+        self.field = field
         self.support = set(support(mask))
 
     @lru_cache(None)
@@ -23,7 +26,7 @@ class CyclicPaths:
         if length == 0:
             return ([(start,)] if start == end else []), {}
         if length == 1:
-            return [(start, end)], {(start,): {0: QQ.one}}
+            return [(start, end)], {(start,): {0: self.field.one}}
 
         words = [prefix + (end,) for middle in I
                  for prefix in self.space(length - 1, rotation, start, middle)[0]]
@@ -42,7 +45,7 @@ class CyclicPaths:
                         row[columns[basis[k] + (end,)]] = value
                 rows.append(row)
 
-        reduced, pivots = row_matrix(rows, len(words)).rref()
+        reduced, pivots = row_matrix(rows, len(words), self.field).rref()
         entries = reduced.to_dok()
         pivot_rows = {col: i for i, col in enumerate(pivots)}
         free = [col for col in range(len(words)) if col not in pivot_rows]
@@ -50,7 +53,7 @@ class CyclicPaths:
         reductions = {}
         for col, word in enumerate(words):
             if col in indices:
-                reductions[word[:-1]] = {indices[col]: QQ.one}
+                reductions[word[:-1]] = {indices[col]: self.field.one}
             else:
                 pivot = pivot_rows[col]
                 reductions[word[:-1]] = {i: -entries[pivot, h] for i, h in enumerate(free)
@@ -61,14 +64,14 @@ class CyclicPaths:
     def word(self, rotation, word):
         """Coordinates of an arbitrary path in its endpoint space."""
         if len(word) == 1:
-            return {0: QQ.one}
+            return {0: self.field.one}
         length = len(word) - 1
         basis, _ = self.space(length - 1, rotation, word[0], word[-2])
         _, reductions = self.space(length, rotation, word[0], word[-1])
         out = {}
         for k, coefficient in self.word(rotation, word[:-1]).items():
             for col, value in reductions[basis[k]].items():
-                out[col] = out.get(col, QQ.zero) + coefficient * value
+                out[col] = out.get(col, self.field.zero) + coefficient * value
         return {col: value for col, value in out.items() if value}
 
     def center(self, length):
@@ -85,8 +88,8 @@ class CyclicPaths:
                     rows.setdefault((rotation, i, j, k), {})[col] = value
                 for k, value in self.word(prev, (j,) + loop).items():
                     row = rows.setdefault((prev, j, i, k), {})
-                    row[col] = row.get(col, QQ.zero) - value
-        kernel = row_matrix(list(rows.values()), len(columns)).nullspace().to_dod()
+                    row[col] = row.get(col, self.field.zero) - value
+        kernel = row_matrix(list(rows.values()), len(columns), self.field).nullspace().to_dod()
         return [{columns[col]: value for col, value in row.items()} for row in kernel.values()]
 
     def product_rank(self, length, rotation, start, end, generators):
@@ -97,26 +100,44 @@ class CyclicPaths:
                 for (turn, loop), value in central.items():
                     if (turn, loop[0]) == (rotation, start):
                         for col, v in self.word(turn, loop + tail[1:]).items():
-                            row[col] = row.get(col, QQ.zero) + value * v
+                            row[col] = row.get(col, self.field.zero) + value * v
                 rows.append({col: value for col, value in row.items() if value})
         dimension = len(self.space(length, rotation, start, end)[0])
-        return row_matrix(rows, dimension).rank(), dimension
+        return row_matrix(rows, dimension, self.field).rank(), dimension
 
 
-def main():
-    paths = CyclicPaths(116309742)
+def check_generation(mask, field, centers, target):
+    paths = CyclicPaths(mask, field)
     generators = []
-    for degree, expected in ((3, 1), (6, 4)):
+    for degree, expected in centers:
         basis = paths.center(degree)
         assert len(basis) == expected
         generators.extend((degree, element) for element in basis)
-        print(f"degree {degree}: center dimension {len(basis)}")
     dimensions = []
     for rotation, start, end in TRIPLES:
-        rank, dim = paths.product_rank(10, rotation, start, end, generators)
+        rank, dim = paths.product_rank(target, rotation, start, end, generators)
         assert rank == dim, (rotation, start, end, rank, dim)
         dimensions.append(dim)
-    print(f"PASS all 27 degree-ten spaces spanned; total dimension {sum(dimensions)}")
+    print(f"PASS {mask} over {field}: centers {centers}, all 27 degree-{target} "
+          f"spaces spanned, total dimension {sum(dimensions)}")
+    return sum(dimensions)
+
+
+def main():
+    special = CyclicPaths(134135534)
+    for r, i, j in TRIPLES:
+        assert len(special.space(3, r, i, j)[0]) == 3 + int(i == j)
+        assert len(special.space(4, r, i, j)[0]) == 5
+    assert len(special.center(3)) == 1
+    print("PASS characteristic-zero degree-three center dimension one at 134135534")
+    assert check_generation(116309742, QQ, ((3, 1), (6, 4)), 10) == 594
+    for mask, centers, target in (
+        (134135534, ((3, 1), (6, 4)), 12),
+        (134135535, ((3, 4),), 5),
+        (134147823, ((3, 1), (6, 4)), 12),
+        (134151407, ((3, 1), (9, 4)), 15),
+    ):
+        check_generation(mask, GF(2), centers, target)
 
 
 if __name__ == "__main__":

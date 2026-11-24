@@ -16,9 +16,11 @@
 
 六個以上の零を持つAOU三ブロック型でも、標準比較を仮定せずに包含を証明した。残っていた七零の一点（台116309742、$u=1$）で、次数3と6の中心元が次数10の全594次元を生成し、巡回関係代数が中心上有限となる。主稿 `cor:ou-six-zero-automatic`、検算 `python3 computations/verify_ou_seven_zero_center.py`。
 
-五零型では正規化した台134135534、$(u,v,w)=(1,1,1)$の一点を除く全域で比較仮定を除去した。台132054766の補集合族は三直線（$a=-1$で共点）、134135534の補集合族は$a\ne1$で四成分の節点曲線を用いる。証明 `prop:ou-five-zero-cycle-pencils`、検算 `python3 computations/verify_ou_five_zero_cycle_pencils.py`。
+五零型でも全域で比較仮定を除去した。最後の正規化点134135534、$(u,v,w)=(1,1,1)$で、標数2の中心元との積が次数12の全819次元を張ることと、付値環を用いた右noetherian性の持上げを証明した。主稿 `thm:ou-five-zero-automatic`、検算 `python3 computations/verify_ou_seven_zero_center.py`。台132054766の補集合族は三直線（$a=-1$で共点）、134135534の補集合族は$a\ne1$で四成分の節点曲線を用いる。証明 `prop:ou-five-zero-cycle-pencils`、検算 `python3 computations/verify_ou_five_zero_cycle_pencils.py`。
 
 四零の境界九行でも22件の残余因子（三成分6、四成分16）の一般点を処理した。これによりAOUの全係数台を通じて、比較仮定なしの残余が正規化係数空間の余次元三以上となる。主稿 `cor:ou-aou-codim-three`、検算 `python3 computations/verify_ou_four_zero_cycle_pencils.py`。
+
+全AOU型のvery strong窓で矢印長3の中心が非零であり、一般点では次元1である。三次・四次経路空間が束となる開集合で、閉路と矢印の可換条件の核次元を特殊化した。特殊点での中心元の正則性は今後の課題である（`prop:ou-aou-central-specialization`）。
 
 ## 標準比較と少数零型の進展（2026-11-25）
 
