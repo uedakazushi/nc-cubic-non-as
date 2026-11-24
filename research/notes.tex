@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v40}
+\date{2026年11月24日／non-as-v41}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -1038,7 +1038,24 @@ $\lambda H^2=\prod_\nu(\kappa_\nu+tH\eta_\nu)$を
 四零の133136111、三零の133947135が新規排除。
 133136111のrank2九線束表示は存在するが$I_3$外である。
 従来の八台の周期障害はこの一般定理で統一される。
-五零以上は認識・排除済み。四零四台の境界・他の1--3零・標準比較が未解決。
+定理\ref{thm:ou-complement-general-arc}では、孤立零と補集合の八係数1、
+三面可逆性から$Lz=0$と二項三次式の$p=(1,1,0,0,0,0)$を通る
+局所枝を取る。$z_1=1$で局所次元一以上、四零座標の共通零は$p$のみ。
+$\begin{pmatrix}z_5/z_0&z_3\\z_4&z_2\end{pmatrix}$のrank一分解を
+$\tau=t^2$により両因子が正位数となるよう調整し、矢印行列を構成する。
+この一般化はsmooth切断もrank三も要しない。
+定理\ref{thm:ou-four-zero-complement-boundaries}の九境界はこの方法で排除。
+残余のうち134151918の$u=v=1$と$v=q=1$は経路商19,14
+（必要値15,12）、134147823の$w=-u,q=v,u=v-1$は商10（必要値9）
+でvery strong性外。134147823の他の$w=-u,q=v,v\ne1$は
+定理\ref{thm:ou-four-zero-last-conic}で直線・円錐曲線表示。
+$d=1-1/v$、非零因子$ud(1-d)(u(1-d)-d)$、多重次数和
+$A=(-1,1),B=(1,2),C=(3,3)$、$\delta_{\rm md}=0,w=(2,1)$。
+明示行列・交叉スキーム上の貼り合わせは主稿を参照。
+\path{computations/verify_ou_four_zero_boundary.py}の全実行で
+九境界・三有理関数体経路商・円錐曲線の核と貼り合わせ・全合成を検算。
+系\ref{cor:ou-four-zero-complete-recognition}により四零以上は認識・排除済み。
+他の1--3零・標準比較が未解決。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
 
