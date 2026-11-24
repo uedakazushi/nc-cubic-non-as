@@ -842,39 +842,225 @@ very strong性から必要な八次経路商次元は15となり矛盾する。
 同じ次元障害が成立する。
 \end{proof}
 
-\begin{corollary}[七零係数型の一特殊値を除く認識・排除]
-\label{cor:ou-seven-zero-one-special-value}
-標準noetherian OU比較と内在的三次条件を持つvery strongな
-OU三次型で七個の零係数があるならば、
-台116834030、または台116309742の一係数族に限られる
+\subsection{六つの周期単純対象の同時厚化と七零係数型の認識の完了}
+\label{subsec:ou-seven-zero-six-cycle}
+
+\begin{theorem}[116309742の特殊値の六周期対象による排除]
+\label{thm:ou-seven-zero-six-cycle-exclusion}
+台116309742、正規化後の自由係数$u=c_{211}=1$を持つ
+三ブロック型について、標準noetherian OU helix比較を持つ
+対応する曲面圏は内在的三次条件を満たさない。
+これはvery strong導来helixそのものの不成立を主張しない。
+\end{theorem}
+\begin{proof}
+係数$c_{ijk}$は全て0または1である。
+次の六つの零係数の位置を$a=0,\ldots,5$の順に取る：
+\[
+ p_a=(i_a,j_a,k_a)=(000),(112),(220),(011),(202),(121).
+\]
+各$p_a$は孤立零係数、すなわちその三つの座標方向の直線に
+他の零係数はない。また各ブロックの各頂点は二回ずつ現れ、
+隣接する$p_a,p_{a+1}$（添字はmodulo 6）の三添字は全て異なる。
+これらは台のビット整数116309742から直接確認できる。
+
+まず$Q_a$を頂点$U_{i_a},V_{j_a},W_{k_a}$で一次元、
+他の頂点で零、二つの経路上の矢印が恒等となる反変表現とする。
+孤立零係数の条件から、補題\ref{lem:ou-iv-periodic-three}の
+射影分解と同様に
+\[
+ 0\longrightarrow P_{U_{i_a}}\longrightarrow
+ \bigoplus_{j\ne j_a}P_{V_j}\longrightarrow P_{W_{k_a}}
+ \longrightarrow Q_a\longrightarrow0
+\]
+が完全である。左の写像の成分は$c_{i_a j k_a}A_{i_a j}$、
+中央の写像は$B_{j k_a}$である。実際、頂点$U_i$で$i\ne i_a$
+なら省いた経由頂点$j_a$の係数$c_{i j_a k_a}$が非零なので
+他の二経路が商の基底になり、$i=i_a$なら唯一の二項関係で
+左の写像の像が核になる。Serre関手を施した入射複体についても、
+反対側の非零性$c_{i_a j_a k}\ne0$ ($k\ne k_a$)を用いて
+同じ計算を行えば、$S_\Lambda Q_a\simeq Q_a[2]$となる。
+従って$sQ_a\simeq Q_a$である。
+補題\ref{lem:ou-iv-periodic-simple}の証明は各ブロックの
+切断数の和が1であることと周期性だけを使うので、
+同様に標準比較の下で$Q_a$はheartの互いに非同型な単純対象となる。
+この段階では任意長の厚化は従わないので、以下で構成する。
+
+$k[[t]]$上の反変表現を、各頂点にその頂点に現れる二つの
+ラベル$a$に対応する自由rank二加群を置いて作る。
+全ラベルを並べた六行六列の矢印行列$\mathcal A,\mathcal B$を用いる。
+行$a$、列$b$の成分はそれぞれ$V_{j_b}\to U_{i_a}$、
+$W_{k_b}\to V_{j_a}$の矢印の対応する成分を表す。
+従って関係式は全ての$a,b$について
+\[
+ \sum_{h=0}^5 c_{i_a j_h k_b}\mathcal A_{ah}\mathcal B_{hb}=0
+\]
+である。以下、この六次行列の成分を形式的に解く。
+
+$q=t^6$とおく。$d=0,\ldots,5$を$b-a$のmodulo 6での
+代表とし、$a$のmodulo 3での代表を$\bar a$とする。
+形式級数$\alpha_{r,d},\beta_{r,d}\in k[[q]]$ ($r=0,1,2$)を使い、
+\[
+ \mathcal A_{a,a+d}=t^d\alpha_{\bar a,d}(q),\qquad
+ \mathcal B_{a,a+d}=t^d\beta_{\bar a,d}(q)
+\]
+と定める。$\alpha_{r,0}=\beta_{r,0}=1$と固定する。
+残る30個の未知級数について方程式を作る。
+$c_{i_a j_h k_b}$は三つのラベルを同時に3だけ進めても不変である。
+従って全36関係は、各$r=0,1,2$、$d=0,\ldots,5$についての
+18多項式方程式に帰着する。具体的に
+\[
+ e_p=(d-p)\bmod 6\quad(0\leq e_p\leq5),\qquad
+ H_{r,d}=
+ \sum_{p=0}^5 c_{i_r j_{r+p} k_{r+d}}\,
+ \alpha_{r,p}\beta_{\overline{r+p},e_p}
+ q^{(p+e_p-d)/6}.
+\]
+$p_a$の添字はmodulo 6で読む。
+$d=0$では$p=0$の項は孤立零係数そのものなので零、
+他の項は$q$で割り切れる。
+方程式を$G_{r,d}=H_{r,d}$ ($d>0$)、
+$G_{r,0}=H_{r,0}/q$とする。
+これらが零になれば、元の全関係式も零になる。
+この対角の方程式を$q$で割る操作は、厚化を任意次数で
+成立させるために必要であり、省略してはならない。
+
+$q=0$での初期値を次の表で与える。
+各三成分は$r=0,1,2$の順である。
+\[
+\begin{array}{c|c|c}
+d&(\alpha_{0,d},\alpha_{1,d},\alpha_{2,d})
+ &(\beta_{0,d},\beta_{1,d},\beta_{2,d})\\ \hline
+0&(1,1,1)&(1,1,1)\\
+1&(1,1,1)&(-1,-1,-1)\\
+2&(1,0,0)&(0,0,1)\\
+3&(0,-1,0)&(1,0,0)\\
+4&(0,0,-1)&(0,-1,0)\\
+5&(0,0,0)&(0,0,0)
+\end{array}
+\]
+この点で全$G_{r,d}$は零である。
+さらに方程式を$(r,d)$の辞書式順に並べ、
+未知変数を$\alpha_{r,d}$、次いで$\beta_{r,d}$のそれぞれ
+$(r,d)$の辞書式順（$1\leq d\leq5$）に並べると、
+Jacobianは$18\times30$行列になる。
+その零始まりの列番号
+\[
+ 0,1,2,3,5,6,7,8,10,11,12,13,15,16,17,18,20,21
+\]
+を取った$18\times18$小行列式は$-8$である。
+この恒等式と上の台・方程式の検算は
+\path{computations/verify_ou_seven_zero_six_cycle.py}
+に全手順を収録した。標数零なのでこの小行列は可逆である。
+残る12変数を初期値のまま固定し、18変数の$q$進係数を順次
+解けば、全方程式を満たす形式級数を得る。
+実際、各次数で未定の係数に掛かる行列はこの同じJacobian小行列で、
+低次の係数から定まる誤差項を消せる。従って形式陰関数定理により
+全次数の解が存在する。
+この結論は有限次数での近似の観察ではない。
+特に
+\[
+ \mathcal A(0)=\mathcal B(0)=I_6,\quad
+ \mathcal A_{a,a+1}=t+O(t^7),\quad
+ \mathcal B_{a,a+1}=-t+O(t^7).
+\]
+
+得られた表現を$D_m=k[[t]]/(t^m)$へ特殊化して$T_m$とする。
+$t$進filtrationの各逐次商は$\bigoplus_{a=0}^5Q_a$である。
+heartは拡大で閉じているので$T_m$はheartに属し、
+各$Q_a$を$m$個ずつ組成因子に持つ。
+次にheadの多重度を$m$に独立に抑える。
+$T_m\to Q_a$の射は$U_{i_a}$上の線型写像$f_a$で決まる。
+実際、$Q_a$の二つの非零矢印は恒等だから、
+両立条件により$V_{j_a}$と$W_{k_a}$での写像が順次定まる。
+他の$V$頂点から$U_{i_a}$へ来る矢印の像を$f_a$は消す。
+
+$U_{i_a}$に現れるもう一つのラベルを$b$、$h=a+1$とする。
+$b,h$は異なり、$j_b,j_h$はどちらも$j_a$と異なる。
+後者は$b$については孤立零係数の条件から、$h$については
+隣接ラベルの条件から従う。従って二つの列$b,h$は
+$f_a$が消すべき矢印の像に属する。
+行を$b,a$、列を$b,h$の順に取った部分行列は
+\[
+ \begin{pmatrix}1&O(t)\\O(t)&t+O(t^7)\end{pmatrix}.
+\]
+その行列式の$t$進位数は1である。単元を一つ含むので
+Smith標準形は$\operatorname{diag}(1,t)$（単元倍を除く）。
+従って$D_m^2$のこの二列の像による商は$k$上高々一次元。
+よって$\dim\operatorname{Hom}(T_m,Q_a)\leq1$である。
+これは各$m\geq1$について成立する。
+
+$F=\bigoplus_{a=0}^5P_{W_{k_a}}$とおけば、
+各$Q_a$への非零射があり、そのheadの各成分への射を選んで
+$F\to\operatorname{head}(T_m)$の全射を作れる。
+射影基底から$\operatorname{Ext}^1(F,Q_a)=0$なので
+有限長filtrationを使ってこの全射を$F\to T_m$へ持ち上げられる。
+余核が非零ならある$Q_a$を単純商として持ち、その射はheadを
+経由するため矛盾する。従って固定始域$F$から任意長の全射を得た。
+この議論は補題\ref{lem:ou-periodic-formal-arc-obstruction}の
+有界headの議論を六つの単純対象に拡張したものである。
+
+ここで定理\ref{thm:ou-iv-periodic-exclusion}の数値的rankの
+障害を用いる。その証明の式
+\eqref{eq:ou-iv-periodic-self-euler}、
+\eqref{eq:ou-iv-periodic-ext-self-bound}、
+\eqref{eq:ou-iv-periodic-ext1-exact}は
+周期単純対象の個数や台の具体的な形には依存しない。
+従って仮定した内在的標識$\mathcal O$について$r([\mathcal O])=1$、
+また固定始域$F$からの全射により
+\[
+ m\sum_{a=0}^5\dim\operatorname{Ext}^1(\mathcal O,Q_a)\leq C_F .
+\]
+任意の$m$に対し同じ上界を持つので全ての$\operatorname{Ext}^1$は零。
+同定理の負次数Hom消滅と周期性から$\operatorname{Ext}^2=0$、
+AZ1と周期性から$\operatorname{Hom}(\mathcal O,Q_a)\ne0$となる。
+各頂点を二度ずつ覆うことにより
+$\sum_a\chi(P_j,Q_a)=2$であり、
+射影基底に関する線形性から
+\[
+ 2=2r([\mathcal O])=\sum_{a=0}^5\chi(\mathcal O,Q_a)\geq6
+\]
+という矛盾を得る。
+
+巡回変更については同じ標準比較の下で巡回foundationを使う。
+添字方向の反転を要する場合は、反転した関係代数に対して
+形式表現を$(\mathcal A',\mathcal B')=
+(\mathcal B^{\mathsf t},\mathcal A^{\mathsf t})$とする。
+このとき各行$a$に位数1の成分$\mathcal A'_{a,a-1}$があり、
+もう一つのラベルは今度は$k_a$を共有する$b$である。
+$b,a-1$は異なり、$j_b,j_{a-1}$は$j_a$と異なる。
+従って同じ二次minorの議論（先頭係数は$-1$）が成立する。
+これは元の向きのheartでの排除であって、
+内在的標識を反対圏に移すことは仮定しない。
+\end{proof}
+
+\begin{corollary}[七零係数型の認識・排除の完了]
+\label{cor:ou-seven-zero-complete-recognition}
+標準noetherian OU helix比較と内在的三次条件を持つvery strongな
+OU三次型で七個の零係数があるならば、台116834030の一係数族、
+または台116309742の$u=c_{211}\ne1$の範囲に限られる
 （台の同値を除く）。
-前者の全域と後者の$u=c_{211}\ne1$は標準AS四次元正規三次商として
-認識される。唯一の未判定は後者の$u=1$である。
+いずれの場合も標準AS四次元正規三次商として認識される。
+従ってこれらの仮定の下で七個以上の零係数型について
+式\eqref{eq:intrinsic-ou-question}の逆包含が成立する。
+この必要条件は二族の全パラメータの実現可能性を主張しない。
 \end{corollary}
 \begin{proof}
 定理\ref{thm:ou-seven-eight-zero-path-exclusion}の八台のうち、
 125234926は定理\ref{thm:ou-latin-square-periodic-exclusion}、
 三台は定理\ref{thm:ou-seven-zero-line-conic-exclusion}、
-117368558と125531767は直前の二定理で排除する。
-残る二台については命題\ref{prop:ou-seven-zero-curve-recognition}
-を適用する。
+117368558は定理\ref{thm:ou-seven-zero-formal-arc-exclusion}、
+125531767は定理\ref{thm:ou-seven-zero-eighth-path-exclusion}で排除する。
+116309742の$u=1$は定理\ref{thm:ou-seven-zero-six-cycle-exclusion}で排除し、
+残る範囲は命題\ref{prop:ou-seven-zero-curve-recognition}で認識される。
+八個以上の零は系\ref{cor:ou-intrinsic-at-most-seven-zeros}による。
 \end{proof}
 
 \begin{remark}
-116309742の$u=1$について八次・九次の三巡回の全九端点で
-経路商を有理数体上で計算したところ、それぞれ必要値15、
-$18+\delta_{ij}$と一致した。
-これはvery strong性の十分条件ではない。
-また七零の当該台には七つの孤立零係数があり、
-孤立零係数とはその三座標方向の各直線上に他の零係数がないものをいう。
-そのうち六つの頂点三つ組
-$(000),(112),(220),(011),(202),(121)$は
-各九頂点を二回覆い、互いに全添字が相異なる組を辺とすると
-六cycleとなる。この台の組合せ論的性質は今後の周期対象の構成の
-入口であるが、六対象の任意長厚化は未構成である。
-\path{computations/verify_ou_seven_zero_last.py}は
-上の形式曲線の恒等式・位数・核ベクトル、八次の排除、
-特殊値での八次九次の必要次元を検算する。
-なおこの特殊値の内在的認識/排除、一個から六個の零係数型、
-標準noetherian OU比較の適用範囲が残る。
+116309742の$u=1$について八次・九次の全巡回・全端点の経路商は
+Eulerの必要値と一致する（\path{computations/verify_ou_seven_zero_last.py}）。
+これはvery strong性を証明しない。上の排除は別の圏論的障害であり、
+標準比較を仮定して内在的三次条件を否定する。
+全係数非零の場合も定理\ref{thm:ou-dense-complete-recognition}で
+認識済みなので、残る零係数型は一個から六個までである。
+標準noetherian OU比較の一般的な適用範囲も引き続き未解決である。
 \end{remark}
