@@ -1507,20 +1507,286 @@ $ad=bc$かつ$a+d=b+c$から多重集合$\{a,d\}=\{b,c\}$となり、
 主張の式を得る。
 \end{proof}
 
+\subsection{残余族の三直線上の九線束表示と全係数非零型の認識}
+\label{subsec:ou-dense-residual-three-lines}
+
+前節の五係数族については、条件(i)の失敗をvery strong性から
+排除する必要はない。代わりに行列式切断上で、一つの矢印の
+切断が一成分上で恒等的に零となる九線束表示を構成する。
+
+\begin{theorem}[残余五係数族の九線束表示]
+\label{thm:ou-dense-residual-three-lines}
+定理\ref{thm:ou-dense-five-coefficient-residual}の残余正規形を考える。
+すなわち全係数非零で、行列式線形式のrankは三、元の巡回で(ii)が
+成立し、添字の一つでも零なら$c_{ijk}=1$、残る二面は
+\[
+ (c_{ij1}-1)_{i,j=1,2}=M=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+ \qquad
+ (c_{ij2}-1)_{i,j=1,2}=N=\lambda\mathbf1+\mu M.
+\]
+$D_0=ad-bc,\ S_1=a+d-b-c,\ \tau=1+\lambda-\mu$とおき、
+\[
+ D_0\lambda\mu\tau\ne0,\qquad (\mu-1)D_0+\lambda S_1=0
+\]
+と仮定する。さらに異なる$k$のsliceの成分比のrankが一ではない
+とする（very strong性から従う）。
+このとき行列式切断$E$は三つの相異なる直線の和であり、
+$S_1\ne0$なら三角形（Kodaira $I_3$型）、$S_1=0$なら共点三直線
+（IV型）である。
+元の三ブロック関係代数は$E$上の全次数$0,1,2$の各三本の
+線束のdirected algebraとして実現される。
+同一ブロック内は完全直交し、前向き高次Extは消滅する。
+この九線束表示自体は上の係数条件の下で成立し、
+標準noetherian OU比較も内在的三次標識も必要としない。
+\end{theorem}
+
+\begin{proof}
+$A_x=1+x,\ B_x=1+\lambda+\mu x$と書く。
+(ii)より
+$a\ne b,\ a\ne c,\ b\ne d,\ c\ne d$である。
+前節の符号付き行列式線形式を$\ell_0,\ell_1,\ell_2$とする。
+$\ell_2-\mu\ell_1-\tau\ell_0$は$z_0,z_1$の二座標のみを含む。
+その係数を$P,-P'$とすれば
+\[
+ P-P'=\mu\bigl((\mu-1)D_0+\lambda S_1\bigr)=0 .
+\]
+rank三より$P=P'\ne0$なので、零平面上で$z_0=z_1=t$。
+さらに$x=z_2,\ y=z_3,\ z=z_4,\ w=z_5$とおくと、
+$\ell_0=0$は$x+w=y+z$である。
+$p=y-x,\ q=z-x$と書けば$w=x+p+q$となり、$\ell_1=0$は
+\begin{equation}\label{eq:ou-dense-residual-plane}
+ H=(D_0+S_1)t-S_1x+(b-d)p+(c-d)q=0
+\end{equation}
+となる。条件(ii)は$D_0+S_1\ne0$を含意する。
+実際、$A_aA_d-A_bA_c=D_0+S_1$、
+$B_aB_d-B_bB_c=\mu(D_0+S_1)$だから、
+この値が零なら$z_0,z_1$に対応する係数二列が比例する。
+従って平面$V(H)\subset\mathbb P^3_{[t:x:p:q]}$において
+二項三次式は
+\[
+ t(yz-xw)=tpq
+\]
+である。$D_0+S_1,\ b-d,\ c-d$は非零なので、
+$L_0=V(t),L_1=V(p),L_2=V(q)$はこの平面内の相異なる三直線。
+$S_1\ne0$なら$t,p,q$を独立座標にできて三角形、
+$S_1=0$なら共点三直線となる。いずれも被約である。
+
+以下、$E=L_0\cup L_1\cup L_2$上の線束$U_i,V_j$と
+射$A_{ij}:U_i\to V_j$を具体的に構成する。
+まず各成分上で多重次数（成分の順序は$L_0,L_1,L_2$）を
+\[
+\begin{array}{c|ccc}
+ &L_0&L_1&L_2\\ \hline
+ U_0&1&0&-1\\
+ U_1,U_2&0&0&0\\
+ V_0&0&1&0\\
+ V_1,V_2&1&0&0
+\end{array}
+\]
+と指定する。各成分は$\mathbb P^1$なので、次数$n$の束として
+$\mathcal O_{L_a}(n)$を取る。射の行列（行が$U_i$、列が$V_j$）は
+各成分上でそれぞれ
+\begin{equation}\label{eq:ou-dense-residual-component-matrices}
+ X_0=\begin{pmatrix}0&1&1\\1&x&y\\1&z&w\end{pmatrix},\qquad
+ X_1=\begin{pmatrix}t&1&1\\w&1&1\\x&1&1\end{pmatrix},\qquad
+ X_2=\begin{pmatrix}t&w&x\\1&1&1\\1&1&1\end{pmatrix}.
+\end{equation}
+一次形式は$\mathcal O(1)$の切断であり、定数成分は
+$\mathcal O$の切断として取る。$X_0$の$(0,0)$成分は
+$\mathcal O_{L_0}(-1)$の零切断である。
+
+特異点における貼り合わせを明示する。
+すべての特異点で$xw\ne0$である。
+実際、$L_0\cap L_1$では$t=p=0$であり、
+\eqref{eq:ou-dense-residual-plane}より$x=0$なら$q=0$、
+$w=x+q=0$なら$(a-b)x=0$となって矛盾する。
+$L_0\cap L_2$も同様で、$L_1\cap L_2$では$p=q=0$、
+$(D_0+S_1)t=S_1x$から$x=w\ne0$となる。
+したがって開集合$G=E\cap D_+(xw)$は全特異点を含む。
+$G$上では六線束を自明とし、射の行列を
+\begin{equation}\label{eq:ou-dense-residual-common-chart}
+ X_G=\begin{pmatrix}
+ t/w&1&1\\1&1&y/x\\1&z/x&w/x
+ \end{pmatrix}
+\end{equation}
+と定義する。
+$E$の残りは各$L_a$から他成分を除いた三開集合で覆う。
+重なり上で$\mathcal O(1)$を$x$により自明化する。
+$L_0$では$X_0$が$X_G$と一致する。
+$L_1$では左から$\operatorname{diag}(1,1,w/x)$、
+右から$\operatorname{diag}(x/w,1,1)$を掛ければ
+自明化した$X_1$が$X_G$に一致する。
+$L_2$では左から$\operatorname{diag}(x/w,1,1)$、
+右から$\operatorname{diag}(1,1,w/x)$を掛ければよい。
+これらはすべて単元なので、対応する行・列の線束の
+遷移関数（行側は逆数）によって六本の線束と九射を貼り合わせる。
+成分のみの開集合は互いに交わらないためcocycle条件も自動である。
+特にIV型でも正規化上の点でファイバーだけを同一視するのではなく、
+特異点を含む$G$上で局所自由層と射を直接定義した。
+各成分への制限は最初に指定した束と射に同型である。
+
+$C_k=(c_{ijk})_{i,j}$として、$\mathscr M_k=C_k\odot X$を
+$E$上の射$\bigoplus_j V_j^{-1}\to\bigoplus_i U_i^{-1}$と解釈する。
+固定した$k$について右下四係数を$e,f,g,h$と書く。
+\eqref{eq:ou-dense-residual-component-matrices}の各成分上の行列式は
+\[
+ (eh-fg)t-ex+fy+gz-hw
+\]
+の対応する成分への制限であり、$\ell_k=0$より消滅する。
+曲線は被約なので大域的にも行列式は零である。
+これらの行列は全点でrank二を持つ。
+$L_0$上では左上の二次minorは$-1$。
+$L_1$上では$k=1,2$のとき第1,2列（零始まり）は一次独立である
+（最初の二行のminorは$f-e\ne0$）。
+$L_2$では第1,2行が一次独立である（$g-e\ne0$）。
+ここで$k=2$については$\mu\ne0$を用いる。
+$k=0$の$L_1,L_2$上ではrank一となるのは$t=x=w$のときだけだが、
+\eqref{eq:ou-dense-residual-plane}に代入すると$D_0x=0$となって
+射影点として不可能である。
+すべての点で可逆な二次minorがあるため、行列式零と局所消去から
+$\ker\mathscr M_k,\operatorname{coker}\mathscr M_k$は線束となる。
+特異点の局所環でも同じ消去が可能である。
+
+$W_k=(\ker\mathscr M_k)^\vee$とし、核の包含を双対化して
+$B_{jk}:V_j\to W_k$を取る。
+多重次数を計算する。$L_0$上では核は
+$(fy-ex,1,-1)^{\mathsf t}$で与えられ、
+$\mathcal O(-1)$からの包含となる。
+$L_1$上では$k=0$の核は定数ベクトル$(0,1,-1)$で自明、
+$k=1,2$の核は第0成分への射影が各点で非零だから
+$V_0^{-1}=\mathcal O(-1)$と同型である。
+$L_2$上では$k=0$に対して
+$\mathcal O^{\oplus3}\to\mathcal O(1)\oplus\mathcal O$が全射で、
+核の次数は$-1$。$k=1,2$では二つの独立な定数行の共通核が
+一定であり自明である。
+以上より
+\[
+ \operatorname{mdeg}W_0=(1,0,1),\qquad
+ \operatorname{mdeg}W_1=\operatorname{mdeg}W_2=(1,1,0).
+\]
+すべての$U,V,W$の全次数は所望の$0,1,2$である。
+
+線束のコホモロジーを確認する。
+三直線上の線束$L$の非零切断が真の空でない部分曲線に支持を
+持つとき、支持上の次数は二以上である。
+実際、支持の部分曲線と補曲線との交叉スキームの長さは二であり、
+その支持上で切断は交叉に沿って消滅する。
+支持上の全成分で非零なので有効Cartier零因子を持ち、
+その次数は交叉長以上である。この議論は共点の場合にも成り立つ。
+全次数零かつ各成分次数が$[-1,1]$であれば、
+真部分曲線の次数は高々一だから非零切断は全成分で非零となる。
+その零因子は全次数零なので存在せず、線束は自明となる。
+従ってそのような非自明線束はacyclicである
+（$\chi(L)=\deg L$）。
+隣接ブロックの差は全次数一で、各成分次数は$[-1,1]$。
+その双対の任意の真部分曲線の次数は高々一なので、
+双対には非零切断がない。
+第一・第三ブロックの差は非負多重次数で全次数二だから、
+同様に双対には非零切断がない。
+$\omega_E\simeq\mathcal O_E$とSerre双対性から
+すべての前向き高次Extは消滅し、隣接Hom次元は一、
+第一から第三へのHom次元は二である。
+
+次に射と合成を比較する。
+$A_{00}$以外の八つの$A$は各成分上で一般点で非零であり、
+全次数一の零因子は滑らかな一点である。
+$i=1,2$の各行では三つの零点は相異なる。
+実際、$A_{i0}$の零点は$L_1$上、他の二つは$L_0$上であり、
+後二者が重なれば$L_0$上で$x=y=0$又は$z=w=0$となるが
+この点は$L_0\cap L_1$に属して$xw\ne0$に反する。
+また$L_1$上の$x,w$の零点は相異なり、いずれも滑らかである
+（両方零なら$(D_0+S_1)t=0$）。$L_2$上も同様。
+従って$U_1,U_2$は同型ではない：同型なら
+$A_{10},A_{20}$は一次元Homの非零切断として同じ零点を持つ。
+$V_1,V_2$も$A_{01},A_{02}$を比較して相異なる。
+$U_0,V_0$はそれぞれのブロックの他と多重次数が異なる。
+
+すべての$B_{jk}$は非零である。
+実際、$L_0$上で$B_{1k},B_{2k}$は非零定数切断、
+$B_{0k}=fy-ex$は一次形式として非零である
+（$x,y$の零点が異なり、$e,f$は非零）。
+$i>0$なら三つの合成$B_{jk}A_{ij}$はしたがって非零。
+$i=0$では$j=1,2$について$L_0$上で非零。
+$j=0$についても$k=1,2$なら$L_1$上で$B_{0k}$が
+至る所非零で$A_{00}=t$は一般点で非零、
+$k=0$なら$L_2$上で$B_{00}$は$x-w$の非零倍となり
+同様に合成は非零である。
+
+$i=1,2$に対して三つの合成がすべて比例したと仮定する。
+各成分の一般点で少なくとも一つの$B_{jk}$は非零であり、
+すべての$A_{ij}$も一般点で非零だから、共通切断は全成分で非零。
+その零因子の次数は二であるのに、
+上で示した相異なる三つの滑らかな点で零になる。矛盾である。
+$i=0$については$B_{0k}A_{00}$が$L_0$上で恒等的に零であり、
+他の二合成はそこで非零なので比例しない。
+従って各$(i,k)$で合成は二次元Homを生成し、
+$\mathscr M_k$の核の定義から
+\[
+ \sum_j c_{ijk}B_{jk}A_{ij}=0
+\]
+が唯一の関係を与える。
+$W_1,W_2$が同型なら、各$j$からのHomは一次元なので
+同型を通じて$B_{j2}$は$B_{j1}$の非零倍となる。
+唯一の関係を各$i$で比較すれば$c_{ij2}/c_{ij1}$は
+$i$のスカラーと$j$のスカラーの積となりrank一である。
+仮定に反する。$W_0$は他の二本と多重次数が異なる。
+各ブロック内の相異なる二線束の差は全次数零で各成分次数
+$[-1,1]$なので、上のacyclic性から完全直交性を得る。
+以上で所望のdirected algebraの同定を証明した。
+\end{proof}
+
 \begin{remark}
-\label{rem:ou-dense-residual-five}
-定理\ref{thm:ou-dense-five-coefficient-residual}は
-六係数族での二つの特殊なアフィン関係を排除し、
-残る二巡回の三条件を完全に判定する。
-その五係数残余族の全排除や幾何的認識は未証明である。
-例えば$(a,b,c,d,\lambda,\mu)=(2,3,5,8,-6,13)$は$F_1=0$であり、
-全係数非零、三巡回全てrank三・(ii),(iii)成功・(i)失敗という
-係数条件を満たす。この数値例ではvery strong性を主張しない。
-従って残余係数条件が空であるとみなしてはならない。
-次はこの族における曲線の別表示、より高次のsyzygy、
-あるいは周期対象による内在的排除を検討する。
-係数空間のパラメータ数は同型類moduliの次元を意味しない。
+\label{rem:ou-dense-residual-multidegree}
+三ブロックの多重次数の総和を$A,B,C$とすると、
+上の構成では$A=(1,0,-1)$、$B=(2,1,0)$、$C=(3,2,1)$であり、
+$\delta_{\rm md}=A+C-2B=0$、$w=5B-3A-2C=(1,1,1)$となる。
+従ってこの表示は定理\ref{thm:ou-reduced-md-criterion}の
+幾何的かつampleな範囲に直接入る。
+残余正規形を排除するのではなく、従来の格子復元の
+条件(i)を必要としない表示で認識したのである。
+\path{computations/verify_ou_residual_three_lines.py}は
+平面の方程式、三直線への分解、成分行列の行列式、
+開集合$G$での貼り合わせ、核と多重次数の恒等式を検証する。
+例えば$(a,b,c,d,\lambda,\mu)=(2,3,5,8,-6,13)$は$S_1=2$、
+$(2,3,5,6,2,1)$は$S_1=0$であり、
+両者とも全係数非零・三巡回rank三・(ii),(iii)成立・(i)失敗を
+検算できる。ただし係数例の全逆Serre反復のvery strong性や
+標準比較・内在的標識の存在をこの検算から主張しない。
 \end{remark}
+
+\begin{theorem}[全係数非零のOU三次型の認識]
+\label{thm:ou-dense-complete-recognition}
+全係数非零のAOU三ブロック箙型を持ち、
+導来helixがvery strongであるとする。
+このときその関係代数は次のいずれかとして表示される。
+\begin{enumerate}
+ \item 滑らかな可換三次曲面の標準九線束型の自己準同型代数。
+ \item ある巡回foundationについて、被約平面三次曲線上の
+ 全次数$0,1,2$の各三本の線束のdirected algebra
+ （各ブロック内完全直交、前向き高次Ext消滅）。
+\end{enumerate}
+特に対応する曲面圏が標準noetherian OU helix比較を持ち
+内在的三次条件を満たせば、標準二次Koszul AS四次元正則環の
+正則正規三次商として認識される。
+従ってこれらの仮定の下で全係数非零型に対する
+式\eqref{eq:intrinsic-ou-question}の逆包含が成立する。
+\end{theorem}
+\begin{proof}
+系\ref{cor:ou-dense-commutative-rank-criterion}より
+行列式rank二の型は(1)であり、それ以外は全巡回rank三である。
+ある巡回で(i)--(iii)を同時に満たせば
+定理\ref{thm:ou-reduced-determinant-grid}で(2)を得る。
+そうでなければ定理\ref{thm:ou-dense-common-grid-torus}により
+(ii),(iii)を満たす巡回を選べる。
+定理\ref{thm:ou-dense-five-coefficient-residual}による添字変更で
+残余五係数族の正規形に移る。
+定理\ref{thm:ou-dense-residual-three-lines}がこの族を(2)として
+実現するので、全係数非零型は尽くされた。
+(1)は定理\ref{thm:recognition-weak-commutative}により認識される。
+(2)では関係代数の同型により逆Serre helixとその標準比較を移し、
+定理\ref{thm:ou-all-plane-cubic-recognition}を適用する。
+巡回foundationを変えても曲面圏と与えられた内在的標識は変えない。
+\end{proof}
 
 \begin{remark}
 ここでの可換locusの判定は全係数非零かつvery strong導来helixを
@@ -1532,10 +1798,11 @@ rank三の零平面については上の有限判定で扱う範囲が拡大し�
 命題\ref{prop:ou-dense-fourth-path}と定理\ref{thm:ou-dense-no-triple-grid-failure}により各巡回の障害長方形は高々一つ、三巡回同時の(ii)失敗は排除される。
 定理\ref{thm:ou-dense-at-most-one-torus-failure}は二巡回同時の(iii)失敗も排除し、定理\ref{thm:ou-dense-common-grid-torus}により(ii)と(iii)を同時に満たす巡回が存在する。
 そのような全巡回で(i)が失敗する残余型については
-命題\ref{prop:ou-dense-dependent-coordinate-normal-form}の正規形を経て、
-定理\ref{thm:ou-dense-five-coefficient-residual}で
-$\mu=1-\lambda S_1/D_0$、$D_0\lambda\mu\tau\ne0$の五係数族に帰着した。
-この残余型と係数零の型は引き続き調べる必要がある。
+定理\ref{thm:ou-dense-five-coefficient-residual}の五係数族への帰着と
+定理\ref{thm:ou-dense-residual-three-lines}の三直線上の復元により認識できる。
+定理\ref{thm:ou-dense-complete-recognition}は全係数非零の場合を
+尽くす。係数零の型と標準noetherian OU比較の適用範囲は
+引き続き調べる必要がある。
 関連する整数計算は
 \path{computations/verify_ou_determinant_cyclic.py}を参照。
 \end{remark}

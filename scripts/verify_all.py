@@ -18,6 +18,7 @@ PROGRAMS=(
     "computations/verify_ou_dense_higher_syzygies.py",
     "computations/verify_ou_grid_higher_syzygies.py",
     "computations/verify_ou_coordinate_dependence.py",
+    "computations/verify_ou_residual_three_lines.py",
     "computations/verify_boundary_fermat.py",
     "scripts/del_pezzo_degree2_verification.py",
     "scripts/nc_dp1_quintic_checks.py",

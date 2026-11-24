@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v23}
+\date{2026年11月24日／non-as-v24}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -748,20 +748,30 @@ $F_3=\mu T_1-(1+\lambda)D_0$、$F_2=F_3-F_1$。
 零となる$F_s$に対応する$k$添字を0と選び直すと、
 最終的に$F_1=0$、$D_0\ne0$、
 $\mu=1-\lambda S_1/D_0$の五係数族に帰着する。
-必要条件だけで残余が空とはいえない。
-主稿の例$(2,3,5,8,-6,13)$は三巡回ともrank三、
-(ii),(iii)成立、(i)失敗である。
-この例のvery strong性・内在的標識の存在は未確認。
-今後はこの五係数族の別表示・高次syzygy・内在的排除を調べる。
+残余五係数族は定理\ref{thm:ou-dense-residual-three-lines}で
+幾何的に認識した。行列式零平面は$z_0=z_1=t$、
+$x+w=y+z$、$(D_0+S_1)t-S_1x+(b-d)p+(c-d)q=0$
+（$p=y-x,\ q=z-x$）で与えられ、三次式は$tpq=0$。
+$S_1\ne0$は三角形、$S_1=0$は共点三直線となる。
+三成分上の射行列と特異点を含む共通開集合$xw\ne0$での
+貼り合わせは主稿の式\eqref{eq:ou-dense-residual-component-matrices},
+\eqref{eq:ou-dense-residual-common-chart}を参照。
+$A_{00}$のみは$L_0$上で恒等的に零となることが重要で、
+多重次数$U_0=(1,0,-1)$、$V_0=(0,1,0)$を許すと復元できる。
+核の双対$W_0=(1,0,1),\ W_1,W_2=(1,1,0)$を得て
+$\delta_{\rm md}=0,\ w=(1,1,1)$となる。
+両幾何型の例$(2,3,5,8,-6,13)$、$(2,3,5,6,2,1)$は
+三巡回ともrank三、(ii),(iii)成立、(i)失敗を検算した。
+係数例のvery strong性・標準比較・内在的標識の存在は未確認。
+主稿の定理\ref{thm:ou-dense-complete-recognition}により
+全係数非零型は標準比較と内在的三次条件の下で認識済み。
 係数族の次元と同型類moduliの次元は区別する。
 三条件は係数の有限なrank・行列式の等式/不等式なので、
 失敗理由を分けたstratificationと残存族の構造を調べる。
 (ii)の失敗は二つの置換積の比が全sliceで一定という局所的な
 交叉比条件、(iii)の失敗は特定sliceの逆数で全行列式が零となる条件。
-これらの同時成立を巡回方向間で比較し、
-higher syzygy、周期単純対象・任意長有限長商によるrank障害、
-別foundationや曲線表示を検討する。
-係数零の型についてはsupport graphの連結・強制零・cycle比から
+全係数非零の場合はこの手順と三直線表示で認識済み。
+次は係数零の型についてsupport graphの連結・強制零・cycle比から
 必要条件を絞り、rank二以下や零平面包含・非被約・座標成分も扱う。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
