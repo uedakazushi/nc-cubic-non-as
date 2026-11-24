@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v44}
+\date{2026年11月25日／non-as-v45}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -20,6 +20,16 @@
 OUの箙型による三次del Pezzo型の逆包含を否定する証明がある。
 内在的候補$\mathfrak I_3$との共通部分での逆包含はなお未解決。
 このより狭い問いの決着を最優先とし、既存定理の独立監査も継続する。
+
+\paragraph{中心の役割と一般点での分裂}
+命題\ref{prop:intrinsic-central-serre-vanishing}で用いるのは、標識の反標準環自身の
+正次数の斉次正規元である。中心元以外では正規化自己同型によるtwistを併用する。AZ2を固定余核への全射に適用すると正規元の作用は十分高い一次Extで
+単射となり、個々のYoneda拡大への全射に適用すると同じ作用のある冪がその拡大を消す。
+二つの適用で「十分高い」の下限は同じでなくてよい。数値Grothendieck群で
+標識の軌道が有限次元なら、可逆なシフトの線形漸化式によりEuler関数が全次数で決まる。
+定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
+一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
+の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
 
 \paragraph{より弱い導来仮定と二零の残余次元}
 定理\ref{thm:ou-derived-stack-recognition}では、標準切断に対するghostの

@@ -29,7 +29,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月25日／non-as-v44}
+\date{2026年11月25日／non-as-v45}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -42,6 +42,7 @@
 さらにトーリック商スタック$[\mathbb P^2/\mu_3]$では、反標準AZ-ampleなtorsion-free構造対象のrankが少なくとも三となることを証明し、構造層の非amplenessと特異な反標準模型を比較する。Hochschild障害とgraded ambientの障害を区別し、幾何学的・圏論的証明と有限計算を与える。
 AOU三ブロック箙型で指定九線束の平面三次曲線表示を持つ場合と全係数非零の場合には、標準射影の右noetherian性と導来比較を証明し、この比較を追加仮定から除く。二添字を共有する二つの零係数は八次経路商次元により一様に排除される。補集合二項式を満たす孤立零の特異外側面も六次経路商で排除する。各補集合二項式の稠密開集合に円錐曲線と直線上の九線束を構成し、一個から三個の零を持つ各台について追加の比較仮定が残る範囲を係数空間の余次元二以上に絞る。一・二零の二項式外の75成分を16軌道に分類し、61成分を経路商で排除する。残る五族の閉包では三直線表示が全巡回で失敗する全ての成分で経路次元が超過する。従ってAOU三ブロック箙型全体について、標準比較の下で関係係数の全特殊化を判定する。さらに補集合二項式内の全残余因子の稠密開集合で三成分または四成分の節点cycleと九線束を構成する。四成分では無限近点を含む古典参照爆発から標準比較を導き、一個から三個の零で未判定の余次元を三以上とする。六個以上の零についても、七零の特殊点で巡回関係代数の中心上有限性を示し、比較を追加仮定せずに包含を得る。五零では共点を含む三直線族と四成分族によって残余を一点に絞り、そこで標数二での中心上有限性から付値環で右noetherian性を持ち上げ、全域で比較を回収する。四零の全22因子を曲線表示で十三の一係数族に絞り、三次中心による商の頂点部分代数をOre拡大の濾過商で覆って、四零の全特殊化にも比較を回収する。展開cycleの表示を係数条件の全域に拡張し、43因子内の余次元一成分162件において三次中心商の各頂点を三生成元二次正則環で覆う開条件を確認する。三零の台134184687では三つの二変数族の全特殊化を判定する。他の二台の残余を十二の二変数族で覆い、62曲線と199件の全例外因子を検証する。これにより三零以上の全台で比較仮定を除去した。一・二零の十個の明示族のうち、二零で両補集合二項式を満たす四族を全て処理した。AOU型で残る特殊化は一零二族・二零四族の内部で正規化係数空間の余次元四以上に限られる。
 射影粗空間を持つ固有Deligne--Mumfordスタックでは、Ext次元から滑らかさが従い、安定化群の接表現と反標準Hilbert関数への局所寄与から全安定化群が自明となる。これにより可換な斉次座標表示を許す内在的三次候補は、生成次数を問わず滑らかな三次曲面として認識される。射影粗空間を持つ固有DMスタックとの導来同値だけでも、反標準環の中心局所化と一般点での標識の認識により同じ結論が従う。指定の次数一生成の双有理可換曲面表示にも適用できる。二零の残余四族はさらに正規化係数空間内の次元一以下に絞られる。
+射影曲面上の連接代数が一般点で分裂する場合にも認識が従い、斉次中心上有限で双有理可換な内在的反標準環では生成次数の制約を除ける。また反標準環の正次数正規元から全対象の高いtwistのSerre消滅を導く。
 \end{abstract}
 \tableofcontents
 
@@ -114,7 +115,77 @@ $\operatorname{Ext}^i(E,G)^*=\operatorname{Hom}(G,s^{-1}E[2-i])$である。
 形式的な退化ではない。
 一方、Hilbert級数の定数項から
 $\operatorname{End}_{\mathcal A}(\mathcal O)=\mathbb C$は既に従うが、
-高次Ext群の消滅は従わない。
+高次Ext群の消滅は定義には含まれていない。次の命題はそれを導く十分条件を与える。
+
+\begin{proposition}[反標準環の正規元からのSerre消滅]
+\label{prop:intrinsic-central-serre-vanishing}
+内在的三次標識$(\mathcal C,F,s)$の反標準環$R$に正次数の非零斉次正規元$z$（$Rz=zR$）があるとする。
+任意の$E\in\mathcal C$、$i>0$について
+$\operatorname{Ext}^i(F,s^n E)=0$ ($n\gg0$)となる。
+さらに数値Grothendieck群の有理化における$[s^jF]$ ($j\in\mathbb Z$)
+の張る部分空間が有限次元なら、$F$は例外対象であり、
+\[
+ \operatorname{Ext}^1(F,s^jF)=0\qquad(j\in\mathbb Z)
+\]
+である。特にこの結論にはhelixのheart所属や曲線への制限を要しない。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:intrinsic-domain-dimension}の単射性の議論は負のtwistにも適用できる。
+$m>0$で$F\to s^{-m}F$が非零なら、後合成により
+$\operatorname{Hom}(s^{-m}F,F)$が一次元の$\operatorname{End}(s^{-m}F)$に
+埋め込まれるが、前者は$1+3m(m+1)/2$次元である。
+従って負のtwistへの射は零である。任意の$E$はAZ1により固定した有限個の
+$s^{-a}F$の直和の商なので、Serre双対性により
+\[
+ \operatorname{Ext}^2(s^{-n}F,E)
+       =\operatorname{Hom}(E,s^{-n-1}F)^*=0\quad(n\gg0).
+\]
+
+$d=\deg z$とする。$R$は整域なので、$rz=z\sigma(r)$により
+次数を保つ代数自己同型$\sigma$が決まり、$\sigma(z)=z$である。
+Artin--Zhang再構成により$(\mathcal C,F,s)\simeq(\qgr R,\pi R,(1))$である。
+右作用を$\sigma$で捻る完全関手を$\tau$、$u=\tau s^d$と書く。
+$\tau F\simeq F$であり、$\tau$と$s$は可換である。$m\mapsto mz$は
+自然変換$z_E:E\to uE$を与え、$u$とも可換である。
+$z_F$は非零単射である。その余核を$Q$とする。
+$uF\twoheadrightarrow Q$にAZ2を適用し、その短完全列で長完全列を取ると、
+ある$N$があって全ての$n\ge N$で
+\[
+ (z_F)_*: \operatorname{Ext}^1(s^{-n}F,F)
+      \hookrightarrow\operatorname{Ext}^1(s^{-n}F,uF)
+       \simeq\operatorname{Ext}^1(u^{-1}s^{-n}F,F)
+\]
+となる。$u^{-k}s^{-n}F\simeq s^{-n-kd}F$なので、この単射を反復できる。
+一方、$\xi\in\operatorname{Ext}^1(s^{-n}F,F)$を表す全射
+$V\twoheadrightarrow s^{-n}F$を固定する。これにAZ2を適用すると、十分大きな$k$で
+$z^k:u^{-k}s^{-n}F\to s^{-n}F$が$V$へ持ち上がり、その引戻し拡大が分裂する。
+拡大の各項に自然変換$z^k$を適用した可換図式により、この引戻し類は
+上の写像を$k$回反復した類と一致する（各段で$u^{-1}$を適用する）。
+従って$n\ge N$なら単射性から$\xi=0$である。
+一般の$E$は負twistの有限直和からの全射を持つ。その核に対する
+上記の二次Ext消滅と長完全列により一次Extも十分大きな$n$で消える。
+
+最後の仮定の下で$e_n=\chi(F,s^nF)$は有限次元空間の可逆線形作用素の
+行列係数である。ゆえに定数項が非零の多項式$P$に対して
+$P(T)e=0$である（$T$は添字を一つ進める）。上の消滅により$n\gg0$で
+$e_n=p(n)=1+3n(n+1)/2$となる。$P(T)(T-1)^3$は差$e_n-p(n)$を消し、
+定数項が非零なので漸化式を逆向きに解けば全ての整数で等しい。
+$n\ge0$では二次Extは負twistへの射の消滅により零で、
+零次Homの次元が$p(n)$に等しいので一次Extも零である。
+負の$n$にはSerre双対性が一次Extを添字$-n-1$の双対に移す。
+$n=0$と$\operatorname{End}(F)=\mathbb C$から例外性を得る。
+\end{proof}
+
+\begin{corollary}[正規元がある場合のheartの判定]
+同命題の正規元の仮定の下で、$P\in D^b(\mathcal C)$が$\mathcal C$に入ることと、
+各$j\ne0$について$n\gg0$で$\operatorname{Hom}(s^{-n}F,P[j])=0$であることは同値である。
+\end{corollary}
+\begin{proof}
+$P$の有限個のcohomology対象に前命題を適用すると、十分大きい$n$で
+このHomは$\operatorname{Hom}(s^{-n}F,\mathcal H^jP)$に等しい。
+$\mathcal H^jP\ne0$ならAZ1をその任意の負twistに適用することで、
+任意に大きい$n$で後者が非零となる。
+\end{proof}
 
 \subsection{三つの条件と真の包含}
 
@@ -1147,6 +1218,89 @@ Artin--Zhang再構成、補題\ref{lem:intrinsic-domain-dimension}および
 \eqref{eq:intrinsic-hilbert}を用いる。正次数有限生成のとき、生成元の
 次数の最小値・最大値で語長と次数の濾過を比較できるので、二次Hilbert関数の
 累積和からGK次元は三である。
+\end{proof}
+
+\begin{theorem}[一般点で行列環となる連接代数の認識]
+\label{thm:ou-split-order-recognition}
+$Y$を複素数上の整な射影曲面、$K=\mathbb C(Y)$とし、
+$\mathscr A$を$Y$上の連接$\mathcal O_Y$代数とする。
+$\mathscr A_\eta\simeq M_b(L)$が、$K$の有限拡大$L$上の行列環であるとする。
+右加群の圏$\coh(Y,\mathscr A)$が内在的三次標識$F$を持つなら、
+その反標準環は可換であり、その標識付き圏は滑らかな三次曲面の標準標識に同値である。
+\end{theorem}
+\begin{proof}
+全ての連接右加群$E$は$\mathscr A$上局所的に完全であることを先に示す。
+非常に豊富な線束の負twistを持つ有限階自由$\mathscr A$加群から
+$E$、さらにその核への全射を取り、第二の核を$J$とする。
+任意の閉点$p$とファイバー代数の単純右加群$W$について、その押出しを同じ記号で表す。
+二つの自由加群のtwistから$W$への高次Extは点支持のため零であり、
+$\operatorname{Ext}^1(J,W)=\operatorname{Ext}^3(E,W)=0$である。
+点支持の局所Extは大域Extと同じで、有限表示の自由分解で計算すれば
+完備化でも保たれる。従って$J$の完備茎は
+$B=\mathscr A_p\otimes_{\mathcal O_{Y,p}}\widehat{\mathcal O}_{Y,p}$上射影的である。
+実際、完備局所環上有限な$B$はsemiperfectである（剰余代数の根基は冪零で、
+冪等元は完備性で持ち上がる）。射影被覆の核が非零なら、その単純商への射は
+被覆の射影加群から延長できず、上の一次Ext消滅に反する。
+有限表示と忠実平坦降下により$J$は$p$の近傍で局所射影的である。
+
+$Y$上の正規化双対化複体を$\omega_Y^\bullet$、
+$\mathscr D=R\mathcal H om_Y(\mathscr A,\omega_Y^\bullet)$と置く。
+$D^b(\coh(Y,\mathscr A))$のSerre関手は
+$E\mapsto E\otimes_{\mathscr A}^{L}\mathscr D$である。
+実際、$E$が局所的に完全なので、自由加群の場合のテンソル--Hom随伴を
+有限分解に適用すれば
+\[
+ R\mathcal H om_{\mathscr A}(G,E\otimes^L_{\mathscr A}\mathscr D)
+ \simeq R\mathcal H om_Y(R\mathcal H om_{\mathscr A}(E,G),\omega_Y^\bullet).
+\]
+大域切断に対する固有双対性\cite[Tag 0FVU]{StacksProject}と
+Serre関手の一意性による。一般点で$\omega_Y^\bullet$は$K[2]$に同型である。
+行列トレースと体トレース$L\to K$の合成は、$L/K$が分離的なので
+$M_b(L)$上の非退化な対称トレース対を与える。従って一般点で
+$\mathscr D[-2]\simeq\mathscr A_\eta$は\emph{両側}加群としての同型である。
+これにより$s$の一般点への制限は恒等関手に自然同型となる。
+
+有限代数上の連接加群についても、次元一以下の台はGabriel--Krull次元一以下と
+一致する。点のファイバーは有限次元の代数であり、一般の超平面の式による
+部分加群の降鎖、および曲線の一般点の長さの議論は
+定理\ref{thm:ou-effective-orbifold-recognition}と同じである。
+一般点への制限はこのSerre商を有限$\mathscr A_\eta$加群の圏に同定する。
+部分加群と射は分母を払って稠密開で定義でき、連接部分加群として延長できる
+（例えば射にはグラフの閉包を取る）。従って$F_\eta$は単純であり
+$\operatorname{End}_{\mathscr A_\eta}(F_\eta)=L$である。
+非零な$F\to s^nF$は単射で一般点でも非零となる。
+先の自然同型を反復して制限すれば、積を保つ単射$R\hookrightarrow L[t]$を得る。
+系\ref{cor:ou-commutative-graded-recognition}で結論する。
+\end{proof}
+
+\begin{corollary}[斉次中心上有限な双有理可換な反標準環]
+\label{cor:ou-finite-central-birational-recognition}
+内在的な反標準環$R$が、有限生成の可換斉次中心部分代数$S$上有限とする。
+$Q_{\rm gr}(R)_0$が可換体なら、任意の生成次数について、与えられた
+標識のまま滑らかな三次曲面の標準表示を得る。
+\end{corollary}
+\begin{proof}
+$R$は補題\ref{lem:intrinsic-domain-dimension}の整域である。
+十分可除な$m$を取り、$S'=S^{(m)}$を次数一生成とする。
+$R$は$S'$上有限で、三次成長の累積Hilbert関数から
+$Y=\operatorname{Proj}S'$は整な射影曲面である。
+$R$の全ての剰余類を保つ行列環
+$B_n=(R_{mn+j-i})_{0\le i,j<m}$を取る（負次数は零）。
+加群を各次数に$\bigoplus_{j=0}^{m-1} M_{mn+j}$とまとめる操作と
+対角冪等元による分割は互いに逆であり、$\qgr R\simeq\qgr B$である。
+$B$は対角の$S'$上有限なので、可換な次数一生成環に対するSerre対応を
+加群とその作用写像に適用すると$\qgr B\simeq\coh(Y,\widetilde B)$を得る。
+
+$S'$の非零斉次元を全て逆にすると、元の次数で$R$は次数付き体
+$Q_{\rm gr}(S')$上有限な次数付き加群となる。整域性により各非零斉次元での
+乗法は単射であり、次数付き体上の有限長性から全射でもある
+（次数移動しても長さは不変）。従ってこの局所化は$Q_{\rm gr}(R)$に等しい。
+その零次部を$L$とすると$L/\mathbb C(Y)$は有限である。
+$0\ne u\in R_1$はこの局所化で可逆であり、一般点での$(i,j)$成分
+$Q_{\rm gr}(R)_{j-i}$は$x\mapsto u^i x u^{-j}$で$L$に同定される。
+この同定は行列積を保つので$\widetilde B_\eta=M_m(L)$である。
+Artin--Zhang再構成と前定理を適用する。ここで元の環のVeroneseだけを
+取ると剰余類の情報が失われうるため、上の行列環を用いた。
 \end{proof}
 
 \subsection{主結果の位置と先行研究}

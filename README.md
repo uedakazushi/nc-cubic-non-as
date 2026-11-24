@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v44。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v45。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -11,6 +11,8 @@
 ## 箙を限定しない認識
 
 内在的三次候補の圏が有限生成連結可換次数付き環の `qgr` に同値なら、任意の内在的標識は滑らかな三次曲面の標準標識に同値である。次数一生成性は不要である。より一般に、射影粗空間を持つ任意の複素固有Deligne–Mumfordスタックについて、内在的三次条件は滑らかさと全安定化群の自明性を強制する。次数一生成の左右noetherian整域でGK次元三、斉次商環の次数零部が曲面の可換関数体となる表示も、Rogalski–Staffordの分類から同じ結論に至る。主稿の `thm:ou-effective-orbifold-recognition` と続く二つの系に証明がある。さらに、有限型・固有で射影粗空間を持つDMスタックとの**導来同値**だけで、任意の内在的標識を認識できる。元の同値の t 完全性や反標準束の豊富性も仮定しない（主稿 `thm:ou-derived-stack-recognition`）。一般のOU圏にこれらの表示が得られるかは未解決である。
+
+整な射影曲面上の連接代数の加群圏でも、一般点の代数が有限拡大体上の行列環なら同じ結論を得る。したがって、反標準環が有限生成の斉次中心部分代数上有限で、斉次商環の零次部が可換体なら、生成次数を問わず滑らかな三次曲面である（主稿 `thm:ou-split-order-recognition`、`cor:ou-finite-central-birational-recognition`）。一般点が非分裂な除法代数である場合はこの条件の外にある。
 
 ## AOU三ブロック箙型の全係数に対する条件付き判定
 
