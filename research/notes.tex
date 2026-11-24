@@ -2,7 +2,7 @@
 \input{tex/preamble.tex}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月24日／non-as-v37}
+\date{2026年11月24日／non-as-v38}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -1015,8 +1015,24 @@ very strong性から排除。全係数$1/2$も長さ5、巡回0、端点$(2,0)$
 両定理の貼り合わせ・核rank・合成・多重次数は
 \path{computations/verify_ou_four_zero_triangle.py}と
 \path{computations/verify_ou_four_zero_mixed_triangle.py}を参照。
-133136111のrank3および五零三残余は未解決。
-次はこれらと四零の係数1等の境界、1--3零、標準比較を調べる。
+補題\ref{lem:ou-diagonal-zero-arc-lifting}の一般化により、
+奇置換三列$O$の対角零・非対角非零からrankは2または3。
+rank2では右核$\kappa$の全座標非零、左核$\ell$で
+$(\ell P)a+(\ell Q)b=0$のみが可解条件。
+$a_0b_0=0$のときは特解$\eta$の一成分を核で消し、
+$x=t^3\eta,(a,b)=t^3(a_0,b_0)$から一方向巡回の位数1の矢印を得る。
+$a_0b_0\ne0$のときは$a_0=\lambda,b_0=1$として
+$x=t^2\kappa+t^3H\eta,(a,b)=t^3H(\lambda,1)$、
+$\lambda H^2=\prod_\nu(\kappa_\nu+tH\eta_\nu)$を
+非零初期根から形式陰関数定理で解く。
+従って定理\ref{thm:ou-isolated-matching-obstruction}で
+孤立零の完全matchingのみから内在的三次条件を排除できる。
+系\ref{cor:ou-isolated-matching-supports}の10台は
+\path{computations/verify_ou_isolated_matching.py}で厳密再列挙した。
+四零の133136111、三零の133947135が新規排除。
+133136111のrank2九線束表示は存在するが$I_3$外である。
+従来の八台の周期障害はこの一般定理で統一される。
+五零三残余・四零四台の境界・他の1--3零・標準比較が未解決。
 三条件の不成立から直接内在条件の不成立を結論しない。
 全OU型の曲線表示の範囲と標準noetherian helix比較も残る。
 
