@@ -1827,6 +1827,68 @@ $c_{iik} B_{ik}+c_{ikk} A_{ik}$の一次項である。
 \end{proof}
 
 
+\begin{proposition}[七零の特殊点における中心上の有限性]
+\label{prop:ou-seven-zero-finite-center}
+台116309742の$u=1$で、三ブロックの巡回二次関係代数$D$は
+次数$3,6$の中心元で生成する可換部分代数上有限である。
+従ってこの窓を持つOU代数の標準射影は右noetherianであり、
+定理\ref{thm:ou-seven-zero-six-cycle-exclusion}は
+標準比較を追加仮定せずに適用できる。
+\end{proposition}
+\begin{proof}
+矢印長を次数に取り、ブロック番号を$r\in\mathbb Z/3$、ブロック内の
+頂点を$i\in\{0,1,2\}$とする。$D_n(r,i,j)$は$(r,i)$から
+$(r+n,j)$への長さ$n$の経路空間である。零・一係数の有理数モデルで
+$Z_d=Z(D)_d$と書くと、次の有限線形代数の等式が成立する。
+\[
+ \dim Z_3=1,\qquad \dim Z_6=4,\qquad
+ D_{10}= Z_3D_7+ Z_6D_4,\qquad \dim D_{10}=594.
+\]
+検算の手順を記す。$D_0,D_1$の頂点・矢印基底から帰納し、
+各$D_{n-1}(r,i,h)$の基底に最後の矢印$h\to j$を付けた列を作る。
+各$D_{n-2}(r,i,g)$の基底経路に$g\to h\to j$の
+二次関係を付け、先頭$n-1$矢印を既知の基底に還元して行とする。
+最後より前に終わる関係は列を作った時点で全て割っているので、
+これらの行で割るとちょうど$D_n(r,i,j)$である。行既約形の
+自由列を次の基底とする。$d=3,6$では各頂点$v$の閉路基底に
+未知係数を付け、その和を$z_v$とする。全矢印$b:v\to v'$で
+$z_v b-bz_{v'}=0$を上の基底で連立する（ここでは経路順に積を書く）。
+その核は頂点冪等元とも可換なため、中心の当該次数そのものである。
+各核基底に残る長さ$10-d$の全基底を掛けて端点ごとに行に並べると、
+全27空間で階数が列数に一致し、その和は594となる。
+\path{computations/verify_ou_seven_zero_center.py}はこの操作を
+添字と台のビット整数だけから$\mathbb Q$上で実行する。
+等式は標数零の基礎体への係数拡大で保たれる。
+
+$C$をこの有限個の中心元で生成される部分代数とする。$D$は
+頂点と矢印で生成されるので、次数10の等式から次数$n\ge10$でも
+$D_n=Z_3D_{n-3}+Z_6D_{n-6}$である。帰納により$D_{<10}$の
+基底が$D$を$C$加群として生成する。$C$は可換有限型なので$D$は
+左右noetherianである。補題\ref{lem:ou-cyclic-cubic-syzygy}により
+very strong窓の周期代数はこの巡回関係表示を持つ。次数を展開して得る
+標準射影の斉次部分加群の昇鎖は、固定頂点の射影$e_vD$の斉次部分加群の
+昇鎖に移るので停止する。命題\ref{prop:ou-perfect-tail-comparison}を適用する。
+\end{proof}
+
+\begin{corollary}[六個以上の零係数における比較仮定の除去]
+\label{cor:ou-six-zero-automatic}
+AOU三ブロック箙型のOU代数で関係係数の零が六個以上なら、
+その曲面圏が$\mathfrak I_3$に属するとき標準AS四次元三次商の表示を持つ。
+\end{corollary}
+\begin{proof}
+系\ref{cor:ou-six-zero-complete-recognition}の台の列挙を用いる。
+六零の五つの曲線族、七零の116834030および116309742の$u\ne1$は
+指定九線束の平面三次曲線表示を持ち、定理\ref{thm:ou-plane-automatic-comparison}
+により標準比較が成立する。六零から九零までの完全matchingを持つ台は
+系\ref{cor:ou-isolated-matching-supports}の表と
+補題\ref{lem:ou-matching-noetherian}で比較が成立する。
+七零の116309742の$u=1$は命題\ref{prop:ou-seven-zero-finite-center}による。
+七零の他の三台は定理\ref{thm:ou-seven-zero-line-conic-exclusion}、
+125531767は定理\ref{thm:ou-seven-zero-eighth-path-exclusion}で
+very strong性に反し、残る台は比較を使わない経路・syzygy条件で排除済みである。
+以上で同系の適用に必要な比較を全て回収した。
+\end{proof}
+
 \begin{theorem}[125763310と132086511の内在的排除]
 \label{thm:ou-five-zero-periodic-exclusion}
 定理\ref{thm:ou-five-zero-path-exclusion}の台125763310および
