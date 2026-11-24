@@ -1,10 +1,11 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-24 / non-as-v41。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-24 / non-as-v42。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
 
 ## 証明を保持した主要結果
+- 少数零型について補集合八係数の正規化可能性を原始二項式で特徴付け、正規化後の三面可逆性が残余スカラー作用に不変であることを証明。零集合222、211/222、200/211/222、121/211/222、120/211/222の五台でこの二項式超曲面の非空開集合を標準比較付きI_3外とした。台全域の判定ではない。
 - **既約種数一曲線型の内在的認識**（`thm:ou-integral-elliptic-recognition`）：滑らか・節点・尖点三次曲線上の次数0/1/2各3本の線束表示と標準noetherian qgr/導来helix比較を持つOU型では、I_3の与えられた標識の反標準環そのものが標準AS4正規三次商。Perf上のOU構成とDb(coh)への制限右随伴の拡張を区別し、Burban–Kreußler Cor.5.8と二段の評価核でhの偶数シフトを排除。K_0(Perf)のdeterminantでPic^0への作用を認識し、ATV regular triple条件を得る。六点一般位置・非torsion性は不要。曲線表示だけからI_3を主張しない。
 - **AZ2の特異点局所自由性と被約可約曲線の条件付き認識**（`lem:ou-az2-singular-free`, `prop:ou-reduced-curve-rank`, `prop:ou-reduced-cubic-geometric`）：幾何的hに対するAZ2をO_E→k(p)に適用して特異点での自由性を証明。被約連結種数1曲線で幾何的h（全次数3）、曲線への導来随伴・反標準三角・exact conservative J（像GK次元≤1）があれば、制限層は線束。被約平面三次曲線でさらにhが指定twist積に由来すれば、全次数0線束のdeterminantにより成分置換を排除、AZ1で正多重次数を得てvery ample性・regular triple性を示し標準AS4三次商を認識する。次項の多重次数条件でh・Jの仮定を導いた。条件外の型は未解決。
 - **可約被約三次曲線型の多重次数認識**（`thm:ou-reduced-md-criterion`, `cor:ou-reduced-md-recognition`）：3ブロック各3線束（全次数0/1/2、完全直交・前向きExt消滅）の多重次数の和A,B,Cに対し、δ_md=A+C−2B、w=5B−3A−2C。hが幾何的かつampleである必要十分条件はδ_md=0かつ全成分w_i>0。直線+円錐曲線の横断・接触、三直線の三角・共点を含む。同じ多重次数のtwistの比較を、滑らかな点と特異点の点層への作用および相対完全FM核から証明し、古典参照型へ帰着。有限整数列挙で二項条件180/15012型（2/3成分）、正のwかつδ_md=0は6/9型で全て巡回変更により古典参照型となる。標準noetherian qgr/導来helix比較とI_3を仮定すると与えられた標識のAS4三次商表示を得る。条件外をI_3外・非超曲面と断定しない。証明節 `papers/sections/cubic_reducible_recognition.tex`、計算 `computations/verify_ou_reduced_multidegrees.py`。
@@ -60,6 +61,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 新しい証明が得られた場合は一本の論文の適切な位置へ組み込む。経緯や版別補遺を蓄積しない。
 
 ## 主張と検証の状態
+今回の少数零型の結果は明示スカラー正規化と二項式・三面の直接比較による。全runner・組版・独立監査は未実施。
 今回、`computations/verify_ou_four_zero_boundary.py`（実行blob d28a4f257fae16e5795ea7a96e35415efb6bfba8）をPython/SymPyで全実行。九境界の三面行列式、三つの有理関数体経路商（10,19,14）、134147823の円錐曲線のHessian・交叉上の単元と貼り合わせ・両成分のrank2と核・27合成非零と九端点の生成性を厳密確認した。既存normalize/recursive_dims/expectedはmainの同内容のローカルコピーを用いた。一般形式枝の存在と圏論的排除は原稿の証明による。補集合の射影・入射分解と単純性の証明を再読点検したが、包括的独立監査は未実施。117374702の以前の七次商13も再帰商で再確認した。git ls-remoteはDNS失敗、全repo取得・全runner・組版・新規性確認は未実施。
 
 既存の検証では、`computations/verify_ou_five_zero_complement.py`（実行blob ecb8f97891a28d7db772ea5b8abb7ac294af72e7）をPython/SymPyで実行し、両五零残余の正規化、三面の行列式、形式矢印行列の全行列式・核・関係式と両向きの位数を厳密確認した。normalizeは既存ソースと同内容のローカルコピーを用いた。補集合周期単純対象の射影・入射分解と単純性は今回の主稿の証明、圏論的rank排除は既存の標準比較付きAZ1/AZ2障害に依存する。全runner・組版・独立監査・新規性未確認。git ls-remoteはDNS失敗。
