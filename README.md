@@ -1,12 +1,19 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v74。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v75。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
-## Cloud Codexの作業順序
+## 現行目標とその証明
 
-2026-11-25の実行方針：標準OU比較の仮定除去 → 1–3零型の完全認識・排除 → 共通依存証明の独立監査 → 独立公表可能な成果の確定。上位課題の障害で停止せず、次順位へ進み適宜戻る。詳細と保存手順は [研究方針](00_research_plan.md) および [AGENTS.md](AGENTS.md) を参照。15–30分を目安にmainへ通常コミット・pushし、research-hubを更新する。
+AOU三ブロック箙型のOU表示を持つ圏について、全支持・全係数の特殊化で、内在的三次条件から標準AS四次元三次超曲面表示が従う。標準OU比較を追加仮定としない。[全場合の定理と証明（`thm:ou-aou-all-unconditional`）](papers/sections/cubic_zero_supports.tex)
+
+最後の二代表を再検証するには、SymPyとSingular（`primdec.lib` を含む）を用意し、リポジトリのルートから次を実行する。第一のプログラムは先行する五代表との照合を含む七軌道の網羅性、第二のプログラムは最後の二代表の十四グラフと例外閉点を検査する。全支持から一零二族への帰着と第二族の証明は、同じ節の `cor:ou-only-one-zero-codim-five` と `thm:ou-one-zero-second-complete` にある。
+
+```sh
+python3 computations/verify_ou_one_zero_first_square_difference.py
+python3 computations/verify_ou_one_zero_first_final.py
+```
 
 ## 箙を限定しない認識
 
@@ -118,9 +125,9 @@ AOU三ブロック箙型のOU代数で、指定された九線束による平面
 
 今回、OU Definition 1.1, 3.1, 5.2、AOU §§4,7,9 の関連箇所を一次資料で確認し、新証明を主稿に収録しました。組版・全証明の独立監査・新規性確認は未実施です。
 
-## 最優先課題：内在的条件を満たすOU型の認識
+## 他のOU表示について蓄積した結果
 
-`AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着を最優先とします。現行主稿では以下の範囲を明確にしました。
+過去に得た、各表示の仮定の下での結果をまとめる。
 
 - 可換な次数3のweak del Pezzo Xと導来同値なI_3の圏は、標識付きで滑らかな三次曲面の連接層圏となる（`thm:recognition-weak-commutative`）。
 - AOU Thm.9.4の指定された非可換爆発の比較が適用される範囲では、helixの一対象と自由対象との対応により導来同値がt-exactとなり、標識を忘れた標準AS4三次商の表示を得る（`prop:helix-heart-upgrade`, `cor:aou-abelian-upgrade`）。
