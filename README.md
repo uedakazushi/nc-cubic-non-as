@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v49。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v50。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -16,7 +16,7 @@
 
 任意のOU三次箙について、射影窓が既約種数一曲線（滑らか・節点・尖点）上の球面的対象の有向dg圏と一致すれば、標準比較を仮定せず、I₃から標準超曲面表示が従う。九対象の階数・次数・シフトは指定しない。古典窓とのEuler差分から同時に数値階数と曲線の反標準移動を決める。OUの有理対応による一般ポテンシャルを含む。主稿 [任意の箙の曲線窓](papers/sections/cubic_elliptic_recognition.tex) の `thm:ou-any-quiver-elliptic-window`。
 
-AOU二零型では、残余四族の第二族と、四族に現れる十九の共通曲面の全点で包含を証明した。未判定の有限集合は他の三族のこれらの曲面の外に限られる。一零の第二族でも四変数表示内の未判定集合の次元を高々二に下げた。主稿 `thm:ou-two-zero-second-family`、`cor:ou-one-zero-second-codim-five`。二零の再計算は [二零の閉点検証](computations/verify_ou_two_zero_closed_strata.py)。
+AOU三ブロック箙型は、係数の零がちょうど二つの全特殊化で包含を証明した。全非零と三零以上の既証明を合わせると、AOU型で残るのは一零の二族だけである。両族とも四変数表示で未判定集合の次元は高々二、七次元の正規化係数torusで余次元は少なくとも五である。主稿 `thm:ou-two-zero-all`、`cor:ou-only-one-zero-codim-five`。再計算には [二零の第一・第四族](computations/verify_ou_two_zero_last_families.py)、[第三族](computations/verify_ou_two_zero_third_family.py)、[一零第一族](computations/verify_ou_one_zero_first_family.py) を用いる。
 
 内在的導来圏がOUの一窓と導来同値なら、窓の中心を被約化した環が内在的反標準環の中心になる。窓の一次中心元のうち三つが代数的独立であることは、古典的な滑らかな三次曲面を標識付きで認識する必要十分条件である。主稿 `thm:ou-derived-reduced-centre`。
 
@@ -26,7 +26,7 @@ AOU二零型では、残余四族の第二族と、四族に現れる十九の�
 
 ## AOU三ブロック箙型の全係数に対する条件付き判定
 
-**現在の到達点。** AOU三ブロック箙型では、全27係数が非零の場合と三個以上が零の場合に加えて、二零台134217455で両方の零の補集合が二項式を満たす場合の全特殊化を処理した。指定零011の正規化では二番目の条件は `d=1` である。二つの零の交換により四族を三つの三変数表示にまとめ、23曲面、81曲線、340件の閉点因子を検証した。二零の残る四族でも60曲面のそれぞれで開判定を検証し、六次元係数空間内の残余を次元一以下に絞った（`cor:ou-two-zero-codim-five`）。さらに三つの経路基底から残る82個の交叉曲線成分と共通19曲面上の160曲線因子すべての一般点を検証し、二零で未判定の部分を**有限個の点**に絞った。四族の `d=-1` 切断も全点を処理した（`thm:ou-two-zero-finite-residual`、[再現コード](computations/verify_ou_two_zero_residual_curves.py)）。一零の未判定部分は二族に含まれ、元の七次元正規化係数トーラスで余次元四以上である。三零については十二の二変数族・62曲線・199件の閉点因子を既に検証した。主稿 `thm:ou-two-zero-double-binomial` と [再現コード](computations/verify_ou_two_zero_double_families.py)。
+**係数別の到達点。** 零の個数が一つ以外なら、標準noetherian OU比較を追加仮定せず包含が成立する。二零では、第一・第三・第四族における五表示の交叉から287個の零次元イデアルと30本の曲線を検証した。第二族と十九の共通曲面の全域は先行する定理で扱った。残る一零の二族とその式を主稿 `cor:ou-only-one-zero-codim-five` に記す。
 
 主稿の `cor:ou-aou-all-coefficients` で、標準noetherian OU比較が成立するAOU三ブロック箙型では、関係係数を問わず I₃ から標準AS四次元三次商の表示が従う。一・二・三零の補集合二項式外では追加の比較仮定を要しない。一・二零の五グラフ閉包の全特殊化の証明は `thm:ou-one-two-zero-all-boundaries`、検算は `python3 computations/verify_ou_one_two_zero_components.py` による。比較仮定の一般的除去と、AOU三ブロック箙以外を含むOU三次型の被覆は未解決である。
 

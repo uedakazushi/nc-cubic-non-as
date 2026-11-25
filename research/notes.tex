@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v49}
+\date{2026年11月25日／non-as-v50}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -31,11 +31,19 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
 
+\paragraph{二零台の完了と一零に残る問題}
+定理\ref{thm:ou-two-zero-all}で二零台は全ての特殊化で完了した。
+五表示の失敗因子の共通零点を素分解し、三変数体上で
+剰余点に適応した消去順序を使うと、第一・第四族では曲線を有理表示する必要がない。
+一零で残る二つの四変数表示の次元上界はともに二である。
+共通の中心次元増大因子は座標変換で同じ三変数族になる
+（系\ref{cor:ou-only-one-zero-codim-five}）。
+
 \paragraph{二零の閉点への降下}
 定理\ref{thm:ou-two-zero-second-family}で二次式が全ての通常のpivot表示に残る場合、
 混標数の一点を使って行・列を選び直すだけで、二変数有理関数体上の証明がこの二次式の一般点を覆った。
 素分解では各段階で既に成分全体が次の零集合に含まれるかを調べてから追加の方程式を課す。
-第二族は全域で完了し、残りの三族では十九面の外の有限集合が課題である。一零第二族については系\ref{cor:ou-one-zero-second-codim-five}で四変数表示の十八個の失敗因子の一般点を処理した。
+第二族は全域で完了し、残りの三族の十九面外は後続の全域定理で処理した。一零第二族については系\ref{cor:ou-one-zero-second-codim-five}で四変数表示の十八個の失敗因子の一般点を処理した。
 
 \paragraph{導来窓の中心から古典性を検査する}
 定理\ref{thm:ou-derived-reduced-centre}では窓の射影$P$のheart所属を要しない。
@@ -67,7 +75,7 @@ $(a,b,c,e)$は$(b,a,e,c)$に移る。定理\ref{thm:ou-two-zero-double-binomial}
 はこの切断の全点を扱う。一般点で中心の次元が増える曲面は各表示の$b+c=1$である。
 二つの曲線に通常のtorusグラフが使えない場合は、
 $x\ne0$により尖点$u^3=v^2$または有理二次曲線に移した。
-曲面・曲線・点因子の件数は表示間の重複を許す。残余は一零二族・二零四族である。
+曲面・曲線・点因子の件数は表示間の重複を許す。この段階で残った一零二族・二零四族については上記の全域定理と余次元五の系を参照。
 
 \paragraph{箙によらない幾何的認識（2026年11月25日）}
 定理\ref{thm:ou-effective-orbifold-recognition}では、正則表現の局所Extから滑らかさが従う。構造層への非零射で標識を稠密開集合上の線束に同定し、閉点の正則表現へのAZ1で一般安定化群を排除する。接束の行列式の

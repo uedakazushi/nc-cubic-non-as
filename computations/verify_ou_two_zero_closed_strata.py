@@ -3,6 +3,7 @@
 from argparse import ArgumentParser
 from functools import lru_cache
 from itertools import product
+from math import prod
 import os
 import subprocess
 
@@ -34,14 +35,20 @@ def entire_pencil(coeff, units, sub):
 
 
 class LocalPencil(PencilCertificate):
-    """Choose elimination pivots using the residue c=d=2 in characteristic seven."""
+    """Prefer exact pivots that remain units at the supplied prime and point."""
+    def __init__(self, mask, coeff, field, sample=(7,(2,2))):
+        self.prime,self.point = sample
+        super().__init__(mask,coeff,field)
+
     @lru_cache(None)
     def residue(self, value):
+        p = self.prime
         def evaluate(poly):
-            return sum(int(k.numerator)*pow(int(k.denominator),-1,7)*2**(i+j)
-                       for (i,j),k in poly.items())%7
+            return sum(int(k.numerator)*pow(int(k.denominator),-1,p)
+                       * prod(pow(x,i,p) for x,i in zip(self.point,exponent))
+                       for exponent,k in poly.items())%p
         a,b = evaluate(value.numer),evaluate(value.denom)
-        return a*pow(b,-1,7)%7 if b else None
+        return a*pow(b,-1,p)%p if b else None
 
     def eliminate(self, rows, width):
         todo = [dict(row) for row in rows]
@@ -79,20 +86,24 @@ class LocalPencil(PencilCertificate):
         return [k for k in range(width) if k not in pivots],reduce_row
 
 
+def local_cuts(coeff, params, label, sample):
+    field = QQ.frac_field(*params)
+    permuted = permute(coeff,label)
+    cert = LocalPencil(0,{k:field.from_sympy(v) for k,v in permuted.items()},field,sample)
+    cert.validate_paths()
+    cert.check_generation()
+    for r,i in product(range(3),repeat=2):
+        cert.check_corner(r,i)
+    return cert.exceptional
+
+
 def quadratic_line(coeff, params, units):
     a,c,d = params
     sub = {a:(2*c-1)*d+1-c}
     co = apply_sub(coeff,sub)
     local = local_units(units,sub)
     q = 3*c*c-3*c+1
-    field = QQ.frac_field(c,d)
-    permuted = permute(co,LABELS['A'])
-    cert = LocalPencil(0,{k:field.from_sympy(v) for k,v in permuted.items()},field)
-    cert.validate_paths()
-    cert.check_generation()
-    for r,i in product(range(3),repeat=2):
-        cert.check_corner(r,i)
-    cuts = cert.exceptional-local
+    cuts = local_cuts(co,(c,d),LABELS['A'],(7,(2,2)))-local
     assert cuts and q not in cuts
     points = component_bases((c,d),[{q},cuts,cuts],local)
     assert len(points)==5
