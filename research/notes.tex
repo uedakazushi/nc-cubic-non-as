@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v63}
+\date{2026年11月25日／non-as-v64}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,16 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{可約な周期環切断と一零第一族の接合}
+定理\ref{thm:ou-literal-filtered-window-cut}では周期環の素な次数付き商環を先に使う。
+射影がnoetherianでない場合、noetherian加群の各次数は線形上界を持つ。
+切断の素商上の有限生成加群の累積成長は線形以下か、一様な正の係数を持つ二次以上である。
+これは代数に対するBergmanの定理と、正則分母を払う際の単純直和因子数の上界による。
+有限個の素イデアルの積が零なら各層にこの議論を適用できる。
+比較と超曲面認識を区別し、後者には半素切断の場合に被約中心orderの定理を使う。
+一零第一族の$c=h$では命題\ref{prop:ou-one-zero-first-junction}の十二グラフを用いる。
+残り六代表の次元一以下の部分と、一般のOU周期環の素性・Goldie性は未確定である。
 
 \paragraph{OUの小さい商圏で次元二を検出する}
 定理\ref{thm:ou-literal-prime-window-cut}は内在的反標準環の切断でなく、

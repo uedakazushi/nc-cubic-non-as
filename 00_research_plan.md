@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v63。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v64。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -17,6 +17,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 証明を保持した主要結果
 
+- **周期環の素性を用いる比較と第一族六代表**　周期環が素な次数付き右Goldieなら、その中心切断で積が零の有限個の斉次素イデアルを取り、素商が次数付き右Goldieであることから標準比較を導ける。切断が半素な次数付き右Goldieなら、標識付き標準三次商まで従う（主稿 `thm:ou-literal-filtered-window-cut`）。任意の周期環での素性・Goldie性は分かっていない。一零第一族の c=h 軌道（二つの親因子）は全点が完了し、残余は六代表上の曲線・点に限られる（`prop:ou-one-zero-first-junction`）。
 - **小さいOU商圏からの比較**　窓の周期環の非零中心一次切断が素な次数付き右Goldie環で累積成長が二次なら、内在的標識の存在から周期環の右noetherian性、標準OU比較、標識付き標準三次商表示を導いた（主稿 `thm:ou-literal-prime-window-cut`）。中心元の正則性を先に示せた場合は成長の検査も不要。比較前の周期環の切断と内在的反標準環の切断を区別する。可約・非半素の周期環切断や正則性・成長を判定できない場合、一般の窓への適用が次の問題である。
 - **半素な中心切断の全域認識**　窓との導来比較の下で、半素な中心一次切断から被約平面三次曲線と元の標識の標準三次商を得た。被約中心orderの各成分での行列サイズと次数に対する等式、および接合点の留数を用いる（主稿 `thm:ou-reduced-order-slice`、`cor:ou-semiprime-central-section`）。一般OUで窓との比較を得る問題と、導来比較の下で全ての切断が冪零イデアルを持つ場合が残る。一零第一族の七代表の曲線・点の消去は `prop:ou-one-zero-first-seven-orbits` に続ける。
 

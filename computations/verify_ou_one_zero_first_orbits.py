@@ -30,6 +30,7 @@ def verify_orbits(co,ps,units,settled):
     assert len(parent)==12 and settled<=parent
     left = parent-settled
     sizes = []
+    groups = []
     while left:
         f = min(left,key=str)
         orbit = set()
@@ -40,10 +41,12 @@ def verify_orbits(co,ps,units,settled):
             assert len(image)==1
             orbit.update(image)
         assert f in orbit and not orbit&settled
+        groups.append(orbit&left)
         sizes.append(len(orbit&left))
         print('REP',f,flush=True)
         left -= orbit
     assert sorted(sizes)==[1,1,1,1,1,2,2]
+    return groups
 
 
 def verify():
