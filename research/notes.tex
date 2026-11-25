@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v56}
+\date{2026年11月25日／non-as-v57}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,16 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{窓中心の降下と一般箙への特殊化}
+定理\ref{thm:ou-derived-reduced-centre}の単射は、両側加群射から構成した
+\emph{導来}自然変換についてのものである。抽象三角圏の自然変換にまで拡張しない。
+標準dg商からの制限と有界複体の前三角包を使うと、heart値の二関手の間では
+bar長による負の内部次数が消え、次数零はheart上の通常の自然性で決まる。
+定理\ref{thm:ou-all-windows-central-section}で特殊化する空間は有向関係のアフィン空間である。
+ポテンシャルを降順矢印で微分してから全降順矢印を零にする射影は全射で、
+一般の球面的窓を特殊な関係に対する双有理逆写像なしで使える。
+任意のOU窓で一次中心の存在を得るが、内在的環への移行にはなお導来比較を要する。
 
 \paragraph{整曲線上のorderへの制約}
 定理\ref{thm:ou-central-slice-orders}は切断の全対象の有限ホモロジー次元を要しない。

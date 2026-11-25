@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v56。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v57。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -15,6 +15,8 @@
 整な射影曲面上の連接代数の加群圏でも、一般点の代数が有限拡大体上の行列環なら同じ結論を得る。したがって、反標準環が有限生成の斉次中心部分代数上有限で、斉次商環の零次部が可換体なら、生成次数を問わず滑らかな三次曲面である（主稿 `thm:ou-split-order-recognition`、`cor:ou-finite-central-birational-recognition`）。一般点が非分裂な除法代数である場合はこの条件の外にある。
 
 任意のOU三次箙について、射影窓が既約種数一曲線（滑らか・節点・尖点）上の球面的対象の有向dg圏と一致すれば、標準比較を仮定せず、I₃から標準超曲面表示が従う。九対象の階数・次数・シフトは指定しない。古典窓とのEuler差分から同時に数値階数と曲線の反標準移動を決める。OUの有理対応による一般ポテンシャルを含む。主稿 [任意の箙の曲線窓](papers/sections/cubic_elliptic_recognition.tex) の `thm:ou-any-quiver-elliptic-window`。
+
+任意のOU三次箙で、標準射影窓の周期環に非零の一次中心がある。内在的圏と窓の導来同値があれば、窓中心と標識の反標準環の中心は同型で、正則な中心一次切断が存在する。主稿 `thm:ou-all-windows-central-section`、`thm:ou-derived-reduced-centre`。
 
 中心一次切断が整射影曲線上の行列代数のorderとして表されるなら、中心曲線の算術種数は一で、orderは滑らかな点で行列環となる。節点・尖点では導手上の自己直交補な部分代数を得る。AOUの一零第二族では二つの親判定に共通する八因子を閉点まで処理した。主稿 `thm:ou-central-slice-orders`、`prop:ou-one-zero-second-all-common`。
 
@@ -32,7 +34,7 @@ AOU三ブロック型の未判定部分は、一零の二族に含まれる次�
 
 AOU三ブロック箙型は、係数の零がちょうど二つの全特殊化で包含を証明した。全非零と三零以上の既証明を合わせると、AOU型で残るのは一零の二族だけである。共通中心因子 `acd-c-d+1=0` は全特殊化で完了した（`prop:ou-one-zero-central-divisor`）。両族とも四変数表示で未判定集合の次元は高々二、七次元の正規化係数torusで余次元は少なくとも五である。主稿 `thm:ou-two-zero-all`、`cor:ou-only-one-zero-codim-five`。再計算には [二零の第一・第四族](computations/verify_ou_two_zero_last_families.py)、[第三族](computations/verify_ou_two_zero_third_family.py)、[一零第一族](computations/verify_ou_one_zero_first_family.py) を用いる。
 
-内在的導来圏がOUの一窓と導来同値なら、窓の中心を被約化した環が内在的反標準環の中心になる。窓の一次中心元のうち三つが代数的独立であることは、古典的な滑らかな三次曲面を標識付きで認識する必要十分条件である。主稿 `thm:ou-derived-reduced-centre`。
+内在的導来圏がOUの一窓と導来同値なら、窓の中心が内在的反標準環の中心に同型となる。窓の一次中心元のうち三つが代数的独立であることは、古典的な滑らかな三次曲面を標識付きで認識する必要十分条件である。主稿 `thm:ou-derived-reduced-centre`。
 
 導来圏がsmooth properなら、反標準移動は一般除法代数の中心を固定する。特にその一般点が可換体なら中心上の有限性・生成次数の仮定も不要で、古典的三次曲面を認識できる。さらにEuler形式とSerre作用を含む三次曲面の `K₀` を持つ場合、全対象のSerre消滅と内在的標識の例外性・全twistでの一次自己Ext消滅を証明した。任意のOU三次箙の窓と導来同値な場合を含む。主稿 `thm:ou-generic-centre`、`thm:ou-numerical-serre-vanishing`。
 
