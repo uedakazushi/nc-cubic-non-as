@@ -26,7 +26,7 @@ def divisor(a,c,d,h):
     return (a-1)*c**2*(a*d-1) + a*(d-1)*(a*c*d-c-d+1)*h
 
 
-def parent_orbits(co, ps, units):
+def parent_orbit_data(co, ps, units):
     a,c,d,h = ps
     zero = (0,2,2)
     mask = 134217471
@@ -56,7 +56,11 @@ def parent_orbits(co, ps, units):
     assert remaining<=set.union(*orbits[2:])
     assert [len(remaining&orb) for orb in orbits[2:]]==[2,1,4,1,2]
     print('PASS both four-element orbits and all eight parent factors',flush=True)
-    return settled
+    return settled, orbits[2:]
+
+
+def parent_orbits(co, ps, units):
+    return parent_orbit_data(co,ps,units)[0]
 
 
 def surfaces(co, ps, units, shared):

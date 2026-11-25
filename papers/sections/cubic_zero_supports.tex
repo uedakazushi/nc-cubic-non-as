@@ -5628,3 +5628,34 @@ $a,c,d$は単元であり、$c-1$は既決の$ac-1$の置換軌道に属する�
 \path{computations/verify_ou_one_zero_second_representatives.py}で再現できる。
 二軌道は元の十因子のうちそれぞれ一個と四個を含むので、主張した三代表が残る。
 \end{proof}
+
+\begin{theorem}[一零第二族の全特殊化]
+\label{thm:ou-one-zero-second-complete}
+系\ref{cor:ou-one-two-ten-families}の一零第二族では、全パラメータで
+$\mathfrak I_3$への所属から$\mathfrak H^{\mathrm{hyp}}_3$への所属が従う。
+従ってAOU箙型の未判定点は第一族の次元高々一の閉集合に限られる。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:ou-one-zero-second-two-orbits}の三代表を掲げた順に処理する。
+共通八因子など命題\ref{prop:ou-one-zero-second-all-common}の既決部分を除くと、
+各式は順に次の全域グラフになる。
+\[
+ d=1+c-ac,\qquad h=\frac{c(1-ad)}{ad(d-1)},\qquad
+ a=\frac{c^2+d-1}{c(c+d-1)}.
+\]
+最後の分母で$c+d-1=0$なら分子は$c(c-1)$となり、その零点は既決かtorusの外である。
+それぞれ三変数上の既存のラベル$B$による経路・中心・隅の生成判定を行うと、
+失敗し得る既約因子は四個ずつある。そのうち三個は直前の命題で全点を扱った
+二軌道の引戻し因子に一致する。残る一個は順に
+\[
+ ach-c-h,\qquad acd-ac-ad+1,\qquad h-1
+\]
+である。第一式は$c=h/(ah-1)$と解け、第二式は$a=1/(c+d-cd)$と解ける。
+それぞれの分子$h,1$が単元なので鉛直な例外はない。
+この二変数表示で三ラベルの失敗集合を交叉させると共通曲線はなく、
+有理数上の閉点はそれぞれ六個、八個である。各剰余体での判定は
+平坦な整数模型による閉点検査で得る。最後の$h=1$のグラフでは、既決二軌道を除くと
+ラベル$B$の失敗因子は空となる。軌道の引戻しの包含から各閉点までの検証は
+\path{computations/verify_ou_one_zero_second_complete.py}で再現できる。
+これで第二族が尽き、最後の次元上界は定理\ref{thm:ou-one-zero-residual-curves}による。
+\end{proof}
