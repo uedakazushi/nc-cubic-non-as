@@ -2154,6 +2154,95 @@ $B^{(m)}$が可換なら、それは有限生成可換次数付き環である
 定理\ref{thm:ou-abstract-reduced-central-curve}を適用する。
 \end{proof}
 
+\begin{theorem}[整曲線上のorderとしての中心切断]
+\label{thm:ou-central-slice-orders}
+内在的三次標識の中心一次切断の圏$\mathcal D$が、整射影曲線$X/\mathbb C$上の
+order $\mathcal A$の連接右加群圏と同値であるとする。
+ここで$\mathcal A$は$\mathcal O_X$上有限torsion-freeで、中心は$\mathcal O_X$、
+一般点では$M_d(\mathbb C(X))$とする。このとき$X$の算術種数は一、
+$\omega_X\simeq\mathcal O_X$であり、$\mathcal A$は通常の行列跡について
+自己双対な格子である。滑らかな開集合上で$\mathcal A$はベクトル束の自己準同型環である。
+特に$X$が滑らかなら$\mathcal D\simeq\coh X$で、標識の環は標準三次商となる。
+$X$が特異なら節点または尖点が一つあり、以下の有限次元データに帰着する。
+$\nu:\widetilde X\to X$を正規化、$\mathfrak c$を導手とし、特異点で
+$D=(\nu_*\mathcal O_{\widetilde X})/\mathfrak c$とおく。
+正規化上のある階数$d$の束の局所基底を選ぶと、$\mathcal A$の特異点での茎は、
+$M_d(D)$の単位的部分代数$W$の逆像である。$W$は
+$(u,v)\mapsto\operatorname{tr}(uv)\bmod\mathbb C\in D/\mathbb C$
+について自己直交補で、$\dim W=d^2$である。
+\end{theorem}
+\begin{proof}
+$P$を任意の有限ホモロジー次元の対象とする。命題\ref{prop:ou-central-first-thickening}
+により$hP$のホモロジー次元は高々一である。定理\ref{thm:ou-hereditary-central-slice}
+の双対性の表示で$M=hP$とすれば、そこで必要な
+$\operatorname{Ext}^{2,3}_{\mathcal D}(hP,N)=0$が成り立つ。従って全$N$について
+$\operatorname{Ext}^1_{\mathcal D}(P,N)^*\simeq\operatorname{Hom}_{\mathcal D}(N,P)$
+であり、$P,N$の双方に自然である。$P=\mathcal A\otimes L$（$L$は$X$上の線束）は
+局所射影的であり、曲線のcohomology次元からこの条件を満たす。
+
+$\omega_{\mathcal A}=\mathcal Hom_X(\mathcal A,\omega_X)$とおく。
+曲線の固有双対性と制限・余誘導の随伴により、同じ一次Extの双対は
+$\operatorname{Hom}_{\mathcal A}(N,P\otimes_{\mathcal A}\omega_{\mathcal A})$
+に等しい。実際$P=\mathcal A\otimes L$なら一次Extは$H^1(X,N\otimes L^{-1})$であり、
+その双対は$\operatorname{Hom}_X(N,L\otimes\omega_X)$となる。随伴は評価と合成で与えられ、
+左乗法を含む$P$間の射と両立する。米田により
+$\phi_P:P\otimes_{\mathcal A}\omega_{\mathcal A}\simeq P$を得る。
+$\phi_{\mathcal A}$は両側線型である。実際、局所切断$a$とその定義域の点$x$を取る。
+十分な豊富線束の冪の切断$s$を、$x$で非零かつ$sa$が大域切断となるように選ぶ
+（極を消すイデアルを十分捩って大域生成させる）。
+$\mathcal A(-n)\to\mathcal A$を定める$s,sa$の左乗法について自然性を使い、
+$s$を局所的に割ると$\phi_{\mathcal A}$は$a$の左作用とも可換である。
+
+$K=\mathbb C(X)$、$J=\operatorname{tr}(\mathcal A)\subset K$とする。
+$\mathcal O_X\subseteq J\subseteq\nu_*\mathcal O_{\widetilde X}$である。左の包含は
+$\operatorname{tr}(1)=d$、右の包含は整な行列の固有値の整性による。
+$\lambda=\phi_{\mathcal A}^{-1}(1)$は一般点である有理微分$\eta$と行列跡の積である。
+実際、行列環の交換子部分空間は跡零行列全体である。
+$\mathcal A/[\mathcal A,\mathcal A]$（加法的交換子を割る）のtorsion-free商は$J$であり、
+両側加群同型の中心化部分を取ると
+$\mathcal O_X\simeq\mathcal Hom_X(J,\omega_X)$、$1\mapsto (b\mapsto\eta b)$となる。
+一次元Cohen--Macaulay環の最大Cohen--Macaulay加群の双対性で再び双対を取り、
+$\omega_X=\eta J$を得る。
+
+$p=p_a(X)$、$g=g(\widetilde X)$とおく。$\eta\mathcal O_X\subseteq\omega_X$の
+余長は$\chi(\omega_X)-\chi(\mathcal O_X)=2p-2$で、正規化による余長は$p-g$である。
+よって$0\le2p-2\le p-g$である。$p=2$なら$g=0$で
+$J=\nu_*\mathcal O_{\widetilde X}$となる。しかし双対化層の自己準同型層は$\mathcal O_X$であり、
+$J$の自己準同型層はこの場合$\nu_*\mathcal O_{\widetilde X}$であるため矛盾する。
+従って$p=1$, $J=\mathcal O_X$で、$\eta$は双対化層を自明化する。
+$\phi_{\mathcal A}$に戻れば
+\[
+ \mathcal A=\{b\in M_d(K):\operatorname{tr}(b\mathcal A)\subseteq\mathcal O_X\}
+\]
+を得る（各開集合での格子の等式）。
+
+一般点の表示$K^d$で$\mathcal A$を作用させ、正規化上で
+$V=\mathcal O_{\widetilde X}\mathcal A\,\mathcal O_X^d$という格子を取る。
+これは有限生成torsion-freeなのでベクトル束である。
+$\mathcal A\subseteq\mathcal M=\nu_*\mathcal End(V)$であり、
+滑らかな点では$\operatorname{tr}(\mathcal M\mathcal A)\subseteq\mathcal O_X$なので
+自己双対性から等号である。$X$が滑らかならこれでMorita同値と
+定理\ref{thm:ou-abstract-reduced-central-curve}による認識を得る。
+
+特異なら$g=0$で$\delta$の総和は一である。正規化の特異点上の枝が二本なら
+二つの定数を一致させる節点、一本なら正規化局所環の一次項を欠く尖点である
+（完備化内で余次元一の部分環を取る）。導手を割ると$D$はそれぞれ
+$\mathbb C\oplus\mathbb C$、$\mathbb C[\epsilon]/(\epsilon^2)$で、
+$\mathcal O_X/\mathfrak c=\mathbb C$である。
+$\operatorname{tr}(\mathfrak c\mathcal M\mathcal A)\subseteq\mathcal O_X$から
+$\mathfrak c\mathcal M\subseteq\mathcal A\subseteq\mathcal M$である。
+$V$を導手上で自明化し、$\mathcal A/\mathfrak c\mathcal M=W$とすれば、
+格子の自己双対性は$W=W^\perp$と同値である。この形式は非退化である。
+実際$D\to D/\mathbb C$は節点では二成分の差、尖点では一次係数であり、
+それぞれ乗法と組にした$D$の形式が非退化である。行列単位で検査すれば
+行列跡との合成も非退化なので次元の主張が従う。
+\end{proof}
+
+節点種数一曲線上の対称なspherical orderは
+Polishchuk\cite{Polishchuk2023Orders}の三角函数型Yang--Baxter解の構成にも現れる。
+上の定理は切断から双対性と中心曲線の種数を導くもので、全てのそのようなorderの
+曲面切断としての実現を主張しない。
+
 \subsection{主結果の位置と先行研究}
 
 本稿で比較する現象には二種類ある。

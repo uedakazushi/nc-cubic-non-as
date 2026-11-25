@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v55}
+\date{2026年11月25日／non-as-v56}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,17 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{整曲線上のorderへの制約}
+定理\ref{thm:ou-central-slice-orders}は切断の全対象の有限ホモロジー次元を要しない。
+右正則加群の可逆層捩りが局所射影的であるため、これらに一次Ext双対を適用できる。
+自然性を局所化するとorderの両側双対性となる。跡の像$J$は中心環と正規化の間にあり、
+双対化層と同型である。算術種数二なら$J$が正規化全体となり自己準同型環で矛盾する。
+特異中心では導手上の部分代数の自己直交補性までは必要条件で、全orderの認識は残る。
+
+命題\ref{prop:ou-one-zero-second-all-common}は一零第二族の二つの親判定の共通八因子を扱う。
+新規因子の全域グラフ上の共通三曲面と、その外の25曲線の残余閉点を分けて検算する。
+左右それぞれのみに現れる別因子どうしの交叉はこの命題の範囲外である。
 
 \paragraph{中心切断のスキーム表示と一次厚化}
 定理\ref{thm:ou-abstract-reduced-central-curve}では分離的有限型スキーム表示のみを仮定する。
