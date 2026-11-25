@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v65}
+\date{2026年11月25日／non-as-v66}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,20 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{固定成分を許す鉛筆と一次中心の次元}
+定理\ref{thm:ou-arbitrary-central-pencil}では$x$で飽和した動く商を先に取る。
+一般点の比較は可算定義体上で行い、$x$冪torsionが初めから零とは仮定しない。
+違うパラメータの動く商の間では零次と二次のExtが消える。同じEuler格子点を二度取ると
+交叉の非負性、Hodge指数定理、交叉形式の偶奇から次数一の動く商は不可能である。
+固定部分の傾きは非常に一般に一以下となる。切断のPI性により全単純は周期的で、
+構造対象の切断に有限長部分対象はない。非零冪零イデアルがあればその傾きが
+固定部分の全傾きを使い、他方で冪零濾過の各層のHilbert関数は有界となって矛盾する。
+可換性は$x$が可逆な開集合の可換性を一般ファイバーへ戻して示す。
+固定直線を持つFermat鉛筆は、正則列なしで固定部分の傾き一が実際に起きる例である。
+従って非可換な比較済みの型に残るのは一次中心一次元の場合である。
+PIの場合に唯一の切断が非半素なら、素根基の層の傾きは
+$(1,2),(2,1),(1,1,1)$に限られる（系\ref{cor:ou-pi-nilpotent-layers}）。
 
 \paragraph{中心作用の検出と正則鉛筆}
 命題\ref{prop:ou-visible-central-action}では、中心作用がSerre関手と交換することを跡で示す。

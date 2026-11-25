@@ -3448,6 +3448,169 @@ $\pi D$は各一般点で正の階数を持つ。$x$は$D$で正則なので$\pi
 いまや(i)と同じく$B$は可換で、交換子の二重導分が消えるので$R$も可換である。
 \end{proof}
 
+\begin{lemma}[PI切断の単純対象と純性]
+\label{lem:ou-pi-cut-purity}
+OU三次窓と導来同値な内在的三次標識で$R$がPIとする。任意の
+$0\ne z\in Z(R)_1$について$B=R/zR$のtailsの各単純対象は次数移動で周期的である。
+$B$の非零斉次右イデアルのHilbert関数は高次で正の傾きの一次多項式である。
+\end{lemma}
+\begin{proof}
+単純対象$S$の代表を、最大の有限次元斉次部分加群を除いた$V$とする。
+有限次元加群の拡大は有限次元なので$V$に非零有限次元部分加群はない。
+$B$は右noetherianであるため、$V$の非零斉次部分加群$W$のうち
+両側消去イデアル$P$が極大となるものがある。$P$は斉次素である。
+実際、$I J\subseteq P$なる斉次両側イデアルで$WI\ne0$なら、
+$WI$の消去イデアルは極大性により再び$P$で、$J\subseteq P$となる。
+$W$は無限次元で$\pi W=S$である。
+素PI環$B/P$の正次数イデアルから非零の斉次中心元$w$を取れる
+\cite{Rowen1973Center}。$W$はこの環上忠実で、$w$倍の像には
+非零有限次元部分加群がない。従って$S\to h^{\deg w}S$は非零、ゆえに同型である。
+
+$G=\pi B$は単純部分対象を持たない。実際、$z$倍が$F$上で単射なので
+$\operatorname{Hom}_{\mathcal C}(j_*S,F)=0$である。
+切断の完全列とSerre双対性により
+\[
+ \operatorname{Hom}_{\mathcal D}(S,G)\ \hookrightarrow \operatorname{Ext}^1_{\mathcal C}(j_*S,s^{-1}F)
+ \simeq\operatorname{Ext}^1_{\mathcal C}(F,j_*S)^* .
+\]
+右辺は周期性と命題\ref{prop:intrinsic-central-serre-vanishing}によって零である。
+非零斉次右イデアル$J$は有限次元ではない。補題\ref{lem:ou-central-euler-connectivity}
+の同定で、非零斉次元の左乗法の像がtailsで零ならその元自身が零になるからである。
+$J$の高次の次元は系\ref{cor:ou-central-veronese-recognition}の証明により
+$3n$以下の多項式である。これが有界なら$\pi J$は有限長となる。
+実際、有限斉次生成元の最大次数を$d$とすると、非零tailsを持つ有限生成部分商は
+十分高い連続$d$次数のうち少なくとも一つで非零であり、有限部分列の段数を
+$J$の累積次元の線形上界で抑えられる。ここで$d$は代数$B$の生成次数の上界でよく、
+部分商自身の生成次数は各列の低い次数を除くだけでよい。
+これは$G$の単純部分対象を与えて矛盾する。
+\end{proof}
+
+\begin{corollary}[PI切断の冪零層の次数]
+\label{cor:ou-pi-nilpotent-layers}
+前補題の仮定で$N$を$B$の素根基とすると$N^3=0$である。
+$N\ne0$なら$B/N,N/N^2$および非零の場合の$N^2$の
+Hilbert多項式の傾きは、順に$(1,2),(2,1),(1,1,1)$のいずれかである。
+\end{corollary}
+\begin{proof}
+右noetherian環の素根基は冪零であり、スカラーによる次数作用で保存されるので斉次である。
+$N$の有限斉次右生成元を$u_i$とする。左乗法$u_i$によって
+$N^j/N^{j+1}$の有限個の移動の和から$N^{j+1}/N^{j+2}$への全射がある
+（$j=0$では$N^0=B$）。もしある層の成長が有界なら、以後の各層も有界である。
+冪零性により$N^j$も有界で、前補題から$N^j=0$となる。
+従って全ての非零層の傾きは正の整数で、その和は三である。
+\end{proof}
+
+\begin{theorem}[固定部分を許す中心一次鉛筆]
+\label{thm:ou-arbitrary-central-pencil}
+OU三次窓との導来同値がある内在的三次標識で、
+一次独立な$x,y\in Z(R)_1$があれば元の標識は滑らかな可換三次曲面の標準標識に同値である。
+可算個を除く$\lambda\in\mathbb C$について$B_\lambda=R/(y-\lambda x)R$は
+被約平面三次曲線の斉次座標環となる。$x,y$が正則列であることは要らない。
+また、OUの小さい商圏から出発して、窓の周期環$T$が素で
+$\dim Z(T)_1\ge2$であれば、同じ可換三次曲面の認識が成立する。
+従って窓と導来同値な内在的三次標識の一次中心の次元は、可換三次曲面の場合に四、
+それ以外では一である。
+\end{theorem}
+\begin{proof}
+$R$は整域であり、独立な同次数の二中心元は代数的にも独立である。
+実際、関係式の斉次部分を取り$x$で次数を合わせて割ると、$y/x$が複素数上代数的となる。
+従って命題\ref{prop:ou-pi-central-slice}から$R$はPIで、前補題を使える。
+
+$z_\lambda=y-\lambda x$、$U=(R[x^{-1}])_0$、$u=y/x$とし、
+$B_\lambda$の$x$冪torsionの両側イデアルを$J_\lambda$とする。
+$A_\lambda=B_\lambda/J_\lambda$では$x$は正則であり、
+$A_\lambda[x^{-1}]=(U/(u-\lambda)U)[x,x^{-1}]$である。
+可算個を除く$\lambda$で$U/(u-\lambda)U$は半素かつ無限次元である。
+これを正則列なしで示す。補題\ref{lem:ou-very-general-semiprime-pencil}と同じく
+$R,x,y$の可算代数閉定義体$k$を取り、その上で得られる$U$を$U_0$とする。
+これは整域で有限生成であり、$u$は超越的なので
+$U_0\otimes_{k[u]}k(u)$は整域である。これが$k(u)$上有限次元なら、
+正則表現で$U_0$は$k(u)$上の有限行列環に入る。有限個の生成行列の
+成分の分母を一つの多項式$f(u)$に揃えると、長さ$n$以下の全ての語を
+分母$f^n$、分子の次数$O(n)$で表せる。従ってその$k$次元は$O(n)$である。
+一方$U_0$は$R_n/x^n$で濾過され、この次元は二次増大する。
+有限個の斉次環生成元を$x$で割って選ぶと、$R_n/x^n$はこれらの長さ
+$n$以下の語に入るので矛盾する。従って一般ファイバーは無限次元でもある。
+$k$上超越的な各$\lambda$で、体拡大が無限次元性と半素性を保つことから主張を得る。
+特に$A_\lambda$も半素である。冪零両側イデアルは$x$による局所化で消え、$x$は正則だからである。
+
+$A_\lambda$の高次Hilbert多項式の傾きを$m_\lambda$とする。
+$0<m_\lambda\le3$である。上界は$B_\lambda$の次元から従う。
+傾きが零なら、$x$倍で入れ子になる$(A_\lambda)_n/x^n$の次元が有界になり、
+その和$U/(u-\lambda)U$が有限次元になる。ここで整数$m_\lambda$が
+一となる$\lambda$は高々可算個である。
+$M_\lambda=\pi_R A_\lambda$を曲面の対象とし、その
+$K_0(\mathcal C)$での類を古典三次曲面の例外基底により同定する。
+$H=-K_X$と書く。$\chi(F,s^nF)$の二次係数から
+古典格子での階数は$r_F=\pm1$である。
+$\chi(F,s^nM_\lambda)=\dim(A_\lambda)_n$ ($n\gg0$)に同じ
+Riemann--Rochを適用すると、$M_\lambda$の類の階数は零で、第一Chern類を$C$とすれば
+$m_\lambda=r_F H\cdot C$である。
+異なる$\lambda,\mu$について$M_\lambda\to M_\mu$なる射は零である。
+始域を消す$z_\lambda$が終域で$(\mu-\lambda)x$として単射になるからである。
+同じことは$M_\mu\to s^{-1}M_\lambda$にも当てはまり、Serre双対性で
+$\operatorname{Ext}^2(M_\lambda,M_\mu)=0$である。
+両対象が同じ$K_0$類を持てば、従って$-C^2=\chi(M_\lambda,M_\mu)\le0$となる。
+もし$m_\lambda=1$ならHodge指数定理により$0\le C^2\le1/3$だが、
+$C^2-C\cdot K_X$は偶数なので不可能である。
+よって傾き一では各格子点に高々一つの$\lambda$しかなく、
+窓の$K_0$は有限階数の整数格子なので主張を得る。
+
+従って可算個を除き$m_\lambda\ge2$となる。この$\lambda$を固定して
+$B=B_\lambda$, $J=J_\lambda$と略記する。$J$の傾きは$3-m_\lambda\le1$である。
+$B$の非零の冪零斉次両側イデアル$N$を仮定する。$A_\lambda$の半素性から
+$N\subseteq J$で、補題\ref{lem:ou-pi-cut-purity}によりその傾きは正の整数である。
+よって$N,J$とも傾き一で、$J/N$の各次数の次元は有界である。
+$B/(N+xB)$は有界なHilbert関数を持つ。実際、これは$A_\lambda/xA_\lambda$
+へ全射し、核は$J/N$の商であり、目標の各次数の次元も$x$の正則性による
+一次多項式の差分で有界となる。
+右noetherian性により$J$はある$x^b$で消える。$N^a=0$と$x$の中心性により
+$N(N+xB)^{a+b}=0$である。この有限濾過の各層は有限生成の
+$B/(N+xB)$加群となるので、$N$の各次数の次元も有界になる。傾き一に矛盾する。
+非斉次の冪零両側イデアルがあれば、最高次数の項による随伴次数イデアルも
+非零冪零である。従って$B$は半素となり、
+系\ref{cor:ou-semiprime-central-section}により被約平面三次曲線の捩れ斉次座標環となる。
+
+$x$の非消滅部分だけを使って、さらに$R$の可換性を示せる。
+$B$をこの曲線の各成分の捩れ関数環の積に入れる。
+$x$が一般点で非零な成分上では、$x$が中央の次数一元なので自己同型は
+関数体に自明に作用する。実際、高次の捩れ偏極の大域切断の比はこの関数体を生成し、
+それらと$x$との可換性が分かる。
+$x$が一般点で零の成分の因子は局所化で消える。
+従って$B[x^{-1}]$は残る成分の可換な関数環の積に埋め込まれ、
+その零次部$U/(u-\lambda)U$は可換である。ここで$\lambda$を上記の可算例外集合と
+$k$の双方の外に取る。この零次部は先に取った$U_0\otimes_{k[u]}k(u)$の
+忠実な体拡大なので、一般ファイバー自身が可換である。$U_0$はこれに入り、
+$U$はその体拡大であり、$R\subset U[x,x^{-1}]$も可換となる。
+従って系\ref{cor:ou-commutative-graded-recognition}により古典的な標識を得る。
+$x$の零になる固定成分上の自己同型を先に決める必要はない。
+可換三次曲面では一次中心は四次元であり、窓と比較できる場合は
+定理\ref{thm:ou-all-windows-central-section}で少なくとも一次元である。
+これで次元の二択も従う。
+
+最後に素な$T$の二つの独立な中心一次元も代数独立となる。
+$T$はそれらの多項式環上torsion-freeであり、
+定理\ref{thm:ou-regular-central-pencil-classical}(ii)と同じ
+増大度の積の見積もりでPIとなる（この見積もりには自由性は要らない）。
+系\ref{cor:ou-semiprime-pi-window-comparison}により標準比較が成立する。
+定理\ref{thm:ou-derived-reduced-centre}の周期中心の同定で、二元は
+内在的環でも独立である。すでに証明した場合に帰着する。
+\end{proof}
+
+\begin{example}[固定直線を持つ中心鉛筆]
+Fermat三次曲面$u^3+v^3+w^3+t^3=0$で$x=u+v$, $y=w+t$を取る。
+$y=\lambda x$の平面内の式は$xq_\lambda$であり
+\[
+ q_\lambda=3u^2-3ux+3\lambda w^2-3\lambda^2 wx+(1+\lambda^3)x^2 .
+\]
+$x=0$は固定直線である。二次形式$q_\lambda$の行列式は
+$9\lambda(1+\lambda^3)/4$であり、一般の残余は滑らかな二次曲線である。
+$x$冪torsion $(q_\lambda)$は直線の環の次数二移動であり、
+全切断、動く商、固定部分のHilbert多項式はそれぞれ$3n,2n+1,n-1$となる。
+\path{computations/verify_ou_central_pencil_fixed_line.py}で式と次数を再現できる。
+\end{example}
+
+
 
 
 
