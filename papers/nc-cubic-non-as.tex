@@ -29,7 +29,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月25日／non-as-v54}
+\date{2026年11月25日／non-as-v74}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -2940,6 +2940,135 @@ $A$に属する原始冪等元の第二成分からの二留数は相殺する�
 
 以上で$\mathcal E=\mathcal O_X$、従って$\mathcal D\simeq\coh X$である。
 標識付き表示は定理\ref{thm:ou-abstract-reduced-central-curve}による。
+\end{proof}
+
+\begin{theorem}[周期的な単純対象を持つ有限曲線代数の切断]
+\label{thm:ou-periodic-finite-curve-algebra}
+OU三次窓と三角導来同値な内在的三次標識で、$0\ne z\in Z(R)_1$を取る。
+$\mathcal D=\qgr(R/zR)$が、次元高々一の射影複素スキーム上の
+連接な単位的代数の連接右加群圏であり、各閉点上の単純対象が
+次数移動$h$で周期的とする。このとき元の標識は標準AS四次元正則環の
+正則正規三次商を与える。代数の一般ファイバーの半単純性は要らない。
+\end{theorem}
+\begin{proof}
+有限射で射影直線に移して得た代数を$\mathcal A$とする。
+この有限射は十分な埋込みと一般の二つの線形形式による射影で得られる。
+有限射のアフィン性で加群圏は変わらない。$G=Lj^*F=\pi(R/zR)$とする。
+閉点上の単純対象$S$について、周期性、命題\ref{prop:intrinsic-central-serre-vanishing}、
+随伴から$\operatorname{Ext}^{i}_{\mathcal D}(G,S)=
+\operatorname{Ext}^{i}_{\mathcal C}(F,j_*S)=0$ ($i>0$)である。
+各閉点の完備局所代数は半完全である。有限長の終域に対する一次Extは、
+層Extの台がその点にあるので完備茎のExtと同じである
+（局所有限自由表示と完備化の平坦性を用いる）。
+$G$の完備茎の射影被覆の核は射影加群の根基に含まれる。
+非零ならその核の単純商が一次Extの非零元を与えるので、$G$は局所射影的である。
+また$[j_*S]$は単冪な$s_*$に固定され、
+$\dim\operatorname{Hom}(G,h^n S)=\chi_{\mathcal C}(F,s^n j_*S)$は$n$によらない。
+AZ1からこの値は正であり、$G$は各茎で生成元でもある。
+ここで完備茎での射影性・生成性は忠実平坦性で降下する。
+ゆえに$\mathcal E=\mathcal End_{\mathcal A}(G)$へのMorita同値で$G$は正則加群となる。
+
+$G$には単純部分対象がない。実際、$z$の$F$上の単射性とSerre双対性より
+$\operatorname{Hom}(S,G)\hookrightarrow
+\operatorname{Ext}^1_{\mathcal C}(j_*S,s^{-1}F)
+\simeq\operatorname{Ext}^1_{\mathcal C}(F,j_*S)^*=0$である。
+従って$\mathcal E$は射影直線上torsion-freeで、一般代数
+$\Gamma=\mathcal E\otimes K$, $K=\mathbb C(t)$に入る。
+$\Gamma$は対称代数である。詳しくは、定理\ref{thm:ou-central-slice-orders}の
+冒頭の切断双対性は有限ホモロジー次元の$P$について
+$\operatorname{Ext}^1_{\mathcal D}(P,M)^*\simeq\operatorname{Hom}_{\mathcal D}(M,P)$
+を自然に与える。$P=\mathcal E(n)$は局所射影的でホモロジー次元高々一である。
+射影直線の双対性で同じ関手は
+$\mathcal Hom_{\mathbb P^1}(\mathcal E,\omega_{\mathbb P^1})(n)$により表される。
+左乗法の分母を$\mathcal O(n)$の切断で払って自然性を使う同定理の論証は
+一般点の代数を問わない。従ってこの同型は両側線型で、
+一般点で微分を自明化すると$\Gamma\simeq\operatorname{Hom}_K(\Gamma,K)$となる。
+
+一般単純右$\Gamma$加群$V_i$を連接格子$M_i$に延長し、正則加群の
+Jordan--Hölder重複度を$m_i$とする。例えば有理基底の張る格子を
+$\mathcal E$で生成して取れる。$P_M(n)=\chi_{\mathcal C}(F,s^n j_*M)$は
+単冪性から多項式であり、高次では$\dim\operatorname{Hom}(G,h^n M)$となる。
+AZ1とAZ2でこれは$\dim\operatorname{Hom}(G,h^{n+a}G)$の有限和で抑えられ、
+従って次数は高々一である。閉点上の単純対象では正の定数なので、有限長対象で
+傾きは零である。一方$M_i$は一般点で非零で、相異なる任意個数の閉点を
+その台の開集合から選び、各点のファイバーの単純商の直和に全射できる。
+多項式の加法性と核での最終的な非負性から$P_{M_i}$は有界でない。
+その傾き$d_i$は正の整数である。一般点の組成列と交わって$\mathcal E$を濾過し、
+同じ一般加群の二格子は共通の格子を有限長商で含むことを使うと
+\[
+                         3=\sum_i m_i d_i .
+\]
+左辺は補題\ref{lem:ou-central-euler-connectivity}の$3n$の傾きである。
+
+$\Gamma$の単純商の除法環は$K$の有限拡大を中心に持ち、Tsenの定理から体である。
+非半単純な直既約ブロック内では、全ての直既約射影の長さは二以上である。
+実際、対称代数で射影単純は入射でもあり、その型の直和因子は他の型と
+射を持たずブロックとして分裂する。正則加群の長さが高々三なので、
+非半単純ブロックは高々一個、その単純型は一つで、射影被覆は一度だけ現れる。
+従ってこれは局所代数$U$で、剰余は体$L$である。
+長さ二なら根基$J$は平方零で、対称双対性により
+$J=\operatorname{ann}_{U}(J)\simeq\operatorname{Hom}_K(L,K)\simeq L$
+が$L$両側加群として成り立つ。最初の同型は対称形式で$J$の直交補を取り、
+最後は体の跡を使う。$L/K$は有限分離的なのでWedderburn--Malcevにより
+$L$の部分代数への持上げがある。よって$U\simeq L[\epsilon]/(\epsilon^2)$である。
+残る長さ高々一のブロックも体なので、この場合$\Gamma$は可換である。
+
+長さ三の非半単純ブロックなら$\Gamma=U$で、一般単純型は一つだけである。
+$\mathcal N=\mathcal E\cap\operatorname{rad}\Gamma$は冪零両側イデアルで、
+$\mathcal E/\mathcal N$は$L$の部分代数の層である。その相対スペクトル$Y$は
+整な射影曲線である。任意の閉点単純$S$は冪零イデアルで消され、
+$Y$の閉点の剰余体となる。特異点を含め、曲線の閉点では
+$\mathfrak m/\mathfrak m^2\ne0$なので$\operatorname{Ext}^1_Y(S,S)\ne0$である。
+$\coh Y\to\mathcal D\to\mathcal C$は完全忠実かつ完全なので、
+この自己拡大は曲面でも分裂しない。$v=[j_*S]$についてSerre双対性から
+$\dim\operatorname{Ext}^2_{\mathcal C}(j_*S,j_*S)\le1$であり、$\chi(v,v)\le1$となる。
+一方、周期性と\eqref{eq:ou-order-periodic-euler}より
+$v$の階数は零、$c_1(v)\perp K_X$かつ
+$\chi(v,v)=-c_1(v)^2\in2\mathbb Z_{\ge0}$である。
+ここで$X$はOU窓の数値格子を与える滑らかな古典三次曲面である。
+よって$\chi(v,v)=0$、Hodge指数定理から$c_1(v)=0$が数値的に成立する。
+
+一般単純が一つのため、先の格子の濾過を$K_0(\mathcal C)$に移すと、
+有限長項の第一Chern類の消滅から$c_1(j_*G)=3c_1(j_*M_1)$となる。
+一方$[j_*G]=[F]-[s^{-1}F]$であり、$H=-K_X$とすれば
+$c_1(j_*G)=r_F H$である。ここで$\chi(F,s^n F)$の二次係数
+$3/2=r_F^2 H^2/2$から$r_F=\pm1$となる。
+$H$と古典三次曲面の一本の直線との交点数は一なので、これは整数類の三倍ではない。
+この矛盾で長さ三の場合は排除された。
+
+非半単純の場合に残った可換な一般代数に対し、$\mathcal E$自身も
+torsion-free性から可換である。その相対スペクトルの連接層圏として
+定理\ref{thm:ou-abstract-reduced-central-curve}を適用する。
+半単純の場合は$Z(\mathcal E)$が一般点の体の積に入り、その相対スペクトルは
+被約純射影曲線である。各一般代数はその中心上単純で、
+$\mathcal E$はその曲線上の中心orderである（正則分母は各一般因子で可逆）。
+この場合は定理\ref{thm:ou-reduced-order-slice}で結論を得る。
+\end{proof}
+
+\begin{corollary}[中心上有限な非被約切断からの認識]
+\label{cor:ou-finite-central-nonreduced-cut}
+窓との三角導来比較がある内在的標識で、$B=R/zR$のあるVeroneseが
+有限生成斉次可換中心部分代数上有限なら、元の標識は標準三次商となる。
+またOUの小商圏から出発するとき、周期環$T$の非零一次中心元$x$について
+$D=T/xT$が有限生成斉次可換中心部分代数上有限なら、標準比較と元の標識の
+標準三次商表示がともに従う。こちらは$x$の正則性も比較も仮定しない。
+\end{corollary}
+\begin{proof}
+最初の場合は系\ref{cor:ou-central-veronese-recognition}でVeroneseに移る。
+中心部分代数の十分割り切れるVeroneseは次数零部上で一次生成であり、
+環の対応するVeroneseはその上有限である。中心のProj上でこれを層化すると
+tailsはその連接代数の加群圏となる。実際、次数一の中心元による標準開集合で
+局所化の零次部を取り、逆に豊富線束で捩った切断の直和を取る通常のSerre対応が
+右作用にも適用できる。$\dim B_n=3n$ ($n>0$)から中心のProjの次元は高々一で、
+$h$の対応する冪は線束のテンソルなので閉点単純を固定する。前定理を適用する。
+
+後の場合、$D$は右noetherianなので中心一元の持上げにより$T$も右noetherianである。
+系\ref{cor:ou-literal-semiprime-pi-hypersurface}の証明のうち半素性を使う前の部分で、
+標準比較、$(\qgr D,(1))\simeq(\mathcal D,h)$および$\dim D_n=O(n+1)$を得る。
+$D$は次数零部と一次部で生成されるため、全ての正のVeroneseはtails同値を与える。
+実際、誘導と倍数次数への制限を使う際、高い倍数次数が全て消えた有限生成加群は、
+一次生成性によりその間の十分高い次数でも零となる。
+前半と同じ層化と周期性を使って前定理を適用できる。
 \end{proof}
 
 \begin{corollary}[半素な中心一次切断の認識]

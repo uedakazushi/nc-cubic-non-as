@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v73。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v74。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -17,6 +17,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 証明を保持した主要結果
 
+- **非被約な有限曲線代数切断**　一般代数の対称性と長さ三の上界を証明し、単一の長さ三ブロックを、全閉点の接空間と反標準類の原始性で排除した。周期環の中心一次商そのものが斉次アフィン中心上有限なら、標準比較を仮定せず標識付きで認識する。根基を割った後にのみ中心有限となる場合、比較だけ得られている場合、および中心一次元の存在自体が確保できない窓が残る（`thm:ou-periodic-finite-curve-algebra`、`cor:ou-finite-central-nonreduced-cut`）。
 - **AOU一零第一族の残り二代表**　平方比 q²=ab と、重み付き平方差 bt(a−1)²+b(ac−1)²−a(c−1)²=0 の二代表を全点で処理した。後者では座標変換の例外 w=0 も独立に検証した（`prop:ou-one-zero-first-squared-ratio`、`prop:ou-one-zero-first-square-difference`）。残る二代表は共通座標 (p,s,v) で e=1+sp²、e=1/v+sp となる。各代表の残余曲線・閉点と、一般OUでの中心切断の幾何が残る。
 - **平方零厚化での標準比較**　正則中心一次切断の平方零イデアルについて、その商が斉次アフィン中心上有限なら右有限生成性を深さ二と両側作用の支持から導いた。比較後の幾何性、根基の三乗が零で二乗は非零の場合、正則性や中心有限性を確保できない一般OUが残る。主稿 `prop:ou-square-zero-depth`、`cor:ou-square-zero-small-comparison`。
 - **標準比較を仮定しない半素中心切断**　周期環の素性・Goldie性を外し、半素PIまたは半素Goldieで累積成長二次以下の一次切断から、元の標識そのものの標準三次商を得た。正則中心元では後者の成長条件は自動。非半素PI切断では周期環の右noetherian性が切断のJacobson根基の右有限生成性と同値になった（`cor:ou-pi-nil-finite-generation`）。この有限生成性、および一般OUで切断をこの範囲に持ち込めるかが残る。AOU一零第一族は四代表。主稿 `cor:ou-literal-semiprime-pi-hypersurface`。
