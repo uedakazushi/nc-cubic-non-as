@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v54。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v55。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -16,7 +16,7 @@
 
 任意のOU三次箙について、射影窓が既約種数一曲線（滑らか・節点・尖点）上の球面的対象の有向dg圏と一致すれば、標準比較を仮定せず、I₃から標準超曲面表示が従う。九対象の階数・次数・シフトは指定しない。古典窓とのEuler差分から同時に数値階数と曲線の反標準移動を決める。OUの有理対応による一般ポテンシャルを含む。主稿 [任意の箙の曲線窓](papers/sections/cubic_elliptic_recognition.tex) の `thm:ou-any-quiver-elliptic-window`。
 
-中心一次切断の tails が連結被約射影曲線の連接層圏と同値なら、曲線の算術種数一・双対化層の自明性・構造対象の線束性が従う。導来自交叉の階数から次数移動が全既約成分を保つことを示し、OU比較の仮定なしで標準三次商を得た。主稿 `thm:ou-abstract-reduced-central-curve`。
+中心一次切断の tails が分離的有限型スキームの連接層圏なら、そのスキームは平面三次曲線となり、標識の環は標準三次商になる。切断の全対象が有限ホモロジー次元なら滑らかな楕円曲線となる。有限次元性は各対象が一次厚化へ持ち上がることと同値。数値的単冪性があれば、切断のあるVeroneseが可換な場合も認識できる。主稿 `thm:ou-abstract-reduced-central-curve`、`prop:ou-central-first-thickening`、`thm:ou-hereditary-central-slice`。
 
 内在的三次標識で中心一次元による商が整域なら、残る三基底元の三つの交換子がこの商で零となることが、滑らかな可換三次曲面の標準標識となるための必要十分条件である。正規化した錐の負次数Poisson括弧を排除する。AOU一零型では第一族の一因子、第二族の五因子を全点で処理した。主稿 `thm:ou-commuting-integral-slice` と `prop:ou-one-zero-closed-divisors`。
 

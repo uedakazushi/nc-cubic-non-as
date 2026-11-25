@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v54}
+\date{2026年11月25日／non-as-v55}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -31,13 +31,17 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
 
-\paragraph{曲線表示から復元するデータ}
-定理\ref{thm:ou-abstract-reduced-central-curve}では、中心切断の連接層圏において
-$G=\pi B$の一次Ext双対が$\operatorname{Hom}(-,G)$で表される。
-これとAZ2による特異点での局所自由性から、曲線の双対化層は捩れ線束となる。
-高次数の切断次元から$r^2\deg N=3$を得て階数一と捩れ部分の消滅を確定する。
-各成分の構造層の導来自交叉は完全なので、二つのTor層の一般階数の差は全成分で一定である。
-これにより成分の置換を排除し、正の軌道次数を個々の正の多重次数に強められる。一般OUでこの曲線表示自体を得る問題が残る。
+\paragraph{中心切断のスキーム表示と一次厚化}
+定理\ref{thm:ou-abstract-reduced-central-curve}では分離的有限型スキーム表示のみを仮定する。
+Gabriel--Krull次元で高次元成分を除き、特異閉点の固定性とAZ2からその点で構造対象は局所自由になる。
+局所環のsocle消滅で埋込み点を除く。Euler列の漸化式を負の次数まで戻すと切断は直既約で、
+構造対象は線束、双対化層は自明となる。非被約部分曲線も含む埋込み判定が必要である。
+
+命題\ref{prop:ou-central-first-thickening}では切断の対象$M$ごとに、有限ホモロジー次元と
+$R/z^2R$への指定された持上げが同値である。二次の自己交叉障害が非零なら任意の偶数次数の
+捩れた自己拡大が残る。全対象で障害が消える場合、定理\ref{thm:ou-hereditary-central-slice}は
+曲面の二次Serre双対を切断の一次双対に変換する。分類はまず各直既約因子に適用し、
+Euler列とAZ1から因子が一つと結論する。系\ref{cor:ou-central-veronese-recognition}は各斉次商の有限生成加群のHilbert関数が高次数で多項式となることを用いる。一つの剰余類が最終的に消える加群は有限次元であり、これがVeronese関手で対象を失わない理由である。一般OUでの切断の存在やこれらの十分条件は未証明である。
 
 \paragraph{整切断の可換性からの持上げ}
 定理\ref{thm:ou-commuting-integral-slice}では切断が一次生成でない場合も含め、

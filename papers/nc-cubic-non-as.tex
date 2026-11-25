@@ -45,7 +45,7 @@ AOU三ブロック箙型で指定九線束の平面三次曲線表示を持つ�
 射影曲面上の連接代数が一般点で分裂する場合にも認識が従い、斉次中心上有限で双有理可換な内在的反標準環では生成次数の制約を除ける。また反標準環の正次数正規元から全対象の高いtwistのSerre消滅を導く。
 一零二族の残余の二次元成分を検査し、AOU型での未判定部分の次元を高々一に抑えた。また数値的反標準作用が構造対象の類に単冪に作用する場合、整域となる中心一次切断が一つあれば、二次曲線の線形系から生じるEuler標数の矛盾により一次生成性と標準三次商表示が従う。
 整な中心切断で残りの三つの一次元が互いに可換なら、正規化錐の負次数Poisson括弧が消えることから、標識付きで滑らかな可換三次曲面を得る。
-中心切断の連接層圏が連結被約射影曲線のものであれば、その算術種数一と構造対象の線束性を導き、導来自交叉の階数から成分保存を示して標準三次商表示を得る。
+中心切断の圏が分離的有限型スキームの連接層圏なら、そのスキームを平面三次曲線として復元する。切断の全対象が有限ホモロジー次元なら滑らかな楕円曲線を得る。いずれも標識付き標準三次商表示を与え、OU比較を要しない。
 \end{abstract}
 \tableofcontents
 
@@ -1867,116 +1867,291 @@ $w/z^n$が$\mathbb C$上代数的となる。よって$w\in\mathbb C z^n$であ�
 
 \end{proof}
 
-\begin{theorem}[抽象的な被約曲線を中心切断として持つ場合]
+\begin{lemma}[中心切断のEuler列と直既約性]
+\label{lem:ou-central-euler-connectivity}
+内在的三次標識の$0\ne z\in Z(R)_1$について
+$B=R/zR$, $\mathcal D=\qgr B$, $G=\pi B$, $h=(1)$とする。
+$\chi_{\mathcal D}(G,h^nG)$が全整数$n$で両端係数の非零な
+定係数線形漸化式を満たすなら、$\mathcal D$は直既約であり、
+$\operatorname{End}(G)=\mathbb C$、
+$B_n=\operatorname{Hom}_{\mathcal D}(G,h^nG)$ ($n\ge0$)である。
+\end{lemma}
+\begin{proof}
+$F_n=s^nF$と書く。$Lj^*F=G$なので$\operatorname{Ext}_{\mathcal D}^i(G,M)
+=\operatorname{Ext}_{\mathcal C}^i(F,j_*M)$であり、Euler形式の左辺は定義される。
+$P(n)=\chi_{\mathcal C}(F,F_n)$とおくと、中心切断の短完全列から
+$P(n)-P(n-1)=\chi_{\mathcal D}(G,h^nG)$である。
+命題\ref{prop:intrinsic-central-serre-vanishing}により
+$n\gg0$で$P(n)=1+3n(n+1)/2$である。従って差分は高次で$3n$と一致する。
+二つの列を消す漸化式の積も両端係数が非零なので、高次での一致は全整数に及ぶ。
+よって$P(n)=1+3n(n+1)/2$も全整数で成立する。
+$n\ge0$では負twistへのHom消滅とSerre双対性から二次Extは零なので、
+Hilbert関数との比較により$\operatorname{Ext}^1(F,F_n)=0$である。
+負の$n$もSerre双対性で従う。短完全列に$\operatorname{Hom}(F,-)$を適用すれば
+主張した$B_n$の同定が得られる。特に$G_i=h^iG$の自己射はスカラーのみで、
+隣接する二対象の間には非零射がある。直積分解があれば全$G_i$は同じ因子に属し、
+AZ1で全対象はその有限直和の商なので、他の因子は零である。
+\end{proof}
+
+\begin{theorem}[抽象的なスキームを中心切断として持つ場合]
 \label{thm:ou-abstract-reduced-central-curve}
 内在的三次標識$(\mathcal C,F,s)$と$0\ne z\in Z(R)_1$について
-$B=R/zR$とおく。$\qgr B$が連結被約射影曲線$Y$の$\coh Y$と
-$\mathbb C$線型アーベル圏として同値であるとする。曲線は純一次元とする。
-同値の下で$G=\pi B$は線束であり、$Y$は$\omega_Y\simeq\mathcal O_Y$の
-Gorenstein曲線で、次数移動$h$について$\deg(G^\vee\otimes hG)=3$である。
-次数移動が誘導する曲線の自己同型は各既約成分と各特異点を固定する。
+$\qgr(R/zR)$がある分離的有限型$\mathbb C$スキーム$Y$の$\coh Y$と
+$\mathbb C$線型アーベル圏として同値であるとする。
+このとき$G=\pi(R/zR)$は線束であり、$G^\vee\otimes hG$は
+$Y$を平面三次曲線として埋め込む。次数移動$h$が誘導する自己同型は
+各既約成分と各特異閉点を固定する。
 $R$は標準AS四次元正則環の正則正規三次商である。
-$B$の整域性、$Y$の種数、構造対象の階数、偏極、数値型、OU比較を仮定しない。
+固有性、次元、連結性、被約性、偏極やOU比較を仮定しない。
 \end{theorem}
 \begin{proof}
-連接層圏の自己同値は$h=\alpha^*(-)\otimes N$と書ける（Gabrielの再構成
-\cite{Gabriel1962}）。具体的には支持による局所化とその中心から基礎スキームの
-自己同型を取り除くと、各アフィン開で中心線型なMorita自己同値となる。
-可換環上のそのような同値は可逆加群によるテンソルであり、
-構造層の像を取れば局所表示が貼り合わさる。
-閉埋込みの完全忠実関手を$j_*$とする。
-$F_i=s^iF$から$j_*M$への射は$G_i=h^iG$を経由するので、
-AZ1とAZ2は$(G,h)$へ降りる。定理\ref{thm:ou-unipotent-integral-slice}の
-$(*)$の証明とその直前の拡大の同定は、$z$が$R$上正則であれば成立する。
-特に全$M\in\coh Y$に自然に
+Gabrielの再構成\cite{Gabriel1962}により$h=\alpha^*(-)\otimes N$である。
+実際、支持による局所化とその中心からスキーム自己同型を取り除くと、
+各アフィン開で可換環上の中心線型なMorita自己同値となる。
+これは可逆加群によるテンソルであり、構造層の像により貼り合わさる。
+$F_i=s^iF$から$j_*M$への射は$G_i=h^iG$を経由するのでAZ1, AZ2は$(G,h)$に降りる。
+定理\ref{thm:ou-unipotent-integral-slice}の$(*)$の証明は任意の中心一次切断で成立し、
+自然に
 \[
- \operatorname{Ext}^1_Y(G,M)^*\simeq\operatorname{Hom}_Y(M,G).
+ \operatorname{Ext}^1_Y(G_i,M)^*\simeq\operatorname{Hom}_Y(M,G_i)
  \tag{**}
 \]
-補題\ref{lem:ou-az2-singular-free}により$G=V\oplus T$と分解され、
-$V$は階数$r$のベクトル束、$T$は滑らかな点に支持される有限長層である。
-AZ1を$\mathcal O_Y$に適用すれば$r>0$である。
+を与える。
 
-被約純一次元の$Y$はCohen--Macaulayで、双対化複体は$\omega_Y[1]$である。
-$G$は完全であり、$T$の台で$\omega_Y$は可逆なので、
-$G\otimes^L\omega_Y=G\otimes\omega_Y$である。固有双対性で
-$(**)$の左辺は$\operatorname{Hom}_Y(M,G\otimes\omega_Y)$となる。
-米田により$G\otimes\omega_Y\simeq G$で、最大零次元部分層を割ると
-$V\otimes\omega_Y\simeq V$である（$\omega_Y$は最大Cohen--Macaulay）。
-局所的に$\omega_Y$は有限自由加群の直和因子となり、一般階数一より線束である。
-行列式を取ると$\omega_Y^r\simeq\mathcal O_Y$であり、
-$\deg\omega_Y=2p_a(Y)-2=0$、従って$p_a(Y)=1$である。
+まず$Y$の次元を決める。$F_{-1}\to F$は次元一以下の対象を割った圏で
+単純対象間の同型なので$j_*G$のGabriel--Krull次元は高々一である。
+全$j_*M$はその捩りの有限直和の商であり同じ上界を持つ。
+$j_*M$の部分対象と商は$z$に消されて同じ像の中にあるので、その有限長性は
+二つの圏で一致する。もし$Y$に次元二以上の整な閉成分$X$があれば、
+余次元一の整な閉部分スキームのイデアル$J$による$J^n$の減少列の各隣接商は
+その一般点で中山の補題により非零で、正次元の台を持ち有限長でない。これは次元一以下に反する。
+被約既約曲線成分の正規化が固有でなければ、それは滑らかな固有曲線から非空な有限集合を
+除いたアフィン曲線である。その構造層の有限押出しの自己射は大域正則関数を含み、
+Hom有限性に反する。従って全成分が固有で、有限全射と冪零厚化に関する普遍閉性から$Y$も固有である。
+固有被約曲線では各成分の滑らかな点を通る正のCartier因子が豊富であり、
+零次元の連結成分を加えても射影的である。冪零イデアルの逐次商の二次cohomologyが零なので
+この豊富線束は$Y$へ持ち上がり、冪零厚化での豊富性判定から$Y$も射影的である。
 
-$N_n=N\otimes\alpha^*N\otimes\cdots\otimes(\alpha^{n-1})^*N$とする。
-どの成分の置換軌道でも$N$の次数の和は正である。
-実際、ある軌道上でこの和が非正なら、固定したその成分の正規化$\nu:D\to Y$で
-$h^{-n}V$に現れる線束の捩れの次数は全ての$n>0$で下に有界である。
-$V$の各正規化への制限を有限個の負の線束の和の商と書き、
-曲線同型で引き戻しても線束の次数は変わらない。従って$\nu^*h^{-n}V$は
-次数が一様に下に有界な線束の和の商である。$D$上の十分負の線束$P$に対して
-$\operatorname{Hom}_Y(h^{-n}G,\nu_*P)=0$が全$n>0$で成立し、AZ1に反する。
-よって$N_n$の次数は各成分で$+\infty$に向かう。
-この同じ線束による下界と固定ベクトル束の線束の和への埋込みから、
-各成分の正規化で$h^nV\to V\otimes\omega_Y$の射は$n\gg0$で零である。
-$Y$は被約なので曲線上でも零であり、固有双対性から
-$H^1(Y,V^\vee\otimes h^nV)=0$となる。
+任意の閉点$y$に対し$P_y=Lj^*j_*k(y)$は完全である。
+実際、系\ref{cor:ou-integral-central-domain}の証明と同じく
+$-\otimes_R^L B$は二項分解によって有界で有限次元加群のTorも有限次元なので
+tailsに降り、$j_*$の左導来随伴となる。
+全閉点$x$について$\operatorname{Hom}(P_y,k(x)[i])
+=\operatorname{Ext}^i_{\mathcal C}(j_*k(y),j_*k(x))=0$ ($i>2$)である。
+点に台を持つ局所Extと茎の最小自由分解を使えば完全性を得る。
+二つのTor層は$k(y)$と$h^{-1}k(y)$なので、$\alpha$が$y$を動かせば
+$P_y$の$y$での茎は剰余体のみとなり、その完全性から局所環が正則となる。
+従って各特異閉点は固定される。特異点の集合が正次元でもこの議論は変わらない。
 
-$0\to F_{n-1}\to F_n\to j_*G_n\to0$にAZ2を使うと$n\gg0$で
-$3n=\dim\operatorname{Hom}_Y(G,h^nG)$である。
-$\ell=\operatorname{length}T$とし、Riemann--Rochと$p_a(Y)=1$を使うと
-\[
- 3n=nr^2\deg N+r\ell+\dim\operatorname{Hom}_Y(T,h^nT).
-\]
-最後の項は有界である（長さ$\ell$の二層のHom次元は$\ell^2$以下）。
-従って$r^2\deg N=3$から$r=1,\deg N=3$であり、
-残りの定数項から$T=0$である。$V\otimes\omega_Y\simeq V$から
-$\omega_Y\simeq\mathcal O_Y$も得る。
+特異閉点$y$では補題\ref{lem:ou-az2-singular-free}の局所論証を適用できる。
+すなわち$\mathcal O_Y\to k(y)$にAZ2を使い、
+固定点であるため$G_y$の剰余体への全ての線形形式が局所環へ持ち上がる。
+最小生成系の双対基底を持ち上げて得る正方行列が可逆なので$G_y$は自由である。
+AZ1を$k(y)$に適用するとこの階数は正である。$G_y$が自由なので
+$\operatorname{Ext}^1_Y(G,k(y))=0$であり、$(**)$により局所環のsocleは零である。
+従ってその次元は一、深さも一である。正則な孤立閉点があれば、AZ1で
+その点に非零な$G_i$が取れ、そこで$(**)$の左辺は零、右辺は非零となる。
+以上で$Y$は純一次元のCohen--Macaulay曲線である。
+特異閉点での自由性と滑らかな点の離散付値環での分解から
+$G=V\oplus T$となる。ここで$V$はベクトル束、$T$は滑らかな点に台を持つ
+有限長層である（$G$を最大有限長部分層で割ると局所自由で、拡大は分裂する）。
 
-$G^\vee$で同値を捻り、以下$G=\mathcal O_Y$とする。
-新たな$h=\alpha^*(-)\otimes L$では$L$は元の$G^\vee\otimes hG$である。
-自己同型が成分を保つことを切断の導来自交叉から示す。
-系\ref{cor:ou-integral-central-domain}の証明で用いた$Lj^*$の構成は
-正則な中心元による二項自由分解だけを要する。すなわち
-$-\otimes_R^L B$は有界な有限生成加群複体を保ち、
-有限次元加群のTor層は有限次元なのでtailsに降り、完全な制限$j_*$の左導来随伴となる。
-任意の$M\in\coh Y$に対し$P=Lj^*j_*M$は完全複体である。
-実際、全ての閉点$y$について
-\[
- \operatorname{Hom}_{D^b(Y)}(P,k(y)[i])
- =\operatorname{Ext}_{\mathcal C}^i(j_*M,j_*k(y))=0\qquad(i>2).
-\]
-点に台を持つ局所Extの大域切断と局所環上の最小自由分解を使えば、
-これは$P$が各茎で有限自由複体に同値であることを意味する。
-二項分解により$P$の二つのTor層は次数$0,-1$にある$M,h^{-1}M$である。
-従ってそのEuler階数は、各成分上で$M$の一般階数から$h^{-1}M$の一般階数を引いたものに等しい。
-完全複体のEuler階数は局所一定であり、$Y$は連結なので全成分で一定である。
-$M=\mathcal O_{Y_i}$を一つの既約成分の構造層とする。
-対応する二つの成分が異なるとその階数差は一方で$1$、他方で$-1$となって矛盾する。
-従って$\alpha$は各成分を保つ。さらに$M=k(y)$として$y$が動くと、
-$P$の$y$での茎は$k(y)$だけになり、これが完全なら局所環は正則である。
-従って全ての特異点も固定される。上で示した軌道次数の正性により
-$L$は全成分で正であり、$\alpha^*L$と$L$は同じ多重次数を持つ。
+$\alpha^p$が全既約成分を保つ$p>0$を取る。
+$\chi_Y(G,h^{pn+k}G)$は各$0\le k<p$について全整数$n$の一次以下の多項式となる。
+実際、各連結成分で$V$の階数と$h^{pn+k}V$の階数は固定され、
+後者の次数は自己同型による引戻しが次数を保つことと線束の捩りの加法性により
+$n$の一次式である。曲線上のベクトル束のRiemann--Rochを適用する。
+$V$と有限長層とのEuler対は階数と長さの積で、順序を逆にすると負になり、
+滑らかな点の有限長層同士のEuler対は零である。これらの寄与も剰余類ごとに一定である。
+よって$p$刻みの二階差分が零であり、補題\ref{lem:ou-central-euler-connectivity}
+から$Y$は連結、$\operatorname{End}(G)=\mathbb C$である。
+AZ1から$V\ne0$なので$T=0$であり、$r=\operatorname{rank}V>0$である。
+同補題の差分等式は全整数で$\chi_Y(V,h^nV)=3n$を与える。
+$n=0$で$r^2\chi(\mathcal O_Y)=0$、$n=1$で$r^2\deg N=3$であり、
+$r=1$, $\deg N=3$となる。従って$H^0(\mathcal O_Y)=\mathbb C$で
+$p_a(Y)=1$である。固有双対性で$(**)$の左辺は
+$\operatorname{Hom}_Y(M,G\otimes\omega_Y)$となるから、米田と$G$の可逆性により
+$\omega_Y\simeq\mathcal O_Y$である。
 
-任意の真の純一次元部分曲線$Z\subsetneq Y$について
+$G^\vee$で同値を捻り、$G=\mathcal O_Y$, $h=\alpha^*(-)\otimes L$とする。
+任意の$M$について$Lj^*j_*M$は上の点による検査で完全である。
+その二つのTor層は$M,h^{-1}M$であり、各成分の一般点での長さの差を
+その局所環の長さで割った値は、完全複体のEuler階数に等しい。
+これは連結な$Y$上で一定である。$M$を一つの被約既約成分の構造層に取ると、
+もし成分が動けばその値は一方で正、他方で負となる。
+従って$\alpha$は各成分を保つ。被約既約成分の正規化$\nu:D\to Y$で
+$\deg_D\nu^*L\le0$なら、$\nu^*h^{-n}G$の次数は$n>0$で非負である。
+$D$上の負次数線束$Q$に対し$\operatorname{Hom}_Y(h^{-n}G,\nu_*Q)=0$となり
+AZ1に反する。よって全ての被約成分で$L$の次数は正である。
+
+任意の真の純一次元部分曲線$Z\subsetneq Y$に対して
 $H^1(\mathcal O_Z)^*=\operatorname{Hom}_Y(\mathcal O_Z,\mathcal O_Y)=0$である。
-実際、像は$Z$以外の成分で零となる大域関数の生成するイデアルである。
-連結被約射影曲線の大域関数は定数なのでそのような関数は零である。
-純部分曲線は成分の被約な和であるため、$p_a(Z)\le0$であり
-$\deg_Z L\ge1\ge2p_a(Z)+1$となる。$Z=Y$でも$\deg L=3=2p_a(Y)+1$である。
-曲線の埋込み定理\cite[Theorem~1.1]{CFHR1999}により$L$はvery ampleである。
-正の多重次数と$\omega_Y=\mathcal O_Y$から$L_n$の一次cohomologyは
-$n>0$で零となり、$h^0(Y,L_n)=3n$である。特に$Y$は平面三次曲線である。
-上の短完全列からの$B_n\hookrightarrow H^0(Y,L_n)$は全正次数で次元が
-等しいので同型で、積と両立する。
+右辺の射は$1$を$Z$の非零イデアルに消される大域関数に移すが、
+大域関数は定数だからである。従って$p_a(Z)\le0$であり、
+$\deg_ZL$は被約成分の次数を一般点の長さで重み付けした和なので
+$\deg_ZL\ge1\ge2p_a(Z)+1$である。$Z=Y$でも$\deg L=3=2p_a(Y)+1$である。
+非被約曲線も含む埋込み定理\cite[Theorem~1.1]{CFHR1999}により$L$はvery ampleであり、
+補題\ref{lem:ou-central-euler-connectivity}により$h^0(L)=3$なので$Y$は平面三次曲線である。
+同じ補題の同定は積と両立し、全次数で$B$を対応する捩れ斉次座標環と同定する。
 
-最後に定理\ref{thm:ou-central-trace-recognition}の境界とSerre跡の議論を使う。
-この部分で曲線に要求したのは、$H^1(\mathcal O_Y)$が一次元で、
-$G_0,G_1$が線束であり、非零切断による$H^1(L^{-1})\to H^1(\mathcal O_Y)$が
-全射となることである。最後の全射は双対の
-$H^0(\mathcal O_Y)\to H^0(L)$の単射性から従う。
-従って$\alpha^*$は$\Pic^0Y$上恒等である。$(\alpha^*L)\otimes L^{-1}$は
-多重次数零なので$\Pic^0Y$に属し、$(\alpha^*-1)^2[L]=0$となる。
-式\eqref{eq:ou-R-mod-z}以降のregular tripleと中心拡大の論証を適用する。
+定理\ref{thm:ou-central-trace-recognition}の境界とSerre跡の論証を適用する。
+$H^1(\mathcal O_Y)$は一次元で、非零切断による$H^1(L^{-1})\to H^1(\mathcal O_Y)$は
+双対の$H^0(\mathcal O_Y)\to H^0(L)$が単射なので全射である。
+従って$\alpha^*$は$\Pic^0Y$上恒等である。
+$\alpha^*L\otimes L^{-1}$は各被約成分で次数零なので$\Pic^0Y$に入る。
+ここで$Y_{\rm red}$上では正規化の単元完全列による多重次数の記述を使い、
+制限$\Pic(Y)\to\Pic(Y_{\rm red})$の核は冪零イデアル$\mathcal I$の
+$H^1(1+\mathcal I)$の像で連結である（標数零の対数）。
+また$H^2(\mathcal I)=0$なので制限は接空間でも全射であり、単位連結成分を全射する。
+これで$(\alpha^*-1)^2[L]=0$であり、式\eqref{eq:ou-R-mod-z}に続く
+regular tripleと中心拡大の論証により結論する。
+\end{proof}
+
+
+\begin{proposition}[中心切断の二次障害と一次厚化]
+\label{prop:ou-central-first-thickening}
+$0\ne z\in Z(R)_1$を内在的三次標識の中心元とし、
+$\mathcal D=\qgr(R/zR)$、$h=(1)$、$j_*:\mathcal D\to\mathcal C$とおく。
+$M\in\mathcal D$のホモロジー次元とは、
+$\operatorname{Ext}^q_{\mathcal D}(M,-)=0$ ($q>d$)となる最小の$d$をいう。
+各$M$について次は同値である。
+\begin{enumerate}[label=(\roman*)]
+\item $M$のホモロジー次元は有限である。
+\item $\operatorname{Ext}^q_{\mathcal D}(M,-)=0$ ($q\ge2$)である。
+\item $\operatorname{Ext}^2_{\mathcal D}(M,h^{-1}M)=0$である。
+\item $\qgr(R/z^2R)$に短完全列
+$0\to h^{-1}M\to U\to M\to0$があり、$z:s^{-1}U\to U$が誘導する
+商から部分対象への射 $h^{-1}M\to h^{-1}M$が恒等となる。
+\end{enumerate}
+これらが成立しなければ、全$a\ge1$について
+$\operatorname{Ext}^{2a}_{\mathcal D}(M,h^{-a}M)\ne0$である。
+\end{proposition}
+\begin{proof}
+$P_M=Lj^*j_*M$の標準切断三角は
+\[
+ h^{-1}M[1]\longrightarrow P_M\longrightarrow M
+ \xrightarrow{\theta_M}h^{-1}M[2]
+\]
+である。二つのcohomology層の計算と随伴は前定理と同じで、切断の曲線表示を要しない。
+$N\in\mathcal D$について$\operatorname{Hom}(P_M,N[i])
+=\operatorname{Ext}^i_{\mathcal C}(j_*M,j_*N)$は$i>2$で零なので、
+$q\ge2$では連結射
+\[
+ \operatorname{Ext}^q_{\mathcal D}(h^{-1}M,N)
+   \xrightarrow{\ \sim\ }\operatorname{Ext}^{q+2}_{\mathcal D}(M,N)
+\]
+が同型である。$h$は完全自己同値なので、始域から$h^{-1}$を移すと
+$\operatorname{Ext}^q(M,N)\simeq\operatorname{Ext}^{q+2}(M,h^{-1}N)$となる。
+従って(i)から(ii)が従い、(ii)から(i),(iii)は明らかである。
+$\theta_M=0$なら$M$は$P_M$の直和因子なのでホモロジー次元は高々二、従って(i)を満たす。
+特に(iii)から(i)が従う。$\theta_M\ne0$なら、上の同型を
+$\operatorname{Ext}^2(M,h^{-1}M)$から反復すると最後の非消滅を得る。
+
+同じ三角の低次数完全列は
+\[
+ \operatorname{Ext}^1_{\mathcal C}(j_*M,j_*N)\longrightarrow
+ \operatorname{Hom}_{\mathcal D}(h^{-1}M,N)
+ \xrightarrow{\ f\mapsto f[2]\theta_M\ }
+ \operatorname{Ext}^2_{\mathcal D}(M,N)
+\]
+を与える。左の矢は、拡大$0\to j_*N\to U\to j_*M\to0$に対し
+$z:s^{-1}U\to U$が誘導する$h^{-1}M\to N$である（境界の符号の取り方による）。
+実際、拡大に$Lj^*$を適用して得るTorの境界は、商の元を持ち上げて
+二項分解の微分$z$を掛けたものである。これは随伴した射
+$P_M\to N[1]$の負一次cohomology上の写像に等しい。
+拡大は$z^2$で消されるので$\qgr(R/z^2R)$に属する。
+ここでtailsで$z^2$が零なら、代表加群を有限次元の像で割ればよい。
+$N=h^{-1}M$、$f=1$を取れば(iv)と$\theta_M=0$の同値を得る。
+\end{proof}
+
+\begin{theorem}[有限ホモロジー次元の中心切断の認識]
+\label{thm:ou-hereditary-central-slice}
+前命題の$\mathcal D$について、全対象が有限ホモロジー次元を持つことと、
+$\mathcal D\simeq\coh E$となる滑らかな射影楕円曲線$E/\mathbb C$が存在することは同値である。
+この場合、標識の環$R$は標準AS四次元正則環の正則正規三次商である。
+直既約性、切断のスキーム表示、OU窓との比較はいずれも仮定しない。
+\end{theorem}
+\begin{proof}
+有限次元の仮定は各対象ごとでよい。前命題により$\mathcal D$は遺伝的である。
+上の三角と二次以上のExt消滅から、任意の$M,N\in\mathcal D$に対して
+\[
+ \operatorname{Ext}^1_{\mathcal D}(h^{-1}M,N)
+ \simeq\operatorname{Hom}(P_M,N[2])
+ \simeq\operatorname{Ext}^2_{\mathcal C}(j_*M,j_*N)
+ \simeq\operatorname{Hom}_{\mathcal D}(N,h^{-1}M)^* .
+\]
+最後は曲面のSerre関手$s^{-1}[2]$と$j_*$の完全忠実性による。
+切断三角の関手性と随伴によりこれは両変数で自然であり、
+$h^{-1}$が全射的な同値なので遺伝圏の一次元Calabi--Yau双対性を得る。
+
+$\mathcal D$は右noetherian環の有限生成加群のtailsであり、Homは
+$j_*$の完全忠実性により有限次元である。
+まず直既約対象を、向きは任意の非零射の鎖で同値類に分ける。
+Hom有限性と冪等射の分裂により各対象は有限個の直既約対象の直和である。
+異なる類の間に射はないので、射の核・余核も成分ごとに取り、
+圏はこれら直既約アーベル圏の有限台直和に分かれる。
+$G$に現れる類は有限個で、$h$は各類を置換する。任意の類の非零対象に
+AZ1を適用すると、その類は任意に大きい$n$で$h^{-n}G$に現れる。
+ここで任意の下限を課すには対象を先に捩ってAZ1を適用すればよい。
+一つの類が無限軌道に属すれば、$G$の有限個の類からは有限回しかその類に当たらない。
+従って全軌道が有限で、しかも全てが$G$に現れる類と交わるので、類の総数も有限である。
+
+各因子は遺伝的、noetherian、Hom有限、直既約で、上の双対性を継承する。
+Reiten--Van den Berghの分類\cite[Theorem~C]{RVdB2002}の一次元
+Calabi--Yauの場合\cite[Theorem~4.2]{BrueningBurban2005}を各因子に適用する。
+得られるアーベル圏は滑らかな射影楕円曲線の連接層圏か、一頂点一ループの
+有限次元冪零表現の圏である。楕円曲線のEuler形式は階数と次数で決まり、
+冪零表現の$K_0$は単純対象一つで生成される。従って有限個の因子の直和の
+数値Grothendieck群も有理数上有限次元で、$h$はその上の可逆変換である。
+Cayley--Hamiltonにより$\chi_{\mathcal D}(G,h^nG)$は両端係数が非零の漸化式を満たす。
+補題\ref{lem:ou-central-euler-connectivity}により因子はちょうど一つである。
+冪零表現の場合には$G=\pi(R/zR)$の長さを$\ell$とすると、
+完全自己同値は長さを保ち、唯一の単純対象の自己射は$\mathbb C$なので
+$\dim\operatorname{Hom}(G,h^nG)\le\ell^2$である。
+一方、$0\to F_{n-1}\to F_n\to j_*h^nG\to0$とAZ2からこの次元は
+$n\gg0$で$3n$であり矛盾する。楕円曲線の場合は逆に滑らかな曲線なので遺伝的である。
+標識付き三次商は定理\ref{thm:ou-abstract-reduced-central-curve}による。
+
+\end{proof}
+
+
+\begin{corollary}[中心切断のVeroneseによる認識]
+\label{cor:ou-central-veronese-recognition}
+内在的三次標識で$0\ne z\in Z(R)_1$があり、
+数値Grothendieck群で$(s_*-1)^e[F]=0$となる$e>0$があるとする。
+$B=R/zR$とおく。$A=R$またはその任意の斉次商について、
+全ての$m>0$でVeronese関手$\qgr A\to\qgr A^{(m)}$は同値である。
+特に$B$のあるVeroneseが可換なら、$R$は標準AS四次元正則環の正則正規三次商である。
+その際$B$の被約性や一次生成性を仮定しない。
+\end{corollary}
+\begin{proof}
+$M$を有限生成次数付き右$A$加群とし、$R$加群としての像を
+$X=\pi_R M\in\mathcal C$とする。$n\gg0$で
+$M_n=\operatorname{Hom}(F,s^n X)$である。実際、$R$上の有限表示を取り、
+有限自由項ではorbit環の定義から成り立つ。表示の余核と像への全射にAZ2を
+適用すると、高次ではその余核が両辺で一致する。
+命題\ref{prop:intrinsic-central-serre-vanishing}によりその次元は
+$\chi(s^{-n}F,X)$に等しく、単冪性により$n$の多項式となる。
+従って$M_{mn}=0$ ($n\gg0$)ならこの多項式は零で、
+$M_n=0$ ($n\gg0$)である。特に$M^{(m)}$が有限次元なら$M$も有限次元である。
+
+$D=A^{(m)}$とおく。$D$の斉次右イデアルは$A$への拡張後、
+$m$の倍数次数に戻すと元に戻るので、$A$の右noetherian性からその昇鎖は停止する。
+また$M^{(m)}A\subset M$は$M^{(m)}$の有限個の斉次元で生成され、
+倍数次数を取ればこれらは$M^{(m)}$の$D$生成元である。従って
+$V(M)=M^{(m)}$は有限生成次数付き加群の間の完全関手である。
+次数を$m$倍に置いてから$L(N)=N\otimes_D A$とすると$VL(N)=N$である。
+$L$は有限生成性を保つ。$V$は有限次元性を検出するので、$L$は有限次元加群を
+有限次元加群に移し、完全列に適用したときの完全性の欠損も有限次元である。
+従って$L$はtailsへの完全関手を誘導し、余単位$LV(M)\to M$の
+核と余核も$V$が消すので有限次元である。これで同値が従う。
+
+$B^{(m)}$が可換なら、それは有限生成可換次数付き環である
+（正次数イデアルの有限個の斉次生成元を取る）。
+さらに十分割り切れるVeroneseを取ると一次生成になり、
+そのtailsは射影スキームの連接層圏である。二度のVeroneseを元の$B$の
+一つのVeroneseと見て上の同値を使い、
+定理\ref{thm:ou-abstract-reduced-central-curve}を適用する。
 \end{proof}
 
 \subsection{主結果の位置と先行研究}

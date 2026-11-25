@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v54。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v55。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -17,7 +17,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 証明を保持した主要結果
 
-- **抽象的な被約曲線切断の認識**　`thm:ou-abstract-reduced-central-curve`。切断の tails の曲線表示だけを入力し、種数・双対化層・標識の線束性を導く。各成分の構造層の導来自交叉が完全であることから成分保存を導き、正の多重次数と三次商まで得る。次は一般OUの窓中心からこのような切断を構成する。
+- **中心切断のスキーム表示または有限ホモロジー次元からの認識**　分離的有限型スキームの連接層圏という入力だけで平面三次曲線を復元する。有限ホモロジー次元の場合は遺伝圏の分類とEuler列から滑らかな楕円曲線を得る。両者とも標識付き標準三次商を与える。一般OUでこのような中心切断を作れるかが課題。切断の対象ごとに一次厚化への持上げと二次障害を調べられる。数値的単冪性の下では全Veroneseがtailsを保つ。切断のあるVeroneseが可換であることも十分。
 
 - **整切断上の三交換子と一零二族の六因子**　`thm:ou-commuting-integral-slice` は切断上で一次元が可換なら標識付き滑らか三次曲面を認識する。非PIで中心一次元があれば中心はその一元が生成する多項式環。`prop:ou-one-zero-closed-divisors` により一零第一族の d=1 と第二族の五因子は完了。次は第二族の残る共通因子の置換軌道と、その外の交叉曲線・鉛直部分を扱う。
 
