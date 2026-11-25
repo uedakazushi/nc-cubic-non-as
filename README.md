@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v51。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v52。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -15,6 +15,12 @@
 整な射影曲面上の連接代数の加群圏でも、一般点の代数が有限拡大体上の行列環なら同じ結論を得る。したがって、反標準環が有限生成の斉次中心部分代数上有限で、斉次商環の零次部が可換体なら、生成次数を問わず滑らかな三次曲面である（主稿 `thm:ou-split-order-recognition`、`cor:ou-finite-central-birational-recognition`）。一般点が非分裂な除法代数である場合はこの条件の外にある。
 
 任意のOU三次箙について、射影窓が既約種数一曲線（滑らか・節点・尖点）上の球面的対象の有向dg圏と一致すれば、標準比較を仮定せず、I₃から標準超曲面表示が従う。九対象の階数・次数・シフトは指定しない。古典窓とのEuler差分から同時に数値階数と曲線の反標準移動を決める。OUの有理対応による一般ポテンシャルを含む。主稿 [任意の箙の曲線窓](papers/sections/cubic_elliptic_recognition.tex) の `thm:ou-any-quiver-elliptic-window`。
+
+AOU三ブロック型の未判定部分は、一零の二族に含まれる次元高々一の閉集合に絞られた。七次元の正規化係数torusでは余次元六以上である。各二次元成分の一般点と、一次式を解く座標から漏れる鉛直成分を検算した。主稿 `thm:ou-one-zero-residual-curves`。
+
+一次独立な中心一次元が二つあり、一方の商が整域なら、数値条件も要らず滑らかな可換三次曲面まで特定できる。最初の非零交換子が曲線の関数体上に作る交代二重導分を使う。主稿 `cor:ou-central-pencil-integral`。
+
+三次箙の一窓と内在的圏の導来圏が同値なら、反標準環に整域商を与える中心一次元が一つあれば標準AS四次元三次商を得る。二次乗法の階数九を、二次曲線の有理関数から作る二つの商対象のEuler標数により排除した。一般には構造対象の数値類に対する反標準作用の単冪性で十分である。主稿 `thm:ou-unipotent-integral-slice`。
 
 任意の内在的三次標識で、非零中心一次元による商が整域なら、一次元同士の積が二次成分（次元十）を張るときに標準AS三次商が得られる。九次元しか張らない場合は切断の関数体が有理的で、この標識の環には二次生成元が要る。正の種数なら常に認識できる。中心切断の場合に導来数値格子やOU比較を要しない。主稿 `thm:ou-central-trace-recognition`。
 
