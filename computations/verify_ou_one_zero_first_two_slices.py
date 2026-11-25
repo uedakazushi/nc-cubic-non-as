@@ -102,7 +102,7 @@ def parametrize(g, params, guards):
     return sub, (w, t)
 
 
-def graph_count(name, index, coeff, vs, local):
+def graph_count(name, index, coeff, vs, local, extra=EXTRA):
     charts = [fs-{-u for u in local} for fs in three_charts(coeff, vs, local)]
     curves = set.intersection(*charts)
     rest = [fs-curves for fs in charts]
@@ -110,8 +110,8 @@ def graph_count(name, index, coeff, vs, local):
     off = points(coeff, vs, local, base)
     exceptional = pencils = fibres = 0
     for j, curve in enumerate(sorted(curves, key=str)):
-        if (name, index, j) in EXTRA:
-            label, sample = EXTRA[name, index, j]
+        if (name, index, j) in extra:
+            label, sample = extra[name, index, j]
             fs = local_cuts(coeff, vs, label, sample)-local-{-u for u in local}
             assert curve not in fs and -curve not in fs
             base = component_bases(vs, [{curve}, fs, fs], local) if fs else []
