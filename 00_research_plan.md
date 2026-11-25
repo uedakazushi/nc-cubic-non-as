@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v46。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v47。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -16,6 +16,12 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 上位課題で有効な進展が止まったら、障害と次の具体的着手点をノートに残して次順位へ移り、適宜上位へ戻る。単一の失敗や環境不足で全作業を終了しない。15–30分を目安に数学的にまとまった成果を保存し、最新mainを確認して通常コミット・fast-forward pushする。可能な限り対象計算と組版を検証し、全runner未実行と区別する。各区切りで研究方針・ノート・主稿・READMEを必要に応じて整合させ、research-hubも更新する。認証不足・時間制限・push拒否時は実際の状態を報告し、利用可能な保存手段を使う。Actions、force push、無意味な日付更新、定常ZIPは行わない。
 
 ## 証明を保持した主要結果
+
+- 標準比較のある窓の中心は内在的反標準環の中心に単射し、AOUの三矢印長中心元は内在的な正則中心一次元になる。三次曲面の導来数値型の下で内在的環が次数一生成、その中心一次切断が整域なら、Artin–Staffordの曲線分類と導来制限により標準三次商を得る（主稿 `prop:ou-window-centre-transfer`、`cor:ou-integral-central-domain`）。
+
+
+
+- **一般点の中心固定と数値型によるSerre消滅**　`thm:ou-generic-centre` と `thm:ou-numerical-serre-vanishing`。smooth properな内在的圏の逆双対化両側加群を一般点に局所化すると反標準移動は一般除法代数の中心を点ごとに固定する。一般除法代数が可換なら標識付きで古典的三次曲面となる。さらに三次曲面のEuler・Serre格子を持てば、AZ2から高い一次Extの次元が安定し、非零の場合に一般除法代数がPIになるという矛盾を導く。任意のOU箙について窓との導来比較から内在的標識の例外性・Serre消滅が従う。これだけで一次生成性や二次包絡のAS正則性はまだ得られない。
 
 - **任意のOU三次箙の既約種数一曲線窓**　主稿 `thm:ou-any-quiver-elliptic-window`。頂点を保つ有向dg表示があれば、数値Euler差分と曲線の球面的対象分類により階数・次数・シフトを復元し、標準比較と内在的超曲面表示を導いた。OUの有理対応の一般点から外れる任意の窓について、同じ曲線表示が存在するかは未解決。
 - **二零は有限個の点だけが未判定**　`thm:ou-two-zero-finite-residual`。三つの経路基底の共通曲面外で82曲線、その19曲面上で160曲線因子の一般点を平坦な整係数模型で検証した。四族の `d=-1` は全点を処理。次は三変数の三表示が同時に失敗する孤立交点と、各曲線に残る閉点のイデアルを求めて検証する。
