@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v70。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v71。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -17,6 +17,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 証明を保持した主要結果
 
+- **標準比較を仮定しない半素中心切断**　周期環の素性・Goldie性を外し、半素PIまたは半素Goldieで累積成長二次以下の一次切断から、元の標識そのものの標準三次商を得た。正則中心元では後者の成長条件は自動。非半素PI切断では周期環の右noetherian性が切断のJacobson根基の右有限生成性と同値になった（`cor:ou-pi-nil-finite-generation`）。この有限生成性、および一般OUで切断をこの範囲に持ち込めるかが残る。AOU一零第一族は四代表。主稿 `cor:ou-literal-semiprime-pi-hypersurface`。
 - **PI切断と重み付き中心鉛筆**　PI切断ではJacobson根基を除いた商のGK次元が三未満なら中心作用を検出できる。さらにPI周期環では構造対象を支えるGK次元三の極小素商が一意で右noetherianとなる。この商の核が右有限生成で冪零、または正次数の有限斉次正規列で生成されれば標準比較が従う。一般の核にこれらが成り立つかは未解決。一次切断がPIなら半素性や成分表示なしで素Goldie周期環の標準比較を得る。素周期環に一次と高次の独立中心元があればGoldie性も従う。比較後に唯一の一次切断が非半素な場合の超曲面認識、および中心作用をまだ検出できない一般の周期環が残る。主稿 `prop:ou-small-pi-quotient`、`cor:ou-weighted-regular-centre`。
 - **第一族の四代表**　前回の二特殊値 e²−3e+3=0 の残余六曲線すべてで追加ラベルの零次元交叉を厳密に検証した（`cor:ou-one-zero-first-quadratic-fibres`）。この代表の全域が完了した。残る四代表は `verify_ou_one_zero_first_orbits.py` の親因子軌道から既決軌道を除いて得る。一般OUの小商圏の比較および非半素切断は依然未解決である。
 - **第一族の五代表**　`prop:ou-one-zero-first-two-slices` で二代表のうち一つを全域、他方を e²−3e+3=0 以外の全域で処理した。後者の二つの共役特殊値では三変数上で素イデアル分解し、残余曲線を追加ラベルで切る。比較未確定の一般OUと非半素な中心切断は別に残る。

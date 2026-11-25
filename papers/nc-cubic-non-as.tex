@@ -3784,6 +3784,190 @@ $j>N$では第$N$層の生成元の右に$p^{j-N}$を使える。
 いずれの場合も周期を展開し命題\ref{prop:ou-perfect-tail-comparison}を適用する。
 \end{proof}
 
+\begin{theorem}[有限次元表現族と可算な生成対象]
+\label{thm:ou-small-countable-representations}
+$T$をOU三次周期環とし、その小商圏に内在的三次標識があるとする。
+$J$を斉次両側イデアルとする。
+$T/J$上に有限個の表現$\rho_i:T/J\to M_{b_i}(K_i)$があり、
+$K_i$は複素数の体拡大で、核の交わりには非零斉次元がないとする。
+各表現について、ある正次数の斉次元の像が可逆なら$T/J$は右noetherianである。
+特に$T$の任意の斉次素PI商、さらに任意の半素PI斉次商は右noetherianである。
+$J=0$で上の表現族が存在すれば標準比較が成立する。
+\end{theorem}
+\begin{proof}
+まず一つの表現$\rho$を扱い、$T$からの合成にも同じ記号を使う。
+有限個の代数生成元の行列成分と指定した斉次元$u$の行列式の逆数が生成する
+複素可換アフィン整域を$H\subset K$とする。
+$Y=\operatorname{Spec}H$の任意の複素点$v$で右表現$V_v$に特殊化する。
+$M(v)=V_v\otimes\mathbb C[X]$を、$a\in T_j$が
+$\rho_v(a)X^j$として右作用する次数付き加群とする。
+$u$の行列が可逆なので$M(v)$は$\mathbb C[u]$上で最初の$\deg u$個の次数で生成される。
+従って$T$上でもnoetherianで、有限次元部分加群はない。ここで$u$の中心性は要らない。
+
+各整数$i$について$s^iF$を表すnoetherian次数付き$T$加群を一つ固定する。
+これらの有限直和$E$は可算通りである。AZ1により各$v$についてある$E$から
+$\pi M(v)$への全射が小商圏で存在する。Serre商の射の表示から、
+これは$E$の十分深い切断上の次数零の加群射により表され、余核は有限次元である。
+従ってある整数$n$で$E_n\to M(v)_n=V_v$が全射である。
+$E$と$n$ごとに、$E_n$の全ての元を右から消す斉次右イデアルを$K(E,n)$と置く。
+上の射が存在する$v$では各斉次$a\in K(E,n)$について$\rho_v(a)=0$である。
+この行列消滅条件の全てを課した集合は$Y$の閉集合である。
+可算個の組$(E,n)$に対応するこれらの閉集合は$Y(\mathbb C)$を覆う。
+複素既約アフィン多様体は可算個の真閉集合の和にはならない。
+例えば全方程式の可算な定義体を取り、その関数体を複素数に埋め込んで一般点を実現すればよい。
+従ってある固定した組で$K(E,n)\subseteq\ker\rho$となる。
+
+$E_n$の基底$m_1,\ldots,m_l$への右乗法$a\mapsto(m_1a,\ldots,m_la)$は
+$T/K(E,n)$を$E$の有限直和の次数移動に埋め込む。従ってこれは
+noetherian次数付き右$T$加群である。全表現にこの構成を使い、得た有限個の
+右イデアルの交わりを$K'$とすれば$T/K'$もnoetherianである。
+$K'$は斉次であり仮定から$K'\subseteq J$なので、その商$T/J$も同様である。
+先頭次数のフィルトレーションにより通常の右noetherian性が従う。
+
+無限次元の斉次素PI商$A$には、Posnerの中心単純商環の正則表現を用いる。
+その中心体上で忠実かつ有限次元であり、正次数イデアルにはRowenの定理による
+非零斉次中心元があるので可逆性も成立する。有限次元の素商は自明である。
+半素PI商は、命題\ref{prop:ou-small-pi-quotient}の有限零積の構成で得る
+有限個の素PI商の直積に埋め込まれる。実際、ここで根基は冪零かつ半素性により零である。
+各素商は右$T$加群としてnoetherianであり、部分加群である元の商も右noetherianとなる。
+$J=0$での標準比較は命題\ref{prop:ou-perfect-tail-comparison}による。
+\end{proof}
+
+\begin{corollary}[PI切断の根基の有限生成判定]
+\label{cor:ou-pi-nil-finite-generation}
+$T$の小商圏に内在的三次標識があるとする。正次数の斉次中心元$x$に対し
+$D=T/xT$がPIなら、$T$が右noetherianであるための必要十分条件は
+$J(D)$が右イデアルとして有限生成であることである。
+$T$自身がPIなら、同様に$T$の右noetherian性は
+$J(T)$の右イデアルとしての有限生成性と同値である。
+いずれもこの条件の下で標準比較が成立する。
+\end{corollary}
+\begin{proof}
+$D/J(D)$は半素PI斉次商なので定理\ref{thm:ou-small-countable-representations}より
+右noetherianである。Braunの定理で根基は冪零であり、次数作用により斉次である。
+右有限生成なら系\ref{cor:ou-pi-realized-component}の根基冪の有限列の論証で
+$D$は右noetherianとなる。次に同系の正規一元の持上げを$x$に適用する。
+逆は右noetherian環の商およびその右イデアルの性質である。
+$T$自身がPIの場合は最初から$T/J(T)$と根基冪を用いればよい。
+\end{proof}
+
+\begin{proposition}[次数零の商環が中心上有限な場合]
+\label{prop:ou-small-birational-pi}
+内在的三次標識を持つOU周期環$T$の斉次素商$A$が次数付き右Goldieで、
+正次数の斉次正則元$u$を持つとする。
+次数付き古典商環$Q$の零次部$Q_0$がその中心上有限なら$A$は右noetherianである。
+ここで$Q_0$の中心に対する次数移動の作用の位数は任意でよい。
+特に、$T$の半素な次数付き右Goldie商の累積成長が$O((n+1)^2)$なら、
+その商は右noetherianである。
+\end{proposition}
+\begin{proof}
+$Q$は次数付き単純Artin環である。
+$Q_0$は半単純Artin環なので、その中心の各体因子を$K_j$、対応する冪等元を$e_j$とする。
+$e_jQ_n$は左$K_j$空間として有限次元である。実際、$Q$を
+有限個の次数移動を持つ次数付き除法環上の行列環と書けば、
+各成分の行列要素は零または除法環の零次部上一次元である。
+零次部の各単純因子がその中心上有限であることを使えばよい。
+$s^iF$の全ての代表、$T,A$の各次数の基底と乗法、および$u$を
+可算な代数閉部分体$k\subset\mathbb C$に同時に降ろす。
+これは各次数の有限個の基底における作用行列、商写像、乗法表の係数を集めるだけでよい。
+$T_k,A_k$を得た$k$形とする。
+
+$j$ごとに全$n\ge0$で$e_jQ_n$の基底を選び、$T_k$の有限個の斉次生成元の
+右乗法の行列を考える。これらの写像は左$K_j$線形である。
+全行列の係数を$k$に添加して得た$K_j$の可算部分体を、$k$を固定して
+$\mathbb C$に埋め込む。得られた複素行列は$T_k$の関係式を保ち、
+スカラー延長により非負次数の右$T$加群$M_j$を定める。
+$u$の右乗法は各次数から$\deg u$先へ同型なので$M_j$は
+$\mathbb C[u]$上有限生成で、noetherianであり有限次元部分を持たない。
+
+各$M_j$にAZ1を使い、前定理と同様に固定した代表の有限和$E_j$から十分高い
+各次数で$M_j$への全射を取る。全$j$で共通な十分高い$\deg u$の倍数$n$を選ぶ。
+各$(E_j)_n$の右消去イデアルの交わり$I$は$k$上定義される。
+各次数では$k$上の行列の核の有限交叉だからである。
+$a\in I_k$が斉次なら全$(M_j)_n$を消し、体の埋込みの単射性から、
+特殊化前にも$(e_jQ_n)a=0$である。従って$Q_na=0$であり、
+$u^{n/\deg u}$は可逆なので$a$の$A_k$での像は零となる。
+スカラー延長して$I\subseteq\ker(T\to A)$を得る。前定理の基底への
+右乗法写像で$T/I$がnoetherianとなり、$A$にも同じ結論が従う。
+
+後半では半素Goldie商を有限個の斉次素Goldie商の直積に埋め込めばよい。
+各無限次元素商$B$の正次数イデアルは正次数の斉次正則元$v$を含む
+（定理\ref{thm:ou-literal-prime-window-cut}の分母を払う論証）。
+GK次元一以下のものは有限次元またはPIで前定理を使える。
+残る場合はBergmanの成長間隙と累積上界から二次成長である。
+次数零の商環の有限性にはArtin--Staffordの二次成長Goldie環の商環定理
+\cite{ASsemiprime2000}、\cite[\S6]{StaffordVdB2001}を用いる。
+適用するには$\mathbb C+B_{\ge1}$に取り直しても素性と商環を保つ
+（分数の分子・分母に正次数の正則元を同時に右から掛ける）。
+次に$\deg v$のVeroneseを取ると正則一次元を持つ。
+その次数付き商環は元の商環の同じVeroneseである。
+実際、次数差が$\deg v$の倍数である分数は分子・分母の右に分母の冪を
+掛け、両者の次数を同じ倍数列に揃えられる。
+このVeronese商環は次数付き半単純Artinであり、その単純因子ごとに元の
+Veroneseの射影を取れば、正則一次元を持つ連結な素Goldie環が得られる。
+分数表示の射影によりその古典商環は対応する因子である。
+各射影は元の累積上界を保ち、一次生成性も保つ。
+GK次元二の射影には上記商環定理を、一次以下の射影にはPI性とPosnerの定理を
+適用すれば、零次部はそれぞれ中心上有限である。
+後者では斉次中心元による中心局所化を用いてもよい。通常の商環が満たす
+行列恒等式は零次部にも制限され、各単純Artin因子にPosnerの定理を適用できる。
+従ってその有限直積であるもとの零次部も中心上有限であり、前半が適用できる。
+\end{proof}
+
+\begin{corollary}[半素中心切断からの標識付き認識]
+\label{cor:ou-literal-semiprime-pi-hypersurface}
+内在的三次標識を持つOU三次周期環$T$で、非零一次中心元$x$の切断
+$D=T/xT$が半素で、次のいずれかを満たすとする。
+\begin{enumerate}[label=(\roman*)]
+\item $D$はPI、または右noetherianである。
+\item $D$は次数付き右Goldieで、$H_D(n)=O((n+1)^2)$である。
+\end{enumerate}
+(ii)の成長条件は$x$が正則なら自動である。
+元の標識は標準AS四次元正則環の正則正規三次商を与える。
+$T$の素性やGoldie性、$x$の正則性を仮定する必要はない。
+\end{corollary}
+\begin{proof}
+正則な場合の成長は$\dim D_n=\dim T_n-\dim T_{n-1}=O(n+1)$による。
+定理\ref{thm:ou-small-countable-representations}と命題\ref{prop:ou-small-birational-pi}により、いずれの場合も$D$は右noetherianである。
+系\ref{cor:ou-pi-realized-component}の最後の正規一元の持上げを
+$x$に使うと$T$は右noetherianで標準比較が成立する。
+$x$は$\pi T$上非零に作用する。実際、そうでなければ$xT$は有限次元となり、
+OUのAS--Gorenstein条件による有限次元非零斉次右イデアルの排除に反する
+（系\ref{cor:ou-semiprime-pi-window-comparison}の証明）。
+次数移動は$s$であり、$x$は非零の$z\in Z(R)_1$に移る。
+命題\ref{prop:ou-visible-central-action}の単射性の議論と
+定理\ref{thm:ou-literal-prime-window-cut}の切断部分圏の議論により
+\[
+  (\qgr D,(1))\simeq(\mathcal D,h),\qquad
+  \mathcal D=\qgr(R/zR).
+\]
+ここで$x$が加群を実際に消すことは、その作用の像が有限次元なら
+高次切断を取ることで実現できる。
+
+$G=\pi(R/zR)$とし、$H\in\mathcal D$を$\pi D$の像とする。
+$(G,h)$はampleである。実際、$x$に対応する自然変換を零とする対象の間の
+全射に対しては、$s^{-i}F$からの射が全て$h^{-i}G$を経由するので、
+元のAZ1, AZ2がそのまま制限される。
+標準比較の下で補題\ref{lem:ou-central-euler-connectivity}のEuler漸化式は
+窓の有限階数Grothendieck群上の可逆なSerre作用から成立する。
+従って$\dim\operatorname{Hom}(G,h^nG)=3n$ ($n\ge1$)で、$\mathcal D$は直既約である。
+AZ1で有限個の$h^{-i}G$の和から$H$への全射を選ぶ。
+AZ2をこの全射に使えば$\dim\operatorname{Hom}(G,h^nH)=O(n+1)$となる。
+同じ全射から前合成して$\dim\operatorname{Hom}(H,h^nH)=O(n+1)$を得る。
+$D_n$からこの空間への左乗法写像の核は、有限次元右イデアルを生成する元からなる。
+その和は右noetherian性により有限次元なので$\dim D_n=O(n+1)$となる。
+
+これで定理\ref{thm:ou-literal-filtered-window-cut}の後半における半素切断の分類を適用できる。
+具体的には有限次元両側イデアルを除き、連結化と正則元によるVeroneseを取り、
+$h_*$の単冪性で成分を固定する。GK次元一の極小成分は高次で直積に分かれるので
+直既約性から他の成分と共存できない。全体がそのような成分だけなら
+次数ごとの次元は有界で、全ての有限生成加群のtailsは有限長になる。
+ところが$G$が有限長なら$h^nG$も同じ長さで、Ext-finite性と単純対象の自己射が
+スカラーであることから$\dim\operatorname{Hom}(G,h^nG)\le\operatorname{length}(G)^2$
+となり$3n$に反する。従って無限次元の極小成分は全て二次成長である。
+同定理と同じArtin--Staffordのorder表示と定理\ref{thm:ou-reduced-order-slice}により結論を得る。
+\end{proof}
+
 \begin{proposition}[高次の中心元を用いる標準比較]
 \label{prop:ou-high-centre-small-comparison}
 OU三次箙の周期環$T$が素な次数付き右Goldie環で、その小商圏が内在的三次標識を
