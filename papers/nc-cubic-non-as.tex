@@ -29,7 +29,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月25日／non-as-v53}
+\date{2026年11月25日／non-as-v54}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -45,6 +45,7 @@ AOU三ブロック箙型で指定九線束の平面三次曲線表示を持つ�
 射影曲面上の連接代数が一般点で分裂する場合にも認識が従い、斉次中心上有限で双有理可換な内在的反標準環では生成次数の制約を除ける。また反標準環の正次数正規元から全対象の高いtwistのSerre消滅を導く。
 一零二族の残余の二次元成分を検査し、AOU型での未判定部分の次元を高々一に抑えた。また数値的反標準作用が構造対象の類に単冪に作用する場合、整域となる中心一次切断が一つあれば、二次曲線の線形系から生じるEuler標数の矛盾により一次生成性と標準三次商表示が従う。
 整な中心切断で残りの三つの一次元が互いに可換なら、正規化錐の負次数Poisson括弧が消えることから、標識付きで滑らかな可換三次曲面を得る。
+中心切断の連接層圏が連結被約射影曲線のものであれば、その算術種数一と構造対象の線束性を導き、導来自交叉の階数から成分保存を示して標準三次商表示を得る。
 \end{abstract}
 \tableofcontents
 
@@ -1864,6 +1865,118 @@ $A_{\le n}$の各元を掛けると、総次数$(d+1)n$以下で各語に対応�
 重み$(1,n)$で斉次な関係式を取り、$z$の冪で割れば
 $w/z^n$が$\mathbb C$上代数的となる。よって$w\in\mathbb C z^n$である。
 
+\end{proof}
+
+\begin{theorem}[抽象的な被約曲線を中心切断として持つ場合]
+\label{thm:ou-abstract-reduced-central-curve}
+内在的三次標識$(\mathcal C,F,s)$と$0\ne z\in Z(R)_1$について
+$B=R/zR$とおく。$\qgr B$が連結被約射影曲線$Y$の$\coh Y$と
+$\mathbb C$線型アーベル圏として同値であるとする。曲線は純一次元とする。
+同値の下で$G=\pi B$は線束であり、$Y$は$\omega_Y\simeq\mathcal O_Y$の
+Gorenstein曲線で、次数移動$h$について$\deg(G^\vee\otimes hG)=3$である。
+次数移動が誘導する曲線の自己同型は各既約成分と各特異点を固定する。
+$R$は標準AS四次元正則環の正則正規三次商である。
+$B$の整域性、$Y$の種数、構造対象の階数、偏極、数値型、OU比較を仮定しない。
+\end{theorem}
+\begin{proof}
+連接層圏の自己同値は$h=\alpha^*(-)\otimes N$と書ける（Gabrielの再構成
+\cite{Gabriel1962}）。具体的には支持による局所化とその中心から基礎スキームの
+自己同型を取り除くと、各アフィン開で中心線型なMorita自己同値となる。
+可換環上のそのような同値は可逆加群によるテンソルであり、
+構造層の像を取れば局所表示が貼り合わさる。
+閉埋込みの完全忠実関手を$j_*$とする。
+$F_i=s^iF$から$j_*M$への射は$G_i=h^iG$を経由するので、
+AZ1とAZ2は$(G,h)$へ降りる。定理\ref{thm:ou-unipotent-integral-slice}の
+$(*)$の証明とその直前の拡大の同定は、$z$が$R$上正則であれば成立する。
+特に全$M\in\coh Y$に自然に
+\[
+ \operatorname{Ext}^1_Y(G,M)^*\simeq\operatorname{Hom}_Y(M,G).
+ \tag{**}
+\]
+補題\ref{lem:ou-az2-singular-free}により$G=V\oplus T$と分解され、
+$V$は階数$r$のベクトル束、$T$は滑らかな点に支持される有限長層である。
+AZ1を$\mathcal O_Y$に適用すれば$r>0$である。
+
+被約純一次元の$Y$はCohen--Macaulayで、双対化複体は$\omega_Y[1]$である。
+$G$は完全であり、$T$の台で$\omega_Y$は可逆なので、
+$G\otimes^L\omega_Y=G\otimes\omega_Y$である。固有双対性で
+$(**)$の左辺は$\operatorname{Hom}_Y(M,G\otimes\omega_Y)$となる。
+米田により$G\otimes\omega_Y\simeq G$で、最大零次元部分層を割ると
+$V\otimes\omega_Y\simeq V$である（$\omega_Y$は最大Cohen--Macaulay）。
+局所的に$\omega_Y$は有限自由加群の直和因子となり、一般階数一より線束である。
+行列式を取ると$\omega_Y^r\simeq\mathcal O_Y$であり、
+$\deg\omega_Y=2p_a(Y)-2=0$、従って$p_a(Y)=1$である。
+
+$N_n=N\otimes\alpha^*N\otimes\cdots\otimes(\alpha^{n-1})^*N$とする。
+どの成分の置換軌道でも$N$の次数の和は正である。
+実際、ある軌道上でこの和が非正なら、固定したその成分の正規化$\nu:D\to Y$で
+$h^{-n}V$に現れる線束の捩れの次数は全ての$n>0$で下に有界である。
+$V$の各正規化への制限を有限個の負の線束の和の商と書き、
+曲線同型で引き戻しても線束の次数は変わらない。従って$\nu^*h^{-n}V$は
+次数が一様に下に有界な線束の和の商である。$D$上の十分負の線束$P$に対して
+$\operatorname{Hom}_Y(h^{-n}G,\nu_*P)=0$が全$n>0$で成立し、AZ1に反する。
+よって$N_n$の次数は各成分で$+\infty$に向かう。
+この同じ線束による下界と固定ベクトル束の線束の和への埋込みから、
+各成分の正規化で$h^nV\to V\otimes\omega_Y$の射は$n\gg0$で零である。
+$Y$は被約なので曲線上でも零であり、固有双対性から
+$H^1(Y,V^\vee\otimes h^nV)=0$となる。
+
+$0\to F_{n-1}\to F_n\to j_*G_n\to0$にAZ2を使うと$n\gg0$で
+$3n=\dim\operatorname{Hom}_Y(G,h^nG)$である。
+$\ell=\operatorname{length}T$とし、Riemann--Rochと$p_a(Y)=1$を使うと
+\[
+ 3n=nr^2\deg N+r\ell+\dim\operatorname{Hom}_Y(T,h^nT).
+\]
+最後の項は有界である（長さ$\ell$の二層のHom次元は$\ell^2$以下）。
+従って$r^2\deg N=3$から$r=1,\deg N=3$であり、
+残りの定数項から$T=0$である。$V\otimes\omega_Y\simeq V$から
+$\omega_Y\simeq\mathcal O_Y$も得る。
+
+$G^\vee$で同値を捻り、以下$G=\mathcal O_Y$とする。
+新たな$h=\alpha^*(-)\otimes L$では$L$は元の$G^\vee\otimes hG$である。
+自己同型が成分を保つことを切断の導来自交叉から示す。
+系\ref{cor:ou-integral-central-domain}の証明で用いた$Lj^*$の構成は
+正則な中心元による二項自由分解だけを要する。すなわち
+$-\otimes_R^L B$は有界な有限生成加群複体を保ち、
+有限次元加群のTor層は有限次元なのでtailsに降り、完全な制限$j_*$の左導来随伴となる。
+任意の$M\in\coh Y$に対し$P=Lj^*j_*M$は完全複体である。
+実際、全ての閉点$y$について
+\[
+ \operatorname{Hom}_{D^b(Y)}(P,k(y)[i])
+ =\operatorname{Ext}_{\mathcal C}^i(j_*M,j_*k(y))=0\qquad(i>2).
+\]
+点に台を持つ局所Extの大域切断と局所環上の最小自由分解を使えば、
+これは$P$が各茎で有限自由複体に同値であることを意味する。
+二項分解により$P$の二つのTor層は次数$0,-1$にある$M,h^{-1}M$である。
+従ってそのEuler階数は、各成分上で$M$の一般階数から$h^{-1}M$の一般階数を引いたものに等しい。
+完全複体のEuler階数は局所一定であり、$Y$は連結なので全成分で一定である。
+$M=\mathcal O_{Y_i}$を一つの既約成分の構造層とする。
+対応する二つの成分が異なるとその階数差は一方で$1$、他方で$-1$となって矛盾する。
+従って$\alpha$は各成分を保つ。さらに$M=k(y)$として$y$が動くと、
+$P$の$y$での茎は$k(y)$だけになり、これが完全なら局所環は正則である。
+従って全ての特異点も固定される。上で示した軌道次数の正性により
+$L$は全成分で正であり、$\alpha^*L$と$L$は同じ多重次数を持つ。
+
+任意の真の純一次元部分曲線$Z\subsetneq Y$について
+$H^1(\mathcal O_Z)^*=\operatorname{Hom}_Y(\mathcal O_Z,\mathcal O_Y)=0$である。
+実際、像は$Z$以外の成分で零となる大域関数の生成するイデアルである。
+連結被約射影曲線の大域関数は定数なのでそのような関数は零である。
+純部分曲線は成分の被約な和であるため、$p_a(Z)\le0$であり
+$\deg_Z L\ge1\ge2p_a(Z)+1$となる。$Z=Y$でも$\deg L=3=2p_a(Y)+1$である。
+曲線の埋込み定理\cite[Theorem~1.1]{CFHR1999}により$L$はvery ampleである。
+正の多重次数と$\omega_Y=\mathcal O_Y$から$L_n$の一次cohomologyは
+$n>0$で零となり、$h^0(Y,L_n)=3n$である。特に$Y$は平面三次曲線である。
+上の短完全列からの$B_n\hookrightarrow H^0(Y,L_n)$は全正次数で次元が
+等しいので同型で、積と両立する。
+
+最後に定理\ref{thm:ou-central-trace-recognition}の境界とSerre跡の議論を使う。
+この部分で曲線に要求したのは、$H^1(\mathcal O_Y)$が一次元で、
+$G_0,G_1$が線束であり、非零切断による$H^1(L^{-1})\to H^1(\mathcal O_Y)$が
+全射となることである。最後の全射は双対の
+$H^0(\mathcal O_Y)\to H^0(L)$の単射性から従う。
+従って$\alpha^*$は$\Pic^0Y$上恒等である。$(\alpha^*L)\otimes L^{-1}$は
+多重次数零なので$\Pic^0Y$に属し、$(\alpha^*-1)^2[L]=0$となる。
+式\eqref{eq:ou-R-mod-z}以降のregular tripleと中心拡大の論証を適用する。
 \end{proof}
 
 \subsection{主結果の位置と先行研究}
