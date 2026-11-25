@@ -69,6 +69,7 @@ PROGRAMS=(
     "computations/verify_ou_one_zero_first_orbits.py",
     "computations/verify_ou_one_zero_first_junction.py",
     "computations/verify_ou_one_zero_first_two_slices.py",
+    "computations/verify_ou_one_zero_first_quadratic_fibres.py",
     "computations/verify_ou_cuspidal_order_flag.py",
     "computations/verify_ou_reduced_order_residues.py",
     "computations/verify_ou_central_pencil_fixed_line.py",

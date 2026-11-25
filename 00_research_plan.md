@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v68。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v69。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -17,6 +17,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 証明を保持した主要結果
 
+- **第一族の四代表**　前回の二特殊値 e²−3e+3=0 の残余六曲線すべてで追加ラベルの零次元交叉を厳密に検証した（`cor:ou-one-zero-first-quadratic-fibres`）。この代表の全域が完了した。残る四代表は `verify_ou_one_zero_first_orbits.py` の親因子軌道から既決軌道を除いて得る。一般OUの小商圏の比較および非半素切断は依然未解決である。
 - **第一族の五代表**　`prop:ou-one-zero-first-two-slices` で二代表のうち一つを全域、他方を e²−3e+3=0 以外の全域で処理した。後者の二つの共役特殊値では三変数上で素イデアル分解し、残余曲線を追加ラベルで切る。比較未確定の一般OUと非半素な中心切断は別に残る。
 - **小商圏での中心作用の検出**　各次数が線形上界を持つ有限個の素な次数付き右Goldie商の濾過では、内在的構造対象の非零部分を支えられない（`lem:ou-quadratic-small-dimension`、`cor:ou-invisible-centre-growth`）。平方差分とBergmanの一様下界を使い、周期環自体に素性を課さず中心作用を検出する。素な右Goldie周期環では、一次中心元に加えて任意の正次数に独立な中心元があれば標準比較とPI性を得る（`prop:ou-high-centre-small-comparison`）。これらの素商・成長仮定が得られない場合、一次中心一次元で切断に冪零イデアルがある場合、AOU一零第一族の六代表を引き続き調べる。
 - **固定部分を含む全中心一次鉛筆**　窓との導来比較がある内在的環の一次中心は一次元または四次元で、二つ独立なら古典三次曲面である。正則列条件を除去した（主稿 `lem:ou-pi-cut-purity`、`thm:ou-arbitrary-central-pencil`）。素なOU周期環で一次中心が二次元以上なら比較を追加せず同じ結論を得る。比較済みの非可換型は中心一次元がスカラー倍を除いて一意である。その非半素切断および比較未確定の周期環、AOU第一族の六代表を優先する。

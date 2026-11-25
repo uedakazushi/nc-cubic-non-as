@@ -5759,3 +5759,28 @@ $(0,7,0,0,11,2,0)$となる。各共有曲線からの一変数既約因子と
 閉点の平坦還元を含め、\path{computations/verify_ou_one_zero_first_two_slices.py}
 で検査できる。二代表は、前二命題で解決した代表と同じ軌道には属さない。
 \end{proof}
+
+\begin{corollary}[一零第一族の二つの共役特殊値]
+\label{cor:ou-one-zero-first-quadratic-fibres}
+命題\ref{prop:ou-one-zero-first-two-slices}(ii)の代表でも全ての点で包含が成立する。
+第一族に残る未判定部分は、指定零の安定化群を除き高々四代表上にある。
+\end{corollary}
+\begin{proof}
+残る$e^2-3e+3=0$において、$(a,d,e)$の有理多項式によって二つの
+共役特殊値を同時に扱う。この代表の三変数ラベル$B$の失敗因子と交叉させ、
+単元で消える部分を除くと、零次元成分はなく一次元成分が六個となる。
+各々の素イデアルは$e^2-3e+3$と、順に次の式で生成される。
+\[
+\begin{gathered}
+ 3ad+e-3,\qquad
+ 3a^2d-6ad-2ae+3a+2e,\\
+ 3a^2d^2+a^2de-3a^2d-ade-ad-ae+2a+e-1,\qquad ad-e+1,\\
+ a^2d+2ade-3ad-ae-e+2,\qquad a^2d-ade+e-1 .
+\end{gathered}
+\]
+それぞれで追加のラベルの正則な小行列式を取る。この小行列式の消失因子と
+素イデアルとの交叉には曲線成分がなく、残る零次元有理素成分を全て検査する。その件数は順に$9,12,14,1,10,8$である。
+有限体上の点は各素成分の平坦な模型でその小行列式を検出するためにのみ用いる。
+元の有理数上での被覆、分解、例外閉点は
+\path{computations/verify_ou_one_zero_first_quadratic_fibres.py}で再現できる。
+\end{proof}
