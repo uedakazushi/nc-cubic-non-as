@@ -29,7 +29,7 @@
 \newcommand{\rk}{\operatorname{rank}}
 \title{非可換del Pezzo曲面の内在的条件とAS正則超曲面表示の限界\\\large 量子Fermat・符号型・Clifford order}
 \author{}
-\date{2026年11月25日／non-as-v47}
+\date{2026年11月25日／non-as-v48}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -1460,6 +1460,63 @@ $s^{-1}\eta s$と$\eta$を表す両側加群射は$P$で決まるから全体で
 標準比較の下で$P$はheartの対象であり、AZ1でその有限直和からの全射を取れば
 $\eta_P=0$となる。よって写像は単射である。積は自然変換の合成で保たれる。
 AOUには命題\ref{prop:ou-aou-central-specialization}を適用する。
+\end{proof}
+
+\begin{theorem}[導来比較のみでの窓中心の被約化]
+\label{thm:ou-derived-reduced-centre}
+内在的三次標識$(\mathcal C,F,s)$があり、$D^b(\mathcal C)$があるOU三次箙の
+一窓の有向代数$\Lambda$の$\Perf\Lambda$と三角同値であるとする。
+射影の直和の像を$P$とし、$B=\bigoplus_{d\ge0}\operatorname{Hom}(P,s^dP)$とする。
+この環は窓で計算できる（$s=S^{-1}[2]$）。斉次中心の間に分裂全射
+\[
+ \rho:Z(B)\longrightarrow Z(R),\qquad Z(B)_{\mathrm{red}}\simeq Z(R)
+\]
+がある。$P$の内在的heartでのcohomologyが$[a,b]$に入るとき
+$(\ker\rho)^{b-a+1}=0$である。特に元の標識が滑らかな可換三次曲面の
+標準標識と同値であるための必要十分条件は、$Z(B)_1$に代数的独立な
+三元が存在することである。ここに窓の射影のheart所属や標準OU比較を仮定しない。
+\end{theorem}
+\begin{proof}
+$P$はtilting対象なので、その自己dg代数の零次以外のcohomologyは消え、
+標準増強を$\Lambda$とMorita同定できる。Serre関手の一意性から
+$s$による窓の軌道とvery strong性が移る。
+命題\ref{prop:ou-window-centre-transfer}の両側加群による構成は、
+$P$の内在的heart所属を使う前に、任意の$z\in Z(B)_d$に
+$s$と可換な自然変換$\eta:\mathrm{id}\to s^d$を対応させている。
+次数零にも同じ証明が使える。$\rho(z)=\eta_F$とすれば
+自然性により$Z(R)_d$に属し、合成により積を保つ。
+逆に$R$の斉次中心元$x$は任意の次数付き右$R$加群に
+$M\to M(d),\ m\mapsto mx$を与える。これは次数移動と可換で
+$\qgr R$とその有界導来圏に降下する。$P$での値は$Z(B)_d$に属し、
+$F=\pi R$での値は$x$である。この変換は複体上で定義されたdg自然変換であり、
+上のMorita表示での両側加群射は$P$での値で一意に決まる。
+従ってこの構成は$\rho$の次数付き環切断である。
+
+$z\in\ker\rho$が斉次なら$\eta$は全ての$s^{-m}F$で消える。
+任意のheart対象へのAZ1の全射に自然性を適用すると、全てのheart対象でも消える。
+$s$は内在的heartについて完全なので、任意の有界複体$X$で
+$H^i(\eta_X)=0$である。実際、$\tau_{\le i}X\to X$と
+$\tau_{\le i}X\to H^i(X)[-i]$に自然性を適用して$H^i$を取ればよい。
+一般にcohomology上零の射$f:X\to Y$を$\tau_{\le i}X$に制限すると
+$\tau_{\le i-1}Y$を経由する。$\tau_{\ge i}Y$への合成が
+$H^i(X)\to H^i(Y)$で決まることは$t$構造の直交性から従う。
+$P$から始め、核の斉次元の変換を順次合成すると、全ての中間のtwistは
+同じ振幅$[a,b]$を持ち、各段で終域の切断の上限が一つ下がる。
+$b-a+1$回の合成は零であり、窓で評価して主張したイデアルの冪零性を得る。
+$R$は整域なので核はちょうど零根基である。
+
+いま$Z(B)_1$の三元が代数的独立なら、それらの像も代数的独立である。
+像の関係式があれば、その冪を取ると元の三元の関係式になるからである。
+従って$R$は標準次数の中心多項式環$A=\mathbb C[x_1,x_2,x_3]$を含む。
+$K=\operatorname{Frac} A$として$R\otimes_A K$の$K$次元は高々三である。
+実際、分母を払って$R$の$k$個の$A$一次独立元を取り、その最大次数を$m$とすれば、
+$k\dim A_{\le n}\le\dim R_{\le n+m}$である。内在的Hilbert関数
+$\dim R_j=1+3j(j+1)/2$と$\dim A_j=(j+1)(j+2)/2$の総和の
+最高次係数を比較して$k\le3$となる。この有限次元整域は除法代数で、
+中心上の次元は平方数なので可換である。$R$も可換であり、
+系\ref{cor:ou-commutative-graded-recognition}を適用できる。
+逆に古典的三次曲面の反標準環には次数一の三つの独立な変数がある
+（三次曲面の外の点からの線形射影を取る）。上の環切断で窓に持ち上げればよい。
 \end{proof}
 
 \begin{corollary}[内在的中心切断が整な場合の認識]
