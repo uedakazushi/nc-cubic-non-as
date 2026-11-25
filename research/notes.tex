@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v64}
+\date{2026年11月25日／non-as-v65}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,17 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{中心作用の検出と正則鉛筆}
+命題\ref{prop:ou-visible-central-action}では、中心作用がSerre関手と交換することを跡で示す。
+小商圏上で生きる中心元は構造対象で単射になり、一次ならその構造対象のOU次数での
+線形成長上界を排除する。有限次元表現を周期加群にすればPI環の非冪零中心元を検出できる。
+系\ref{cor:ou-semiprime-pi-window-comparison}の半素PI仮定の下では零積の二つの非零中心元は
+存在せず、周期環は素となる。定理\ref{thm:ou-regular-central-pencil-classical}では
+可算定義体上の中心鉛筆を取り、正則列により一般ファイバーが半素であることを確認する。
+非可換環でも標数零の体拡大は半素性を保つ。被約切断の各成分の一般点で第二中心元を用い、
+最初の交換子が与える二重導分を全成分で消す。正則列でない場合は
+固定部分が残るため、この同じ証明だけでは足りない。
 
 \paragraph{可約な周期環切断と一零第一族の接合}
 定理\ref{thm:ou-literal-filtered-window-cut}では周期環の素な次数付き商環を先に使う。
