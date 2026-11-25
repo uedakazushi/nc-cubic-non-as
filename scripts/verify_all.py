@@ -55,6 +55,8 @@ PROGRAMS=(
     "computations/verify_ou_two_zero_double_families.py",
     "computations/verify_ou_two_zero_codim_five.py",
     "computations/verify_ou_two_zero_residual_curves.py",
+    "computations/verify_ou_two_zero_closed_strata.py",
+    "computations/verify_ou_one_zero_second_family.py",
     "computations/verify_ou_one_two_zero_components.py",
     "computations/verify_ou_one_two_zero_triangles.py",
     "computations/verify_ou_collinear_zeros.py",
