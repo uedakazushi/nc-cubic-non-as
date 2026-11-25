@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v61}
+\date{2026年11月25日／non-as-v62}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,16 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{半素切断の成分次数と接合}
+定理\ref{thm:ou-reduced-order-slice}の跡は一般点の行列サイズで正規化する。
+これで成分間でサイズが異なっていても跡の像は中心の構造層を含む。
+双対化層の導手上の表示から、可約なら正規化の各成分は射影直線で導手指数和は二である。
+正の次数$d_i$に対する$\sum r_id_i=3$から非可換な可能性は二成分でサイズ$(1,2)$だけとなる。
+完全局所環の二段旗と留数の相殺でこれも消える。
+系\ref{cor:ou-semiprime-central-section}は最小素商の一次成長を構造対象の直既約性で排除し、
+分類からこのorderに戻す。非半素な切断では一般点への埋込みも跡格子の双対性も
+同じ形では使えない。一般のOU小商圏が窓との比較を持つかも残る。
 
 \paragraph{素な切断とVeronese}
 定理\ref{thm:ou-prime-central-section}では、次数付き商環の単純型の移動を切断の
