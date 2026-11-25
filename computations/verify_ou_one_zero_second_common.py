@@ -56,6 +56,7 @@ def parent_orbits(co, ps, units):
     assert remaining<=set.union(*orbits[2:])
     assert [len(remaining&orb) for orb in orbits[2:]]==[2,1,4,1,2]
     print('PASS both four-element orbits and all eight parent factors',flush=True)
+    return settled
 
 
 def surfaces(co, ps, units, shared):

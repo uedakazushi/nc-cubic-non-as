@@ -2085,6 +2085,128 @@ regular tripleと中心拡大の論証により結論する。
 \end{proof}
 
 
+\begin{theorem}[導来圏で与えた幾何的切断からの認識]
+\label{thm:ou-derived-geometric-divisor}
+$(\mathcal C,F,s)$を内在的三次標識とし、$Y$を連結な純一次元射影スキームとする。
+三角関手の随伴対
+$H:D^b(\mathcal C)\rightleftarrows D^b(\coh Y):J$について、次を仮定する。
+\begin{enumerate}[label=(\roman*)]
+\item $Hs\simeq hH$となる三角自己同値$h$があり、ある$p>0$、$q\in\mathbb Z$で
+$h^p=(\beta^*(-)\otimes A)[q]$と書ける。$A$は豊富線束、$\beta$は各既約成分を保つ
+曲線自己同型で、各特異閉点は$\beta$について周期的とする。被約曲線では特異点の周期性は自動である。
+\item $s$と可換な自然変換$\eta:s^{-1}\to\mathrm{id}$と自然な三角
+$s^{-1}\xrightarrow{\eta}\mathrm{id}\to JH\to s^{-1}[1]$があり、第二射は随伴の単位である。
+\item $K=HF$は$Y$上の完全複体である。
+\end{enumerate}
+このとき$q=0$で$h$自体がheartに関して完全となる。$K$は線束のシフトであり、$z=\eta_{sF}$は非零の正則中心一次元である。
+$\qgr(R/zR)\simeq\coh Y$で、$R$は標準AS四次元正則環の正則正規三次商である。
+$H,J$のheartに関する完全性や$Y$の種数は仮定しない。
+\end{theorem}
+\begin{proof}
+$A_m=A\otimes\beta^*A\otimes\cdots\otimes(\beta^{m-1})^*A$とする。
+$h^{pm}K=(\beta^m)^*K\otimes A_m[qm]$であり、$A_m\otimes A^{-m}$は
+全ての被約成分で次数零なので有限型の族に属する。実際、曲線の多重次数零のPicard群は有限型である。
+正規化のPicard多様体と有限個の特異点の単元の商で被約曲線の場合が従い、
+冪零厚化では$H^1(1+\mathcal I)$の加法的フィルトレーションで従う。
+Picard関手の有限型被覆上で線束の族を取ればよい。
+また$\beta^m$のグラフは$A\boxtimes A$に関して一定のHilbert多項式を持つので、
+自己同型の有限型の族に属する（十分なvery ample冪のHilbertスキームを使う）。
+従って
+\[
+ T_m=K^\vee\otimes^L(\beta^m)^*K\otimes (A_m\otimes A^{-m})
+\]
+は有界な族である。有限型の基底を平坦性により有限層別化し、基底変換と両立する
+cohomology層を取る。Serre消滅と十分な捩りでの大域生成はこれら有限個の族に一様に適用できる。
+特に$m\gg0$では$\operatorname{Hom}(K,h^{pm}K[k])$は
+$H^0(\mathcal H^{k+qm}(T_m)\otimes A^m)$に等しい。cohomologyの振幅は一定範囲にあるので、
+固定した$k$に対する次元は$O(m)$、$q\ne0$ならやがて零である。
+この大域切断は層を生成するため、
+これが零なら対応するcohomology層そのものが零である。
+
+$\eta$が$s$と可換なので$z$は中心にある。もし$z=0$なら$F$の全てのtwistで
+$\eta$は零となる。随伴単位の三角に$\operatorname{Hom}(F,-)$を適用すると、
+$R_n$は$\operatorname{Hom}(K,h^nK)$に入る。$n=pm$で二次成長と上の一次上界が矛盾する。
+よって$z\ne0$で整域$R$上正則である。
+命題\ref{prop:intrinsic-central-serre-vanishing}と同じ三角から、$n\gg0$で
+\[
+ \operatorname{Hom}(K,h^nK[k])=0\ (k\ne0),\qquad
+ (R/zR)_n\simeq\operatorname{Hom}(K,h^nK).
+\]
+$k=-1$で使うのは$R_{n-1}\xrightarrow{z}R_n$の単射性である。
+$k=0$の写像は$H$による制限なので周期積と両立する。
+特に右辺の次元は$3n$なので$q=0$である。上の一様生成性により、$m$が十分大きければ
+層の複体$K^\vee\otimes^L(\beta^m)^*K$は零次以外のcohomologyを持たない。
+
+既約成分の一般点、または特異閉点$y$を取る。
+その点を保ついくらでも大きな$\beta$の冪$m$を選べる。
+$K_y$の有限最小自由複体が非零で、最初と最後の次数が$i<j$なら、
+$(\beta^m)^*K$の茎も同じ両端を持つ。局所Hom複体の最高次数$j-i$では
+微分の像は極大イデアル倍に含まれるため、cohomologyは中山の補題で非零である。
+これは上の層の消滅に反する。従ってこれらの点で$K$は零か自由加群の単一シフトである。
+一般点で全て零なら、完全複体のcohomology層は有限台で、上の有界な族$T_m$も
+零次元台で長さが一様有界となる。豊富線束を掛けてもこれらの大域切断は有界で、$3pm$に反する。
+少なくとも一成分で$K$は一般に非零であり、その成分の全ての点は台に含まれる。
+二成分の交点は特異で、そこでの非零自由加群のシフトは近傍でも同じ階数の束のシフトとなる。
+連結性により、全成分で同じシフト$[a]$と同じ正の一般階数を持つ
+（一成分の場合は一般点だけでよい）。
+
+滑らかな閉点の離散付値環上では$K$は、自由部$[a]$と有限長加群のシフトの和に分解する。
+$y$に非零の有限長直和因子$T[b]$があれば、$(\beta^m)^*K$はその点でも自由部$[a]$を持つ。
+$\operatorname{Ext}^1(T,\mathcal O_{Y,y})\ne0$からHom複体の次数$b+1-a$が零でなければならない。
+一方$(\beta^m)^*K$がこの有限長因子の引戻しを持つ点では、始域の自由部からこの因子への
+非零Homがあるので$a-b=0$が必要である。両方は成立せず、有限長因子は存在しない。
+従って全体で$K=V[a]$、$V$は正の階数$r$のベクトル束である。
+
+$hK$にも同じ議論を適用できる。実際、自己同値は完全複体を保つ。これは
+全固定対象$T\in D^b(\coh Y)$について$\operatorname{Hom}(-,T[i])$が$i\gg0$で零
+という性質で特徴付けられ、逆向きは非完全な茎の剰余体で検査できる。
+$hK$とその捩りの間のHomは$K$についてのものと同じである。従って$hK=V'[b]$も
+正の階数の束のシフトとなる。
+
+任意の正階数ベクトル束$W$に対し、$m\gg0$で
+$\operatorname{Hom}(h^{-pm}W,M[i])\ne0$となる$i$の集合は、
+固定複体$M$の非零cohomologyの次数の集合に等しい。
+実際、$(h^{-pm}W)^\vee$は$A^m$と有限型の族の正階数の束の積であり、
+$\mathcal H^i(M)$を掛けた層に上と同じ一様消滅・大域生成が成立する。
+非零層に正階数の束を掛けたものは非零である。
+$W=V,V'$の二つの検出を$h$で比較すると、$h$はheartを一様に$[b-a]$だけ移す。
+逆同値についても同じHomの同定が使える。$h^p$はheartに関して完全なので$b=a$となる。
+よって$h=\alpha^*(-)\otimes N$はGabrielの再構成による幾何的自己同値である。
+高次のEuler特性と曲線のRiemann--Rochは
+\[
+ 3n=\chi_Y(V,h^nV)=r^2\chi(\mathcal O_Y)+nr^2\deg N
+\]
+を与える。$\deg N$は整数なので$r=1$である。
+
+線束$V$について$(V,h)$はAZ-ampleである。実際、各剰余類$n=pm+i$で
+$(h^{-n}V)^{-1}$は$A^m$と有限型の族の線束の積になり、
+固定層への捩りの大域生成と一次cohomology消滅がAZ1とAZ2を与える。
+さらに全整数で、随伴の三角による$P(n)=\chi_{\mathcal C}(F,s^nF)$の差分は
+$\chi_Y(V,h^nV)=3n$である。補題\ref{lem:ou-central-euler-connectivity}の
+差分以降の論証により$\operatorname{Ext}^1(F,s^n F)=0$が全整数で成立する。
+従って随伴の制限写像は全非負次数で$(R/zR)_n=\operatorname{Hom}(K,h^nK)$を与え、
+積とも両立する。AZ再構成により$\qgr(R/zR)\simeq\coh Y$である。
+定理\ref{thm:ou-abstract-reduced-central-curve}を適用する。
+\end{proof}
+
+\begin{corollary}[幾何的中心切断を持つ内在的模型との導来比較]
+\label{cor:ou-geometric-slice-derived-invariance}
+内在的三次標識の圏$\mathcal C$が、幾何的中心一次切断を持つ別の内在的三次標識の圏
+$\mathcal C'$と三角導来同値であるとする。ここで幾何的とは、その切断のtailsが
+分離的有限型スキーム$Y$の連接層圏と同値であることをいう。
+このとき$\mathcal C$の任意の内在的三次標識は標準三次商表示を持ち、
+その反標準環にも同じ$Y$を与える中心一次切断がある。
+\end{corollary}
+\begin{proof}
+三角同値$\Phi:D^b(\mathcal C)\to D^b(\mathcal C')$はSerre関手の一意性により
+反標準移動を同定する。既知の切断の左導来制限に$\Phi$を続けて
+$H=Lj'^*\Phi$、$J=\Phi^{-1}j'_*$とおく。中心元の二項分解が随伴単位の三角を与える。
+定理\ref{thm:ou-abstract-reduced-central-curve}により$Y$は連結な平面三次曲線で、
+移動は各成分と各特異閉点を保ち、偏極は豊富である。$Lj'^*$は完全複体に値する。
+実際、曲面のExt次元は二で、各心の対象に対し全剰余体を相手とする高次Extが随伴で消え、
+有界複体へは三角で延長できる。従って前定理の全条件が成立する。
+\end{proof}
+
 \begin{proposition}[中心切断の二次障害と一次厚化]
 \label{prop:ou-central-first-thickening}
 $0\ne z\in Z(R)_1$を内在的三次標識の中心元とし、

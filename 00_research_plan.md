@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v57。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v58。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -16,6 +16,10 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 上位課題で有効な進展が止まったら、障害と次の具体的着手点をノートに残して次順位へ移り、適宜上位へ戻る。単一の失敗や環境不足で全作業を終了しない。15–30分を目安に数学的にまとまった成果を保存し、最新mainを確認して通常コミット・fast-forward pushする。可能な限り対象計算と組版を検証し、全runner未実行と区別する。各区切りで研究方針・ノート・主稿・READMEを必要に応じて整合させ、research-hubも更新する。認証不足・時間制限・push拒否時は実際の状態を報告し、利用可能な保存手段を使う。Actions、force push、無意味な日付更新、定常ZIPは行わない。
 
 ## 証明を保持した主要結果
+
+- **一零第二族の残る三代表**　`prop:ou-one-zero-second-two-orbits` で五代表の第二、第三を全点で処理した。残るのは第一、第四、第五。三変数への代入後、失敗因子を二変数に制限し、交叉上の閉点まで検証する。第一族の曲線・点も残る。
+
+- **導来模型だけからの幾何的切断の復元**　`thm:ou-derived-geometric-divisor`。反標準自然変換の錐を随伴単位で実現する曲線関手の像が完全で、移動のある冪が豊富な幾何的移動のシフトなら、twist間のHom消滅から像が線束のシフトであること、元の移動がheartを保つことを示した。既知の幾何的中心切断を持つ模型との導来同値に適用できる。一般窓にこのような随伴対・移動を構成する問題は残る。
 
 - **全OU窓の一次中心と導来比較後の中心同型**　`thm:ou-all-windows-central-section`、`lem:ou-enhanced-heart-faithful`。窓の有向関係を全ポテンシャルからの線形射影で捉え、二周期分の両側加群の平坦な開集合で中心の非消滅を特殊化した。窓と内在的圏の導来同値があれば正則な中心一次切断が必ず存在する。残る課題は一般OUでその導来比較を得ること、および得た切断が認識条件を満たすこと。
 

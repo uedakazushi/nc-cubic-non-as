@@ -64,6 +64,7 @@ PROGRAMS=(
     "computations/verify_ou_one_zero_residual_surfaces.py",
     "computations/verify_ou_one_zero_closed_divisors.py",
     "computations/verify_ou_one_zero_second_common.py",
+    "computations/verify_ou_one_zero_second_representatives.py",
     "computations/verify_ou_one_two_zero_components.py",
     "computations/verify_ou_one_two_zero_triangles.py",
     "computations/verify_ou_collinear_zeros.py",
