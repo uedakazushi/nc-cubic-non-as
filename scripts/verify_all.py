@@ -66,6 +66,7 @@ PROGRAMS=(
     "computations/verify_ou_one_zero_second_common.py",
     "computations/verify_ou_one_zero_second_representatives.py",
     "computations/verify_ou_one_zero_second_complete.py",
+    "computations/verify_ou_one_zero_first_orbits.py",
     "computations/verify_ou_cuspidal_order_flag.py",
     "computations/verify_ou_one_two_zero_components.py",
     "computations/verify_ou_one_two_zero_triangles.py",

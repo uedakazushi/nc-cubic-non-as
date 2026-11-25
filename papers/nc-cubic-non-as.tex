@@ -48,6 +48,7 @@ AOU三ブロック箙型で指定九線束の平面三次曲線表示を持つ�
 中心切断の圏が分離的有限型スキームの連接層圏なら、そのスキームを平面三次曲線として復元する。切断の全対象が有限ホモロジー次元なら滑らかな楕円曲線を得る。いずれも標識付き標準三次商表示を与え、OU比較を要しない。
 AOU箙の一零第二族では全特殊化を判定した。AOUの未判定点は一零第一族の次元高々一の閉集合に限られる。
 さらにOU窓との導来比較の下で、整曲線中心の分裂orderとして実現される一切断から、節点・尖点を含めて標準三次商を認識する。
+同じ導来比較の下で、中心一次切断が素環なら整な平面三次曲線の捩れ斉次座標環である。
 \end{abstract}
 \tableofcontents
 
@@ -2682,6 +2683,73 @@ $X_0$上有限な整射影曲線となる。実際、各アフィンでの中心
 局所化後はこの体に等しい。$Z(Q_0)$は複素曲線の関数体の有限拡大なので、
 Tsenの定理で$Q_0$はその上の行列環である。
 有限射によるアフィン対応で$\mathcal B$を$X$上の中心orderと見れば、前定理を適用できる。
+\end{proof}
+
+\begin{theorem}[素な中心一次切断の認識]
+\label{thm:ou-prime-central-section}
+OU三次箙の窓と三角導来同値な内在的三次標識で、
+$0\ne z\in Z(R)_1$、$B=R/zR$とする。次は同値である。
+\begin{enumerate}[label=(\roman*)]
+\item $B$は素環である。
+\item $B$は整域である。
+\item $B$は整な平面三次曲線上の次数三の線束の捩れ斉次座標環である。
+\end{enumerate}
+これらの条件下で$R$は標準三次商である。左noetherian性、PI性、
+中心上有限性、一次生成性を仮定しない。
+\end{theorem}
+\begin{proof}
+(iii)から(ii)、(ii)から(i)は直ちに従う。(i)を仮定する。$B$は連結次数付き、
+右noetherianで$\dim B_n=3n$ ($n>0$)である。
+斉次正則元での次数付きGoldie商環を$Q$とする。
+次数付きGoldieの定理で$Q$は次数付き単純Artin環であり、
+有限生成次数付き右加群圏$\operatorname{gr}Q$は半単純で有限長である
+\cite[Ch.~C, I.1.6]{NastasescuVanOystaeyen1982}。
+ここで使う仮定は半素性と右Goldie条件で、後者は右noetherian性から従う。
+素性により単純次数付き加群は次数移動を除いて一種類である。
+実際、正則加群の直和分解で異なる移動軌道に属する等型成分を分けると、
+全ての斉次左乗法で保たれる両側イデアルに分かれてしまう。
+
+正次数の斉次正則元が存在する。これは二次成長の素な次数付きGoldie環について、
+適当なVeroneseにより正則な一次元を取れるという
+Artin--Staffordの帰着である\cite[\S6, Theorem~6.3の前]{StaffordVdB2001}。
+従って$Q$への局所化は有限次元加群を消し、$\mathcal D\to\operatorname{gr}Q$を誘導する。
+有限斉次生成系の$B$線形包を取れば$K_0$上全射である。
+系\ref{cor:ou-prime-finite-central-slice}の証明の$(h_*-1)^4=0$は
+$B$の中心上有限性を使わない。よって$\operatorname{gr}Q$の単純型の置換にも成立する。
+有限軌道上で単冪な置換は恒等であり、無限軌道の基底ベクトルは
+この多項式で消えない。従って移動を除かずに単純型が一つである。
+こうして正則加群とその次数一移動は同型で、$Q$には次数一の単元$v$がある。
+$Q_0=\operatorname{End}_{\operatorname{gr}Q}(Q)$は単純Artin環で、
+$Q=Q_0[v,v^{-1};\tau]$である。
+
+次数$d>0$の斉次正則元を一つ選び、$A=B^{(d)}$とする。
+$Q^{(d)}=Q_0[v^d,v^{-d};\tau^d]$は$A$の斉次正則分母による右商環である。
+実際、次数が$d$の倍数の斉次分数の分母をその$d$乗に取り直せば
+分子・分母とも$d$の倍数次数になる。さらに、この歪Laurent環の通常の
+右商環は単純Artin環である（単純Artin係数環上の歪Laurent環は素な左右noetherian環）。
+二段の右分数を通分すれば$A$もこの単純Artin環の右orderで、Goldieの定理から素である。
+$A$の斉次右イデアルを$B$に拡大して$d$の倍数次数へ戻すと元のイデアルなので
+右noetherian性も保つ。連結次数付き環では斉次右noetherian性から通常の
+右noetherian性が従う。
+
+これで$A$はArtin--Staffordの分類のnice条件、すなわち最小素商の
+GK次元が二で次数一に正則元があるという二条件を満たす。
+その右noetherian性は左noetherian性も与える。
+さらに、ある$e>0$について$\qgr A^{(e)}$は曲線上のorderの
+連接右加群圏となる\cite{ASsemiprime2000}
+\cite[Corollary~6.4(i), Theorems~6.5,~6.6(i)]{StaffordVdB2001}。
+ここで使う結論はVeroneseの商圏に関するものである。
+元の切断へは系\ref{cor:ou-central-veronese-recognition}により
+$\mathcal D\simeq\qgr B^{(de)}$と戻れる。
+
+分類で用いる基礎曲線は$Z(Q_0)$の射影模型で、一般点での代数は$Q_0$である。
+実際、さらにVeroneseを取っても上述の次数零商環は同じである。
+$Q_0$は一つの行列因子で、その中心は複素曲線の関数体である
+\cite[\S6]{StaffordVdB2001}。必要ならorderの中心の相対スペクトルを取り、
+整射影曲線上の中心orderとする。Tsenの定理で一般点は分裂する。
+定理\ref{thm:ou-derived-order-slice}により$\mathcal D\simeq\coh X$で
+$X$は整となり、定理\ref{thm:ou-abstract-reduced-central-curve}で
+(iii)と$R$の主張を得る。
 \end{proof}
 
 \subsection{主結果の位置と先行研究}
