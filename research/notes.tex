@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v69}
+\date{2026年11月25日／non-as-v70}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -16,6 +16,18 @@
 
 \section{最優先課題：OU三次型と標準超曲面型の逆包含}
 \label{sec:ou-converse-notes}
+
+PI切断 $D=T/xT$ の $D/J(D)$ のGK次元が三未満なら、
+主稿命題\ref{prop:ou-small-pi-quotient}により内在的構造対象を
+その小商圏で表すことはできない。従って $x$ の作用は検出される。
+単純表現の次元の一様上界、各既約成分の一般表現の斉次素核、
+Jacobson根基の冪零性の三点が、非半素の場合に必要な有限フィルトレーションを与える。
+主稿系\ref{cor:ou-weighted-regular-centre}はさらに、素周期環で一次中心元と
+その冪に比例しない高次中心元があれば、比較に先立ってGoldie性が従うことを示す。
+周期環自身がPIの場合、構造対象の部分対象を支える唯一の極小素商が存在する
+（主稿系\ref{cor:ou-pi-realized-component}）。核が右有限生成で冪零なら、あるいは正次数の逐次正規な有限斉次生成系を持つなら標準比較まで従う。一般の核の構造は未確定である。
+これらの比較の結論から、非半素な唯一の内在的一次切断の超曲面表示はまだ従わない。
+
 主論文の定理\texttt{thm:ou-weak-cubic}・系\texttt{cor:ou-weak-unpointed}に、
 OUの箙型による三次del Pezzo型の逆包含を否定する証明がある。
 内在的候補$\mathfrak I_3$との共通部分での逆包含はなお未解決。
