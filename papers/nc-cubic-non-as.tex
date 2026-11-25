@@ -3597,6 +3597,102 @@ $T$はそれらの多項式環上torsion-freeであり、
 内在的環でも独立である。すでに証明した場合に帰着する。
 \end{proof}
 
+\begin{lemma}[二次成長の素Goldie因子上の小商圏]
+\label{lem:ou-quadratic-small-dimension}
+$A$は有限次元の次数零部と一次部で生成される局所有限な非負次数付き複素代数、
+$A$は素な次数付き右Goldie環であるとする。$\dim A_n=O(n+1)$なら、
+noetherian次数付き右$A$加群の有限次元加群による小商圏の全対象は
+Gabriel--Krull次元一以下である。
+\end{lemma}
+\begin{proof}
+$H_V(n)=\sum_{j\le n}\dim V_j$とする。$H_A(n)=O(n+1)$なら全有限生成加群も
+同じ上界を持ち、全てのnoetherian加群のtailsは有限長である。
+実際、有限生成次数付き加群の非零tailsは、一次生成性により全ての十分高い次数で非零となる。
+任意の有限部分列で同時にこの下限を使えば、その非零段数が
+$\limsup H_V(n)/n$以下となる。Serre商での有限部分対象列は元の圏から持ち上げられる。
+
+残る場合はBergmanの成長間隙により$\liminf H_A(n)/n^2\ge1/2$である。
+$Q$を斉次正則元による次数付き商環、$q$を右$Q$加群$Q$の次数付き長さとする。
+有限生成加群$V$が$V_Q=0$なら、斉次生成元ごとに正則な消去元$c$が取れる。
+$A/cA$の$n$までの累積次元は末尾$\deg c$個の$\dim A_j$の和なので$O(n+1)$となる。
+従って$V$にも同じ上界がある。$V_Q\ne0$なら、次数移動を除いて単純型が一つなので、
+$Q$は$V_Q$の高々$q$個の適当な次数移動の和に入る。$1$の像の共通分母を払えば、
+定理\ref{thm:ou-literal-filtered-window-cut}と同じく
+$A$は$V$の$V_Q$内での像の高々$q$個の次数移動の和に入る。
+ゆえに$\liminf H_V(n)/n^2\ge 1/(2q)$となる。この正の下界は$V$によらない。
+
+任意のnoetherian $V$は$H_V(n)=O(n^2)$を満たす。
+有限長tailsによる商での有限部分対象列を持ち上げると、
+非零段は線形累積上界を持つことができない。従ってそれぞれが下極限に
+$1/(2q)$以上を寄与し、段数は一様有界である。これで結論する。
+\end{proof}
+
+\begin{lemma}[一般部分対象の代表と実現された素商]
+\label{lem:ou-small-realized-prime}
+OU三次箙の周期環$T$の小商圏が内在的三次標識$(F,s)$を持つとする。
+noetherian次数付き加群で、この圏での像が$F$の非零部分対象であるものを考える。
+このような加群の非零斉次部分加群$L$が、有限次元部分を持たずに素商$A$上の加群となり、
+$A$が次数付き右Goldieであるなら、$\dim A_n=O(n+1)$は不可能である。
+従って$T/I$が有限個の次数付き右Goldie素商$A_i$の素イデアルの積が零となる表示を持ち、
+各$\dim(A_i)_n=O(n+1)$なら、$F$の非零部分対象が$T/I$上の加群で表されることはない。
+\end{lemma}
+\begin{proof}
+$L$の全ての部分商は$A$加群である。$T$加群としての部分加群列と
+$A$加群としての部分加群列は同じであり、各々の有限次元対象も同じである。
+Serre商で有限部分列を持ち上げる操作から、有限長性および有限長対象で
+もう一度割った後の有限長性もこの固定した対象で一致する。
+$\dim A_n=O(n+1)$なら補題\ref{lem:ou-quadratic-small-dimension}より
+$\pi L$は次元一以下である。非零かつ$F$の部分対象なのでtorsion-free性に反する。
+後半では代表の有限次元部分を除き、素イデアルを順に掛けて得られる
+最後の非零部分を取る。その部分は対応する一つの素商上の加群であり、前半を適用する。
+\end{proof}
+
+\begin{corollary}[OU小商圏の中心作用を消す商の成長]
+\label{cor:ou-invisible-centre-growth}
+OU三次型の周期環$T$の小商圏が内在的三次標識を持つとし、$x$を正次数の斉次中心元とする。
+$T/xT$の各次数の次元が$O(n+1)$であり、
+零積を持つ有限個の斉次両側イデアル$P_i$で各$(T/xT)/P_i$が
+素な次数付き右Goldie環となるものがあるなら、$x$は小商圏上で非零に作用する。
+特に$x$が非零一次元で$T$自身が素な次数付き右Goldie環なら、
+$T$は右noetherianとなり標準比較が成立する。
+\end{corollary}
+\begin{proof}
+$x$が小商圏で零なら、内在的構造対象$F$を与えるnoetherian加群への
+$x$の作用の像は有限次元である。従って$M$の十分深い切断は$T/xT$上の
+加群であり$F$を表す。前補題の有限零積の場合に反する。
+後半は系\ref{cor:ou-visible-standard-comparison}である。
+\end{proof}
+
+\begin{proposition}[高次の中心元を用いる標準比較]
+\label{prop:ou-high-centre-small-comparison}
+OU三次箙の周期環$T$が素な次数付き右Goldie環で、その小商圏が内在的三次標識を
+持つとする。$0\ne x\in Z(T)_1$と$y\in Z(T)_d$ ($d>0$)が
+$y\notin\mathbb C x^d$を満たせば、$T$は右noetherianであり標準OU比較が成立する。
+また$T$はPIである。この場合$R$もPIであり、内在的切断が半素なら標準三次商となる。
+\end{proposition}
+\begin{proof}
+$U=(T[x^{-1}])_0$, $u=y/x^d$と置く。$x$は素環の非零中心元なので正則であり、
+$u$は非スカラーの中心元で、素環の中心が整域であることと代数閉性により超越的である。
+$U$を$W=T_1/x$の冪で濾過する（$1\in W$）。
+$W^n=T_n/x^n$ ($n\ge1$)で、次元は$n\gg0$で二次多項式となる。
+$u\in W^d$なので、正則な$u-\lambda$による$W^{n-d}$の像は$W^n$に入り、
+$U/(u-\lambda)U$は高々線形成長となる。$U$は可算次元なので
+$(u-\lambda)^{-1}$が存在する$\lambda$は高々可算個である。
+従って非零なその商を選べる。系\ref{cor:ou-visible-standard-comparison}の
+証明の有限次元単純表現の論証はここにも適用でき、$x$が$T$の小商圏で非零に作用する。
+同系より標準比較が成立する。次数一の二つの中心元の独立性を使ってはいない。
+
+$T$は$\mathbb C[x,y]$上torsion-freeである。これは多項式環で、
+$\deg y=d$を考慮しても次数$n$までの次元は$n^2$と同じオーダーである。
+命題\ref{prop:ou-pi-central-slice}の中央局所化の積成長の証明
+（または定理\ref{thm:ou-regular-central-pencil-classical}(ii)の語の交代化）
+により$T$はPIとなる。標準比較で得た二中心元は
+定理\ref{thm:ou-derived-reduced-centre}の中心同定によって$R$でも代数独立であり、
+命題\ref{prop:ou-pi-central-slice}で$R$もPIとなる。半素切断の主張は
+系\ref{cor:ou-semiprime-central-section}による。
+\end{proof}
+
+
 \begin{example}[固定直線を持つ中心鉛筆]
 Fermat三次曲面$u^3+v^3+w^3+t^3=0$で$x=u+v$, $y=w+t$を取る。
 $y=\lambda x$の平面内の式は$xq_\lambda$であり

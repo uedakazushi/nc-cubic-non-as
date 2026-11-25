@@ -7,7 +7,7 @@
 \newcommand{\Pic}{\operatorname{Pic}}
 \title{研究ノート：非AS性・Clifford orderと超曲面障害}
 \author{}
-\date{2026年11月25日／non-as-v66}
+\date{2026年11月25日／non-as-v67}
 \begin{document}
 \maketitle
 本書は現在有効な補助知識を集める。最初に研究方針 \path{00_research_plan.md} を読む。
@@ -30,6 +30,18 @@ OUの箙型による三次del Pezzo型の逆包含を否定する証明がある
 定理\ref{thm:ou-split-order-recognition}では局所射影分解と固有双対性により
 一般点での反Serreが自然に恒等となる。系\ref{cor:ou-finite-central-birational-recognition}
 の中心上有限な場合は、全剰余類を保つ行列環によりこの設定に帰着する。
+
+\paragraph{小商圏の中心作用と成長}
+補題\ref{lem:ou-quadratic-small-dimension}は各次数が線形成長以下の素な次数付き
+右Goldie環上のnoetherian加群を、その局所化の零・非零で扱う。
+成長を累積次元で測れば、消去元がある場合は線形以下、局所化が非零なら
+素商のGoldie長さの逆数に応じた一様な二次下界となる。
+有限個の素イデアルの積が零なら内在的構造対象の非零部分を一つの素商上に取り出せる。
+これにより、中心元による商がこの形なら元は小商圏ですでに非零に作用する。
+また正次数$d$で一次中心元$x$の冪に比例しない中心元$y$があれば、
+素な周期環の脱斉次化における$y/x^d$の中心ファイバーの成長は線形以下である。
+命題\ref{prop:ou-high-centre-small-comparison}はこのファイバーの有限次元表現で
+標準比較を導く。こうした商や中心元が全ての周期環に存在するかは証明されていない。
 
 \paragraph{固定成分を許す鉛筆と一次中心の次元}
 定理\ref{thm:ou-arbitrary-central-pencil}では$x$で飽和した動く商を先に取る。

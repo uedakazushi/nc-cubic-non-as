@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v66。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v67。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -17,6 +17,7 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 
 ## 証明を保持した主要結果
 
+- **小商圏での中心作用の検出**　各次数が線形上界を持つ有限個の素な次数付き右Goldie商の濾過では、内在的構造対象の非零部分を支えられない（`lem:ou-quadratic-small-dimension`、`cor:ou-invisible-centre-growth`）。平方差分とBergmanの一様下界を使い、周期環自体に素性を課さず中心作用を検出する。素な右Goldie周期環では、一次中心元に加えて任意の正次数に独立な中心元があれば標準比較とPI性を得る（`prop:ou-high-centre-small-comparison`）。これらの素商・成長仮定が得られない場合、一次中心一次元で切断に冪零イデアルがある場合、AOU一零第一族の六代表を引き続き調べる。
 - **固定部分を含む全中心一次鉛筆**　窓との導来比較がある内在的環の一次中心は一次元または四次元で、二つ独立なら古典三次曲面である。正則列条件を除去した（主稿 `lem:ou-pi-cut-purity`、`thm:ou-arbitrary-central-pencil`）。素なOU周期環で一次中心が二次元以上なら比較を追加せず同じ結論を得る。比較済みの非可換型は中心一次元がスカラー倍を除いて一意である。その非半素切断および比較未確定の周期環、AOU第一族の六代表を優先する。
 - **小商圏の中心作用と正則鉛筆**　半素PI周期環では内在的標識が素性と標準OU比較を強制する。周期環が半素で中心一次正則列を持つ場合、および導来比較の下で内在的環が中心一次正則列を持つ場合は、可算個を除く中心切断の半素性から滑らかな可換三次曲面を認識した（主稿 `thm:ou-regular-central-pencil-classical`）。正則列でない中心鉛筆の固定部分、中心が一次元だけの窓、AOU第一族の六代表が次の対象である。
 - **周期環の素性を用いる比較と第一族六代表**　周期環が素な次数付き右Goldieなら、その中心切断で積が零の有限個の斉次素イデアルを取り、素商が次数付き右Goldieであることから標準比較を導ける。切断が半素な次数付き右Goldieなら、標識付き標準三次商まで従う（主稿 `thm:ou-literal-filtered-window-cut`）。任意の周期環での素性・Goldie性は分かっていない。一零第一族の c=h 軌道（二つの親因子）は全点が完了し、残余は六代表上の曲線・点に限られる（`prop:ou-one-zero-first-junction`）。
