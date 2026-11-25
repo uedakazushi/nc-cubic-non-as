@@ -59,6 +59,11 @@ def central_generation(c, params=(t,)):
     paths = CyclicPaths(0,field,{w:field.from_sympy(v) for w,v in c.items()})
     centers = paths.center(3)
     assert len(centers)>=2
+    return generation_factors(paths,centers)
+
+
+def generation_factors(paths, centers):
+    field = paths.field
     cuts = set()
 
     def record_poles(v):

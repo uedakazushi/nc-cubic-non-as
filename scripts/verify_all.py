@@ -60,6 +60,7 @@ PROGRAMS=(
     "computations/verify_ou_two_zero_third_family.py",
     "computations/verify_ou_two_zero_last_families.py",
     "computations/verify_ou_one_zero_first_family.py",
+    "computations/verify_ou_one_zero_central_divisor.py",
     "computations/verify_ou_one_two_zero_components.py",
     "computations/verify_ou_one_two_zero_triangles.py",
     "computations/verify_ou_collinear_zeros.py",

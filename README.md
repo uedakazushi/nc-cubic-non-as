@@ -1,6 +1,6 @@
 # 非可換del Pezzo曲面の非AS性と超曲面表示の障害
 
-**現行版 2026-11-25 / non-as-v50。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
+**現行版 2026-11-25 / non-as-v51。** `shinnosukeokawa/nonas-ncdp` の次数1・2・3のClifford成果を統合し、主論文を **[papers/nc-cubic-non-as.tex](papers/nc-cubic-non-as.tex) 一本** にまとめています。
 
 研究を再開する際は、最初に **[研究方針](00_research_plan.md)**、次に **[研究ノート](research/notes.tex)** を読み、必要な箇所を主論文の節ファイルで確認してください。旧リポジトリや旧版のbundleは必要ありません。
 
@@ -16,7 +16,9 @@
 
 任意のOU三次箙について、射影窓が既約種数一曲線（滑らか・節点・尖点）上の球面的対象の有向dg圏と一致すれば、標準比較を仮定せず、I₃から標準超曲面表示が従う。九対象の階数・次数・シフトは指定しない。古典窓とのEuler差分から同時に数値階数と曲線の反標準移動を決める。OUの有理対応による一般ポテンシャルを含む。主稿 [任意の箙の曲線窓](papers/sections/cubic_elliptic_recognition.tex) の `thm:ou-any-quiver-elliptic-window`。
 
-AOU三ブロック箙型は、係数の零がちょうど二つの全特殊化で包含を証明した。全非零と三零以上の既証明を合わせると、AOU型で残るのは一零の二族だけである。両族とも四変数表示で未判定集合の次元は高々二、七次元の正規化係数torusで余次元は少なくとも五である。主稿 `thm:ou-two-zero-all`、`cor:ou-only-one-zero-codim-five`。再計算には [二零の第一・第四族](computations/verify_ou_two_zero_last_families.py)、[第三族](computations/verify_ou_two_zero_third_family.py)、[一零第一族](computations/verify_ou_one_zero_first_family.py) を用いる。
+任意の内在的三次標識で、非零中心一次元による商が整域なら、一次元同士の積が二次成分（次元十）を張るときに標準AS三次商が得られる。九次元しか張らない場合は切断の関数体が有理的で、この標識の環には二次生成元が要る。正の種数なら常に認識できる。中心切断の場合に導来数値格子やOU比較を要しない。主稿 `thm:ou-central-trace-recognition`。
+
+AOU三ブロック箙型は、係数の零がちょうど二つの全特殊化で包含を証明した。全非零と三零以上の既証明を合わせると、AOU型で残るのは一零の二族だけである。共通中心因子 `acd-c-d+1=0` は全特殊化で完了した（`prop:ou-one-zero-central-divisor`）。両族とも四変数表示で未判定集合の次元は高々二、七次元の正規化係数torusで余次元は少なくとも五である。主稿 `thm:ou-two-zero-all`、`cor:ou-only-one-zero-codim-five`。再計算には [二零の第一・第四族](computations/verify_ou_two_zero_last_families.py)、[第三族](computations/verify_ou_two_zero_third_family.py)、[一零第一族](computations/verify_ou_one_zero_first_family.py) を用いる。
 
 内在的導来圏がOUの一窓と導来同値なら、窓の中心を被約化した環が内在的反標準環の中心になる。窓の一次中心元のうち三つが代数的独立であることは、古典的な滑らかな三次曲面を標識付きで認識する必要十分条件である。主稿 `thm:ou-derived-reduced-centre`。
 

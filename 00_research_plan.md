@@ -1,5 +1,5 @@
 # 研究方針：非可換 del Pezzo 曲面の非AS性・標準超曲面表示障害
-2026-11-25 / non-as-v50。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
+2026-11-25 / non-as-v51。**研究再開時は本ファイルを最初に読む**。正本はこのGitHubリポジトリのmain。公表用論文は **`papers/nc-cubic-non-as.tex` 一本**、計算は `computations/` と `scripts/`、証明書は `certificates/`、研究ノートは `research/notes.tex`、文献は `references.bib`。旧リポジトリ・旧会話・旧bundleは再開に不要。
 
 ## 現行目標・価値基準
 rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次数を持つ内在的候補と、(I) 標準AS四次元ambientの三次超曲面表示、(II) Okawa--UedaのAS surface性との境界を明確にする。真の包含は `H_hyp∩AS_OU ⊊ H_hyp ⊊ I` として証明される。**最優先課題は内在的次数三候補にも属するOU三次型の包含 `AS_OU_3 ∩ I_3 ⊆ H_hyp_3` の決着である（標識を忘れたクラス）。** OUのDef. 1.1(2)そのままの型（箙の型）と、さらに内在的候補I_3に属するOU型を区別する。前者については弱del Pezzo境界構成による否定の証明を主論文 `thm:ou-weak-cubic`・`cor:ou-weak-unpointed` に収録した。後者は未解決であり引き続き最優先とする。数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して最も価値ある主張に集中する。
@@ -16,6 +16,10 @@ rank-one torsion-free構造対象、反SerreのAZ-ample性、反標準Hilbert次
 上位課題で有効な進展が止まったら、障害と次の具体的着手点をノートに残して次順位へ移り、適宜上位へ戻る。単一の失敗や環境不足で全作業を終了しない。15–30分を目安に数学的にまとまった成果を保存し、最新mainを確認して通常コミット・fast-forward pushする。可能な限り対象計算と組版を検証し、全runner未実行と区別する。各区切りで研究方針・ノート・主稿・READMEを必要に応じて整合させ、research-hubも更新する。認証不足・時間制限・push拒否時は実際の状態を報告し、利用可能な保存手段を使う。Actions、force push、無意味な日付更新、定常ZIPは行わない。
 
 ## 証明を保持した主要結果
+
+- **整な中心切断での二次乗法による認識**　`lem:ou-quadratic-generation-test` と `thm:ou-central-trace-recognition`。一般の内在的三次標識に適用できる。切断の次数一部分が張る代数をArtin–Staffordで曲線に移し、正規化上の線形系が二次曲線か三次曲線かで生成性を判定する。拡大の境界とSerre跡で曲線の自己同型のPic⁰作用を確定した。次は比較のないOU窓で内在的中心一次元を得る条件、中心切断の整域性、二次乗法の階数を検討する。
+
+- **一零の共通中心因子が全域で完了**　`prop:ou-one-zero-central-divisor`。四つの三次閉路和を与え、最後に残る曲面でも別の四元で五次生成を検証した。一零の二族ではこの因子の外の曲面・曲線・閉点を扱う。
 
 - **AOU二零型が全特殊化で完了**　主稿 `thm:ou-two-zero-all` と `cor:ou-only-one-zero-codim-five`。標準比較の追加仮定を要しない。AOUの未判定部分は一零の二族のみで、各四変数表示で次元高々二、七次元正規化torusで余次元五以上。第一族で残る中心の次元が跳ぶ因子は、第二族の同じ因子と可逆な一次変換で一致する。次に両族で異なるラベルの失敗因子の交叉を分解し、残る曲面の一般点と閉点を扱う。一般OUでの導来比較の存在は引き続き最優先である。
 
